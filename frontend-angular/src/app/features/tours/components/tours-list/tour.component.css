@@ -1,0 +1,8 @@
+﻿/* Los estilos del banner, buscador y cards ahora están en los componentes reutilizables */
+/* Solo mantenemos estilos específicos si los hay */
+
+.search-bar-container {
+  margin-top: -150px;
+  position: relative;
+  z-index: 2;
+}

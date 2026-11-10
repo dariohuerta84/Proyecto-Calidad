@@ -1,0 +1,86 @@
+## Docker Compose para Trouvels360 Backend
+services:
+  # Servicio PHP con Apache 
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: trouvels360_app
+    restart: unless-stopped
+    working_dir: /var/www/html
+    env_file:
+      - .env      # Archivo específico para entorno Docker
+    environment:
+      # Variables adicionales específicas para runtime (si quisieras sobre-escribir)
+      APP_ENV: ${APP_ENV:-local}
+      APP_DEBUG: ${APP_DEBUG:-true}
+      # Ejemplo: FORZAR timezone del contenedor (opcional)
+      TZ: ${TZ:-UTC}
+    volumes:
+      - .:/var/www/html
+      - ./docker/apache/000-default.conf:/etc/apache2/sites-available/000-default.conf
+    ports:
+      - "8000:80"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - trouvels360_network
+
+  # Servicio MySQL 
+  mysql:
+    image: mysql:8.0
+    container_name: trouvels360_mysql
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      # Base de datos inicial + credenciales
+      MYSQL_DATABASE: ${DB_DATABASE}
+      # Password del usuario root (variable separada)
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      # Usuario de aplicación NO root
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      # Ajustes opcionales de charset/collation
+      MYSQL_INITDB_SKIP_TZINFO: 1
+    command: ["mysqld", "--character-set-server=utf8mb4", "--collation-server=utf8mb4_unicode_ci"]
+    volumes:
+      - mysql_data:/var/lib/mysql
+      # (Directorio de init scripts eliminado; la base se crea con MYSQL_DATABASE)
+    ports:
+      - "3306:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+    networks:
+      - trouvels360_network
+
+  # phpMyAdmin (opcional)
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: trouvels360_phpmyadmin
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      # Usamos root para tener control total en la interfaz
+      PMA_USER: root
+      PMA_PASSWORD: ${DB_ROOT_PASSWORD}
+    ports:
+      - "8080:80"
+    depends_on:
+      - mysql
+    networks:
+      - trouvels360_network
+
+volumes:
+  mysql_data:
+    driver: local
+
+networks:
+  trouvels360_network:
+    driver: bridge

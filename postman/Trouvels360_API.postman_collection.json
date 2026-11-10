@@ -1,0 +1,1731 @@
+{
+  "info": {
+    "_postman_id": "trouvels360-collection-v2",
+    "name": "Trouvels360 API - Pruebas de Servicios (GET, POST, PUT, DELETE)",
+    "description": "Colección completa de pruebas automatizadas de servicios REST para Proveedor y Viajero - Calidad de Software C8305 UPCH",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "01 - Autenticación y Cuenta (GET, POST, PUT, DELETE)",
+      "item": [
+        {
+          "name": "01. GET - Obtener Token CSRF",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code es 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Tiempo de respuesta < 2000ms\", () => pm.expect(pm.response.responseTime).to.be.below(2000));",
+                  "var json = pm.response.json();",
+                  "pm.test(\"csrf_token existe\", () => pm.expect(json.csrf_token).to.be.a(\"string\"));",
+                  "pm.environment.set(\"xsrf_token\", json.csrf_token);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/auth/csrf",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "csrf"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "02. POST - Registro Proveedor",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code es 201\", () => pm.response.to.have.status(201));",
+                  "var json = pm.response.json();",
+                  "pm.test(\"Usuario registrado con rol proveedor\", () => pm.expect(json.data.user.rol).to.eql(\"proveedor\"));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-XSRF-TOKEN",
+                "value": "{{xsrf_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/auth/register",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "register"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"rol\": \"proveedor\",\n  \"empresa_nombre\": \"Tours QA Automation SAC\",\n  \"ruc\": \"20123456789\",\n  \"telefono\": \"+51 987654321\",\n  \"email\": \"qa_prov_{{}}@test.pe\",\n  \"password\": \"Password123!\"\n}"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "03. POST - Login Proveedor",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code es 200\", () => pm.response.to.have.status(200));",
+                  "var json = pm.response.json();",
+                  "pm.test(\"Login exitoso\", () => pm.expect(json.message).to.eql(\"Login OK\"));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-XSRF-TOKEN",
+                "value": "{{xsrf_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/auth/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"{{email_proveedor}}\",\n  \"password\": \"{{pass_proveedor}}\"\n}"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "04. GET - Consultar Datos Proveedor (/auth/me)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code es 200\", () => pm.response.to.have.status(200));",
+                  "var json = pm.response.json();",
+                  "pm.test(\"Rol del usuario es proveedor\", () => pm.expect(json.data.rol).to.eql(\"proveedor\"));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/auth/me",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "me"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "05. PUT - Actualizar Perfil Proveedor (/usuarios/me)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code es 200\", () => pm.response.to.have.status(200));",
+                  "var json = pm.response.json();",
+                  "pm.test(\"Empresa actualizada\", () => pm.expect(json.data.empresa_nombre).to.eql(\"Edwin Proveedor SAC Modificado\"));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-XSRF-TOKEN",
+                "value": "{{xsrf_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/usuarios/me",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "usuarios",
+                "me"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"empresa_nombre\": \"Edwin Proveedor SAC Modificado\",\n  \"telefono\": \"+51 999888777\"\n}"
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "02 - Proveedor: Hoteles y Habitaciones (GET, POST, PUT, DELETE)",
+      "item": [
+        {
+          "name": "06. GET - Mis Publicaciones Hotel",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code es 200\", () => pm.response.to.have.status(200));",
+                  "var json = pm.response.json();",
+                  "pm.test(\"Retorna arreglo de hoteles\", () => pm.expect(json.data).to.be.an(\"array\"));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/proveedor/servicios?tipo=hotel",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "proveedor",
+                "servicios"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "07. POST - Crear Nuevo Hotel",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code es 201\", () => pm.response.to.have.status(201));",
+                  "var json = pm.response.json();",
+                  "pm.test(\"Hotel creado con servicio_id\", () => pm.expect(json.data.servicio_id).to.be.a(\"number\"));",
+                  "pm.environment.set(\"created_hotel_id\", json.data.servicio_id);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-XSRF-TOKEN",
+                "value": "{{xsrf_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/hoteles",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "hoteles"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Hotel QA Postman Resort\",\n  \"descripcion\": \"Hotel automatizado con suite Postman\",\n  \"ciudad\": \"Cusco\",\n  \"pais\": \"Per\\u00fa\",\n  \"direccion\": \"Calle San Agust\\u00edn 200\",\n  \"estrellas\": 4,\n  \"activo\": true\n}"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "08. GET - Consultar Hotel por ID",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code es 200\", () => pm.response.to.have.status(200));",
+                  "var json = pm.response.json();",
+                  "pm.test(\"Nombre coincide\", () => pm.expect(json.hotel.nombre).to.eql(\"Hotel QA Postman Resort\"));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/hoteles/{{created_hotel_id}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "hoteles",
+                "{{created_hotel_id}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "09. PUT - Modificar Hotel",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code es 200\", () => pm.response.to.have.status(200));",
+                  "var json = pm.response.json();",
+                  "pm.test(\"Estrellas actualizadas a 5\", () => pm.expect(json.data.hotel.estrellas).to.eql(5));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-XSRF-TOKEN",
+                "value": "{{xsrf_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/hoteles/{{created_hotel_id}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "hoteles",
+                "{{created_hotel_id}}"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Hotel QA Postman Resort 5 Estrellas\",\n  \"estrellas\": 5,\n  \"direccion\": \"Calle San Agust\\u00edn 200 Int A\"\n}"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "10. POST - Crear Habitación",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code es 201\", () => pm.response.to.have.status(201));",
+                  "var json = pm.response.json();",
+                  "pm.test(\"Habitacion creada\", () => pm.expect(json.data.id).to.be.a(\"number\"));",
+                  "pm.environment.set(\"created_habitacion_id\", json.data.id);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-XSRF-TOKEN",
+                "value": "{{xsrf_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/hoteles/{{created_hotel_id}}/habitaciones",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "hoteles",
+                "{{created_hotel_id}}",
+                "habitaciones"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Habitaci\\u00f3n Matrimonial QA\",\n  \"capacidad_adultos\": 2,\n  \"capacidad_ninos\": 1,\n  \"cantidad\": 6,\n  \"precio_por_noche\": 180.0,\n  \"descripcion\": \"Cama King Size\"\n}"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "11. PUT - Actualizar Habitación",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code es 200\", () => pm.response.to.have.status(200));",
+                  "var json = pm.response.json();",
+                  "pm.test(\"Precio actualizado\", () => pm.expect(json.data.precio_por_noche).to.eql(210));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-XSRF-TOKEN",
+                "value": "{{xsrf_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/habitaciones/{{created_habitacion_id}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "habitaciones",
+                "{{created_habitacion_id}}"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Habitaci\\u00f3n Matrimonial QA Deluxe\",\n  \"capacidad_adultos\": 2,\n  \"cantidad\": 5,\n  \"precio_por_noche\": 210.0\n}"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "12. DELETE - Eliminar Habitación",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code es 204 No Content\", () => pm.response.to.have.status(204));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/habitaciones/{{created_habitacion_id}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "habitaciones",
+                "{{created_habitacion_id}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "13. DELETE - Retirar Servicio Hotel en Cascada",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code es 204 No Content\", () => pm.response.to.have.status(204));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/servicios/{{created_hotel_id}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "servicios",
+                "{{created_hotel_id}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "03 - Proveedor: Tours, Actividades y Salidas (GET, POST, PUT, DELETE)",
+      "item": [
+        {
+          "name": "14. POST - Crear Tour",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code es 201\", () => pm.response.to.have.status(201));",
+                  "var json = pm.response.json();",
+                  "pm.test(\"Tour creado\", () => pm.expect(json.data.id).to.be.a(\"number\"));",
+                  "pm.environment.set(\"created_tour_id\", json.data.id);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-XSRF-TOKEN",
+                "value": "{{xsrf_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/tours",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tours"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Tour QA Laguna Humantay\",\n  \"descripcion\": \"Caminata de aventura hacia la laguna turquesa\",\n  \"ciudad\": \"Cusco\",\n  \"pais\": \"Per\\u00fa\",\n  \"categoria\": \"Aventura\",\n  \"duracion\": 12,\n  \"precio\": 110.0,\n  \"activo\": true,\n  \"salidas\": [\n    {\n      \"fecha\": \"2026-12-20\",\n      \"hora\": \"05:00\",\n      \"cupo_total\": 18,\n      \"estado\": \"programada\"\n    }\n  ]\n}"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "15. GET - Consultar Tour",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code es 200\", () => pm.response.to.have.status(200));",
+                  "var json = pm.response.json();",
+                  "pm.test(\"Categoria Aventura\", () => pm.expect(json.servicio.tour.categoria).to.eql(\"Aventura\"));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/tours/{{created_tour_id}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tours",
+                "{{created_tour_id}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "16. PUT - Actualizar Tour",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code es 200\", () => pm.response.to.have.status(200));",
+                  "var json = pm.response.json();",
+                  "pm.test(\"Precio actualizado\", () => pm.expect(json.data.tour.precio).to.eql(\"125.00\"));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-XSRF-TOKEN",
+                "value": "{{xsrf_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/tours/{{created_tour_id}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tours",
+                "{{created_tour_id}}"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Tour QA Laguna Humantay Premium\",\n  \"precio\": 125.0,\n  \"duracion\": 12\n}"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "17. POST - Crear Actividad de Tour",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code es 201\", () => pm.response.to.have.status(201));",
+                  "var json = pm.response.json();",
+                  "pm.test(\"Actividad creada\", () => pm.expect(json.id).to.be.a(\"number\"));",
+                  "pm.environment.set(\"created_actividad_id\", json.id);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-XSRF-TOKEN",
+                "value": "{{xsrf_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/tours/{{created_tour_id}}/actividades",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tours",
+                "{{created_tour_id}}",
+                "actividades"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"titulo\": \"Ascenso a la Laguna Humantay\",\n  \"descripcion\": \"Trekking de 2 horas\",\n  \"orden\": 1,\n  \"duracion_min\": 120\n}"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "18. GET - Listar Actividades",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code es 200\", () => pm.response.to.have.status(200));",
+                  "var json = pm.response.json();",
+                  "pm.test(\"Retorna arreglo\", () => pm.expect(json).to.be.an(\"array\"));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/tours/{{created_tour_id}}/actividades",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tours",
+                "{{created_tour_id}}",
+                "actividades"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "19. PUT - Actualizar Actividad",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code es 200\", () => pm.response.to.have.status(200));",
+                  "var json = pm.response.json();",
+                  "pm.test(\"Titulo actualizado\", () => pm.expect(json.titulo).to.eql(\"Ascenso y sesión de fotos Humantay\"));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-XSRF-TOKEN",
+                "value": "{{xsrf_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/tours/{{created_tour_id}}/actividades/{{created_actividad_id}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tours",
+                "{{created_tour_id}}",
+                "actividades",
+                "{{created_actividad_id}}"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"titulo\": \"Ascenso y sesi\\u00f3n de fotos Humantay\",\n  \"duracion_min\": 140\n}"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "20. DELETE - Eliminar Actividad",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code es 200\", () => pm.response.to.have.status(200));",
+                  "var json = pm.response.json();",
+                  "pm.test(\"Mensaje de eliminacion\", () => pm.expect(json.message).to.eql(\"Actividad eliminada\"));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/tours/{{created_tour_id}}/actividades/{{created_actividad_id}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tours",
+                "{{created_tour_id}}",
+                "actividades",
+                "{{created_actividad_id}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "21. POST - Programar Salida",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code es 201\", () => pm.response.to.have.status(201));",
+                  "var json = pm.response.json();",
+                  "pm.test(\"Salida creada\", () => pm.expect(json.id).to.be.a(\"number\"));",
+                  "pm.environment.set(\"created_salida_id\", json.id);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-XSRF-TOKEN",
+                "value": "{{xsrf_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/tours/{{created_tour_id}}/salidas",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tours",
+                "{{created_tour_id}}",
+                "salidas"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fecha\": \"2026-12-25\",\n  \"hora\": \"06:00\",\n  \"cupo_total\": 16,\n  \"estado\": \"programada\"\n}"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "22. GET - Listar Salidas",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code es 200\", () => pm.response.to.have.status(200));",
+                  "var json = pm.response.json();",
+                  "pm.test(\"Lista con cupos\", () => pm.expect(json[0].cupo_total).to.be.a(\"number\"));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/tours/{{created_tour_id}}/salidas",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tours",
+                "{{created_tour_id}}",
+                "salidas"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "23. PUT - Modificar Cupo de Salida",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code es 200\", () => pm.response.to.have.status(200));",
+                  "var json = pm.response.json();",
+                  "pm.test(\"Cupo actualizado a 20\", () => pm.expect(json.cupo_total).to.eql(20));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-XSRF-TOKEN",
+                "value": "{{xsrf_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/tours/{{created_tour_id}}/salidas/{{created_salida_id}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tours",
+                "{{created_tour_id}}",
+                "salidas",
+                "{{created_salida_id}}"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"cupo_total\": 20,\n  \"estado\": \"programada\"\n}"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "24. DELETE - Eliminar Salida",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code es 200\", () => pm.response.to.have.status(200));",
+                  "var json = pm.response.json();",
+                  "pm.test(\"Salida eliminada\", () => pm.expect(json.message).to.eql(\"Salida eliminada\"));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/tours/{{created_tour_id}}/salidas/{{created_salida_id}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tours",
+                "{{created_tour_id}}",
+                "salidas",
+                "{{created_salida_id}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "25. GET - Reporte de Reservas de Tour",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code es 200\", () => pm.response.to.have.status(200));",
+                  "var json = pm.response.json();",
+                  "pm.test(\"Totales de reservas presentes\", () => pm.expect(json.totales).to.be.an(\"object\"));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/proveedor/servicios/{{created_tour_id}}/reservas",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "proveedor",
+                "servicios",
+                "{{created_tour_id}}",
+                "reservas"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "26. DELETE - Eliminar Tour",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code es 200\", () => pm.response.to.have.status(200));",
+                  "var json = pm.response.json();",
+                  "pm.test(\"Tour eliminado\", () => pm.expect(json.message).to.eql(\"Tour eliminado\"));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/tours/{{created_tour_id}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tours",
+                "{{created_tour_id}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "04 - Viajero: Búsqueda, Reservas e Itinerarios (GET, POST)",
+      "item": [
+        {
+          "name": "27. POST - Login Viajero",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code es 200\", () => pm.response.to.have.status(200));",
+                  "var json = pm.response.json();",
+                  "pm.test(\"Rol viajero\", () => pm.expect(json.data.user.rol).to.eql(\"viajero\"));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-XSRF-TOKEN",
+                "value": "{{xsrf_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/auth/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"{{email_viajero}}\",\n  \"password\": \"{{pass_viajero}}\"\n}"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "28. GET - Buscar Hoteles Disponibles",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code es 200\", () => pm.response.to.have.status(200));",
+                  "var json = pm.response.json();",
+                  "pm.test(\"Retorna resultados\", () => pm.expect(json.data).to.be.an(\"array\"));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/hoteles?check_in=2026-12-01&check_out=2026-12-05&ciudad=Cusco&habitaciones=1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "hoteles"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "29. POST - Reservar Habitación Hotel",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code es 201\", () => pm.response.to.have.status(201));",
+                  "var json = pm.response.json();",
+                  "pm.test(\"Reserva creada pendiente\", () => pm.expect(json.data.estado).to.eql(\"pendiente\"));",
+                  "pm.environment.set(\"created_reserva_hotel_id\", json.data.id);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-XSRF-TOKEN",
+                "value": "{{xsrf_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/reservas-habitaciones",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "reservas-habitaciones"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"habitacion_id\": 1,\n  \"fecha_inicio\": \"2026-12-01\",\n  \"fecha_fin\": \"2026-12-03\",\n  \"cantidad\": 1\n}"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "30. GET - Mis Reservas Hotel",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code es 200\", () => pm.response.to.have.status(200));",
+                  "var json = pm.response.json();",
+                  "pm.test(\"Arreglo de reservas\", () => pm.expect(json).to.be.an(\"array\"));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/mis-reservas",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "mis-reservas"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "31. POST - Cancelar Reserva Hotel",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code es 200\", () => pm.response.to.have.status(200));",
+                  "var json = pm.response.json();",
+                  "pm.test(\"Reserva cancelada\", () => pm.expect(json.data.estado).to.eql(\"cancelada\"));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-XSRF-TOKEN",
+                "value": "{{xsrf_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/reservas-habitaciones/{{created_reserva_hotel_id}}/cancelar",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "reservas-habitaciones",
+                "{{created_reserva_hotel_id}}",
+                "cancelar"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "32. GET - Buscar Tours",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code es 200\", () => pm.response.to.have.status(200));",
+                  "var json = pm.response.json();",
+                  "pm.test(\"Arreglo de tours\", () => pm.expect(json.data).to.be.an(\"array\"));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/tours?destino=Cusco",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tours"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "33. POST - Reservar Tour",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code es 201\", () => pm.response.to.have.status(201));",
+                  "var json = pm.response.json();",
+                  "pm.test(\"Reserva confirmada\", () => pm.expect(json.estado).to.eql(\"confirmada\"));",
+                  "pm.environment.set(\"created_reserva_tour_id\", json.reserva_id);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-XSRF-TOKEN",
+                "value": "{{xsrf_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/tours/salidas/1/reservas",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tours",
+                "salidas",
+                "1",
+                "reservas"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"personas\": 1\n}"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "34. POST - Cancelar Reserva Tour",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code es 200\", () => pm.response.to.have.status(200));",
+                  "var json = pm.response.json();",
+                  "pm.test(\"Reserva cancelada\", () => pm.expect(json.message).to.eql(\"Reserva cancelada\"));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-XSRF-TOKEN",
+                "value": "{{xsrf_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/tours/reservas/{{created_reserva_tour_id}}/cancelar",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tours",
+                "reservas",
+                "{{created_reserva_tour_id}}",
+                "cancelar"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "35. GET - Healthcheck FastAPI Itinerarios",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code es 200\", () => pm.response.to.have.status(200));",
+                  "var json = pm.response.json();",
+                  "pm.test(\"Servicio healthy\", () => pm.expect(json.status).to.eql(\"healthy\"));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8001/api/health",
+              "host": [
+                "http://localhost:8001/api/health"
+              ],
+              "path": []
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "36. POST - Generar Itinerario Óptimo",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code es 200\", () => pm.response.to.have.status(200));",
+                  "var json = pm.response.json();",
+                  "pm.test(\"Itinerario generado con éxito\", () => pm.expect(json.success).to.eql(true));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-XSRF-TOKEN",
+                "value": "{{xsrf_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/itineraries",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "itineraries"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"destino\": \"Cusco\",\n  \"hotel_id\": 4,\n  \"fecha_checkin\": \"2026-12-01\",\n  \"fecha_checkout\": \"2026-12-04\",\n  \"interes\": \"Cultura\"\n}"
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "05 - Viajero: Reseñas y Calificaciones (GET, POST, PUT, DELETE)",
+      "item": [
+        {
+          "name": "37. GET - Listar Reseñas",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code es 200\", () => pm.response.to.have.status(200));",
+                  "var json = pm.response.json();",
+                  "pm.test(\"Retorna lista reviews\", () => pm.expect(json.data).to.be.an(\"array\"));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/reviews?servicio_id=4",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "reviews"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "38. POST - Publicar Reseña",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code es 201\", () => pm.response.to.have.status(201));",
+                  "var json = pm.response.json();",
+                  "pm.test(\"Review creada\", () => pm.expect(json.data.id).to.be.a(\"number\"));",
+                  "pm.environment.set(\"created_review_id\", json.data.id);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-XSRF-TOKEN",
+                "value": "{{xsrf_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/reviews",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "reviews"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"servicio_id\": 4,\n  \"comentario\": \"Excelente estad\\u00eda hist\\u00f3rica en Cusco validada por Postman QA.\",\n  \"calificacion\": 5\n}"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "39. PUT - Actualizar Reseña",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code es 200\", () => pm.response.to.have.status(200));",
+                  "var json = pm.response.json();",
+                  "pm.test(\"Review actualizada\", () => pm.expect(json.message).to.eql(\"Review actualizada correctamente\"));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-XSRF-TOKEN",
+                "value": "{{xsrf_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/reviews/{{created_review_id}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "reviews",
+                "{{created_review_id}}"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"comentario\": \"Excelente estad\\u00eda hist\\u00f3rica en Cusco, atenci\\u00f3n 5 estrellas garantizada.\",\n  \"calificacion\": 5\n}"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "40. DELETE - Eliminar Reseña",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code es 204 No Content\", () => pm.response.to.have.status(204));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/reviews/{{created_review_id}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "reviews",
+                "{{created_review_id}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

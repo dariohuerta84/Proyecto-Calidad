@@ -1,0 +1,12 @@
+{
+  "name": "trouvels360-postman-automation",
+  "version": "1.0.0",
+  "description": "Automatización de pruebas de servicios con Postman y Newman para Trouvels360",
+  "scripts": {
+    "test": "newman run Trouvels360_API.postman_collection.json -e Trouvels360_Local.postman_environment.json -r cli,htmlextra --reporter-htmlextra-export reports/newman-report.html"
+  },
+  "devDependencies": {
+    "newman": "^6.2.1",
+    "newman-reporter-htmlextra": "^1.23.1"
+  }
+}

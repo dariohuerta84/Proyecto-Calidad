@@ -1,0 +1,25 @@
+# Logs and caches
+*.log
+.cache/
+.DS_Store
+
+# Maven & Java
+target/
+*.class
+.mvn/
+
+# Node.js
+node_modules/
+package-lock.json
+
+# Postman Newman reports
+postman/node_modules/
+
+# JMeter JTLs and temp downloads
+/jmeter/reports/*.jtl
+/tmp/apache-jmeter*
+
+# Environment files with sensitive credentials
+backend-laravel/.env
+backend-itinerarios/.env.fastapi
+frontend-angular/.env

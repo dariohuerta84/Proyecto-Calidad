@@ -1,0 +1,32 @@
+<!-- Banner con imagen de fondo original -->
+<app-banner 
+  [title]="'Haz tu lista de deseos de viaje, nosotros nos encargamos del resto.'"
+  [subtitle]="'Ofertas especiales que se adaptan a tu plan'"
+  [backgroundImage]="'/public/img/imagen.jpg'"
+  [overlayGradient]="'linear-gradient(to right, rgba(35, 52, 99, 0.7), rgba(0, 0, 0, 0))'">
+</app-banner>
+
+<!-- Buscador -->
+<div class="search-bar-container">
+  <app-buscador-dinamico [tipoBusqueda]="'hoteles'"></app-buscador-dinamico>
+</div>
+
+<!-- Hoteles Recientes -->
+<app-card-list
+  [title]="'Hoteles que viste recientemente'"
+  [items]="hotelesRecientes"
+  [routePrefix]="'/hoteles/detalle'"
+  [errorMessage]="mensajeError">
+</app-card-list>
+
+<!-- Hoteles Populares -->
+<app-card-grid
+  [title]="'¡Hoteles más populares!'"
+  [description]="'¿Vas a viajar para celebrar esta temporada? Ya sea que vuelvas a casa o salgas a explorar, tenemos las herramientas de viaje para llevarte a tu destino.'"
+  [items]="hotelesPopulares"
+  [showButton]="true"
+  [routePrefix]="'/hoteles/detalle'"
+  [mode]="'hoteles'"
+  [columns]="4"
+  (buttonClick)="verTodosLosHoteles()">
+</app-card-grid>
