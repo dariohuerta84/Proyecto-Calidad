@@ -1,0 +1,5 @@
+<resources>
+    <style name="Theme.Trouvels360" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">#F7FBF8</item>
+    </style>
+</resources>

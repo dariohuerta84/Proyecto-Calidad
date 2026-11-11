@@ -1,0 +1,1 @@
+{"message":"El comentario debe tener al menos 10 caracteres. (and 1 more error)","errors":{"comentario":["El comentario debe tener al menos 10 caracteres."],"calificacion":["La calificaci\u00f3n va de 1 a 5."]}}

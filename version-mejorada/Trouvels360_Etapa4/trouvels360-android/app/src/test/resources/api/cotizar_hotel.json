@@ -1,0 +1,1 @@
+{"data":{"hotel":{"id":4,"nombre":"Palacio del Inka"},"fecha_inicio":"2026-12-01","fecha_fin":"2026-12-03","noches":2,"items":[{"habitacion_id":10,"nombre":"Colonial","cantidad":1,"precio_por_noche":280,"unidades_disponibles":10,"subtotal":560,"impuesto":100.8,"total":660.8}],"subtotal":560,"impuesto":100.8,"igv_porcentaje":18,"total":660.8}}
