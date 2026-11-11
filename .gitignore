@@ -21,5 +21,7 @@ postman/node_modules/
 
 # Environment files with sensitive credentials
 backend-laravel/.env
+backend-itinerarios/.env
 backend-itinerarios/.env.fastapi
 frontend-angular/.env
+android/local.properties
