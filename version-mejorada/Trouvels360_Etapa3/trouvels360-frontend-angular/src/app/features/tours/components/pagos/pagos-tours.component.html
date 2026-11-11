@@ -1,0 +1,101 @@
+<div class="pagos-container" data-testid="pago-tour">
+  <button class="back-button" (click)="volverAtras()" *ngIf="!reserva" data-testid="btn-volver">
+    <i class="fas fa-arrow-left"></i> Volver
+  </button>
+
+  <div class="page-header" *ngIf="!reserva">
+    <h1>Confirma y paga</h1>
+    <p class="subtitle">Revisa los detalles de tu tour antes de continuar</p>
+  </div>
+
+  <div *ngIf="reserva" class="success-card" data-testid="comprobante-tour">
+    <div class="success-icon"><i class="fas fa-check-circle"></i></div>
+    <h2>¡Reserva confirmada!</h2>
+    <p>Tu lugar está asegurado. Los cupos ya se descontaron de la salida.</p>
+    <div class="comprobante">
+      <div><span>Código</span><strong data-testid="comprobante-codigo">{{ reserva.codigo }}</strong></div>
+      <div><span>Estado</span><strong class="estado-ok" data-testid="comprobante-estado">CONFIRMADA</strong></div>
+      <div><span>Tour</span><strong>{{ reserva.servicio.nombre }}</strong></div>
+      <div><span>Salida</span><strong>{{ reserva.salida.fecha | date:'d MMM y':'':'es' }} · {{ reserva.salida.hora }}</strong></div>
+      <div><span>Personas</span><strong>{{ reserva.personas }}</strong></div>
+      <div><span>Subtotal</span><strong>{{ reserva.subtotal | currency:'PEN':'S/ ':'1.2-2' }}</strong></div>
+      <div><span>IGV (18%)</span><strong>{{ reserva.impuesto | currency:'PEN':'S/ ':'1.2-2' }}</strong></div>
+      <div class="total"><span>Total pagado</span><strong data-testid="comprobante-total">{{ reserva.total | currency:'PEN':'S/ ':'1.2-2' }}</strong></div>
+    </div>
+    <div class="acciones-exito">
+      <button class="btn-primary" routerLink="/mis-reservas" [queryParams]="{ tab: 'tours' }" data-testid="btn-ir-mis-reservas">Ver mis reservas</button>
+      <button class="btn-secondary" routerLink="/tour">Buscar más tours</button>
+    </div>
+  </div>
+
+  <div *ngIf="!reserva" class="checkout-grid">
+    <div class="main-content">
+      <div class="info-card">
+        <div class="card-header"><i class="fas fa-map-marked-alt"></i><h2>Información del tour</h2></div>
+        <div class="card-body">
+          <h3 class="tour-name" data-testid="pago-tour-nombre">{{ nombreTour }}</h3>
+          <p class="tour-location"><i class="fas fa-map-marker-alt"></i> {{ ubicacion }}</p>
+          <div class="tour-extras" *ngIf="categoria || duracionFormateada">
+            <span class="badge" *ngIf="categoria"><i class="fas fa-tag"></i> {{ categoria }}</span>
+            <span class="badge" *ngIf="duracionFormateada"><i class="fas fa-clock"></i> {{ duracionFormateada }}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="card-header"><i class="fas fa-calendar-day"></i><h2>Fecha de salida</h2></div>
+        <div class="card-body">
+          <p class="date-value">{{ fechaSalida | date:'EEEE, d \'de\' MMMM \'de\' y':'':'es' }}
+            <span *ngIf="cotizacion?.salida?.hora"> · {{ cotizacion?.salida?.hora }}</span></p>
+          <p *ngIf="cotizacion" class="nota">Cupos disponibles: {{ cotizacion.salida.cupos_disponibles }}</p>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="card-header"><i class="fas fa-users"></i><h2>Participantes</h2></div>
+        <div class="card-body">
+          <div class="participants-grid">
+            <div class="participant-item"><span class="participant-label">Adultos</span><span class="participant-value">{{ adultos }}</span></div>
+            <div class="participant-item"><span class="participant-label">Niños</span><span class="participant-value">{{ ninos }}</span></div>
+            <div class="participant-item total"><span class="participant-label">Total</span><span class="participant-value" data-testid="pago-personas">{{ totalPersonas }}</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <div class="price-summary-card">
+        <h2>Resumen de precios</h2>
+        <p *ngIf="cargandoCotizacion">Calculando importe…</p>
+        <div *ngIf="errorCotizacion" class="alert-error" data-testid="error-cotizacion" role="alert">
+          <i class="fas fa-exclamation-triangle"></i> {{ errorCotizacion }}
+        </div>
+        <ng-container *ngIf="cotizacion">
+          <div class="price-breakdown">
+            <div class="price-item">
+              <span>{{ cotizacion.precio_unitario | currency:'PEN':'S/ ':'1.2-2' }} × {{ cotizacion.personas }} personas</span>
+              <span data-testid="resumen-subtotal">{{ cotizacion.subtotal | currency:'PEN':'S/ ':'1.2-2' }}</span>
+            </div>
+            <div class="price-item tax">
+              <span>IGV ({{ cotizacion.igv_porcentaje }}%)</span>
+              <span data-testid="resumen-impuesto">{{ cotizacion.impuesto | currency:'PEN':'S/ ':'1.2-2' }}</span>
+            </div>
+          </div>
+          <div class="divider"></div>
+          <div class="total-price">
+            <span class="total-label">Total a pagar</span>
+            <span class="total-amount" data-testid="resumen-total">{{ cotizacion.total | currency:'PEN':'S/ ':'1.2-2' }}</span>
+          </div>
+          <button class="btn-pay" data-testid="btn-confirmar-pagar" (click)="procesarPago()" [disabled]="!!errorCotizacion">
+            <i class="fas fa-lock"></i> Confirmar y pagar
+          </button>
+        </ng-container>
+        <p class="payment-note"><i class="fas fa-info-circle"></i> Pago simulado. La reserva de tour se confirma al instante.</p>
+      </div>
+    </div>
+  </div>
+
+  <app-pago-simulado *ngIf="mostrarModalPago"
+    [total]="cotizacion?.total || 0" [procesando]="procesando" [errorServidor]="errorPago"
+    (confirmar)="confirmarPago($event)" (cancelar)="cerrarModal()"></app-pago-simulado>
+</div>

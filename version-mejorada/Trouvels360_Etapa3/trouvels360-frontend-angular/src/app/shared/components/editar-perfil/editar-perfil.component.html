@@ -1,0 +1,126 @@
+<div class="profile-container" data-testid="mi-cuenta">
+  <h1>Mi cuenta</h1>
+
+  <p *ngIf="cargando()">Cargando datos del perfil…</p>
+  <div *ngIf="errorCarga()" class="bg-red-100" role="alert" data-testid="perfil-error-carga">
+    {{ errorCarga() }} <button type="button" (click)="cargar()">Reintentar</button>
+  </div>
+
+  <ng-container *ngIf="form && !cargando()">
+    <div *ngIf="mensaje()" [ngClass]="tipoMensaje() === 'success' ? 'bg-green-100' : 'bg-red-100'" role="alert" data-testid="perfil-mensaje">{{ mensaje() }}</div>
+
+    <form [formGroup]="form" (ngSubmit)="guardarCambios()" data-testid="form-perfil" novalidate>
+      <div class="role-display" data-testid="perfil-rol">Rol: {{ rol() | uppercase }} <small>(no se puede cambiar)</small></div>
+
+      <div class="field-group field-group-container" *ngIf="rol() === 'viajero'">
+        <div class="field-card">
+          <label for="nombre">Nombre</label>
+          <input id="nombre" formControlName="nombre" type="text" data-testid="perfil-nombre">
+          <p *ngIf="campoInvalido('nombre')" data-testid="perfil-error-nombre">{{ form.get('nombre')?.errors?.['servidor'] || 'Ingresa un nombre válido (solo letras).' }}</p>
+        </div>
+        <div class="field-card">
+          <label for="apellido">Apellido</label>
+          <input id="apellido" formControlName="apellido" type="text" data-testid="perfil-apellido">
+          <p *ngIf="campoInvalido('apellido')">{{ form.get('apellido')?.errors?.['servidor'] || 'Ingresa un apellido válido (solo letras).' }}</p>
+        </div>
+      </div>
+
+      <div class="field-group field-group-container" *ngIf="rol() === 'proveedor'">
+        <div class="field-card">
+          <label for="empresa_nombre">Nombre de la empresa</label>
+          <input id="empresa_nombre" formControlName="empresa_nombre" type="text" data-testid="perfil-empresa">
+          <p *ngIf="campoInvalido('empresa_nombre')">{{ form.get('empresa_nombre')?.errors?.['servidor'] || 'Entre 2 y 150 caracteres.' }}</p>
+        </div>
+        <div class="field-card">
+          <label for="telefono">Celular</label>
+          <input id="telefono" formControlName="telefono" type="tel" placeholder="+51 9XXXXXXXX" data-testid="perfil-telefono">
+          <p *ngIf="campoInvalido('telefono')" data-testid="perfil-error-telefono">{{ form.get('telefono')?.errors?.['servidor'] || 'Formato esperado: +51 9XXXXXXXX' }}</p>
+        </div>
+        <div class="field-card">
+          <label for="ruc">RUC</label>
+          <input id="ruc" formControlName="ruc" type="text">
+          <p>Este campo no puede ser modificado.</p>
+        </div>
+      </div>
+
+      <div class="field-group field-card">
+        <label for="email">Correo electrónico</label>
+        <input id="email" formControlName="email" type="email" data-testid="perfil-email">
+        <p>El correo no puede ser modificado.</p>
+      </div>
+
+      <div class="field-group">
+        <h2>Imagen de perfil</h2>
+        <div class="field-card avatar-fila">
+          <img *ngIf="form.get('avatar_url')?.value" [src]="form.get('avatar_url')?.value" alt="Vista previa" class="avatar-preview">
+          <div class="avatar-campo">
+            <label for="avatar_url">URL de la imagen</label>
+            <input id="avatar_url" formControlName="avatar_url" type="url" placeholder="https://…" data-testid="perfil-avatar">
+            <p *ngIf="campoInvalido('avatar_url')">{{ form.get('avatar_url')?.errors?.['servidor'] || 'Debe ser una URL http(s) válida.' }}</p>
+          </div>
+        </div>
+        <div class="field-card">
+          <div class="input-group">
+            <input #searchBox type="text" placeholder="Buscar en Unsplash: playa, montaña…" (keyup.enter)="buscarImagen(searchBox.value); $event.preventDefault()" (keydown.enter)="$event.preventDefault()">
+            <button type="button" [disabled]="buscandoImagenes()" (click)="buscarImagen(searchBox.value)">Buscar</button>
+          </div>
+          <div *ngIf="errorImagenes()" class="text-red-600">{{ errorImagenes() }}</div>
+          <div *ngIf="buscandoImagenes()">Buscando imágenes…</div>
+          <div *ngIf="imageSearchResults.length" class="image-results-grid">
+            <img *ngFor="let img of imageSearchResults" [src]="img.url_small" [alt]="img.alt" class="img-thumbnail"
+              (click)="elegirImagen(img.url_regular)" [title]="'Foto por ' + img.user_name">
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" [disabled]="guardando() || form.pristine" data-testid="perfil-guardar">{{ guardando() ? 'Guardando…' : 'Guardar cambios' }}</button>
+    </form>
+
+    <form [formGroup]="passForm" (ngSubmit)="cambiarPassword()" class="password-form" data-testid="form-password" novalidate>
+      <div class="field-group"><h2>Cambiar contraseña</h2></div>
+      <div *ngIf="mensajePass()" [ngClass]="tipoMensajePass() === 'success' ? 'bg-green-100' : 'bg-red-100'" role="alert" data-testid="password-mensaje">{{ mensajePass() }}</div>
+      <div class="field-group field-group-container">
+        <div class="field-card password-field-container">
+          <label for="password_actual">Contraseña actual</label>
+          <input id="password_actual" formControlName="password_actual" [type]="mostrarPass() ? 'text' : 'password'" autocomplete="current-password" data-testid="password-actual">
+          <p *ngIf="erroresPass()['password_actual']">{{ erroresPass()['password_actual'] }}</p>
+        </div>
+        <div class="field-card password-field-container">
+          <label for="password">Nueva contraseña</label>
+          <input id="password" formControlName="password" [type]="mostrarPass() ? 'text' : 'password'" autocomplete="new-password" data-testid="password-nueva">
+          <button type="button" class="toggle-password-btn" (click)="mostrarPass.set(!mostrarPass())" aria-label="Mostrar u ocultar contraseñas">
+            <i [class]="mostrarPass() ? 'fa-solid fa-eye' : 'fa-solid fa-eye-slash'"></i></button>
+          <p *ngIf="passForm.get('password')?.errors?.['minlength'] && passForm.get('password')?.touched">Mínimo 6 caracteres.</p>
+          <p *ngIf="erroresPass()['password']">{{ erroresPass()['password'] }}</p>
+        </div>
+        <div class="field-card password-field-container">
+          <label for="password_confirmation">Confirmar nueva contraseña</label>
+          <input id="password_confirmation" formControlName="password_confirmation" [type]="mostrarPass() ? 'text' : 'password'" autocomplete="new-password" data-testid="password-confirmacion">
+          <p *ngIf="passForm.hasError('passwordMismatch')" data-testid="password-no-coinciden">Las contraseñas no coinciden.</p>
+        </div>
+      </div>
+      <button type="submit" [disabled]="cambiandoPass()" data-testid="password-guardar">{{ cambiandoPass() ? 'Actualizando…' : 'Actualizar contraseña' }}</button>
+    </form>
+
+    <div class="delete-section">
+      <h3>Eliminar cuenta</h3>
+      <p>Tu cuenta se desactivará y no podrás volver a iniciar sesión. No es posible si tienes reservas activas.</p>
+      <p *ngIf="errorEliminar() && !confirmarEliminar()" class="text-red-600" role="alert" data-testid="eliminar-cuenta-error">{{ errorEliminar() }}</p>
+      <button (click)="errorEliminar.set(''); confirmarEliminar.set(true)" [disabled]="eliminando()" data-testid="btn-eliminar-cuenta">Eliminar mi cuenta</button>
+    </div>
+  </ng-container>
+
+  <div *ngIf="confirmarEliminar()" class="delete-modal-backdrop" data-testid="modal-eliminar-cuenta">
+    <div class="delete-modal-content">
+      <div class="modal-card">
+        <h3>¿Eliminar tu cuenta?</h3>
+        <p>Esta acción no se puede deshacer.</p>
+        <p *ngIf="errorEliminar()" class="text-red-600" role="alert" data-testid="eliminar-cuenta-error-modal">{{ errorEliminar() }}</p>
+        <div class="modal-actions">
+          <button (click)="eliminarCuenta()" [disabled]="eliminando()" class="delete-confirm-btn" data-testid="eliminar-cuenta-si">{{ eliminando() ? 'Eliminando…' : 'Sí, eliminar' }}</button>
+          <button (click)="confirmarEliminar.set(false)" [disabled]="eliminando()" class="delete-cancel-btn" data-testid="eliminar-cuenta-no">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

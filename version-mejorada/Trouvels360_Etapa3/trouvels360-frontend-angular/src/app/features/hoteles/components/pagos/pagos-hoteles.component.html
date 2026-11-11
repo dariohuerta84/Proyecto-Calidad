@@ -1,0 +1,127 @@
+<div class="pagos-container" data-testid="pago-hotel">
+  <button class="back-button" (click)="volverAtras()" *ngIf="!solicitud" data-testid="btn-volver">
+    <i class="fas fa-arrow-left"></i> Volver
+  </button>
+
+  <div class="page-header" *ngIf="!solicitud">
+    <h1>Confirma y paga</h1>
+    <p class="subtitle">Revisa tu solicitud. El hotel la confirmará después del pago.</p>
+  </div>
+
+  <!-- Comprobante: solicitud registrada (PENDIENTE) -->
+  <div *ngIf="solicitud" class="success-card" data-testid="comprobante-hotel">
+    <div class="success-icon"><i class="fas fa-hourglass-half"></i></div>
+    <h2>¡Solicitud enviada!</h2>
+    <p>
+      Tu reserva quedó <strong class="estado-pendiente" data-testid="comprobante-estado">PENDIENTE</strong> de confirmación del hotel.
+      Te avisaremos en <em>Mis reservas</em> cuando la acepte o la rechace.
+    </p>
+    <div class="comprobante">
+      <div><span>Código de solicitud</span><strong data-testid="comprobante-codigo">{{ solicitud.solicitud_codigo }}</strong></div>
+      <div><span>Hotel</span><strong>{{ solicitud.hotel.nombre }}</strong></div>
+      <div><span>Fechas</span><strong>{{ solicitud.fecha_inicio | date:'d MMM':'':'es' }} → {{ solicitud.fecha_fin | date:'d MMM y':'':'es' }} ({{ solicitud.noches }} noches)</strong></div>
+      <div *ngFor="let r of solicitud.reservas"><span>{{ r.habitacion.nombre }} × {{ r.cantidad }}</span><strong>{{ r.codigo }}</strong></div>
+      <div><span>Subtotal</span><strong>{{ solicitud.subtotal | currency:'PEN':'S/ ':'1.2-2' }}</strong></div>
+      <div><span>IGV (18%)</span><strong>{{ solicitud.impuesto | currency:'PEN':'S/ ':'1.2-2' }}</strong></div>
+      <div class="total"><span>Total pagado</span><strong data-testid="comprobante-total">{{ solicitud.total | currency:'PEN':'S/ ':'1.2-2' }}</strong></div>
+      <div><span>Tarjeta</span><strong>•••• {{ solicitud.tarjeta_ultimos4 }}</strong></div>
+    </div>
+    <div class="acciones-exito">
+      <button class="btn-primary" routerLink="/mis-reservas" data-testid="btn-ir-mis-reservas">Ver mis reservas</button>
+      <button class="btn-secondary" routerLink="/hoteles">Buscar más hoteles</button>
+    </div>
+  </div>
+
+  <div *ngIf="!solicitud" class="checkout-grid">
+    <div class="main-content">
+      <div class="info-card">
+        <div class="card-header"><i class="fas fa-hotel"></i><h2>Información del hotel</h2></div>
+        <div class="card-body">
+          <h3 class="hotel-name" data-testid="pago-hotel-nombre">{{ nombreHotel }}</h3>
+          <p class="hotel-location"><i class="fas fa-map-marker-alt"></i> {{ ubicacion }}</p>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="card-header"><i class="fas fa-calendar-alt"></i><h2>Fechas de estadía</h2></div>
+        <div class="card-body">
+          <div class="dates-grid">
+            <div class="date-box"><label>Check-in</label><p class="date-value">{{ checkIn | date:'EEE, d MMM y':'':'es' }}</p></div>
+            <div class="date-separator"><i class="fas fa-arrow-right"></i></div>
+            <div class="date-box"><label>Check-out</label><p class="date-value">{{ checkOut | date:'EEE, d MMM y':'':'es' }}</p></div>
+          </div>
+          <p class="nights-info"><i class="fas fa-moon"></i> {{ totalNoches }} {{ totalNoches === 1 ? 'noche' : 'noches' }}</p>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="card-header"><i class="fas fa-users"></i><h2>Huéspedes</h2></div>
+        <div class="card-body">
+          <div class="guests-grid">
+            <div class="guest-item"><span class="guest-label">Adultos</span><span class="guest-value">{{ adultosReservados }}</span></div>
+            <div class="guest-item"><span class="guest-label">Niños</span><span class="guest-value">{{ ninosReservados }}</span></div>
+            <div class="guest-item"><span class="guest-label">Habitaciones</span><span class="guest-value">{{ cantidadTotalCuartos }}</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="card-header"><i class="fas fa-bed"></i><h2>Habitaciones seleccionadas</h2></div>
+        <div class="card-body">
+          <div *ngFor="let it of cotizacion?.items" class="room-item" data-testid="pago-linea">
+            <div class="room-info">
+              <h4>{{ it.nombre }}</h4>
+              <p class="room-quantity">{{ it.cantidad }} × {{ it.precio_por_noche | currency:'PEN':'S/ ':'1.2-2' }} × {{ totalNoches }} noches</p>
+            </div>
+            <div class="room-price"><span class="price-per-night">{{ it.subtotal | currency:'PEN':'S/ ':'1.2-2' }}</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Itinerario sugerido: informativo, no se cobra -->
+      <div class="info-card" *ngIf="itinerario" data-testid="pago-itinerario">
+        <div class="card-header"><i class="fas fa-map-marked-alt"></i><h2>Itinerario sugerido</h2></div>
+        <div class="card-body">
+          <p>{{ itinerario.resumen?.total_tours }} actividades en {{ itinerario.resumen?.total_dias }} días.
+            Costo estimado: {{ itinerario.resumen?.costo_total | currency:'PEN':'S/ ':'1.2-2' }}.</p>
+          <p class="nota">Es una sugerencia: no se reserva ni se suma a este pago. Cada tour se reserva por separado.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <div class="price-summary-card">
+        <h2>Resumen de precios</h2>
+        <p *ngIf="cargandoCotizacion" data-testid="cotizando">Calculando importe…</p>
+        <div *ngIf="errorCotizacion" class="alert-error-tarjeta" data-testid="error-cotizacion" role="alert">
+          <i class="fas fa-exclamation-triangle"></i> <span>{{ errorCotizacion }}</span>
+        </div>
+        <ng-container *ngIf="cotizacion">
+          <div class="price-breakdown">
+            <div class="price-item">
+              <span>Subtotal ({{ totalNoches }} {{ totalNoches === 1 ? 'noche' : 'noches' }})</span>
+              <span data-testid="resumen-subtotal">{{ cotizacion.subtotal | currency:'PEN':'S/ ':'1.2-2' }}</span>
+            </div>
+            <div class="price-item tax">
+              <span>IGV ({{ cotizacion.igv_porcentaje }}%)</span>
+              <span data-testid="resumen-impuesto">{{ cotizacion.impuesto | currency:'PEN':'S/ ':'1.2-2' }}</span>
+            </div>
+          </div>
+          <div class="divider"></div>
+          <div class="total-price">
+            <span class="total-label">Total a pagar</span>
+            <span class="total-amount" data-testid="resumen-total">{{ cotizacion.total | currency:'PEN':'S/ ':'1.2-2' }}</span>
+          </div>
+          <button class="btn-pay" data-testid="btn-confirmar-pagar" (click)="procesarPago()" [disabled]="!!errorCotizacion">
+            <i class="fas fa-lock"></i> Confirmar y pagar
+          </button>
+        </ng-container>
+        <p class="payment-note"><i class="fas fa-info-circle"></i> Pago simulado. La reserva quedará pendiente hasta que el hotel la acepte.</p>
+      </div>
+    </div>
+  </div>
+
+  <app-pago-simulado *ngIf="mostrarModalPago"
+    [total]="cotizacion?.total || 0" [procesando]="procesando" [errorServidor]="errorPago"
+    (confirmar)="confirmarPago($event)" (cancelar)="cerrarModal()"></app-pago-simulado>
+</div>

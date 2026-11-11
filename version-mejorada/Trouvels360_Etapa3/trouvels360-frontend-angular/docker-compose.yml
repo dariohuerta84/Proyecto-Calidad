@@ -1,0 +1,17 @@
+services:
+  # Frontend Angular (desarrollo con recarga en caliente)
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: trouvels360_frontend
+    ports:
+      - "4200:4200"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+    # Permite llegar al backend Laravel publicado en el puerto 8000 del equipo (Windows, macOS y Linux)
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

@@ -1,0 +1,83 @@
+<div class="reviews-section" data-testid="reviews-section">
+  <div class="reviews-header">
+    <div class="reviews-title-container">
+      <h2 class="reviews-title">Opiniones</h2>
+      <ng-container *ngIf="!logueado || esViajero">
+        <button class="btn-dejar-opinion" (click)="abrirFormulario()" data-testid="btn-dejar-opinion"
+          *ngIf="!logueado || elegibilidad?.puede || elegibilidad?.mi_resena">
+          {{ elegibilidad?.mi_resena ? 'Editar mi opinión' : (logueado ? 'Deja tu opinión' : 'Inicia sesión para opinar') }}
+        </button>
+      </ng-container>
+    </div>
+    <p class="no-elegible" *ngIf="logueado && esViajero && elegibilidad && !elegibilidad.puede && !elegibilidad.mi_resena" data-testid="review-no-elegible">
+      <i class="fas fa-info-circle"></i> {{ elegibilidad.motivo }}
+    </p>
+
+    <div class="rating-summary" *ngIf="totalReviews > 0" data-testid="reviews-resumen">
+      <div class="rating-number" data-testid="reviews-promedio">{{ promedioCalificacion }}</div>
+      <div class="rating-text">{{ textoCalificacion }} · <span data-testid="reviews-total">{{ totalReviews }}</span> {{ totalReviews === 1 ? 'reseña' : 'reseñas' }}</div>
+    </div>
+
+    <div class="no-reviews" *ngIf="totalReviews === 0 && !loading && !error" data-testid="reviews-vacio">
+      <p>Aún no hay reseñas.</p>
+    </div>
+  </div>
+
+  <div class="aviso-ok" *ngIf="aviso" role="status" data-testid="reviews-aviso">{{ aviso }}</div>
+  <div class="aviso-err" *ngIf="avisoError" role="alert" data-testid="reviews-aviso-error">{{ avisoError }}</div>
+
+  <div class="loading-state" *ngIf="loading"><p>Cargando reseñas...</p></div>
+
+  <div class="error-state" *ngIf="error && !loading" data-testid="reviews-error">
+    <p>{{ errorMessage }}</p>
+    <button class="btn-reintentar" (click)="loadReviews()">Reintentar</button>
+  </div>
+
+  <div class="reviews-list" *ngIf="!loading && !error && reviews.length > 0">
+    <div class="review-card" *ngFor="let review of reviews" data-testid="review-card" [attr.data-id]="review.id" [attr.data-calificacion]="review.calificacion">
+      <div class="review-header">
+        <div class="user-info">
+          <div class="user-avatar"><i class="fas fa-user"></i></div>
+          <div class="user-details">
+            <div class="user-name-container">
+              <span class="user-name">{{ review.usuario.nombre_completo }}</span>
+              <div class="review-stars" [attr.aria-label]="review.calificacion + ' de 5'">
+                <i *ngFor="let e of getEstrellas(review.calificacion)" class="fas fa-star" [class.filled]="e.llena" [class.empty]="!e.llena"></i>
+              </div>
+            </div>
+            <span class="review-date">{{ review.fecha_formateada }}<span *ngIf="review.updated_at !== review.created_at"> · editada</span></span>
+          </div>
+        </div>
+        <div class="autor-acciones" *ngIf="isAuthor(review)">
+          <button class="btn-delete-review" (click)="editar(review)" title="Editar reseña" data-testid="review-editar"><i class="fas fa-pen"></i></button>
+          <button class="btn-delete-review" (click)="pedirEliminar(review)" title="Eliminar reseña" data-testid="review-eliminar"><i class="fas fa-trash"></i></button>
+        </div>
+      </div>
+      <div class="review-content"><p data-testid="review-texto">{{ review.comentario }}</p></div>
+    </div>
+  </div>
+
+  <nav class="paginacion" *ngIf="paginas().length > 1" data-testid="reviews-paginacion">
+    <button [disabled]="page <= 1" (click)="irPagina(page - 1)" aria-label="Anterior">‹</button>
+    <button *ngFor="let p of paginas()" [class.activo]="p === page" (click)="irPagina(p)" [attr.data-testid]="'reviews-pagina-' + p">{{ p }}</button>
+    <button [disabled]="page >= lastPage" (click)="irPagina(page + 1)" aria-label="Siguiente">›</button>
+  </nav>
+
+  <div class="modal-overlay" *ngIf="mostrarFormulario" (click)="cerrarFormulario()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <app-review-form [servicioId]="servicioId" [servicioTipo]="servicioTipo" [resena]="editando"
+        (onSubmit)="onGuardada()" (onCancel)="cerrarFormulario()"></app-review-form>
+    </div>
+  </div>
+
+  <div class="modal-overlay" *ngIf="aEliminar" data-testid="modal-eliminar-review">
+    <div class="modal-content confirmar">
+      <h3>¿Eliminar tu reseña?</h3>
+      <p>Esta acción no se puede deshacer.</p>
+      <div class="acciones">
+        <button class="btn-reintentar" (click)="aEliminar = null" [disabled]="eliminando" data-testid="review-eliminar-no">Cancelar</button>
+        <button class="btn-dejar-opinion peligro" (click)="confirmarEliminar()" [disabled]="eliminando" data-testid="review-eliminar-si">{{ eliminando ? 'Eliminando…' : 'Eliminar' }}</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,49 @@
+.rr-container { max-width: 1040px; margin: 0 auto; padding: 24px 16px 48px; }
+.volver { color: #2f7d5e; text-decoration: none; font-size: .9rem; }
+h1 { margin: 10px 0 4px; }
+.sub { color: #5e6c84; margin: 0 0 16px; }
+.filtros { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 12px; }
+.filtros select { padding: 8px 10px; border: 1px solid #c0c7c5; border-radius: 8px; font-family: inherit; }
+.chips { display: flex; gap: 6px; flex-wrap: wrap; }
+.chip { border: 1px solid #c0c7c5; background: #fff; border-radius: 16px; padding: 5px 12px; cursor: pointer; text-transform: capitalize; font-family: inherit; }
+.chip.activo { background: #2f7d5e; color: #fff; border-color: #2f7d5e; }
+.filtro-servicio { background: #eef4f1; border-radius: 16px; padding: 4px 6px 4px 12px; font-size: .85rem; }
+.filtro-servicio button { border: 0; background: none; cursor: pointer; font-size: 1rem; }
+.total { margin-left: auto; color: #5e6c84; font-size: .9rem; }
+.aviso { border-radius: 8px; padding: 10px 12px; margin: 8px 0; }
+.aviso.ok { background: #e8f5e9; color: #1b5e20; }
+.aviso.err { background: #fdecea; color: #b71c1c; }
+.cargando { color: #5e6c84; }
+.vacio { text-align: center; padding: 40px 0; color: #5e6c84; }
+.vacio i { font-size: 2rem; }
+.lista { display: grid; gap: 12px; }
+.reserva { border: 1px solid #e0e4e3; border-radius: 12px; background: #fff; padding: 14px 16px; }
+.reserva header { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 10px; }
+.tipo { font-weight: 600; }
+.estado { text-transform: uppercase; font-size: .75rem; font-weight: 700; padding: 3px 10px; border-radius: 10px; }
+.e-pendiente { background: #fff4e5; color: #8a5300; }
+.e-confirmada { background: #e8f5e9; color: #1b5e20; }
+.e-rechazada { background: #fdecea; color: #b71c1c; }
+.e-cancelada { background: #eceff1; color: #455a64; }
+.cuerpo { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+.cuerpo div { display: flex; flex-direction: column; }
+.cuerpo small { color: #5e6c84; font-size: .75rem; }
+.cuerpo span { color: #5e6c84; font-size: .8rem; }
+.email { word-break: break-all; }
+.motivo { background: #fdecea; color: #b71c1c; border-radius: 8px; padding: 8px 10px; margin: 10px 0 0; font-size: .88rem; }
+.reserva footer { display: flex; justify-content: flex-end; gap: 8px; margin-top: 12px; }
+.btn { border: 1px solid #c0c7c5; background: #fff; border-radius: 8px; padding: 8px 16px; cursor: pointer; font-family: inherit; }
+.btn:disabled { opacity: .6; cursor: default; }
+.btn.aceptar { background: #2f7d5e; border-color: #2f7d5e; color: #fff; }
+.btn.rechazar { background: #fff; border-color: #c62828; color: #c62828; }
+.modal-card .btn.rechazar { background: #c62828; color: #fff; }
+.paginacion { display: flex; gap: 6px; justify-content: center; margin: 18px 0; }
+.paginacion button { min-width: 34px; height: 34px; border-radius: 8px; border: 1px solid #c0c7c5; background: #fff; cursor: pointer; }
+.paginacion button.activo { background: #2f7d5e; color: #fff; }
+.modal-backdrop { position: fixed; inset: 0; background: rgba(15,23,33,.5); display: flex; align-items: center; justify-content: center; z-index: 2000; padding: 16px; }
+.modal-card { background: #fff; border-radius: 12px; padding: 22px; max-width: 480px; width: 100%; }
+.modal-card label { display: block; font-weight: 600; margin: 10px 0 4px; }
+.modal-card textarea { width: 100%; box-sizing: border-box; border: 1px solid #c0c7c5; border-radius: 8px; padding: 8px; font-family: inherit; }
+.contador { text-align: right; font-size: .78rem; color: #5e6c84; }
+.error { color: #b71c1c; font-size: .88rem; }
+.acciones { display: flex; justify-content: flex-end; gap: 8px; margin-top: 12px; }

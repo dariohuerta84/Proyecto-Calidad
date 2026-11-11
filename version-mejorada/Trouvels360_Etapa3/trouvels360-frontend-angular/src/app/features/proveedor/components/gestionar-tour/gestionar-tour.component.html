@@ -1,0 +1,81 @@
+<div class="gt-container" data-testid="gestionar-tour">
+  <a class="volver" routerLink="/proveedor"><i class="fas fa-arrow-left"></i> Panel</a>
+  <h1>Salidas y actividades</h1>
+  <p class="sub" data-testid="gt-nombre">{{ nombre || ('Tour #' + tourId) }}
+    · <a [routerLink]="['/proveedor/editar-tour', tourId]">Editar datos del tour</a></p>
+
+  <div class="aviso ok" *ngIf="mensaje" role="status" data-testid="gt-mensaje-ok">{{ mensaje }}</div>
+  <div class="aviso err" *ngIf="mensajeError" role="alert" data-testid="gt-mensaje-error">{{ mensajeError }}</div>
+  <p *ngIf="cargando">Cargando…</p>
+  <div *ngIf="!cargando && error" class="aviso err">{{ error }} <button class="btn" (click)="cargarTodo()">Reintentar</button></div>
+
+  <section class="bloque" *ngIf="!cargando">
+    <h2><i class="fas fa-calendar-days"></i> Salidas programadas</h2>
+
+    <form class="form-linea" (ngSubmit)="guardarSalida()" data-testid="form-salida" novalidate>
+      <label>Fecha<input type="date" name="fecha" [min]="hoy" [(ngModel)]="salidaForm.fecha" data-testid="salida-fecha">
+        <small class="err" *ngIf="erroresSalida['fecha']" data-testid="salida-error-fecha">{{ erroresSalida['fecha'] }}</small></label>
+      <label>Hora<input type="time" name="hora" [(ngModel)]="salidaForm.hora" data-testid="salida-hora">
+        <small class="err" *ngIf="erroresSalida['hora']">{{ erroresSalida['hora'] }}</small></label>
+      <label>Cupo total<input type="number" name="cupo" min="1" max="1000" [(ngModel)]="salidaForm.cupo_total" data-testid="salida-cupo">
+        <small class="err" *ngIf="erroresSalida['cupo_total']" data-testid="salida-error-cupo">{{ erroresSalida['cupo_total'] }}</small></label>
+      <div class="botones">
+        <button class="btn primario" type="submit" [disabled]="guardandoSalida" data-testid="salida-guardar">{{ editandoSalida ? 'Guardar cambios' : 'Programar salida' }}</button>
+        <button class="btn" type="button" *ngIf="editandoSalida" (click)="cancelarEdicionSalida()">Cancelar</button>
+      </div>
+    </form>
+
+    <p class="vacio" *ngIf="salidas.length === 0" data-testid="sin-salidas">Aún no hay salidas. Programa la primera arriba.</p>
+    <table class="tabla" *ngIf="salidas.length">
+      <thead><tr><th>Fecha</th><th>Hora</th><th>Cupos</th><th>Estado</th><th></th></tr></thead>
+      <tbody>
+        <tr *ngFor="let s of salidas" data-testid="salida-fila" [attr.data-id]="s.id" [attr.data-estado]="s.estado">
+          <td>{{ s.fecha | date:'EEE d MMM y':'':'es' }}</td>
+          <td>{{ s.hora }}</td>
+          <td><span data-testid="salida-ocupacion">{{ s.cupo_reservado }}/{{ s.cupo_total }}</span> <small>({{ s.cupo_disponible }} libres)</small></td>
+          <td><span class="estado" [ngClass]="'e-' + s.estado">{{ s.estado }}</span></td>
+          <td class="acc">
+            <button class="btn sm" (click)="editarSalida(s)" data-testid="salida-editar">Editar</button>
+            <button class="btn sm" *ngIf="s.estado === 'programada'" (click)="cambiarEstado(s, 'cerrada')" data-testid="salida-cerrar">Cerrar</button>
+            <button class="btn sm" *ngIf="s.estado !== 'programada'" (click)="cambiarEstado(s, 'programada')" data-testid="salida-reabrir">Reabrir</button>
+            <button class="btn sm peligro" *ngIf="s.estado !== 'cancelada'" (click)="cambiarEstado(s, 'cancelada')" data-testid="salida-cancelar">Cancelar</button>
+            <button class="btn sm peligro" (click)="eliminarSalida(s)" data-testid="salida-eliminar">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="bloque" *ngIf="!cargando">
+    <h2><i class="fas fa-list-ol"></i> Actividades del recorrido</h2>
+    <form class="form-linea" (ngSubmit)="guardarAct()" data-testid="form-actividad" novalidate>
+      <label class="ancho">Título<input name="titulo" maxlength="150" [(ngModel)]="actForm.titulo" data-testid="actividad-titulo">
+        <small class="err" *ngIf="erroresAct['titulo']" data-testid="actividad-error-titulo">{{ erroresAct['titulo'] }}</small></label>
+      <label>Duración (min)<input type="number" name="dur" min="0" max="1440" [(ngModel)]="actForm.duracion_min" data-testid="actividad-duracion">
+        <small class="err" *ngIf="erroresAct['duracion_min']">{{ erroresAct['duracion_min'] }}</small></label>
+      <label>Orden<input type="number" name="orden" min="1" [(ngModel)]="actForm.orden" placeholder="al final" data-testid="actividad-orden">
+        <small class="err" *ngIf="erroresAct['orden']">{{ erroresAct['orden'] }}</small></label>
+      <label class="ancho">Descripción<textarea name="desc" rows="2" maxlength="2000" [(ngModel)]="actForm.descripcion" data-testid="actividad-descripcion"></textarea></label>
+      <div class="botones">
+        <button class="btn primario" type="submit" [disabled]="guardandoAct" data-testid="actividad-guardar">{{ editandoAct ? 'Guardar cambios' : 'Agregar actividad' }}</button>
+        <button class="btn" type="button" *ngIf="editandoAct" (click)="cancelarEdicionAct()">Cancelar</button>
+      </div>
+    </form>
+
+    <p class="vacio" *ngIf="actividades.length === 0" data-testid="sin-actividades">Sin actividades todavía.</p>
+    <ol class="acts" *ngIf="actividades.length">
+      <li *ngFor="let a of actividades; let first = first; let last = last" data-testid="actividad-item" [attr.data-orden]="a.orden">
+        <span class="num">{{ a.orden }}</span>
+        <div class="txt"><b data-testid="actividad-nombre">{{ a.titulo }}</b>
+          <small *ngIf="a.duracion_min">{{ a.duracion_min }} min</small>
+          <p *ngIf="a.descripcion">{{ a.descripcion }}</p></div>
+        <div class="acc">
+          <button class="btn sm" [disabled]="first" (click)="mover(a, -1)" aria-label="Subir" data-testid="actividad-subir">↑</button>
+          <button class="btn sm" [disabled]="last" (click)="mover(a, 1)" aria-label="Bajar" data-testid="actividad-bajar">↓</button>
+          <button class="btn sm" (click)="editarAct(a)" data-testid="actividad-editar">Editar</button>
+          <button class="btn sm peligro" (click)="eliminarAct(a)" data-testid="actividad-eliminar">Eliminar</button>
+        </div>
+      </li>
+    </ol>
+  </section>
+</div>

@@ -1,0 +1,79 @@
+<div class="rr-container" data-testid="reservas-recibidas">
+  <a class="volver" routerLink="/proveedor"><i class="fas fa-arrow-left"></i> Panel</a>
+  <h1>Reservas recibidas</h1>
+  <p class="sub">Las solicitudes de hotel quedan <b>pendientes</b> hasta que las aceptes o rechaces. Las de tour se confirman automáticamente.</p>
+
+  <div class="filtros">
+    <select [(ngModel)]="tipo" (change)="aplicarFiltros({})" data-testid="rr-filtro-tipo" aria-label="Tipo">
+      <option value="">Hoteles y tours</option><option value="hotel">Hoteles</option><option value="tour">Tours</option>
+    </select>
+    <div class="chips">
+      <button *ngFor="let e of estados" type="button" class="chip" [class.activo]="estado === e"
+        (click)="estado = e; aplicarFiltros({})" [attr.data-testid]="'rr-estado-' + (e || 'todos')">{{ e || 'todos' }}</button>
+    </div>
+    <span class="filtro-servicio" *ngIf="servicioId">Publicación #{{ servicioId }}
+      <button type="button" (click)="servicioId = ''; aplicarFiltros({})" data-testid="rr-quitar-servicio" aria-label="Quitar filtro">×</button></span>
+    <span class="total" *ngIf="pagina">{{ pagina.meta.total }} reservas</span>
+  </div>
+
+  <div class="aviso ok" *ngIf="mensaje" role="status" data-testid="rr-mensaje-ok">{{ mensaje }}</div>
+  <div class="aviso err" *ngIf="mensajeError" role="alert" data-testid="rr-mensaje-error">{{ mensajeError }}</div>
+
+  <p *ngIf="cargando" class="cargando">Cargando reservas…</p>
+  <div *ngIf="!cargando && error" class="vacio" data-testid="rr-error">
+    <p>{{ error }}</p><button class="btn" (click)="cargar()">Reintentar</button>
+  </div>
+  <div *ngIf="!cargando && !error && reservas.length === 0" class="vacio" data-testid="rr-vacio">
+    <i class="fas fa-inbox"></i><p>No hay reservas con estos filtros.</p>
+  </div>
+
+  <div class="lista" *ngIf="!cargando && reservas.length">
+    <article *ngFor="let r of reservas" class="reserva" data-testid="rr-card"
+      [attr.data-id]="r.id" [attr.data-codigo]="r.codigo" [attr.data-estado]="r.estado" [attr.data-tipo]="r.tipo">
+      <header>
+        <span class="tipo"><i class="fas" [ngClass]="r.tipo === 'hotel' ? 'fa-hotel' : 'fa-route'"></i> {{ r.servicio.nombre }}</span>
+        <span class="estado" [ngClass]="'e-' + r.estado" data-testid="rr-estado">{{ r.estado }}</span>
+      </header>
+      <div class="cuerpo">
+        <div><small>Código</small><b>{{ r.codigo }}</b></div>
+        <div><small>Cliente</small><b>{{ r.cliente?.nombre || '—' }}</b><span class="email">{{ r.cliente?.email }}</span></div>
+        <ng-container *ngIf="esHotel(r)">
+          <div><small>Habitación</small><b>{{ asHotel(r).habitacion.nombre }} × {{ asHotel(r).cantidad }}</b></div>
+          <div><small>Estadía</small><b>{{ asHotel(r).fecha_inicio | date:'d MMM':'':'es' }} → {{ asHotel(r).fecha_fin | date:'d MMM y':'':'es' }}</b><span>{{ asHotel(r).noches }} noches</span></div>
+        </ng-container>
+        <ng-container *ngIf="!esHotel(r)">
+          <div><small>Salida</small><b>{{ asTour(r).salida?.fecha | date:'d MMM y':'':'es' }} {{ asTour(r).salida?.hora }}</b></div>
+          <div><small>Personas</small><b>{{ asTour(r).personas }}</b></div>
+        </ng-container>
+        <div><small>Total</small><b data-testid="rr-total">{{ r.total | currency:'PEN':'S/ ':'1.2-2' }}</b><span>IGV {{ r.impuesto | currency:'PEN':'S/ ':'1.2-2' }}</span></div>
+      </div>
+      <p class="motivo" *ngIf="esHotel(r) && asHotel(r).motivo_rechazo" data-testid="rr-motivo">Motivo del rechazo: {{ asHotel(r).motivo_rechazo }}</p>
+      <footer *ngIf="esHotel(r) && r.estado === 'pendiente'">
+        <button class="btn rechazar" (click)="pedirRechazo(asHotel(r))" [disabled]="procesandoId === r.id" data-testid="btn-rechazar">Rechazar</button>
+        <button class="btn aceptar" (click)="aceptar(asHotel(r))" [disabled]="procesandoId === r.id" data-testid="btn-aceptar">
+          {{ procesandoId === r.id ? 'Procesando…' : 'Aceptar' }}</button>
+      </footer>
+    </article>
+  </div>
+
+  <nav class="paginacion" *ngIf="paginas().length > 1" data-testid="rr-paginacion">
+    <button [disabled]="page <= 1" (click)="irPagina(page - 1)">‹</button>
+    <button *ngFor="let p of paginas()" [class.activo]="p === page" (click)="irPagina(p)" [attr.data-testid]="'rr-pagina-' + p">{{ p }}</button>
+    <button [disabled]="page >= (pagina?.meta?.last_page || 1)" (click)="irPagina(page + 1)">›</button>
+  </nav>
+
+  <div class="modal-backdrop" *ngIf="aRechazar" role="dialog" aria-modal="true" data-testid="modal-rechazo">
+    <div class="modal-card">
+      <h3>Rechazar {{ aRechazar.codigo }}</h3>
+      <p>El viajero verá este motivo en <em>Mis reservas</em>. Las unidades vuelven a quedar disponibles.</p>
+      <label for="motivo">Motivo (10 a 300 caracteres)</label>
+      <textarea id="motivo" rows="4" maxlength="300" [(ngModel)]="motivo" data-testid="rechazo-motivo"></textarea>
+      <div class="contador">{{ motivo.trim().length }}/300</div>
+      <p class="error" *ngIf="errorMotivo" data-testid="rechazo-error">{{ errorMotivo }}</p>
+      <div class="acciones">
+        <button class="btn" (click)="aRechazar = null" [disabled]="procesandoId !== null" data-testid="rechazo-cancelar">Volver</button>
+        <button class="btn rechazar" (click)="confirmarRechazo()" [disabled]="procesandoId !== null" data-testid="rechazo-confirmar">Confirmar rechazo</button>
+      </div>
+    </div>
+  </div>
+</div>

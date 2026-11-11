@@ -1,0 +1,45 @@
+<div class="pago-backdrop" data-testid="modal-pago" role="dialog" aria-modal="true" aria-labelledby="pago-titulo">
+  <form class="pago-card" (ngSubmit)="enviar()" novalidate>
+    <h2 id="pago-titulo"><i class="fas fa-credit-card"></i> Pago simulado</h2>
+    <p class="pago-nota">Es una demostración: no se realiza ningún cobro y solo se guardan los 4 últimos dígitos.</p>
+
+    <label for="pago-titular">Titular de la tarjeta</label>
+    <input id="pago-titular" name="titular" data-testid="pago-titular" autocomplete="cc-name"
+           [(ngModel)]="titular" placeholder="Ana Torres" maxlength="100">
+    <small class="err" *ngIf="intentado && errores['titular']" data-testid="pago-error-titular">{{ errores['titular'] }}</small>
+
+    <label for="pago-numero">Número de tarjeta</label>
+    <input id="pago-numero" name="numero" data-testid="pago-numero" inputmode="numeric" autocomplete="cc-number"
+           [ngModel]="numero" (ngModelChange)="formatearNumero($event)" placeholder="4242 4242 4242 4242" maxlength="19">
+    <small class="err" *ngIf="intentado && errores['numero']" data-testid="pago-error-numero">{{ errores['numero'] }}</small>
+
+    <div class="fila">
+      <div>
+        <label for="pago-venc">Vencimiento</label>
+        <input id="pago-venc" name="vencimiento" data-testid="pago-vencimiento" inputmode="numeric" autocomplete="cc-exp"
+               [ngModel]="vencimiento" (ngModelChange)="formatearVencimiento($event)" placeholder="MM/AA" maxlength="5">
+        <small class="err" *ngIf="intentado && errores['vencimiento']" data-testid="pago-error-vencimiento">{{ errores['vencimiento'] }}</small>
+      </div>
+      <div>
+        <label for="pago-cvc">CVC</label>
+        <input id="pago-cvc" name="cvc" type="password" data-testid="pago-cvc" inputmode="numeric" autocomplete="cc-csc"
+               [ngModel]="cvc" (ngModelChange)="soloDigitos($event)" placeholder="123" maxlength="3">
+        <small class="err" *ngIf="intentado && errores['cvc']" data-testid="pago-error-cvc">{{ errores['cvc'] }}</small>
+      </div>
+    </div>
+
+    <div class="pago-total">Total a pagar <strong data-testid="pago-total">{{ total | currency:'PEN':'S/ ':'1.2-2' }}</strong></div>
+
+    <div class="alerta" *ngIf="errorServidor" data-testid="pago-error-servidor" role="alert">
+      <i class="fas fa-exclamation-triangle"></i> {{ errorServidor }}
+    </div>
+
+    <div class="acciones">
+      <button type="button" class="btn-sec" data-testid="pago-cancelar" (click)="cancelar.emit()" [disabled]="procesando">Cancelar</button>
+      <button type="submit" class="btn-pri" data-testid="pago-confirmar" [disabled]="procesando">
+        <i class="fas" [class.fa-lock]="!procesando" [class.fa-spinner]="procesando" [class.fa-spin]="procesando"></i>
+        {{ procesando ? 'Procesando…' : 'Pagar' }}
+      </button>
+    </div>
+  </form>
+</div>

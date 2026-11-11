@@ -1,0 +1,101 @@
+<section class="mis-reservas-page" data-testid="mis-reservas">
+  <div class="container">
+    <h2>Mis reservas</h2>
+    <p class="subtitle">Consulta el estado de tus reservas de hoteles y tours.</p>
+
+    <div class="tabs" role="tablist">
+      <button role="tab" data-testid="tab-hoteles" [class.activo]="tab === 'hoteles'" (click)="cambiarTab('hoteles')">
+        <i class="fas fa-bed"></i> Hoteles <span *ngIf="hoteles">({{ hoteles.meta.total }})</span>
+      </button>
+      <button role="tab" data-testid="tab-tours" [class.activo]="tab === 'tours'" (click)="cambiarTab('tours')">
+        <i class="fas fa-route"></i> Tours <span *ngIf="tours">({{ tours.meta.total }})</span>
+      </button>
+    </div>
+
+    <div class="filtros" data-testid="filtro-estado">
+      <button *ngFor="let e of estados" class="chip" [class.activo]="estado === e.v"
+              [attr.data-testid]="'filtro-' + (e.v || 'todas')" (click)="cambiarEstado(e.v)">{{ e.t }}</button>
+    </div>
+
+    <div class="aviso ok" *ngIf="mensaje" data-testid="mensaje-ok" role="status">{{ mensaje }}</div>
+    <div class="aviso err" *ngIf="mensajeError" data-testid="mensaje-error" role="alert">{{ mensajeError }}</div>
+
+    <p *ngIf="cargando" class="cargando" data-testid="cargando">Cargando reservas…</p>
+
+    <div *ngIf="error && !cargando" class="placeholder" data-testid="error-reservas">
+      <p>{{ error }}</p>
+      <button class="btn-link" (click)="cargar()" data-testid="btn-reintentar">Reintentar</button>
+    </div>
+
+    <div *ngIf="!cargando && !error && lista.length === 0" class="placeholder" data-testid="sin-reservas">
+      <p *ngIf="!estado">Aún no tienes reservas de {{ tab === 'hoteles' ? 'hotel' : 'tours' }}.</p>
+      <p *ngIf="estado">No tienes reservas en estado «{{ etiquetaEstado(estado) }}».</p>
+      <a [routerLink]="tab === 'hoteles' ? '/hoteles' : '/tour'">Explorar {{ tab === 'hoteles' ? 'hoteles' : 'tours' }}</a>
+    </div>
+
+    <div class="reservas-list" *ngIf="!cargando && lista.length > 0">
+      <article *ngFor="let r of lista" class="reserva-card" data-testid="reserva-card"
+               [attr.data-codigo]="r.codigo" [attr.data-estado]="r.estado">
+        <div class="reserva-image-wrap"><img class="reserva-thumb" [src]="imagen(r)" [alt]="r.servicio.nombre || ''"></div>
+
+        <div class="reserva-body">
+          <div class="reserva-row">
+            <span class="reserva-title" data-testid="reserva-servicio">{{ r.servicio.nombre || 'Servicio no disponible' }}</span>
+            <span class="badge" [ngClass]="'estado-' + r.estado" data-testid="reserva-estado">{{ etiquetaEstado(r.estado) }}</span>
+            <span class="reserva-price" data-testid="reserva-total">{{ r.total | currency:'PEN':'S/ ':'1.2-2' }}</span>
+          </div>
+
+          <div class="reserva-meta">
+            <span><i class="fas fa-hashtag"></i> <strong data-testid="reserva-codigo">{{ r.codigo }}</strong></span>
+            <ng-container *ngIf="esHotel(r); else metaTour">
+              <span><i class="fas fa-door-closed"></i> {{ r.habitacion.nombre }} × {{ r.cantidad }}</span>
+              <span><i class="fas fa-calendar"></i> {{ r.fecha_inicio | date:'d MMM':'':'es' }} → {{ r.fecha_fin | date:'d MMM y':'':'es' }} ({{ r.noches }} noches)</span>
+            </ng-container>
+            <ng-template #metaTour>
+              <span *ngIf="!esHotel(r)"><i class="fas fa-calendar"></i> {{ $any(r).salida.fecha | date:'d MMM y':'':'es' }} · {{ $any(r).salida.hora }}</span>
+              <span *ngIf="!esHotel(r)"><i class="fas fa-users"></i> {{ $any(r).personas }} persona(s)</span>
+            </ng-template>
+          </div>
+
+          <div class="reserva-importes">Subtotal {{ r.subtotal | currency:'PEN':'S/ ':'1.2-2' }} · IGV {{ r.impuesto | currency:'PEN':'S/ ':'1.2-2' }}</div>
+
+          <p *ngIf="esHotel(r) && r.estado === 'pendiente'" class="nota pendiente" data-testid="nota-pendiente">
+            <i class="fas fa-hourglass-half"></i> Esperando la confirmación del hotel.
+          </p>
+          <p *ngIf="esHotel(r) && r.estado === 'rechazada'" class="nota rechazada" data-testid="motivo-rechazo">
+            <i class="fas fa-ban"></i> El hotel rechazó la solicitud: «{{ r.motivo_rechazo }}». No se trata de una cancelación tuya.
+            <a routerLink="/hoteles">Buscar otro hotel</a>
+          </p>
+          <p *ngIf="!esHotel(r) && $any(r).aviso" class="nota rechazada" data-testid="aviso-salida">
+            <i class="fas fa-exclamation-circle"></i> {{ $any(r).aviso }}
+          </p>
+          <p *ngIf="r.servicio.eliminado" class="nota">Esta publicación ya no está disponible; tu historial se conserva.</p>
+        </div>
+
+        <div class="reserva-acciones">
+          <button *ngIf="r.cancelable" class="btn-cancelar" data-testid="btn-cancelar-reserva" (click)="pedirCancelacion(r)">Cancelar</button>
+        </div>
+      </article>
+    </div>
+
+    <nav class="paginacion" *ngIf="paginas().length > 1" data-testid="paginacion" aria-label="Páginas">
+      <button [disabled]="page <= 1" (click)="irPagina(page - 1)" data-testid="pagina-anterior">‹</button>
+      <button *ngFor="let p of paginas()" [class.activo]="p === page" (click)="irPagina(p)" [attr.data-testid]="'pagina-' + p">{{ p }}</button>
+      <button [disabled]="page >= (meta?.last_page || 1)" (click)="irPagina(page + 1)" data-testid="pagina-siguiente">›</button>
+    </nav>
+  </div>
+
+  <div class="modal-backdrop" *ngIf="aCancelar" data-testid="modal-cancelar" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <h3>¿Cancelar la reserva {{ aCancelar.codigo }}?</h3>
+      <p>{{ aCancelar.servicio.nombre }} — {{ aCancelar.total | currency:'PEN':'S/ ':'1.2-2' }}</p>
+      <p class="nota">Se liberará la disponibilidad. Esta acción no se puede deshacer.</p>
+      <div class="acciones">
+        <button class="btn-sec" data-testid="cancelar-no" (click)="aCancelar = null" [disabled]="cancelando">No, mantener</button>
+        <button class="btn-danger" data-testid="cancelar-si" (click)="confirmarCancelacion()" [disabled]="cancelando">
+          {{ cancelando ? 'Cancelando…' : 'Sí, cancelar' }}
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

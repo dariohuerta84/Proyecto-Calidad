@@ -1,0 +1,38 @@
+<div class="review-form-container" data-testid="review-form">
+  <div class="form-header">
+    <h3>{{ editando ? 'Edita tu reseña' : 'Cuéntanos cómo fue tu experiencia' }}</h3>
+  </div>
+
+  <div class="rating-selector">
+    <div class="stars-container" role="radiogroup" aria-label="Calificación">
+      <button type="button" *ngFor="let num of estrellasArray" class="estrella" role="radio"
+        [attr.aria-checked]="num === calificacion" [attr.aria-label]="num + ' estrellas'"
+        [attr.data-testid]="'review-estrella-' + num"
+        [class.selected]="num <= estrellasAMostrar" [class.unselected]="num > estrellasAMostrar"
+        (click)="seleccionarCalificacion(num)"
+        (mouseenter)="onMouseEnter(num)" (mouseleave)="onMouseLeave()">★</button>
+    </div>
+    <p class="rating-hint" *ngIf="calificacion === 0">Selecciona tu calificación</p>
+  </div>
+
+  <div class="comentario-container">
+    <textarea [(ngModel)]="comentario" rows="6" maxlength="300" class="comentario-textarea"
+      placeholder="¿Qué te gustó? ¿Qué mejorarías? (10 a 300 caracteres)"
+      [class.error]="largo > MAX_CARACTERES" data-testid="review-comentario" aria-label="Comentario"></textarea>
+    <div class="caracteres-info">
+      <span class="contador-caracteres" [style.color]="contadorColor" data-testid="review-contador">{{ largo }}/{{ MAX_CARACTERES }} · mínimo {{ MIN_CARACTERES }}</span>
+    </div>
+  </div>
+
+  <div class="error-message" *ngIf="error" role="alert" data-testid="review-error">
+    <i class="fas fa-exclamation-circle"></i>
+    <div class="error-text"><p>{{ errorMessage }}</p></div>
+  </div>
+
+  <div class="form-actions">
+    <button class="btn-cancelar" (click)="cancelar()" [disabled]="submitting" type="button" data-testid="review-cancelar">Cancelar</button>
+    <button class="btn-enviar" (click)="enviarReview()" [disabled]="submitting" type="button" data-testid="review-enviar">
+      {{ submitting ? 'Enviando…' : (editando ? 'Guardar cambios' : 'Publicar') }}
+    </button>
+  </div>
+</div>
