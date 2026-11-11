@@ -61,7 +61,19 @@ proveedor, y quede preparada para Selenium (selectores estables, sin diálogos n
 
 Resultado: **61 pruebas Pest en verde** (333 aserciones).
 
-## 5. Verificación realizada
+## 5. Ajustes en el microservicio Python (incluido actualizado en este paquete)
+
+Al probar el itinerario de punta a punta (web → Laravel → FastAPI) aparecieron dos fallas de lógica:
+
+| Problema | Corrección |
+|---|---|
+| Proponía tours en días en que **no tienen salida** (o con la salida llena, cerrada o cancelada), así que el viajero no podía reservarlos | Solo propone tours con salida programada y cupo durante la estadía, en el día exacto de esa salida, e informa `salida_id`, hora y cupos. La web lo muestra ("Sale vie 20 nov a las 09:00 · 10 cupos · Ver tour") |
+| Los tours de día completo (Machu Picchu, Vinicunca: 12–14 h) **nunca se proponían** porque no cabían en 8 h, y la duración se calculaba sumando actividades (Machu Picchu salía con 4,6 h) | Usa la duración declarada del tour; un tour de más de 8 h ocupa un día vacío completo |
+
+Si no hay salidas en las fechas elegidas, responde 404 con un mensaje claro que la web muestra en el modal.
+Pruebas del microservicio: **13 en verde** (4 nuevas).
+
+## 6. Verificación realizada
 
 - `ng build` de producción sin errores.
 - Recorridos de extremo a extremo en navegador (Chromium) contra la API real:
@@ -70,6 +82,7 @@ Resultado: **61 pruebas Pest en verde** (333 aserciones).
   3. Tour: 2 personas → S/ 240.00 + S/ 43.20 = S/ 283.20, CONFIRMADA; cancelación desde Mis reservas.
   4. Proveedor: indicadores, eliminar con reservas activas (409), aceptar y rechazar (motivo corto rechazado),
      el viajero ve el motivo; nueva salida, salida duplicada (409), actividad insertada en orden 1 y movida al 2.
-  5. Reseñas: comentario corto rechazado, publicar, editar y eliminar la propia.
-  6. Perfil: actualización de nombre (se refleja en la cabecera), contraseña actual incorrecta, eliminar cuenta con reservas activas (409).
+  5. Itinerario real con los tres servicios levantados: solo sugiere tours en días con salida, muestra hora y cupos, y no suma nada al pago del hotel.
+  6. Reseñas: comentario corto rechazado, publicar, editar y eliminar la propia.
+  7. Perfil: actualización de nombre (se refleja en la cabecera), contraseña actual incorrecta, eliminar cuenta con reservas activas (409).
 - Ningún error de JavaScript ni diálogo nativo durante los recorridos.

@@ -182,6 +182,10 @@
                   <span>{{ actividad.duracion_horas }} horas</span>
                   <span class="ms-2" style="font-size: 0.85em; color: #666;">• A {{ actividad.distancia_km }} km del hotel</span>
                 </div>
+                <div class="card-salida" *ngIf="actividad.salida" data-testid="itinerario-salida">
+                  Sale {{ dia.fecha_sugerida | date:'EEE d MMM':'':'es' }} a las {{ actividad.salida.hora }} · {{ actividad.salida.cupos_disponibles }} cupos
+                  <a [routerLink]="['/tour/detalle', actividad.tour_id]" target="_blank" data-testid="itinerario-ver-tour">Ver tour</a>
+                </div>
               </div>
             </div>
           </div>

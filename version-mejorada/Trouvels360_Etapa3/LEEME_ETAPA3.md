@@ -6,14 +6,15 @@ Contenido:
 |---|---|
 | `trouvels360-frontend-angular/` | Web Angular 19 completa y corregida (sin `node_modules`) |
 | `trouvels360-backend-laravel/` | Backend de la etapa 2 **con 5 ajustes** detectados al probar la web (reemplaza al de la etapa 2) |
+| `trouvels360-itinerarios/` | Microservicio Python **con 2 correcciones** del itinerario (reemplaza al de la etapa 2) |
 
-El microservicio Python (`trouvels360-itinerarios`) no cambia: sigue valiendo el de la etapa 2.
+Las tres carpetas reemplazan a las de etapas anteriores: usa siempre las de este zip.
 
 ## Orden para levantar todo
 
 1. Backend: dentro de `trouvels360-backend-laravel`, `levantar.bat` (Docker). Si ya tenías la base de la etapa 2,
    ejecuta `docker compose exec app php artisan migrate:fresh --seed` para cargar los datos corregidos.
-2. Microservicio de itinerarios (etapa 2): `iniciar.bat`.
+2. Microservicio de itinerarios: dentro de `trouvels360-itinerarios`, `levantar.bat`.
 3. Web: dentro de `trouvels360-frontend-angular`, `iniciar-docker.bat` → http://localhost:4200
    (sin Docker: `iniciar-local.bat`, requiere Node 20+).
 
