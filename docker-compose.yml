@@ -26,14 +26,14 @@ services:
   # Backend Principal Laravel 11 (PHP 8.2 + Apache)
   backend:
     build:
-      context: ./backend-laravel
+      context: ./version-base/backend-laravel
       dockerfile: Dockerfile
     container_name: trouvels360_app
     restart: unless-stopped
     working_dir: /var/www/html
     volumes:
-      - ./backend-laravel:/var/www/html
-      - ./backend-laravel/docker/apache/000-default.conf:/etc/apache2/sites-available/000-default.conf
+      - ./version-base/backend-laravel:/var/www/html
+      - ./version-base/backend-laravel/docker/apache/000-default.conf:/etc/apache2/sites-available/000-default.conf
     ports:
       - "8000:80"
     depends_on:
@@ -45,14 +45,14 @@ services:
   # Microservicio de Itinerarios (FastAPI Python)
   itinerarios:
     build:
-      context: ./backend-itinerarios
+      context: ./version-base/backend-itinerarios
       dockerfile: Dockerfile
     container_name: trouvels360_itinerarios
     restart: unless-stopped
     env_file:
-      - ./backend-itinerarios/.env.fastapi
+      - ./version-base/backend-itinerarios/.env.fastapi
     volumes:
-      - ./backend-itinerarios/app:/app/app
+      - ./version-base/backend-itinerarios/app:/app/app
     ports:
       - "8001:8001"
     command: uvicorn app.main:app --host 0.0.0.0 --port 8001 --reload
@@ -65,14 +65,14 @@ services:
   # Frontend Web Angular
   frontend:
     build:
-      context: ./frontend-angular
+      context: ./version-base/frontend-angular
       dockerfile: Dockerfile.dev
     container_name: trouvels360_frontend
     restart: unless-stopped
     ports:
       - "4200:4200"
     volumes:
-      - ./frontend-angular:/app
+      - ./version-base/frontend-angular:/app
       - /app/node_modules
     networks:
       - trouvels360_network

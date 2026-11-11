@@ -16,6 +16,8 @@ El repositorio implementa un enfoque de pruebas en múltiples niveles:
 - **Pruebas de Servicios con Postman & Newman:** Colección completa v2.1 con aserciones `pm.test(...)` y reportería HTML interactiva (`htmlextra`).
 - **Pruebas Funcionales y de Rendimiento con Apache JMeter 5.6.3:** Catálogo de comandos `curl` listos para importar vía `Tools → Import from cURL`, plan funcional de Samplers HTTP encadenados y plan de pruebas de Carga/Stress.
 
+El proyecto conserva la solución inicial en `version-base/` y la evolución en `version-mejorada/`. La versión integrada vigente y el historial de cambios por etapa están descritos en [version-mejorada/README.md](version-mejorada/README.md).
+
 ---
 
 ## 2. Arquitectura del SUT (Sistema Bajo Prueba)
@@ -47,38 +49,19 @@ flowchart TD
 
 ```text
 Proyecto-Calidad/
-├── backend-laravel/          # Código fuente del backend principal PHP Laravel 11
-├── backend-itinerarios/      # Código fuente del microservicio Python FastAPI
-├── frontend-angular/         # Código fuente de la aplicación cliente Angular
-├── docker-compose.yml        # Orquestación de contenedores del entorno local
-├── scripts/
-│   └── start_sut.sh          # Script de verificación y configuración del SUT
-├── docs/
-│   ├── historias-usuario/
-│   │   ├── HU_Proveedor.md   # 10 Historias de Usuario del Proveedor (HU-PRO-001..010)
-│   │   └── HU_Viajero.md     # 10 Historias de Usuario del Viajero (HU-VIA-001..010)
-│   └── trazabilidad/
-│       └── Matriz_Trazabilidad_y_Defectos.md # Matriz bidireccional y reporte DEF-001..003
-├── karate-tests/             # Suite BDD con Karate Framework 1.5.2 + JUnit 5
-│   ├── pom.xml
-│   └── src/test/java/trouvels360/
-│       ├── common/           # Helpers reutilizables (CSRF y Auth JWT)
-│       ├── proveedor/        # Features BDD del rol Proveedor (CRUD)
-│       ├── viajero/          # Features BDD del rol Viajero (CRUD)
-│       └── Trouvels360Runner.java
-├── postman/                  # Pruebas de Servicios con Postman & Newman
-│   ├── Trouvels360_API.postman_collection.json # Colección v2.1 con 40 requests GET/POST/PUT/DELETE
-│   ├── Trouvels360_Local.postman_environment.json
-│   ├── package.json
-│   └── reports/              # Reportes HTML generados con Newman
-└── jmeter/                   # Apache JMeter & Catálogo cURL
-    ├── curl/
-    │   ├── Catalogo_cURL_JMeter.md # Catálogo de importación cURL a Samplers JMeter
-    │   └── run_curls_crud.sh       # Script ejecutable bash de peticiones cURL
-    ├── plans/
-    │   ├── Trouvels360_CRUD_cURL.jmx      # Plan Funcional CRUD importado de cURL
-    │   └── Trouvels360_Carga_y_Stress.jmx # Plan de Rendimiento y Carga concurrente
-    └── run_jmeter.sh         # Script runner de JMeter en modo no-GUI con dashboards HTML
+├── version-base/             # Solución original y herramientas de calidad
+│   ├── backend-laravel/
+│   ├── backend-itinerarios/
+│   ├── frontend-angular/
+│   ├── docs/, karate-tests/, postman/, jmeter/, scripts/
+├── version-mejorada/
+│   ├── producto/              # Una única copia integrada de la solución vigente
+│   │   ├── backend-laravel/
+│   │   ├── backend-itinerarios/
+│   │   ├── frontend-angular/
+│   │   └── android/
+│   └── etapas/                # Entregables y notas específicas de cada etapa
+└── docker-compose.yml         # Orquesta la solución base de version-base/
 ```
 
 ---
@@ -108,7 +91,7 @@ Proyecto-Calidad/
 | **Viajero** | `HU-VIA-009` | Generar sugerencias de itinerario optimizado | `GET`, `POST` |
 | **Viajero** | `HU-VIA-010` | Consultar, publicar y gestionar reseñas | `GET`, `POST`, `PUT`, `DELETE` |
 
-*Para el detalle completo de criterios y esquemas JSON consultar [docs/historias-usuario/](docs/historias-usuario/) y [docs/trazabilidad/](docs/trazabilidad/).*
+*Para el detalle completo de criterios y esquemas JSON consultar [version-base/docs/historias-usuario/](version-base/docs/historias-usuario/) y [version-base/docs/trazabilidad/](version-base/docs/trazabilidad/).*
 
 ---
 
@@ -117,7 +100,7 @@ Proyecto-Calidad/
 ### Prerrequisito: Iniciar el Entorno SUT
 ```bash
 # Configurar variables de entorno y levantar contenedores
-./scripts/start_sut.sh
+bash version-base/scripts/start_sut.sh
 docker compose up -d --build
 
 # Verificar que los servicios responden
@@ -127,14 +110,14 @@ curl -s http://localhost:8001/api/health
 
 ### 1. Pruebas BDD con Karate Framework
 ```bash
-cd karate-tests
+cd version-base/karate-tests
 mvn clean test
 ```
 *Reporte generado:* `karate-tests/target/karate-reports/karate-summary.html`
 
 ### 2. Pruebas de Servicios con Postman & Newman
 ```bash
-cd postman
+cd version-base/postman
 npm install
 npm test
 ```
@@ -143,14 +126,14 @@ npm test
 ### 3. Ejecución de cURL y Apache JMeter
 ```bash
 # 3.1 Ejecutar comandos cURL en terminal
-./jmeter/curl/run_curls_crud.sh
+bash version-base/jmeter/curl/run_curls_crud.sh
 
 # 3.2 Ejecutar Planes JMeter (CRUD Funcional + Carga) y generar Dashboards HTML
-./jmeter/run_jmeter.sh
+bash version-base/jmeter/run_jmeter.sh
 ```
 *Dashboards generados:*
-- `jmeter/reports/crud-dashboard/index.html` (Pruebas Funcionales CRUD)
-- `jmeter/reports/load-dashboard/index.html` (Pruebas de Carga y Rendimiento)
+- `version-base/jmeter/reports/crud-dashboard/index.html` (Pruebas Funcionales CRUD)
+- `version-base/jmeter/reports/load-dashboard/index.html` (Pruebas de Carga y Rendimiento)
 
 ---
 
