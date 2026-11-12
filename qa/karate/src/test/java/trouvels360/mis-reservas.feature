@@ -1,5 +1,5 @@
 @mis-reservas
-Feature: Mis reservas y cancelación por el viajero (TRV-401, TRV-402)
+Feature: Mis reservas y cancelación por el viajero (HU-V11, HU-V13)
 
   Background:
     * url baseUrl
@@ -16,7 +16,7 @@ Feature: Mis reservas y cancelación por el viajero (TRV-401, TRV-402)
     * def solicitar = function(s){ return karate.call('classpath:trouvels360/helpers/reservar-hotel.feature', { sesion: s, fecha_inicio: fecha(dia), fecha_fin: fecha(dia + 2), items: [{ habitacion_id: habId, cantidad: 1 }] }) }
     * def disponibles = function(){ var r = karate.http(baseUrl + '/hoteles/' + h.hotelId + '/disponibilidad').param('check_in', rango.check_in).param('check_out', rango.check_out).param('adultos', '1').param('habitaciones', '1').header('Accept', 'application/json').get(); return r.body.data.habitaciones[0].unidades_disponibles }
 
-  @TRV-401 @TC-API-044
+  @HU-V11 @TC-API-044
   Scenario: Listado paginado con solo las reservas propias (hotel y tour)
     * def nuevo = call read('classpath:trouvels360/helpers/registrar.feature') { datos: { rol: 'viajero', email: '#(correo("qa.mis"))', password: 'Clave123', nombre: 'QA', apellido: 'Mis' } }
     * def a = solicitar(nuevo)
@@ -45,7 +45,7 @@ Feature: Mis reservas y cancelación por el viajero (TRV-401, TRV-402)
     And match response.meta.total == 1
     And match each response.data == reservaTourSchema
 
-  @TRV-401 @TC-API-045
+  @HU-V12 @TC-API-045
   Scenario: El viajero ve el estado tras aceptar y el motivo tras rechazar
     * def a = solicitar(S.viajero2)
     * def b = solicitar(S.viajero2)
@@ -69,7 +69,7 @@ Feature: Mis reservas y cancelación por el viajero (TRV-401, TRV-402)
     Then status 200
     And match response.data contains { estado: 'rechazada', motivo_rechazo: 'No hay disponibilidad por evento privado.', cancelable: false }
 
-  @TRV-401 @TC-API-046
+  @HU-V11 @TC-API-046
   Scenario: Consultar una reserva ajena devuelve 404 (no revela que existe)
     * def a = solicitar(S.viajero2)
     * eval como(S.viajero)
@@ -81,7 +81,7 @@ Feature: Mis reservas y cancelación por el viajero (TRV-401, TRV-402)
     When method get
     Then status 401
 
-  @TRV-402 @TC-API-047
+  @HU-V13 @TC-API-047
   Scenario: Cancelar una reserva de hotel la deja CANCELADA y libera las unidades
     * def antes = disponibles()
     * def a = solicitar(S.viajero2)
@@ -94,7 +94,7 @@ Feature: Mis reservas y cancelación por el viajero (TRV-401, TRV-402)
     And match response.data contains { estado: 'cancelada', cancelado_en: '#string', cancelable: false }
     * match disponibles() == antes
 
-  @TRV-402 @TC-API-048
+  @HU-V13 @TC-API-048
   Scenario: Cancelar un tour devuelve exactamente las personas al cupo
     * def t = call read('classpath:trouvels360/helpers/tour-propio.feature') { sesion: '#(S.proveedor)', cupo: 10 }
     * def r1 = call reservarTour { sesion: '#(S.viajero2)', salidaId: '#(t.salidaId)', personas: 2 }
@@ -109,7 +109,7 @@ Feature: Mis reservas y cancelación por el viajero (TRV-401, TRV-402)
     * def s = call leerSalida { sesion: '#(S.proveedor)', tourId: '#(t.tourId)', salidaId: '#(t.salidaId)' }
     * match s.salida.cupo_reservado == 2
 
-  @TRV-402 @TC-API-049
+  @HU-V13 @TC-API-049
   Scenario: Cancelar dos veces → 409; cancelar una rechazada → 409; cancelar una ajena → 404
     * def a = solicitar(S.viajero2)
     * def idA = a.body.data.reservas[0].id

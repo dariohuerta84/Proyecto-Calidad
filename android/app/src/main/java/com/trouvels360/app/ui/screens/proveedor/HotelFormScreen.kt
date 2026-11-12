@@ -105,7 +105,7 @@ class HotelFormViewModel : ViewModel() {
     var mensaje by mutableStateOf<String?>(null); private set
     var mensajeError by mutableStateOf<String?>(null); private set
 
-    // Edición de un tipo (TRV-503)
+    // Edición de un tipo (HU-P07)
     var habEditando by mutableStateOf<HabitacionForm?>(null); private set
     var erroresHab by mutableStateOf(mapOf<String, String>()); private set
     var guardandoHab by mutableStateOf(false); private set
@@ -151,7 +151,7 @@ class HotelFormViewModel : ViewModel() {
         }
     }
 
-    /** TRV-502 — Crear (un solo POST con habitaciones) o actualizar los datos del hotel. */
+    /** HU-P05 — Crear (un solo POST con habitaciones) o actualizar los datos del hotel. */
     fun guardar(onCreado: () -> Unit) {
         val e = validar()
         errores = e; mensaje = null; mensajeError = null
@@ -178,7 +178,7 @@ class HotelFormViewModel : ViewModel() {
     fun abrirHabitacion(h: HabitacionForm?) { habEditando = h ?: HabitacionForm(); erroresHab = emptyMap() }
     fun cerrarHabitacion() { if (!guardandoHab) habEditando = null }
 
-    /** TRV-503 — Crear o editar un tipo de habitación de un hotel existente. */
+    /** HU-P07 — Crear o editar un tipo de habitación de un hotel existente. */
     fun guardarHabitacion() {
         val h = habEditando ?: return
         val id = hotelId ?: return

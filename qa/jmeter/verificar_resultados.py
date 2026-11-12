@@ -14,9 +14,9 @@ CRITERIOS = {
     "TC-PERF-006": (1500, 1.0),
 }
 NOMBRES = {
-    "TC-PERF-001": "Login 50 usuarios (TRV-103)", "TC-PERF-002": "Catálogo de hoteles 100 usuarios (TRV-201)",
-    "TC-PERF-003": "Última habitación 20 hilos (TRV-203)", "TC-PERF-004": "Búsqueda de tours 100 usuarios (TRV-301)",
-    "TC-PERF-005": "Cupos de tour 30 hilos (TRV-303)", "TC-PERF-006": "Panel del proveedor 30 usuarios (TRV-501)",
+    "TC-PERF-001": "Login 50 usuarios (HU-V02)", "TC-PERF-002": "Catálogo de hoteles 100 usuarios (HU-V05)",
+    "TC-PERF-003": "Última habitación 20 hilos (HU-V07)", "TC-PERF-004": "Búsqueda de tours 100 usuarios (HU-V08)",
+    "TC-PERF-005": "Cupos de tour 30 hilos (HU-V10)", "TC-PERF-006": "Panel del proveedor 30 usuarios (HU-P03/HU-P04)",
 }
 
 

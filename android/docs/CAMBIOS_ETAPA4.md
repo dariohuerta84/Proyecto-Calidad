@@ -21,16 +21,16 @@ etapas 2 y 3 sin atajos, y quede lista para Appium.
 
 ## 2. Pantallas nuevas del proveedor
 
-- **Panel** (TRV-501): indicadores (por decidir, confirmadas, rechazadas, canceladas, ingresos del mes,
+- **Panel** (HU-P04): indicadores (por decidir, confirmadas, rechazadas, canceladas, ingresos del mes,
   calificación), publicaciones paginadas con filtro por tipo y nombre, conteos por estado.
-- **Reservas recibidas** (TRV-507, TRV-204): filtros por tipo, estado y publicación; aceptar; rechazar con
+- **Reservas recibidas** (HU-P12, HU-P13): filtros por tipo, estado y publicación; aceptar; rechazar con
   motivo de 10–300 caracteres (se valida en la app y en la API).
-- **Hotel** (TRV-502, TRV-503): publicar con sus tipos de habitación en un solo envío; al editar, cada tipo
+- **Hotel** (HU-P05, HU-P07): publicar con sus tipos de habitación en un solo envío; al editar, cada tipo
   se agrega, edita o quita por separado (la API responde 409 si tiene reservas activas).
-- **Tour** (TRV-504): publicar con salidas iniciales; al editar no se tocan las salidas.
-- **Salidas y actividades** (TRV-505, TRV-506): programar, editar cupo (no por debajo de lo reservado),
+- **Tour** (HU-P08): publicar con salidas iniciales; al editar no se tocan las salidas.
+- **Salidas y actividades** (HU-P10, HU-P11): programar, editar cupo (no por debajo de lo reservado),
   cerrar, reabrir, cancelar y eliminar salidas; actividades con orden, subir/bajar.
-- **Eliminar publicación** (TRV-508): confirmación y mensaje del 409.
+- **Eliminar publicación** (HU-P15): confirmación y mensaje del 409.
 
 ## 3. Backend
 

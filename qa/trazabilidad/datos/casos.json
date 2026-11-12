@@ -1,0 +1,648 @@
+{
+ "_descripcion": "Catálogo de casos de prueba: título, herramienta y, si es manual, sus pasos.",
+ "casos": {
+  "TC-API-001": {
+   "titulo": "Registro viajero válido devuelve 201 y esquema de usuario sin password",
+   "herramienta": "Karate"
+  },
+  "TC-API-002": {
+   "titulo": "Data-driven (CSV) de campos inválidos devuelve 422 con error por campo",
+   "herramienta": "Karate"
+  },
+  "TC-API-003": {
+   "titulo": "Correo duplicado en mayúsculas devuelve 422",
+   "herramienta": "Karate"
+  },
+  "TC-API-004": {
+   "titulo": "Rol 'admin' devuelve 422",
+   "herramienta": "Karate"
+  },
+  "TC-API-005": {
+   "titulo": "Registro proveedor normaliza '987654321' a '+51 987654321'",
+   "herramienta": "Karate"
+  },
+  "TC-API-006": {
+   "titulo": "Data-driven de RUC inválidos y duplicado (422)",
+   "herramienta": "Karate"
+  },
+  "TC-API-007": {
+   "titulo": "Teléfonos inválidos devuelven 422 con mensaje",
+   "herramienta": "Karate"
+  },
+  "TC-API-008": {
+   "titulo": "Login devuelve 200, cookie access_token HttpOnly y esquema de usuario",
+   "herramienta": "Karate"
+  },
+  "TC-API-009": {
+   "titulo": "POST sin X-XSRF-TOKEN devuelve 403",
+   "herramienta": "Karate"
+  },
+  "TC-API-010": {
+   "titulo": "Credenciales inválidas 401 y faltantes 422",
+   "herramienta": "Karate"
+  },
+  "TC-API-011": {
+   "titulo": "Token reutilizado tras logout devuelve 401",
+   "herramienta": "Karate"
+  },
+  "TC-API-012": {
+   "titulo": "Viajero en ruta de proveedor devuelve 403",
+   "herramienta": "Karate"
+  },
+  "TC-API-013": {
+   "titulo": "PATCH /usuarios/me actualiza y GET /auth/me devuelve lo mismo",
+   "herramienta": "Karate"
+  },
+  "TC-API-014": {
+   "titulo": "Avatar y teléfono inválidos devuelven 422",
+   "herramienta": "Karate"
+  },
+  "TC-API-015": {
+   "titulo": "Enviar rol devuelve 422",
+   "herramienta": "Karate"
+  },
+  "TC-API-016": {
+   "titulo": "Cambio de contraseña: login con nueva 200 y con anterior 401",
+   "herramienta": "Karate"
+  },
+  "TC-API-017": {
+   "titulo": "DELETE con reserva activa devuelve 409",
+   "herramienta": "Karate"
+  },
+  "TC-API-018": {
+   "titulo": "DELETE sin reservas devuelve 200 y login posterior 401",
+   "herramienta": "Karate"
+  },
+  "TC-API-019": {
+   "titulo": "Reservas de la cuenta eliminada siguen visibles para el proveedor",
+   "herramienta": "Karate"
+  },
+  "TC-API-020": {
+   "titulo": "Búsqueda válida: todos los resultados cumplen ciudad, capacidad y unidades (match each)",
+   "herramienta": "Karate"
+  },
+  "TC-API-021": {
+   "titulo": "Data-driven de fechas y cantidades inválidas devuelve 422",
+   "herramienta": "Karate"
+  },
+  "TC-API-022": {
+   "titulo": "Hotel con unidades ocupadas por reservas pendientes no aparece",
+   "herramienta": "Karate"
+  },
+  "TC-API-023": {
+   "titulo": "Esquema JSON del detalle de hotel (habitaciones, calificación, reseñas)",
+   "herramienta": "Karate"
+  },
+  "TC-API-024": {
+   "titulo": "Cotización data-driven (CSV) con tarifas, noches y unidades → subtotal, igv, total exactos",
+   "herramienta": "Karate"
+  },
+  "TC-API-025": {
+   "titulo": "Cotizar más unidades que las libres devuelve 422",
+   "herramienta": "Karate"
+  },
+  "TC-API-026": {
+   "titulo": "Reserva válida 201: estado pendiente, código único, subtotal/igv/total = cotización",
+   "herramienta": "Karate"
+  },
+  "TC-API-027": {
+   "titulo": "Data-driven de tarjetas inválidas (Luhn, vencida, CVC) → 422 sin reserva creada",
+   "herramienta": "Karate"
+  },
+  "TC-API-028": {
+   "titulo": "Disponibilidad tras reservar descuenta las unidades",
+   "herramienta": "Karate"
+  },
+  "TC-API-029": {
+   "titulo": "Varios tipos con uno sin stock → 409 y ninguno registrado",
+   "herramienta": "Karate"
+  },
+  "TC-API-030": {
+   "titulo": "Mismo Idempotency-Key devuelve la misma solicitud",
+   "herramienta": "Karate"
+  },
+  "TC-API-031": {
+   "titulo": "Flujo encadenado (call): viajero reserva → proveedor acepta → viajero ve confirmada",
+   "herramienta": "Karate"
+  },
+  "TC-API-032": {
+   "titulo": "Rechazo libera unidades: disponibilidad antes y después",
+   "herramienta": "Karate"
+  },
+  "TC-API-033": {
+   "titulo": "Aceptar dos veces → 409; aceptar una cancelada → 409",
+   "herramienta": "Karate"
+  },
+  "TC-API-034": {
+   "titulo": "Proveedor B sobre reserva de proveedor A → 403",
+   "herramienta": "Karate"
+  },
+  "TC-API-035": {
+   "titulo": "Rechazo sin motivo → 422",
+   "herramienta": "Karate"
+  },
+  "TC-API-036": {
+   "titulo": "Filtros combinados: todos los resultados cumplen destino y categoría (match each)",
+   "herramienta": "Karate"
+  },
+  "TC-API-037": {
+   "titulo": "Data-driven de filtros inválidos → 422",
+   "herramienta": "Karate"
+  },
+  "TC-API-038": {
+   "titulo": "Esquema del detalle; ninguna salida devuelta es pasada ni no programada",
+   "herramienta": "Karate"
+  },
+  "TC-API-039": {
+   "titulo": "Cotización de tour data-driven (precio × personas + 18%)",
+   "herramienta": "Karate"
+  },
+  "TC-API-040": {
+   "titulo": "Cotizar más personas que el cupo → 422",
+   "herramienta": "Karate"
+  },
+  "TC-API-041": {
+   "titulo": "Reserva 201: estado confirmada, total = cotización, cupo_reservado += personas",
+   "herramienta": "Karate"
+  },
+  "TC-API-042": {
+   "titulo": "Salida cerrada / pasada / sin cupo → 409 o 422 y cupos sin cambio",
+   "herramienta": "Karate"
+  },
+  "TC-API-043": {
+   "titulo": "Idempotencia: dos envíos, una sola reserva y un solo descuento",
+   "herramienta": "Karate"
+  },
+  "TC-API-044": {
+   "titulo": "Esquema paginado (data, meta.total, meta.last_page) y solo reservas propias",
+   "herramienta": "Karate"
+  },
+  "TC-API-045": {
+   "titulo": "Estado tras aceptar y tras rechazar (con motivo)",
+   "herramienta": "Karate"
+  },
+  "TC-API-046": {
+   "titulo": "Reserva ajena → 404",
+   "herramienta": "Karate"
+  },
+  "TC-API-047": {
+   "titulo": "Cancelar hotel: estado cancelada y unidades liberadas",
+   "herramienta": "Karate"
+  },
+  "TC-API-048": {
+   "titulo": "Cancelar tour devuelve exactamente las personas al cupo",
+   "herramienta": "Karate"
+  },
+  "TC-API-049": {
+   "titulo": "Cancelar dos veces → 409; cancelar rechazada → 409; ajena → 404",
+   "herramienta": "Karate"
+  },
+  "TC-API-050": {
+   "titulo": "Resumen: promedio y total coinciden con el conjunto completo",
+   "herramienta": "Karate"
+  },
+  "TC-API-051": {
+   "titulo": "Publicar con reserva finalizada 201; sin reserva 403 con mensaje",
+   "herramienta": "Karate"
+  },
+  "TC-API-052": {
+   "titulo": "Data-driven de longitudes de comentario y calificaciones fuera de rango → 422",
+   "herramienta": "Karate"
+  },
+  "TC-API-053": {
+   "titulo": "Editar/eliminar reseña ajena → 403; segunda reseña → 409",
+   "herramienta": "Karate"
+  },
+  "TC-API-054": {
+   "titulo": "Itinerario válido: esquema de días y actividades",
+   "herramienta": "Karate"
+  },
+  "TC-API-055": {
+   "titulo": "Interés inválido → 422",
+   "herramienta": "Karate"
+  },
+  "TC-API-056": {
+   "titulo": "Paginación: meta.total, last_page y página 2 con los registros 16+",
+   "herramienta": "Karate"
+  },
+  "TC-API-057": {
+   "titulo": "Indicadores por estado tras crear reservas en 4 estados",
+   "herramienta": "Karate"
+  },
+  "TC-API-058": {
+   "titulo": "Viajero en /proveedor/servicios → 403",
+   "herramienta": "Karate"
+  },
+  "TC-API-059": {
+   "titulo": "Crear hotel con habitaciones y verificar en el catálogo",
+   "herramienta": "Karate"
+  },
+  "TC-API-060": {
+   "titulo": "6 imágenes → 422",
+   "herramienta": "Karate"
+  },
+  "TC-API-061": {
+   "titulo": "Editar hotel ajeno → 403",
+   "herramienta": "Karate"
+  },
+  "TC-API-062": {
+   "titulo": "Reducir unidades bajo ocupación → 409 con mínimo",
+   "herramienta": "Karate"
+  },
+  "TC-API-063": {
+   "titulo": "Eliminar con reservas → 409; sin reservas → 204",
+   "herramienta": "Karate"
+  },
+  "TC-API-064": {
+   "titulo": "Cambio de tarifa no altera total de reservas previas",
+   "herramienta": "Karate"
+  },
+  "TC-API-065": {
+   "titulo": "Crear tour y verificar en catálogo",
+   "herramienta": "Karate"
+  },
+  "TC-API-066": {
+   "titulo": "Editar precio: ids de salidas y totales de reservas sin cambio",
+   "herramienta": "Karate"
+  },
+  "TC-API-067": {
+   "titulo": "Data-driven de límites (imágenes, items, categoría) → 422",
+   "herramienta": "Karate"
+  },
+  "TC-API-068": {
+   "titulo": "Dos actividades sin orden reciben 1 y 2",
+   "herramienta": "Karate"
+  },
+  "TC-API-069": {
+   "titulo": "Actividad en tour ajeno → 403",
+   "herramienta": "Karate"
+  },
+  "TC-API-070": {
+   "titulo": "Salida duplicada → 409; fecha pasada → 422",
+   "herramienta": "Karate"
+  },
+  "TC-API-071": {
+   "titulo": "cupo_total menor a reservado → 422; cupo_reservado enviado se ignora",
+   "herramienta": "Karate"
+  },
+  "TC-API-072": {
+   "titulo": "Salida cerrada rechaza reservas (call a reserva de viajero)",
+   "herramienta": "Karate"
+  },
+  "TC-API-073": {
+   "titulo": "Solo reservas de servicios propios (match each servicio.proveedor_id)",
+   "herramienta": "Karate"
+  },
+  "TC-API-074": {
+   "titulo": "Filtro estado=pendiente",
+   "herramienta": "Karate"
+  },
+  "TC-API-075": {
+   "titulo": "Detalle ajeno → 404",
+   "herramienta": "Karate"
+  },
+  "TC-API-076": {
+   "titulo": "Eliminar servicio ajeno → 403 (seguridad)",
+   "herramienta": "Karate"
+  },
+  "TC-API-077": {
+   "titulo": "Con reserva activa → 409",
+   "herramienta": "Karate"
+  },
+  "TC-API-078": {
+   "titulo": "Tras eliminar, GET /mis-reservas del viajero sigue 200 con el nombre del servicio",
+   "herramienta": "Karate"
+  },
+  "TC-API-079": {
+   "titulo": "Cambiar la fecha de salida recalcula el total y no crea reserva",
+   "herramienta": "Karate"
+  },
+  "TC-API-080": {
+   "titulo": "Tour sin salidas disponibles: detalle sin salidas y cotizar 409",
+   "herramienta": "Karate"
+  },
+  "TC-API-081": {
+   "titulo": "Pago de tour inválido (CSV) no crea reserva ni descuenta cupos",
+   "herramienta": "Karate"
+  },
+  "TC-API-082": {
+   "titulo": "Salida cancelada por el proveedor: reserva confirmada con aviso",
+   "herramienta": "Karate"
+  },
+  "TC-API-083": {
+   "titulo": "Editar descripción e imágenes conserva id y reservas",
+   "herramienta": "Karate"
+  },
+  "TC-API-084": {
+   "titulo": "Tipo de habitación inválido: no queda hotel a medias",
+   "herramienta": "Karate"
+  },
+  "TC-API-085": {
+   "titulo": "Tarifa 0 → 422 y tipo ajeno → 403 sin cambios",
+   "herramienta": "Karate"
+  },
+  "TC-API-086": {
+   "titulo": "Repetir la eliminación devuelve 404 sin efectos",
+   "herramienta": "Karate"
+  },
+  "TC-WEB-001": {
+   "titulo": "Registro de viajero end-to-end y aterrizaje en catálogo",
+   "herramienta": "Selenium"
+  },
+  "TC-WEB-002": {
+   "titulo": "Mensajes de validación en el formulario",
+   "herramienta": "Selenium"
+  },
+  "TC-WEB-003": {
+   "titulo": "Registro de proveedor y acceso al panel del proveedor",
+   "herramienta": "Selenium"
+  },
+  "TC-WEB-004": {
+   "titulo": "Login viajero y proveedor muestran el menú de su rol",
+   "herramienta": "Selenium"
+  },
+  "TC-WEB-005": {
+   "titulo": "Login desde 'Reservar' vuelve al detalle con la selección",
+   "herramienta": "Selenium"
+  },
+  "TC-WEB-006": {
+   "titulo": "Editar perfil y ver el nombre actualizado en el menú",
+   "herramienta": "Selenium"
+  },
+  "TC-WEB-007": {
+   "titulo": "Diálogo de confirmación: cancelar conserva la cuenta",
+   "herramienta": "Selenium"
+  },
+  "TC-WEB-008": {
+   "titulo": "Búsqueda en Cusco y validación de tarjetas de resultado",
+   "herramienta": "Selenium"
+  },
+  "TC-WEB-009": {
+   "titulo": "Validación de fechas pasadas en el buscador",
+   "herramienta": "Selenium"
+  },
+  "TC-WEB-010": {
+   "titulo": "Selección de 2 tipos y verificación del resumen con IGV",
+   "herramienta": "Selenium"
+  },
+  "TC-WEB-011": {
+   "titulo": "Flujo completo búsqueda → selección → pago → comprobante PENDIENTE",
+   "herramienta": "Selenium"
+  },
+  "TC-WEB-012": {
+   "titulo": "Validaciones del formulario de pago",
+   "herramienta": "Selenium"
+  },
+  "TC-WEB-013": {
+   "titulo": "Proveedor acepta desde el panel y el viajero ve CONFIRMADA (dos navegadores)",
+   "herramienta": "Selenium"
+  },
+  "TC-WEB-014": {
+   "titulo": "Proveedor rechaza con motivo y el viajero ve RECHAZADA",
+   "herramienta": "Selenium"
+  },
+  "TC-WEB-015": {
+   "titulo": "Filtrar por categoría y destino",
+   "herramienta": "Selenium"
+  },
+  "TC-WEB-016": {
+   "titulo": "Elegir salida y personas, verificar total con IGV",
+   "herramienta": "Selenium"
+  },
+  "TC-WEB-017": {
+   "titulo": "Reserva de tour end-to-end con comprobante CONFIRMADA",
+   "herramienta": "Selenium"
+  },
+  "TC-WEB-018": {
+   "titulo": "Mis reservas: pestañas hotel/tour, filtro por estado y paginación",
+   "herramienta": "Selenium"
+  },
+  "TC-WEB-019": {
+   "titulo": "Reserva rechazada muestra motivo",
+   "herramienta": "Selenium"
+  },
+  "TC-WEB-020": {
+   "titulo": "Cancelar desde Mis reservas con diálogo de confirmación",
+   "herramienta": "Selenium"
+  },
+  "TC-WEB-021": {
+   "titulo": "Publicar, editar y eliminar reseña en el detalle",
+   "herramienta": "Selenium"
+  },
+  "TC-WEB-022": {
+   "titulo": "Generar itinerario desde el detalle del hotel",
+   "herramienta": "Selenium"
+  },
+  "TC-WEB-023": {
+   "titulo": "Panel: paginación y tarjetas de indicadores",
+   "herramienta": "Selenium"
+  },
+  "TC-WEB-024": {
+   "titulo": "Crear hotel desde el formulario del proveedor",
+   "herramienta": "Selenium"
+  },
+  "TC-WEB-025": {
+   "titulo": "Agregar y editar tipo de habitación",
+   "herramienta": "Selenium"
+  },
+  "TC-WEB-026": {
+   "titulo": "Crear tour con salida desde el formulario",
+   "herramienta": "Selenium"
+  },
+  "TC-WEB-027": {
+   "titulo": "Agregar, reordenar y eliminar actividades",
+   "herramienta": "Selenium"
+  },
+  "TC-WEB-028": {
+   "titulo": "Crear, cerrar y eliminar salida desde el panel",
+   "herramienta": "Selenium"
+  },
+  "TC-WEB-029": {
+   "titulo": "Bandeja de reservas con filtros y paginación",
+   "herramienta": "Selenium"
+  },
+  "TC-WEB-030": {
+   "titulo": "Eliminar publicación con diálogo de confirmación",
+   "herramienta": "Selenium"
+  },
+  "TC-WEB-031": {
+   "titulo": "Volver desde el detalle conserva la búsqueda (hoteles y tours)",
+   "herramienta": "Selenium"
+  },
+  "TC-WEB-032": {
+   "titulo": "Sin resultados vs. error con Reintentar (tours y bandeja del proveedor)",
+   "herramienta": "Selenium"
+  },
+  "TC-WEB-033": {
+   "titulo": "Sesión vencida: 401, login y regreso a la página",
+   "herramienta": "Selenium"
+  },
+  "TC-MOB-001": {
+   "titulo": "Registro de viajero desde la app y sesión iniciada",
+   "herramienta": "Appium"
+  },
+  "TC-MOB-002": {
+   "titulo": "Botón Registrarme deshabilitado con contraseñas distintas",
+   "herramienta": "Appium"
+  },
+  "TC-MOB-003": {
+   "titulo": "Registro de proveedor desde la app y acceso al panel",
+   "herramienta": "Appium"
+  },
+  "TC-MOB-004": {
+   "titulo": "Login, cierre de sesión y bloqueo de pestañas privadas",
+   "herramienta": "Appium"
+  },
+  "TC-MOB-005": {
+   "titulo": "Reservar sin sesión → login → regreso al detalle",
+   "herramienta": "Appium"
+  },
+  "TC-MOB-006": {
+   "titulo": "Editar perfil en la app y verificarlo en la pestaña Perfil",
+   "herramienta": "Appium"
+  },
+  "TC-MOB-007": {
+   "titulo": "Cambio de contraseña con confirmación distinta deshabilita Guardar",
+   "herramienta": "Appium"
+  },
+  "TC-MOB-008": {
+   "titulo": "Eliminar cuenta desde Perfil y volver a la pantalla de login",
+   "herramienta": "Appium"
+  },
+  "TC-MOB-009": {
+   "titulo": "Búsqueda por ciudad y fechas en la app",
+   "herramienta": "Appium"
+  },
+  "TC-MOB-010": {
+   "titulo": "Estado vacío vs error con Reintentar",
+   "herramienta": "Appium"
+  },
+  "TC-MOB-011": {
+   "titulo": "Selección de habitaciones y total con IGV en la app",
+   "herramienta": "Appium"
+  },
+  "TC-MOB-012": {
+   "titulo": "Botón + deshabilitado al llegar a las unidades disponibles",
+   "herramienta": "Appium"
+  },
+  "TC-MOB-013": {
+   "titulo": "Flujo completo de reserva de hotel en la app",
+   "herramienta": "Appium"
+  },
+  "TC-MOB-014": {
+   "titulo": "Formulario de pago rechaza tarjeta vencida",
+   "herramienta": "Appium"
+  },
+  "TC-MOB-015": {
+   "titulo": "Proveedor acepta una solicitud desde la app",
+   "herramienta": "Appium"
+  },
+  "TC-MOB-016": {
+   "titulo": "Proveedor rechaza con motivo desde la app",
+   "herramienta": "Appium"
+  },
+  "TC-MOB-017": {
+   "titulo": "Chips de categoría y búsqueda por destino",
+   "herramienta": "Appium"
+  },
+  "TC-MOB-018": {
+   "titulo": "Elegir salida y personas en la app; + se deshabilita al tope de cupos",
+   "herramienta": "Appium"
+  },
+  "TC-MOB-019": {
+   "titulo": "Reserva de tour end-to-end en la app",
+   "herramienta": "Appium"
+  },
+  "TC-MOB-020": {
+   "titulo": "Mis reservas en la app coincide con la web (mismo código y total)",
+   "herramienta": "Appium"
+  },
+  "TC-MOB-021": {
+   "titulo": "Scroll infinito / paginación de reservas",
+   "herramienta": "Appium"
+  },
+  "TC-MOB-022": {
+   "titulo": "Cancelar desde la app y ver estado CANCELADA",
+   "herramienta": "Appium"
+  },
+  "TC-MOB-023": {
+   "titulo": "Publicar reseña desde la app",
+   "herramienta": "Appium"
+  },
+  "TC-MOB-024": {
+   "titulo": "Generar itinerario en la app y continuar con la reserva",
+   "herramienta": "Appium"
+  },
+  "TC-MOB-025": {
+   "titulo": "Panel del proveedor en la app con indicadores",
+   "herramienta": "Appium"
+  },
+  "TC-MOB-026": {
+   "titulo": "Crear hotel desde la app del proveedor",
+   "herramienta": "Appium"
+  },
+  "TC-MOB-027": {
+   "titulo": "Agregar tipo de habitación en la app",
+   "herramienta": "Appium"
+  },
+  "TC-MOB-028": {
+   "titulo": "Crear tour desde la app",
+   "herramienta": "Appium"
+  },
+  "TC-MOB-029": {
+   "titulo": "Agregar actividad desde la app",
+   "herramienta": "Appium"
+  },
+  "TC-MOB-030": {
+   "titulo": "Crear y cerrar salida desde la app",
+   "herramienta": "Appium"
+  },
+  "TC-MOB-031": {
+   "titulo": "Bandeja de reservas en la app",
+   "herramienta": "Appium"
+  },
+  "TC-MOB-032": {
+   "titulo": "Eliminar publicación desde la app",
+   "herramienta": "Appium"
+  },
+  "TC-PERF-001": {
+   "titulo": "Login con 50 usuarios concurrentes desde CSV: p95 < 800 ms, 0% errores",
+   "herramienta": "JMeter"
+  },
+  "TC-PERF-002": {
+   "titulo": "Carga de catálogo: 100 usuarios, ramp-up 60 s, ciudades desde CSV, p95 < 1 s",
+   "herramienta": "JMeter"
+  },
+  "TC-PERF-003": {
+   "titulo": "20 hilos simultáneos (Synchronizing Timer) por la última unidad: exactamente 1×201 y 19×409",
+   "herramienta": "JMeter"
+  },
+  "TC-PERF-004": {
+   "titulo": "Carga de búsqueda de tours: 100 usuarios, categorías desde CSV, p95 < 1 s",
+   "herramienta": "JMeter"
+  },
+  "TC-PERF-005": {
+   "titulo": "30 hilos simultáneos sobre salida de 10 cupos: suma de personas confirmadas <= 10",
+   "herramienta": "JMeter"
+  },
+  "TC-PERF-006": {
+   "titulo": "Panel del proveedor con 30 usuarios concurrentes, p95 < 1,5 s",
+   "herramienta": "JMeter"
+  },
+  "TC-MAN-001": {
+   "titulo": "Error de servidor al guardar el perfil: mensaje con reintentar y sin éxito falso",
+   "herramienta": "Manual",
+   "pasos": "Con la sesión abierta en Mi cuenta, detener el backend (o bloquear /api/auth/me en DevTools > Network request blocking), cambiar el nombre y Guardar. Esperado: mensaje de error, el nombre del menú no cambia; al reactivar y reintentar se guarda."
+  },
+  "TC-MAN-002": {
+   "titulo": "Corte de conexión al cancelar: al refrescar se ve el estado real",
+   "herramienta": "Manual",
+   "pasos": "En Mis reservas, con DevTools en 'Offline' justo después de pulsar 'Sí, cancelar', volver a 'Online' y refrescar. Esperado: no aparece un mensaje de éxito falso; la tarjeta muestra el estado guardado en la API (TC-API-049 confirma que repetir la cancelación es seguro)."
+  },
+  "TC-MAN-003": {
+   "titulo": "Microservicio de itinerarios caído: aviso con Reintentar y se puede seguir con el hotel",
+   "herramienta": "Manual",
+   "pasos": "Detener el microservicio Python (:8001), en el detalle del hotel pulsar Reservar → 'Sí, generar itinerario'. Esperado: 'No pudimos generar el itinerario…' con opción de reintentar y 'No, continuar al pago' funciona. La API responde 503 con success=false."
+  }
+ }
+}

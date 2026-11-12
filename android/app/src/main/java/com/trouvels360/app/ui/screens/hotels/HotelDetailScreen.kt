@@ -86,7 +86,7 @@ class HotelDetailViewModel : ViewModel() {
     val seleccion = mutableStateMapOf<Int, Int>()
     var aviso by mutableStateOf<String?>(null)
 
-    // Itinerario sugerido (TRV-404)
+    // Itinerario sugerido (HU-V15)
     var preguntarItinerario by mutableStateOf(false)
     var interes by mutableStateOf("Cultura")
     var generando by mutableStateOf(false); private set
@@ -115,7 +115,7 @@ class HotelDetailViewModel : ViewModel() {
             return ChronoUnit.DAYS.between(a, b)
         }
 
-    /** TRV-202: unidades libres reales para las fechas (se recalcula al cambiarlas). */
+    /** HU-V06: unidades libres reales para las fechas (se recalcula al cambiarlas). */
     fun consultarDisponibilidad() {
         val id = loadedId ?: return
         val b = BusquedaHotel
@@ -193,8 +193,8 @@ class HotelDetailViewModel : ViewModel() {
 }
 
 /**
- * TRV-202 Detalle del hotel con disponibilidad por fechas y selección de habitaciones.
- * TRV-404 Antes de pagar ofrece (opcional) un itinerario sugerido que no se cobra.
+ * HU-V06 Detalle del hotel con disponibilidad por fechas y selección de habitaciones.
+ * HU-V15 Antes de pagar ofrece (opcional) un itinerario sugerido que no se cobra.
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

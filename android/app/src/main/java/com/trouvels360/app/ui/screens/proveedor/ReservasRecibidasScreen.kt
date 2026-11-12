@@ -87,7 +87,7 @@ class ReservasRecibidasViewModel : ViewModel() {
     fun filtrarEstado(e: String?) { estado = e; cargar(1) }
     fun quitarServicio() { servicioId = null; cargar(1) }
 
-    /** TRV-507 — Pendientes primero; incluye datos del cliente. */
+    /** HU-P12 — Pendientes primero; incluye datos del cliente. */
     fun cargar(p: Int = page) {
         viewModelScope.launch {
             loading = true; error = null
@@ -99,7 +99,7 @@ class ReservasRecibidasViewModel : ViewModel() {
         }
     }
 
-    /** TRV-204 — Aceptar: la reserva pasa a CONFIRMADA (409 si ya no está pendiente). */
+    /** HU-P13 — Aceptar: la reserva pasa a CONFIRMADA (409 si ya no está pendiente). */
     fun aceptar(r: ReservaDto) {
         val id = r.id ?: return
         viewModelScope.launch {
@@ -116,7 +116,7 @@ class ReservasRecibidasViewModel : ViewModel() {
     fun pedirRechazo(r: ReservaDto) { aRechazar = r; motivo = ""; errorMotivo = null; mensaje = null; mensajeError = null }
     fun cerrarRechazo() { if (procesandoId == null) aRechazar = null }
 
-    /** TRV-204 — Rechazar con motivo de 10 a 300 caracteres; las unidades se liberan. */
+    /** HU-P14 — Rechazar con motivo de 10 a 300 caracteres; las unidades se liberan. */
     fun confirmarRechazo() {
         val r = aRechazar ?: return
         val id = r.id ?: return

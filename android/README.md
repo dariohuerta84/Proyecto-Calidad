@@ -1,49 +1,70 @@
-# Trouvels360 — App Android (Kotlin + Jetpack Compose)
+# App Android de Trouvels360 (Kotlin + Jetpack Compose)
 
-App nativa con **las mismas historias que la web** (viajero y proveedor), sobre el mismo backend Laravel
-y el microservicio Python de itinerarios. La API es la única fuente de verdad: la app no guarda reservas
+App nativa con **las mismas historias que la web** (viajero y proveedor), sobre la misma
+[API Laravel](../backend/README.md) que usa la web (y, a través de ella, la API Python de itinerarios). La API es la única fuente de verdad: la app no guarda reservas
 ni calcula importes por su cuenta.
 
 ## Qué cubre
 
 | Rol | Pantalla | Historia | Endpoints |
 |---|---|---|---|
-| Todos | Login (vuelve a la pantalla que lo pidió; aviso si la sesión expiró) | TRV-103 | `auth/csrf`, `auth/login`, `auth/refresh`, `auth/logout` |
-| Todos | Registro de viajero o proveedor (RUC, celular +51) | TRV-101, TRV-102 | `auth/register` |
-| Todos | Mi cuenta: datos por rol, foto (URL), contraseña, eliminar cuenta | TRV-104, TRV-105 | `usuarios/me`, `usuarios/me/password` |
-| Viajero | Búsqueda de hoteles por ciudad, fechas y huéspedes (paginada) | TRV-201 | `GET hoteles` |
-| Viajero | Detalle: unidades libres por fechas, selección de habitaciones | TRV-202 | `hoteles/{id}`, `hoteles/{id}/disponibilidad` |
-| Viajero | Itinerario sugerido opcional (solo tours con salida en tu estadía) | TRV-404 | `POST itineraries` → FastAPI |
-| Viajero | Pago: cotización oficial con IGV 18 %, pago simulado, comprobante **PENDIENTE** | TRV-203 | `reservas-habitaciones/cotizar`, `POST reservas-habitaciones` + `Idempotency-Key` |
-| Viajero | Tours por destino, categoría, fechas y personas | TRV-301 | `GET tours` |
-| Viajero | Detalle del tour: actividades, salidas con cupos, personas | TRV-302 | `tours/{id}` |
-| Viajero | Pago de tour, comprobante **CONFIRMADA** | TRV-303 | `tours/salidas/{s}/cotizar`, `.../reservas` |
-| Viajero | Mis reservas (hotel/tour, filtro por estado, motivo de rechazo) y cancelar | TRV-401, TRV-402 | `mis-reservas`, `tours/mis-reservas`, `.../cancelar` |
-| Viajero | Reseñas: resumen real, paginación, publicar/editar/eliminar la propia | TRV-403 | `reviews`, `reviews/resumen`, `reviews/puedo-opinar` |
-| Proveedor | Panel: indicadores por estado, ingresos, publicaciones paginadas | TRV-501 | `proveedor/indicadores`, `proveedor/servicios` |
-| Proveedor | Reservas recibidas: filtros, **aceptar** y **rechazar con motivo** | TRV-507, TRV-204 | `proveedor/reservas`, `.../aceptar`, `.../rechazar` |
-| Proveedor | Publicar/editar hotel (con tipos de habitación) | TRV-502, TRV-503 | `hoteles`, `hoteles/{id}/habitaciones`, `habitaciones/{id}` |
-| Proveedor | Publicar/editar tour (con salidas iniciales) | TRV-504 | `tours`, `tours/{id}` |
-| Proveedor | Salidas (cupo, cerrar, reabrir, cancelar) y actividades ordenadas | TRV-505, TRV-506 | `tours/{id}/salidas`, `tours/{id}/actividades` |
-| Proveedor | Eliminar publicación (muestra el 409 si tiene reservas activas) | TRV-508 | `DELETE servicios/{id}` |
+| Todos | Login (vuelve a la pantalla que lo pidió; aviso si la sesión expiró) | HU-V02 | `auth/csrf`, `auth/login`, `auth/refresh`, `auth/logout` |
+| Todos | Registro de viajero o proveedor (RUC, celular +51) | HU-V01, HU-P01 | `auth/register` |
+| Todos | Mi cuenta: datos por rol, foto (URL), contraseña, eliminar cuenta | HU-V03, HU-V04, HU-P02 | `usuarios/me`, `usuarios/me/password` |
+| Viajero | Búsqueda de hoteles por ciudad, fechas y huéspedes (paginada) | HU-V05 | `GET hoteles` |
+| Viajero | Detalle: unidades libres por fechas, selección de habitaciones | HU-V06 | `hoteles/{id}`, `hoteles/{id}/disponibilidad` |
+| Viajero | Itinerario sugerido opcional (solo tours con salida en tu estadía) | HU-V15 | `POST itineraries` → FastAPI |
+| Viajero | Pago: cotización oficial con IGV 18 %, pago simulado, comprobante **PENDIENTE** | HU-V07 | `reservas-habitaciones/cotizar`, `POST reservas-habitaciones` + `Idempotency-Key` |
+| Viajero | Tours por destino, categoría, fechas y personas | HU-V08 | `GET tours` |
+| Viajero | Detalle del tour: actividades, salidas con cupos, personas | HU-V09 | `tours/{id}` |
+| Viajero | Pago de tour, comprobante **CONFIRMADA** | HU-V10 | `tours/salidas/{s}/cotizar`, `.../reservas` |
+| Viajero | Mis reservas (hotel/tour, filtro por estado, motivo de rechazo) y cancelar | HU-V11, HU-V12, HU-V13 | `mis-reservas`, `tours/mis-reservas`, `.../cancelar` |
+| Viajero | Reseñas: resumen real, paginación, publicar/editar/eliminar la propia | HU-V14 | `reviews`, `reviews/resumen`, `reviews/puedo-opinar` |
+| Proveedor | Panel: indicadores por estado, ingresos, publicaciones paginadas | HU-P03, HU-P04 | `proveedor/indicadores`, `proveedor/servicios` |
+| Proveedor | Reservas recibidas: filtros, **aceptar** y **rechazar con motivo** | HU-P12, HU-P13 | `proveedor/reservas`, `.../aceptar`, `.../rechazar` |
+| Proveedor | Publicar/editar hotel (con tipos de habitación) | HU-P05, HU-P06, HU-P07 | `hoteles`, `hoteles/{id}/habitaciones`, `habitaciones/{id}` |
+| Proveedor | Publicar/editar tour (con salidas iniciales) | HU-P08, HU-P09 | `tours`, `tours/{id}` |
+| Proveedor | Salidas (cupo, cerrar, reabrir, cancelar) y actividades ordenadas | HU-P10, HU-P11 | `tours/{id}/salidas`, `tours/{id}/actividades` |
+| Proveedor | Eliminar publicación (muestra el 409 si tiene reservas activas) | HU-P15 | `DELETE servicios/{id}` |
 
 La barra inferior cambia según el rol: **viajero/visitante** → Hoteles · Tours · Reservas · Cuenta;
 **proveedor** → Panel · Recibidas · Cuenta.
 
+## Requisitos
+
+- **Android Studio** Ladybug (2024.2) o más reciente, con el SDK de Android 35.
+- **JDK 21** para Gradle. Android Studio ya trae uno (JBR 21): en *Settings → Build, Execution, Deployment → Build Tools
+  → Gradle → Gradle JDK* elige **jbr-21** («JetBrains Runtime 21»). **No uses Java 25**: Gradle 8.11 no lo admite y la
+  sincronización falla al leer la versión de Java. El proyecto compila para Java 17 (`jvmTarget = "17"`), compatible con
+  JDK 17 y 21.
+- Un emulador con Android 8.0 (API 26) o superior, o un celular con depuración USB.
+
 ## Ejecutar
 
-1. Levanta el backend Laravel (puerto 8000) y el microservicio de itinerarios (etapa 3).
-2. Abre esta carpeta en **Android Studio** (Ladybug o más reciente) y deja que Gradle sincronice.
-3. URL de la API en `gradle.properties`:
-   ```properties
-   API_BASE_URL=http://10.0.2.2:8000/api/   # emulador → localhost de tu PC
-   ```
-   En un celular físico usa la IP de tu PC (`http://192.168.x.x:8000/api/`) y agrégala en
-   `app/src/main/res/xml/network_security_config.xml`.
-4. Run ▶ en un emulador con API 26 o superior.
+1. Levanta el backend: `backend\levantar-todo.bat` (API Laravel en el puerto 8000 y API Python en el 8001).
+2. Abre esta carpeta (`android/`) en Android Studio y deja que Gradle sincronice (la primera vez descarga dependencias).
+3. Revisa la URL de la API en `gradle.properties` (debe terminar en `/api/`):
 
-Usuarios: viajero `edwinviajero@gmail.com` / `viajero` · proveedor `edwinproveedor@gmail.com` / `proveedor`.
-Tarjeta de prueba: `4242 4242 4242 4242`, `12/30`, CVC `123` (una que no pasa Luhn, como `…4241`, se rechaza).
+   | Dónde corre la app | `API_BASE_URL` |
+   |---|---|
+   | Emulador (por defecto) | `http://10.0.2.2:8000/api/` — `10.0.2.2` es tu PC vista desde el emulador |
+   | Celular en la misma red Wi-Fi | `http://192.168.x.x:8000/api/` (IP de tu PC); agrégala en `app/src/main/res/xml/network_security_config.xml` |
+   | API publicada en la nube | `https://api.midominio.com/api/` |
+
+   También se puede pasar al compilar: `gradlew.bat assembleDebug -PAPI_BASE_URL=https://api.midominio.com/api/`.
+4. Run ▶ sobre el emulador.
+
+### Compilar el APK
+
+Desde `android/`, con `JAVA_HOME` apuntando a un JDK 21 (por ejemplo el de Android Studio):
+
+```powershell
+$env:JAVA_HOME = "C:\Program Files\Android\Android Studio\jbr"
+.\gradlew.bat assembleDebug        # → app\build\outputs\apk\debug\app-debug.apk (lo usa qa/appium)
+.\gradlew.bat testDebugUnitTest    # pruebas unitarias
+```
+
+En Linux o macOS: `./gradlew assembleDebug`.
 
 ## Sesión y seguridad
 
@@ -65,11 +86,19 @@ Tarjeta de prueba: `4242 4242 4242 4242`, `12/30`, CVC `123` (una que no pasa Lu
 | `ValidacionesTest` (9) | Luhn, vencimiento, CVC, teléfono +51, RUC, correo, comentario/motivo 10–300, hora |
 | `ContratoApiTest` (11) | Respuestas **reales** del backend (`src/test/resources/api/*.json`) se convierten a los modelos sin perder campos |
 
-## Appium (etapa 5)
+## Appium
 
 Todos los elementos que se prueban tienen `testTag`, expuesto como **resource-id** (`testTagsAsResourceId`),
-también dentro de los diálogos. Catálogo completo en `docs/SELECTORES_APPIUM.md`; capabilities y flujos en
-`docs/APPIUM.md`.
+también dentro de los diálogos. Los selectores de fecha tienen el botón «Escribir las fechas» (`<campo>_dialogo_teclado`)
+para que las pruebas no dependan del calendario. Catálogo completo en `docs/SELECTORES_APPIUM.md`; capabilities y flujos en
+`docs/APPIUM.md`; la suite está en [`qa/appium`](../qa/appium/README.md).
+
+## Verificación al preparar la entrega
+
+Aquí no había SDK de Android ni emulador, así que no se generó el APK. Sí se verificó que todo el código Kotlin compila
+(contra firmas de las librerías), que los resource-id que usa Appium existen y que la app usa exactamente los endpoints
+de la API actual (los mismos que Karate y Selenium prueban en verde). Si Android Studio muestra un error al sincronizar,
+revisa primero que el *Gradle JDK* sea 21.
 
 ## Estructura
 

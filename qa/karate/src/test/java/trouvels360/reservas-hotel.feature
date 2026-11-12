@@ -1,5 +1,5 @@
 @reservas-hotel
-Feature: Solicitud de reserva de hotel con pago simulado (TRV-203)
+Feature: Solicitud de reserva de hotel con pago simulado (HU-V07)
 
   Background:
     * url baseUrl
@@ -7,7 +7,7 @@ Feature: Solicitud de reserva de hotel con pago simulado (TRV-203)
     * def reservar = read('classpath:trouvels360/helpers/reservar-hotel.feature')
     * def reservaSchema = read('classpath:trouvels360/schemas/reserva-hotel.json')
 
-  @TRV-203 @TC-API-026
+  @HU-V07 @TC-API-026
   Scenario: Reserva válida 201: PENDIENTE, código único y mismos importes que la cotización
     * def dia = diaLibre()
     * def items = [{ habitacion_id: '#(F.doble.id)', cantidad: 2 }]
@@ -24,7 +24,7 @@ Feature: Solicitud de reserva de hotel con pago simulado (TRV-203)
     * match each res.body.data.reservas == reservaSchema
     * match res.body.data.reservas[0].codigo == '#regex [A-Z0-9]{8,12}'
 
-  @TRV-203 @TC-API-027
+  @HU-V07 @TC-API-027
   Scenario Outline: Tarjeta inválida (<caso>) devuelve 422 y no crea reserva
     # Viajero nuevo por ejemplo: así el conteo no lo alteran otros escenarios en paralelo
     * def nuevo = call read('classpath:trouvels360/helpers/registrar.feature') { datos: { rol: 'viajero', email: '#(correo("qa.tarjeta"))', password: 'Clave123', nombre: 'QA', apellido: 'Tarjeta' } }
@@ -48,7 +48,7 @@ Feature: Solicitud de reserva de hotel con pago simulado (TRV-203)
     Examples:
       | read('classpath:trouvels360/data/tarjetas-invalidas.csv') |
 
-  @TRV-203 @TC-API-028
+  @HU-V07 @TC-API-028
   Scenario: La disponibilidad descuenta las unidades reservadas
     * def h = call read('classpath:trouvels360/helpers/hotel-propio.feature') { sesion: '#(S.proveedor)', habitaciones: [{ nombre: 'Doble', capacidad_adultos: 2, capacidad_ninos: 0, cantidad: 5, precio_por_noche: 150 }] }
     * def dia = diaLibre()
@@ -66,7 +66,7 @@ Feature: Solicitud de reserva de hotel con pago simulado (TRV-203)
     Then status 200
     And match response.data.habitaciones[0].unidades_disponibles == 3
 
-  @TRV-203 @TC-API-029
+  @HU-V07 @TC-API-029
   Scenario: Varios tipos con uno sin stock devuelve 409 y no registra ninguno
     * def h = call read('classpath:trouvels360/helpers/hotel-propio.feature') { sesion: '#(S.proveedor)', habitaciones: [{ nombre: 'Única', capacidad_adultos: 2, capacidad_ninos: 0, cantidad: 1, precio_por_noche: 100 }, { nombre: 'Doble', capacidad_adultos: 2, capacidad_ninos: 0, cantidad: 2, precio_por_noche: 150 }] }
     * def unica = karate.filter(h.habitaciones, function(x){ return x.nombre == 'Única' })[0].id
@@ -83,7 +83,7 @@ Feature: Solicitud de reserva de hotel con pago simulado (TRV-203)
     * def dobleDisp = karate.filter(response.data.habitaciones, function(x){ return x.id == doble })[0].unidades_disponibles
     * match dobleDisp == 2
 
-  @TRV-203 @TC-API-030
+  @HU-V07 @TC-API-030
   Scenario: El mismo Idempotency-Key devuelve la misma solicitud sin duplicarla
     * def h = call read('classpath:trouvels360/helpers/hotel-propio.feature') { sesion: '#(S.proveedor)', habitaciones: [{ nombre: 'Doble', capacidad_adultos: 2, capacidad_ninos: 0, cantidad: 5, precio_por_noche: 150 }] }
     * def dia = diaLibre()

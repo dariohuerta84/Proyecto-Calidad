@@ -25,7 +25,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class ToursTest extends BaseTest {
 
     @Test
-    @Tag("TRV-301") @Tag("TC-WEB-015")
+    @Tag("HU-V08") @Tag("TC-WEB-015")
     @DisplayName("TC-WEB-015 Filtrar tours por categoría y destino")
     void filtrarTours() {
         new BuscadorPage(d).tours().destinoTour("Cusco").categoria("Aventura").fechas(Datos.fecha(1), null).buscar();
@@ -38,7 +38,7 @@ class ToursTest extends BaseTest {
     }
 
     @Test
-    @Tag("TRV-302") @Tag("TC-WEB-016")
+    @Tag("HU-V09") @Tag("TC-WEB-016")
     @DisplayName("TC-WEB-016 Elegir salida y 3 personas: total con IGV en el resumen")
     void totalTourConIgv() {
         Api.Tour t = Api.crearTour(Api.proveedor(), 10, 120, "Cultura");
@@ -53,7 +53,7 @@ class ToursTest extends BaseTest {
     }
 
     @Test
-    @Tag("TRV-303") @Tag("TC-WEB-017")
+    @Tag("HU-V10") @Tag("TC-WEB-017")
     @DisplayName("TC-WEB-017 Reserva de tour end-to-end: comprobante CONFIRMADA y cupo descontado")
     void reservaTourCompleta() {
         Api.Sesion prov = Api.proveedor();

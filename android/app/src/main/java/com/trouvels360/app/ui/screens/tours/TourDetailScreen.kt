@@ -81,7 +81,7 @@ class TourDetailViewModel : ViewModel() {
         }
     }
 
-    /** Solo salidas programadas, futuras y con cupo (TRV-302). */
+    /** Solo salidas programadas, futuras y con cupo (HU-V09). */
     val salidasReservables: List<SalidaDto>
         get() {
             val hoy = java.time.LocalDate.now().toString()
@@ -97,7 +97,7 @@ class TourDetailViewModel : ViewModel() {
     }
 }
 
-/** TRV-302 — Detalle del tour: actividades, salidas con cupos y elección de participantes. */
+/** HU-V09 — Detalle del tour: actividades, salidas con cupos y elección de participantes. */
 @Composable
 fun TourDetailScreen(id: Int, onLogin: () -> Unit, onCheckout: () -> Unit, vm: TourDetailViewModel = viewModel(key = "tour_$id")) {
     LaunchedEffect(id) { vm.load(id) }

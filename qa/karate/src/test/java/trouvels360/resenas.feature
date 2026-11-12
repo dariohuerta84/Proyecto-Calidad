@@ -1,5 +1,5 @@
 @resenas @parallel=false
-Feature: Reseñas y calificaciones de servicios (TRV-403)
+Feature: Reseñas y calificaciones de servicios (HU-V14)
   # Secuencial: qa.viajero1 es el único con estadía y tour finalizados en el QaSeeder.
   # Cada escenario deja sus reseñas como las encontró.
 
@@ -23,7 +23,7 @@ Feature: Reseñas y calificaciones de servicios (TRV-403)
       """
     * def repetir = function(n){ var s = ''; for (var i = 0; i < n; i++) s += 'a'; return s }
 
-  @TRV-403 @TC-API-050
+  @HU-V14 @HU-P04 @TC-API-050
   Scenario: El resumen (promedio y total) coincide con el conjunto completo de reseñas
     * eval anonimo()
     # Se toma el servicio con reseñas más reciente para que el promedio no sea trivial
@@ -58,7 +58,7 @@ Feature: Reseñas y calificaciones de servicios (TRV-403)
     * def ficha = response.servicio || response.hotel
     And match ficha.calificacion.promedio == promedio
 
-  @TRV-403 @TC-API-051
+  @HU-V14 @TC-API-051
   Scenario: Con estadía finalizada publica (201); sin reserva completada recibe 403 con mensaje
     * eval limpiar(F.hotelQaId)
     * eval como(S.viajero1)
@@ -81,7 +81,7 @@ Feature: Reseñas y calificaciones de servicios (TRV-403)
     When method delete
     Then status 204
 
-  @TRV-403 @TC-API-052
+  @HU-V14 @TC-API-052
   Scenario Outline: Validación: <caso> devuelve 422 en <campo>
     * eval limpiar(F.tourQaId)
     * eval como(S.viajero1)
@@ -101,7 +101,7 @@ Feature: Reseñas y calificaciones de servicios (TRV-403)
       | calificación 6            | calificacion | 6            | repetir(20)     |
       | calificación decimal      | calificacion | 3.5          | repetir(20)     |
 
-  @TRV-403 @TC-API-053
+  @HU-V14 @TC-API-053
   Scenario: Editar o eliminar una reseña ajena → 403; una segunda reseña del mismo servicio → 409
     * eval limpiar(F.tourQaId)
     * eval como(S.viajero1)

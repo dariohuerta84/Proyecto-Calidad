@@ -1,5 +1,5 @@
 @proveedor
-Feature: Gestión del proveedor: panel, hoteles, tours, salidas, actividades, reservas recibidas y eliminación (TRV-501 a TRV-508)
+Feature: Gestión del proveedor: panel, hoteles, tours, salidas, actividades, reservas recibidas y eliminación (HU-P03/HU-P04 a HU-P15)
 
   Background:
     * url baseUrl
@@ -14,8 +14,8 @@ Feature: Gestión del proveedor: panel, hoteles, tours, salidas, actividades, re
     * def solicitud = function(s, habId, dia, unidades){ return karate.call('classpath:trouvels360/helpers/reservar-hotel.feature', { sesion: s, fecha_inicio: fecha(dia), fecha_fin: fecha(dia + 2), items: [{ habitacion_id: habId, cantidad: unidades || 1 }] }) }
     * def tourBase = function(ciudad){ return { nombre: 'Tour ' + ciudad, descripcion: 'Tour creado por Karate', ciudad: ciudad, pais: 'Perú', imagen_url: 'https://example.com/t.jpg', categoria: 'Cultura', duracion: 90, precio: 80, salidas: [{ fecha: fecha(diaLibre()), hora: '09:00', cupo_total: 10 }] } }
 
-  # ---------------------------------------------------------------- TRV-501 Panel
-  @TRV-501 @TC-API-056
+  # ---------------------------------------------------------------- HU-P03/HU-P04 Panel
+  @HU-P03 @TC-API-056
   Scenario: Paginación de mis publicaciones: meta coherente y la página 2 empieza en el registro 16
     * eval como(S.proveedor)
     Given path 'proveedor', 'servicios'
@@ -50,7 +50,7 @@ Feature: Gestión del proveedor: panel, hoteles, tours, salidas, actividades, re
     When method get
     Then match response.data[0].id == pag2[0]
 
-  @TRV-501 @TC-API-057
+  @HU-P04 @TC-API-057
   Scenario: Indicadores por estado tras crear reservas en los 4 estados
     * def p = call read('classpath:trouvels360/helpers/proveedor-nuevo.feature')
     * eval como(p.sesion)
@@ -90,7 +90,7 @@ Feature: Gestión del proveedor: panel, hoteles, tours, salidas, actividades, re
     When method get
     Then match response.data[0].reservas_totales == { pendientes: 1, confirmadas: 1, rechazadas: 1, canceladas: 1 }
 
-  @TRV-501 @TC-API-058
+  @HU-P03 @TC-API-058
   Scenario: Un viajero no accede a las secciones del proveedor (403) y un anónimo recibe 401
     * eval como(S.viajero2)
     Given path 'proveedor', 'servicios'
@@ -107,8 +107,8 @@ Feature: Gestión del proveedor: panel, hoteles, tours, salidas, actividades, re
     When method get
     Then status 401
 
-  # ---------------------------------------------------------------- TRV-502 Hotel
-  @TRV-502 @TC-API-059
+  # ---------------------------------------------------------------- HU-P05/HU-P06 Hotel
+  @HU-P05 @TC-API-059
   Scenario: Publicar un hotel con dos tipos de habitación y encontrarlo en el catálogo
     * def ciudad = 'QA-' + sufijo()
     * eval como(S.proveedor)
@@ -133,7 +133,7 @@ Feature: Gestión del proveedor: panel, hoteles, tours, salidas, actividades, re
     * def nombres = karate.map(response.habitaciones, function(x){ return x.nombre })
     And match nombres contains only ['Estándar', 'Familiar']
 
-  @TRV-502 @TC-API-060
+  @HU-P05 @TC-API-060
   Scenario: Más de 5 imágenes en la galería devuelve 422
     * def imgs = karate.repeat(6, function(i){ return { url: 'https://example.com/' + i + '.jpg' } })
     * eval como(S.proveedor)
@@ -143,7 +143,7 @@ Feature: Gestión del proveedor: panel, hoteles, tours, salidas, actividades, re
     Then status 422
     And match response.errors.imagenes == '#[_ > 0]'
 
-  @TRV-502 @TC-API-061
+  @HU-P06 @TC-API-061
   Scenario: Editar el hotel de otro proveedor devuelve 403 y no cambia nada
     * def h = call hotelPropio { sesion: '#(S.proveedor)' }
     * eval como(S.proveedor2)
@@ -161,8 +161,8 @@ Feature: Gestión del proveedor: panel, hoteles, tours, salidas, actividades, re
     Then match response.hotel.nombre == '#("Hotel " + h.ciudad)'
     And match response.habitaciones[0].precio_por_noche == 100
 
-  # ---------------------------------------------------------------- TRV-503 Habitaciones
-  @TRV-503 @TC-API-062
+  # ---------------------------------------------------------------- HU-P07 Habitaciones
+  @HU-P07 @TC-API-062
   Scenario: Reducir unidades por debajo de lo ocupado devuelve 409 con el mínimo permitido
     * def h = call hotelPropio { sesion: '#(S.proveedor)', habitaciones: '#(tipos("Doble", 3))' }
     * def habId = h.habitaciones[0].id
@@ -181,7 +181,7 @@ Feature: Gestión del proveedor: panel, hoteles, tours, salidas, actividades, re
     Then status 200
     And match response.data.cantidad == 2
 
-  @TRV-503 @TC-API-063
+  @HU-P07 @TC-API-063
   Scenario: Eliminar un tipo de habitación con reservas activas → 409; sin reservas → 204
     * def h = call hotelPropio { sesion: '#(S.proveedor)', habitaciones: '#(tipos("Doble", 3, "Suite", 1))' }
     * def doble = karate.filter(h.habitaciones, function(x){ return x.nombre == 'Doble' })[0].id
@@ -205,7 +205,7 @@ Feature: Gestión del proveedor: panel, hoteles, tours, salidas, actividades, re
     Then status 409
     And match response.message contains 'al menos un tipo'
 
-  @TRV-503 @TC-API-064
+  @HU-P07 @TC-API-064
   Scenario: Cambiar la tarifa no altera el total de reservas ya hechas, solo las nuevas cotizaciones
     * def h = call hotelPropio { sesion: '#(S.proveedor)', habitaciones: '#(tipos("Doble", 3))' }
     * def habId = h.habitaciones[0].id
@@ -228,8 +228,8 @@ Feature: Gestión del proveedor: panel, hoteles, tours, salidas, actividades, re
     Then status 200
     And match response.data.total == 708
 
-  # ---------------------------------------------------------------- TRV-504 Tour
-  @TRV-504 @TC-API-065
+  # ---------------------------------------------------------------- HU-P08/HU-P09 Tour
+  @HU-P08 @TC-API-065
   Scenario: Publicar un tour con salidas e ítems y encontrarlo en el catálogo
     * def ciudad = 'QA-' + sufijo()
     * def cuerpo = tourBase(ciudad)
@@ -254,7 +254,7 @@ Feature: Gestión del proveedor: panel, hoteles, tours, salidas, actividades, re
     Then match response.servicio.salidas == '#[1]'
     And match response.servicio.tour.items == '#[2]'
 
-  @TRV-504 @TC-API-066
+  @HU-P09 @TC-API-066
   Scenario: Editar el precio no cambia las salidas ni el total de reservas existentes
     * def t = call tourPropio { sesion: '#(S.proveedor)', cupo: 10, precio: 100 }
     * def rt = call reservarTour { sesion: '#(S.viajero2)', salidaId: '#(t.salidaId)', personas: 2 }
@@ -278,7 +278,7 @@ Feature: Gestión del proveedor: panel, hoteles, tours, salidas, actividades, re
     * def mia = karate.filter(response.data, function(r){ return r.id == rt.body.data.id })[0]
     And match mia contains { total: 236, precio_unitario: 100 }
 
-  @TRV-504 @TC-API-067
+  @HU-P08 @HU-P09 @TC-API-067
   Scenario Outline: Límites del formulario de tour: <caso> → 422 en <campo>
     * def cuerpo = tourBase('QA-' + sufijo())
     * eval cuerpo['<clave>'] = <valor>
@@ -298,8 +298,8 @@ Feature: Gestión del proveedor: panel, hoteles, tours, salidas, actividades, re
       | precio negativo         | precio    | precio    | -1                                                                          |
       | duración cero           | duracion  | duracion  | 0                                                                           |
 
-  # ---------------------------------------------------------------- TRV-505 Actividades
-  @TRV-505 @TC-API-068
+  # ---------------------------------------------------------------- HU-P10 Actividades
+  @HU-P10 @TC-API-068
   Scenario: Dos actividades sin orden reciben 1 y 2; insertar con orden 1 desplaza a las demás
     * def t = call tourPropio { sesion: '#(S.proveedor)', cupo: 5 }
     * eval como(S.proveedor)
@@ -324,7 +324,7 @@ Feature: Gestión del proveedor: panel, hoteles, tours, salidas, actividades, re
     * def titulos = karate.map(lista, function(a){ return a.titulo + '#' + a.orden })
     And match titulos == ['Desayuno de bienvenida#1', 'Plaza de Armas#2', 'Qorikancha#3']
 
-  @TRV-505 @TC-API-069
+  @HU-P10 @TC-API-069
   Scenario: Agregar una actividad o una salida en un tour ajeno devuelve 403
     * def t = call tourPropio { sesion: '#(S.proveedor)', cupo: 5 }
     * eval como(S.proveedor2)
@@ -337,8 +337,8 @@ Feature: Gestión del proveedor: panel, hoteles, tours, salidas, actividades, re
     When method post
     Then status 403
 
-  # ---------------------------------------------------------------- TRV-506 Salidas
-  @TRV-506 @TC-API-070
+  # ---------------------------------------------------------------- HU-P11 Salidas
+  @HU-P11 @TC-API-070
   Scenario: Salida duplicada (misma fecha y hora) → 409; fecha pasada → 422
     * def t = call tourPropio { sesion: '#(S.proveedor)', cupo: 5 }
     * eval como(S.proveedor)
@@ -356,7 +356,7 @@ Feature: Gestión del proveedor: panel, hoteles, tours, salidas, actividades, re
     When method post
     Then status 201
 
-  @TRV-506 @TC-API-071
+  @HU-P11 @TC-API-071
   Scenario: cupo_total menor a lo reservado → 422; el cupo_reservado enviado por el cliente se ignora
     * def t = call tourPropio { sesion: '#(S.proveedor)', cupo: 10 }
     * def rt = call reservarTour { sesion: '#(S.viajero2)', salidaId: '#(t.salidaId)', personas: 4 }
@@ -373,7 +373,7 @@ Feature: Gestión del proveedor: panel, hoteles, tours, salidas, actividades, re
     * def s = call leerSalida { sesion: '#(S.proveedor)', tourId: '#(t.tourId)', salidaId: '#(t.salidaId)' }
     * match s.salida contains { cupo_total: 12, cupo_reservado: 4 }
 
-  @TRV-506 @TC-API-072
+  @HU-P11 @TC-API-072
   Scenario: Una salida cerrada rechaza nuevas reservas y al reabrirla vuelve a aceptarlas
     * def t = call tourPropio { sesion: '#(S.proveedor)', cupo: 10 }
     * eval como(S.proveedor)
@@ -392,8 +392,8 @@ Feature: Gestión del proveedor: panel, hoteles, tours, salidas, actividades, re
     * def r2 = call reservarTour { sesion: '#(S.viajero2)', salidaId: '#(t.salidaId)', personas: 1 }
     * match r2.status == 201
 
-  # ---------------------------------------------------------------- TRV-507 Reservas recibidas
-  @TRV-507 @TC-API-073
+  # ---------------------------------------------------------------- HU-P12 Reservas recibidas
+  @HU-P12 @TC-API-073
   Scenario: Reservas recibidas: solo de servicios propios, con datos del cliente
     * def p = call read('classpath:trouvels360/helpers/proveedor-nuevo.feature')
     * def propio = call hotelPropio { sesion: '#(p.sesion)', habitaciones: '#(tipos("Doble", 3))' }
@@ -418,7 +418,7 @@ Feature: Gestión del proveedor: panel, hoteles, tours, salidas, actividades, re
     Then match response.data == '#[1]'
     And match response.data[0] contains { tipo: 'tour', personas: 2 }
 
-  @TRV-507 @TC-API-074
+  @HU-P12 @TC-API-074
   Scenario: Filtro estado=pendiente devuelve solo pendientes (y primero las pendientes sin filtro)
     * def h = call hotelPropio { sesion: '#(S.proveedor)', habitaciones: '#(tipos("Doble", 3))' }
     * def habId = h.habitaciones[0].id
@@ -446,7 +446,7 @@ Feature: Gestión del proveedor: panel, hoteles, tours, salidas, actividades, re
     Then match response.data[0].estado == 'pendiente'
     And match response.data[1].estado == 'confirmada'
 
-  @TRV-507 @TC-API-075
+  @HU-P12 @TC-API-075
   Scenario: El detalle de una reserva de otro proveedor devuelve 404
     * def h = call hotelPropio { sesion: '#(S.proveedor)', habitaciones: '#(tipos("Doble", 3))' }
     * def a = solicitud(S.viajero2, h.habitaciones[0].id, diaLibre())
@@ -461,8 +461,8 @@ Feature: Gestión del proveedor: panel, hoteles, tours, salidas, actividades, re
     When method get
     Then status 404
 
-  # ---------------------------------------------------------------- TRV-508 Eliminar
-  @TRV-508 @TC-API-076
+  # ---------------------------------------------------------------- HU-P15 Eliminar
+  @HU-P15 @TC-API-076
   Scenario: Eliminar la publicación de otro proveedor devuelve 403 y sigue en el catálogo
     * def h = call hotelPropio { sesion: '#(S.proveedor)' }
     * def t = call tourPropio { sesion: '#(S.proveedor)', cupo: 5 }
@@ -485,7 +485,7 @@ Feature: Gestión del proveedor: panel, hoteles, tours, salidas, actividades, re
     When method get
     Then status 200
 
-  @TRV-508 @TC-API-077
+  @HU-P15 @TC-API-077
   Scenario: Con una reserva activa (pendiente o confirmada) no se puede eliminar: 409
     * def h = call hotelPropio { sesion: '#(S.proveedor)', habitaciones: '#(tipos("Doble", 3))' }
     * def a = solicitud(S.viajero2, h.habitaciones[0].id, diaLibre())
@@ -500,7 +500,7 @@ Feature: Gestión del proveedor: panel, hoteles, tours, salidas, actividades, re
     When method delete
     Then status 409
 
-  @TRV-508 @TC-API-078
+  @HU-P15 @TC-API-078
   Scenario: Tras eliminar la publicación, el viajero conserva su historial con el nombre del servicio
     * def h = call hotelPropio { sesion: '#(S.proveedor)', habitaciones: '#(tipos("Doble", 3))' }
     * def a = solicitud(S.viajero2, h.habitaciones[0].id, diaLibre())

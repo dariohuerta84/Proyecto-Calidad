@@ -79,7 +79,7 @@ class PanelProveedorViewModel : ViewModel() {
 
     fun filtrarTipo(t: String?) { tipo = t; cargar(1) }
 
-    /** TRV-501 — Publicaciones propias paginadas (15), con conteos por estado y reseñas. */
+    /** HU-P03 — Publicaciones propias paginadas (15), con conteos por estado y reseñas. */
     fun cargar(p: Int) {
         viewModelScope.launch {
             loading = true; error = null
@@ -91,7 +91,7 @@ class PanelProveedorViewModel : ViewModel() {
         }
     }
 
-    /** TRV-508 — 409 si la publicación tiene reservas activas (se muestra el mensaje de la API). */
+    /** HU-P15 — 409 si la publicación tiene reservas activas (se muestra el mensaje de la API). */
     fun eliminar() {
         val s = aEliminar ?: return
         val id = s.id ?: return

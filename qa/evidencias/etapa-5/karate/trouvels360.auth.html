@@ -49,7 +49,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
     <div>Scenarios</div>
   </div>
   <div id="nav-date">
-    <div>2026-11-11 09:00:58 AM</div>
+    <div>2026-11-11 10:00:59 PM</div>
   </div>
 </div>
 
@@ -131,14 +131,14 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
           <a href="karate-tags.html">Tags</a><span class="feature-label">|</span>
           <span class="feature-label">Feature:</span>
           <span class="feature-path">trouvels360/auth.feature</span><span class="feature-label">|</span>
-          <span class="feature-name">Autenticación y registro (TRV-101, TRV-102, TRV-103)</span>
+          <span class="feature-name">Autenticación y registro (HU-V01, HU-P01, HU-V02)</span>
           <span class="feature-description"></span>
         </div>
         <div class="scenario">
           <div class="scenario-heading" id="[1:9]">
             <div class="heading-container">
               <div class="scenario-tags">
-                <a class="badge badge-primary" href="karate-tags.html">TRV-101</a><a class="badge badge-primary" href="karate-tags.html">auth</a><a class="badge badge-primary" href="karate-tags.html">TC-API-001</a>
+                <a class="badge badge-primary" href="karate-tags.html">auth</a><a class="badge badge-primary" href="karate-tags.html">HU-V01</a><a class="badge badge-primary" href="karate-tags.html">TC-API-001</a>
               </div>
               <div class="scenario-keyword">
                 Scenario: <span>[1:9]</span>
@@ -147,7 +147,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
               </div>
             </div>
             <div class="scenario-time passed">
-              <span>ms:</span>&nbsp;<span>452</span>
+              <span>ms:</span>&nbsp;<span>270</span>
             </div>
           </div>
           <div class="step-row">
@@ -198,7 +198,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def usuarioSchema = read(&#39;classpath:trouvels360/schemas/usuario.json&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">4</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -226,7 +226,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def correo1 = correo(&#39;qa.reg&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -254,7 +254,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def r = call read(&#39;classpath:trouvels360/helpers/registrar.feature&#39;) { datos: { rol: &#39;viajero&#39;, email: &#39;#(correo1)&#39;, password: &#39;Clave123&#39;, nombre: &#39;Ana&#39;, apellido: &#39;Pérez&#39; } }</span>
       </div>
     </div>
-    <div class="time-cell passed">427</div>
+    <div class="time-cell passed">258</div>
   </div>
 
    
@@ -273,7 +273,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <div class="step-indent"></div>
         <div class="step-cell passed">trouvels360.helpers.registrar</div>
       </div>
-      <div class="time-cell passed">410</div>
+      <div class="time-cell passed">250</div>
     </div>
     <div>
       <div><div>
@@ -373,7 +373,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>call read(&#39;this:csrf.feature&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">77</div>
+    <div class="time-cell passed">26</div>
   </div>
 
    
@@ -393,7 +393,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <div class="step-indent"></div>
         <div class="step-cell passed">trouvels360.helpers.csrf</div>
       </div>
-      <div class="time-cell passed">50</div>
+      <div class="time-cell passed">19</div>
     </div>
     <div>
       <div><div>
@@ -468,7 +468,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method get</span>
       </div>
     </div>
-    <div class="time-cell passed">49</div>
+    <div class="time-cell passed">18</div>
   </div>
 
    
@@ -477,7 +477,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.11.0.call.0.9.0.call.0.7">09:00:55.385 request:
+  <div class="preformatted" data-parent="0.11.0.call.0.9.0.call.0.7">22:00:57.201 request:
 1 &gt; GET http://localhost:8000/api/auth/csrf
 1 &gt; Accept: application/json
 1 &gt; Host: localhost:8000
@@ -486,18 +486,17 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &gt; Accept-Encoding: gzip,deflate
 
 
-09:00:55.433 response time in milliseconds: 48
+22:00:57.218 response time in milliseconds: 17
 1 &lt; 200
 1 &lt; Host: localhost:8000
 1 &lt; Connection: close
 1 &lt; X-Powered-By: PHP/8.3.6
 1 &lt; Cache-Control: no-cache, private
-1 &lt; Date: Wed, 11 Nov 2026 14:00:55 GMT
+1 &lt; Date: Thu, 12 Nov 2026 03:00:57 GMT
 1 &lt; Content-Type: application/json
-1 &lt; Access-Control-Allow-Origin: http://localhost:4200
-1 &lt; Access-Control-Allow-Credentials: true
-1 &lt; Set-Cookie: XSRF-TOKEN=7feff40d75035edca11df0c7e7d128be29d0ecc859a4149e93c44c8c938aed2e; expires=Wed, 11 Nov 2026 15:00:55 GMT; Max-Age=3600; path=/; samesite=strict
-{&quot;csrf_token&quot;:&quot;7feff40d75035edca11df0c7e7d128be29d0ecc859a4149e93c44c8c938aed2e&quot;}
+1 &lt; Vary: Origin
+1 &lt; Set-Cookie: XSRF-TOKEN=f8ac5c5197c80a3fb389753e7068a2753c139379e9d69ca5d33faba7bef65e78; expires=Thu, 12 Nov 2026 04:00:57 GMT; Max-Age=3600; path=/; samesite=lax
+{&quot;csrf_token&quot;:&quot;f8ac5c5197c80a3fb389753e7068a2753c139379e9d69ca5d33faba7bef65e78&quot;}
 
 </div>   
 
@@ -548,7 +547,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def xsrf = responseCookies[&#39;XSRF-TOKEN&#39;].value</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -581,7 +580,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def cuerpo = karate.merge(datos, { password_confirmation: &#39;#(datos.password)&#39; })</span>
       </div>
     </div>
-    <div class="time-cell passed">67</div>
+    <div class="time-cell passed">1</div>
   </div>
 
    
@@ -609,7 +608,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>set cuerpo.password_confirmation = datos.password</span>
       </div>
     </div>
-    <div class="time-cell passed">7</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -749,7 +748,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method post</span>
       </div>
     </div>
-    <div class="time-cell passed">256</div>
+    <div class="time-cell passed">221</div>
   </div>
 
    
@@ -758,33 +757,32 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.11.0.call.0.16">09:00:55.510 request:
+  <div class="preformatted" data-parent="0.11.0.call.0.16">22:00:57.222 request:
 1 &gt; POST http://localhost:8000/api/auth/register
-1 &gt; X-XSRF-TOKEN: 7feff40d75035edca11df0c7e7d128be29d0ecc859a4149e93c44c8c938aed2e
+1 &gt; X-XSRF-TOKEN: f8ac5c5197c80a3fb389753e7068a2753c139379e9d69ca5d33faba7bef65e78
 1 &gt; Accept: application/json
-1 &gt; Cookie: XSRF-TOKEN=7feff40d75035edca11df0c7e7d128be29d0ecc859a4149e93c44c8c938aed2e; XSRF-TOKEN=7feff40d75035edca11df0c7e7d128be29d0ecc859a4149e93c44c8c938aed2e
+1 &gt; Cookie: XSRF-TOKEN=f8ac5c5197c80a3fb389753e7068a2753c139379e9d69ca5d33faba7bef65e78; XSRF-TOKEN=f8ac5c5197c80a3fb389753e7068a2753c139379e9d69ca5d33faba7bef65e78
 1 &gt; Content-Type: application/json; charset=UTF-8
-1 &gt; Content-Length: 157
+1 &gt; Content-Length: 156
 1 &gt; Host: localhost:8000
 1 &gt; Connection: Keep-Alive
 1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.12.1)
 1 &gt; Accept-Encoding: gzip,deflate
-{&quot;password&quot;:&quot;Clave123&quot;,&quot;password_confirmation&quot;:&quot;Clave123&quot;,&quot;nombre&quot;:&quot;Ana&quot;,&quot;rol&quot;:&quot;viajero&quot;,&quot;email&quot;:&quot;qa.reg.2416185060752@trouvels360.test&quot;,&quot;apellido&quot;:&quot;Pérez&quot;}
+{&quot;password&quot;:&quot;Clave123&quot;,&quot;password_confirmation&quot;:&quot;Clave123&quot;,&quot;nombre&quot;:&quot;Ana&quot;,&quot;rol&quot;:&quot;viajero&quot;,&quot;email&quot;:&quot;qa.reg.328606780198@trouvels360.test&quot;,&quot;apellido&quot;:&quot;Pérez&quot;}
 
-09:00:55.763 response time in milliseconds: 253
+22:00:57.439 response time in milliseconds: 216
 1 &lt; 201
 1 &lt; Host: localhost:8000
 1 &lt; Connection: close
 1 &lt; X-Powered-By: PHP/8.3.6
 1 &lt; Cache-Control: no-cache, private
-1 &lt; Date: Wed, 11 Nov 2026 14:00:55 GMT
+1 &lt; Date: Thu, 12 Nov 2026 03:00:57 GMT
 1 &lt; Content-Type: application/json
 1 &lt; X-RateLimit-Limit: 1000
-1 &lt; X-RateLimit-Remaining: 997
-1 &lt; Access-Control-Allow-Origin: http://localhost:4200
-1 &lt; Access-Control-Allow-Credentials: true
-1 &lt; Set-Cookie: access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2F1dGgvcmVnaXN0ZXIiLCJpYXQiOjE3OTQ0MDU2NTUsImV4cCI6MTc5NDQwOTI1NSwibmJmIjoxNzk0NDA1NjU1LCJqdGkiOiJKemRTQjRDQVhyMzFtajlMIiwic3ViIjoiMjg3IiwicHJ2IjoiNTg3MDg2M2Q0YTYyZDc5MTQ0M2ZhZjkzNmZjMzY4MDMxZDExMGM0ZiIsInJvbCI6InZpYWplcm8iLCJlbWFpbCI6InFhLnJlZy4yNDE2MTg1MDYwNzUyQHRyb3V2ZWxzMzYwLnRlc3QifQ.TpaajkPGMphDF8dewAffKh_Mnzqn58exGNDxYxml_Xw; expires=Wed, 11 Nov 2026 15:00:55 GMT; Max-Age=3600; path=/; httponly; samesite=strict
-{&quot;message&quot;:&quot;Registro exitoso.&quot;,&quot;expires_in&quot;:3600,&quot;data&quot;:{&quot;user&quot;:{&quot;id&quot;:287,&quot;rol&quot;:&quot;viajero&quot;,&quot;nombre&quot;:&quot;Ana&quot;,&quot;apellido&quot;:&quot;P\u00e9rez&quot;,&quot;empresa_nombre&quot;:null,&quot;telefono&quot;:null,&quot;ruc&quot;:null,&quot;email&quot;:&quot;qa.reg.2416185060752@trouvels360.test&quot;,&quot;avatar_url&quot;:null,&quot;created_at&quot;:&quot;2026-11-11T14:00:55.000000Z&quot;,&quot;updated_at&quot;:&quot;2026-11-11T14:00:55.000000Z&quot;}}}
+1 &lt; X-RateLimit-Remaining: 987
+1 &lt; Vary: Origin
+1 &lt; Set-Cookie: access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2F1dGgvcmVnaXN0ZXIiLCJpYXQiOjE3OTQ0NTI0NTcsImV4cCI6MTc5NDQ1NjA1NywibmJmIjoxNzk0NDUyNDU3LCJqdGkiOiJQN244M252T253bGRvSTJWIiwic3ViIjoiNjMiLCJwcnYiOiI1ODcwODYzZDRhNjJkNzkxNDQzZmFmOTM2ZmMzNjgwMzFkMTEwYzRmIiwicm9sIjoidmlhamVybyIsImVtYWlsIjoicWEucmVnLjMyODYwNjc4MDE5OEB0cm91dmVsczM2MC50ZXN0In0.HJLRrDEUXupPp582-thfnr3aBb_c-O3luxvwxBOB6m0; expires=Thu, 12 Nov 2026 04:00:57 GMT; Max-Age=3600; path=/; httponly; samesite=lax
+{&quot;message&quot;:&quot;Registro exitoso.&quot;,&quot;expires_in&quot;:3600,&quot;data&quot;:{&quot;user&quot;:{&quot;id&quot;:63,&quot;rol&quot;:&quot;viajero&quot;,&quot;nombre&quot;:&quot;Ana&quot;,&quot;apellido&quot;:&quot;P\u00e9rez&quot;,&quot;empresa_nombre&quot;:null,&quot;telefono&quot;:null,&quot;ruc&quot;:null,&quot;email&quot;:&quot;qa.reg.328606780198@trouvels360.test&quot;,&quot;avatar_url&quot;:null,&quot;created_at&quot;:&quot;2026-11-12T03:00:57.000000Z&quot;,&quot;updated_at&quot;:&quot;2026-11-12T03:00:57.000000Z&quot;}}}
 
 </div>   
 
@@ -889,7 +887,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def user = status == 201 ? response.data.user : null</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -922,7 +920,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>match r.status == 201</span>
       </div>
     </div>
-    <div class="time-cell passed">2</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -950,7 +948,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>match r.body.data.user == usuarioSchema</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -978,7 +976,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>match r.body.data.user contains { rol: &#39;viajero&#39;, email: &#39;#(correo1)&#39; }</span>
       </div>
     </div>
-    <div class="time-cell passed">0</div>
+    <div class="time-cell passed">2</div>
   </div>
 
    
@@ -1006,7 +1004,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>match r.token == &#39;#string&#39;</span>
       </div>
     </div>
-    <div class="time-cell passed">17</div>
+    <div class="time-cell passed">8</div>
   </div>
 
    
@@ -1026,7 +1024,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
           <div class="scenario-heading" id="[2.1:30]">
             <div class="heading-container">
               <div class="scenario-tags">
-                <a class="badge badge-primary" href="karate-tags.html">TRV-101</a><a class="badge badge-primary" href="karate-tags.html">auth</a><a class="badge badge-primary" href="karate-tags.html">TC-API-002</a>
+                <a class="badge badge-primary" href="karate-tags.html">auth</a><a class="badge badge-primary" href="karate-tags.html">HU-V01</a><a class="badge badge-primary" href="karate-tags.html">TC-API-002</a>
               </div>
               <div class="scenario-keyword">
                 Scenario: <span>[2.1:30]</span>
@@ -1035,7 +1033,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
               </div>
             </div>
             <div class="scenario-time passed">
-              <span>ms:</span>&nbsp;<span>132</span>
+              <span>ms:</span>&nbsp;<span>245</span>
             </div>
           </div>
           <div class="step-row">
@@ -1086,7 +1084,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def usuarioSchema = read(&#39;classpath:trouvels360/schemas/usuario.json&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -1114,7 +1112,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>call read(&#39;classpath:trouvels360/helpers/csrf.feature&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">76</div>
+    <div class="time-cell passed">216</div>
   </div>
 
    
@@ -1133,7 +1131,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <div class="step-indent"></div>
         <div class="step-cell passed">trouvels360.helpers.csrf</div>
       </div>
-      <div class="time-cell passed">68</div>
+      <div class="time-cell passed">214</div>
     </div>
     <div>
       <div><div>
@@ -1205,7 +1203,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method get</span>
       </div>
     </div>
-    <div class="time-cell passed">67</div>
+    <div class="time-cell passed">213</div>
   </div>
 
    
@@ -1214,7 +1212,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="1.19.0.call.0.7">09:00:55.391 request:
+  <div class="preformatted" data-parent="1.19.0.call.0.7">22:00:57.234 request:
 1 &gt; GET http://localhost:8000/api/auth/csrf
 1 &gt; Accept: application/json
 1 &gt; Host: localhost:8000
@@ -1223,18 +1221,17 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &gt; Accept-Encoding: gzip,deflate
 
 
-09:00:55.457 response time in milliseconds: 59
+22:00:57.446 response time in milliseconds: 211
 1 &lt; 200
 1 &lt; Host: localhost:8000
 1 &lt; Connection: close
 1 &lt; X-Powered-By: PHP/8.3.6
 1 &lt; Cache-Control: no-cache, private
-1 &lt; Date: Wed, 11 Nov 2026 14:00:55 GMT
+1 &lt; Date: Thu, 12 Nov 2026 03:00:57 GMT
 1 &lt; Content-Type: application/json
-1 &lt; Access-Control-Allow-Origin: http://localhost:4200
-1 &lt; Access-Control-Allow-Credentials: true
-1 &lt; Set-Cookie: XSRF-TOKEN=bdd3921c372ba2413961ccabb62a921b6cdc00a889e129bb8726adfdb0c80c3d; expires=Wed, 11 Nov 2026 15:00:55 GMT; Max-Age=3600; path=/; samesite=strict
-{&quot;csrf_token&quot;:&quot;bdd3921c372ba2413961ccabb62a921b6cdc00a889e129bb8726adfdb0c80c3d&quot;}
+1 &lt; Vary: Origin
+1 &lt; Set-Cookie: XSRF-TOKEN=db37ce30b8990de2d62cb49e10207566412e21b99f2a655e7b9a19dc27b33acd; expires=Thu, 12 Nov 2026 04:00:57 GMT; Max-Age=3600; path=/; samesite=lax
+{&quot;csrf_token&quot;:&quot;db37ce30b8990de2d62cb49e10207566412e21b99f2a655e7b9a19dc27b33acd&quot;}
 
 </div>   
 
@@ -1283,7 +1280,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def xsrf = responseCookies[&#39;XSRF-TOKEN&#39;].value</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -1316,7 +1313,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def correoCaso = &#39;sin-arroba&#39; == &#39;ok&#39; ? correo(&#39;qa.inv&#39;) : &#39;sin-arroba&#39;</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -1400,7 +1397,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>And</span>&nbsp;<span>request { rol: &#39;viajero&#39;, email: &#39;#(correoCaso)&#39;, password: &#39;Clave123&#39;, password_confirmation: &#39;Clave123&#39;, nombre: &#39;Ana&#39;, apellido: &#39;Pérez&#39; }</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -1428,7 +1425,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method post</span>
       </div>
     </div>
-    <div class="time-cell passed">53</div>
+    <div class="time-cell passed">28</div>
   </div>
 
    
@@ -1437,11 +1434,11 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="1.24">09:00:55.480 request:
+  <div class="preformatted" data-parent="1.24">22:00:57.449 request:
 1 &gt; POST http://localhost:8000/api/auth/register
-1 &gt; X-XSRF-TOKEN: bdd3921c372ba2413961ccabb62a921b6cdc00a889e129bb8726adfdb0c80c3d
+1 &gt; X-XSRF-TOKEN: db37ce30b8990de2d62cb49e10207566412e21b99f2a655e7b9a19dc27b33acd
 1 &gt; Accept: application/json
-1 &gt; Cookie: XSRF-TOKEN=bdd3921c372ba2413961ccabb62a921b6cdc00a889e129bb8726adfdb0c80c3d
+1 &gt; Cookie: XSRF-TOKEN=db37ce30b8990de2d62cb49e10207566412e21b99f2a655e7b9a19dc27b33acd
 1 &gt; Content-Type: application/json; charset=UTF-8
 1 &gt; Content-Length: 130
 1 &gt; Host: localhost:8000
@@ -1450,18 +1447,17 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &gt; Accept-Encoding: gzip,deflate
 {&quot;rol&quot;:&quot;viajero&quot;,&quot;email&quot;:&quot;sin-arroba&quot;,&quot;password&quot;:&quot;Clave123&quot;,&quot;password_confirmation&quot;:&quot;Clave123&quot;,&quot;nombre&quot;:&quot;Ana&quot;,&quot;apellido&quot;:&quot;Pérez&quot;}
 
-09:00:55.512 response time in milliseconds: 32
+22:00:57.476 response time in milliseconds: 27
 1 &lt; 422
 1 &lt; Host: localhost:8000
 1 &lt; Connection: close
 1 &lt; X-Powered-By: PHP/8.3.6
 1 &lt; Cache-Control: no-cache, private
-1 &lt; Date: Wed, 11 Nov 2026 14:00:55 GMT
+1 &lt; Date: Thu, 12 Nov 2026 03:00:57 GMT
 1 &lt; Content-Type: application/json
 1 &lt; X-RateLimit-Limit: 1000
-1 &lt; X-RateLimit-Remaining: 998
-1 &lt; Access-Control-Allow-Origin: http://localhost:4200
-1 &lt; Access-Control-Allow-Credentials: true
+1 &lt; X-RateLimit-Remaining: 986
+1 &lt; Vary: Origin
 {&quot;message&quot;:&quot;El correo debe ser un correo v\u00e1lido.&quot;,&quot;errors&quot;:{&quot;email&quot;:[&quot;El correo debe ser un correo v\u00e1lido.&quot;]}}
 
 </div>   
@@ -1539,7 +1535,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>And</span>&nbsp;<span>match response.errors[&#39;email&#39;] == &#39;#[_ &gt; 0]&#39;</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -1559,7 +1555,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
           <div class="scenario-heading" id="[2.2:30]">
             <div class="heading-container">
               <div class="scenario-tags">
-                <a class="badge badge-primary" href="karate-tags.html">TRV-101</a><a class="badge badge-primary" href="karate-tags.html">auth</a><a class="badge badge-primary" href="karate-tags.html">TC-API-002</a>
+                <a class="badge badge-primary" href="karate-tags.html">auth</a><a class="badge badge-primary" href="karate-tags.html">HU-V01</a><a class="badge badge-primary" href="karate-tags.html">TC-API-002</a>
               </div>
               <div class="scenario-keyword">
                 Scenario: <span>[2.2:30]</span>
@@ -1568,7 +1564,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
               </div>
             </div>
             <div class="scenario-time passed">
-              <span>ms:</span>&nbsp;<span>106</span>
+              <span>ms:</span>&nbsp;<span>50</span>
             </div>
           </div>
           <div class="step-row">
@@ -1619,7 +1615,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def usuarioSchema = read(&#39;classpath:trouvels360/schemas/usuario.json&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -1647,7 +1643,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>call read(&#39;classpath:trouvels360/helpers/csrf.feature&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">69</div>
+    <div class="time-cell passed">30</div>
   </div>
 
    
@@ -1666,7 +1662,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <div class="step-indent"></div>
         <div class="step-cell passed">trouvels360.helpers.csrf</div>
       </div>
-      <div class="time-cell passed">66</div>
+      <div class="time-cell passed">20</div>
     </div>
     <div>
       <div><div>
@@ -1738,7 +1734,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method get</span>
       </div>
     </div>
-    <div class="time-cell passed">49</div>
+    <div class="time-cell passed">19</div>
   </div>
 
    
@@ -1747,7 +1743,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="2.19.0.call.0.7">09:00:55.397 request:
+  <div class="preformatted" data-parent="2.19.0.call.0.7">22:00:57.468 request:
 1 &gt; GET http://localhost:8000/api/auth/csrf
 1 &gt; Accept: application/json
 1 &gt; Host: localhost:8000
@@ -1756,18 +1752,17 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &gt; Accept-Encoding: gzip,deflate
 
 
-09:00:55.445 response time in milliseconds: 47
+22:00:57.486 response time in milliseconds: 18
 1 &lt; 200
 1 &lt; Host: localhost:8000
 1 &lt; Connection: close
 1 &lt; X-Powered-By: PHP/8.3.6
 1 &lt; Cache-Control: no-cache, private
-1 &lt; Date: Wed, 11 Nov 2026 14:00:55 GMT
+1 &lt; Date: Thu, 12 Nov 2026 03:00:57 GMT
 1 &lt; Content-Type: application/json
-1 &lt; Access-Control-Allow-Origin: http://localhost:4200
-1 &lt; Access-Control-Allow-Credentials: true
-1 &lt; Set-Cookie: XSRF-TOKEN=eec6684288fd1f155c1502fe5ee5aae2f2cffa223207b1db3d9e6d119d405efd; expires=Wed, 11 Nov 2026 15:00:55 GMT; Max-Age=3600; path=/; samesite=strict
-{&quot;csrf_token&quot;:&quot;eec6684288fd1f155c1502fe5ee5aae2f2cffa223207b1db3d9e6d119d405efd&quot;}
+1 &lt; Vary: Origin
+1 &lt; Set-Cookie: XSRF-TOKEN=4ab1ad8f9a7279c20cc40ece2b914a5360544da8df94700ac4e011acf75922a4; expires=Thu, 12 Nov 2026 04:00:57 GMT; Max-Age=3600; path=/; samesite=lax
+{&quot;csrf_token&quot;:&quot;4ab1ad8f9a7279c20cc40ece2b914a5360544da8df94700ac4e011acf75922a4&quot;}
 
 </div>   
 
@@ -1816,7 +1811,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def xsrf = responseCookies[&#39;XSRF-TOKEN&#39;].value</span>
       </div>
     </div>
-    <div class="time-cell passed">17</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -1933,7 +1928,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>And</span>&nbsp;<span>request { rol: &#39;viajero&#39;, email: &#39;#(correoCaso)&#39;, password: &#39;Clave123&#39;, password_confirmation: &#39;Clave123&#39;, nombre: &#39;Ana&#39;, apellido: &#39;Pérez&#39; }</span>
       </div>
     </div>
-    <div class="time-cell passed">0</div>
+    <div class="time-cell passed">1</div>
   </div>
 
    
@@ -1961,7 +1956,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method post</span>
       </div>
     </div>
-    <div class="time-cell passed">33</div>
+    <div class="time-cell passed">17</div>
   </div>
 
    
@@ -1970,11 +1965,11 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="2.24">09:00:55.480 request:
+  <div class="preformatted" data-parent="2.24">22:00:57.489 request:
 1 &gt; POST http://localhost:8000/api/auth/register
-1 &gt; X-XSRF-TOKEN: eec6684288fd1f155c1502fe5ee5aae2f2cffa223207b1db3d9e6d119d405efd
+1 &gt; X-XSRF-TOKEN: 4ab1ad8f9a7279c20cc40ece2b914a5360544da8df94700ac4e011acf75922a4
 1 &gt; Accept: application/json
-1 &gt; Cookie: XSRF-TOKEN=eec6684288fd1f155c1502fe5ee5aae2f2cffa223207b1db3d9e6d119d405efd
+1 &gt; Cookie: XSRF-TOKEN=4ab1ad8f9a7279c20cc40ece2b914a5360544da8df94700ac4e011acf75922a4
 1 &gt; Content-Type: application/json; charset=UTF-8
 1 &gt; Content-Length: 120
 1 &gt; Host: localhost:8000
@@ -1983,18 +1978,17 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &gt; Accept-Encoding: gzip,deflate
 {&quot;rol&quot;:&quot;viajero&quot;,&quot;email&quot;:&quot;&quot;,&quot;password&quot;:&quot;Clave123&quot;,&quot;password_confirmation&quot;:&quot;Clave123&quot;,&quot;nombre&quot;:&quot;Ana&quot;,&quot;apellido&quot;:&quot;Pérez&quot;}
 
-09:00:55.496 response time in milliseconds: 15
+22:00:57.506 response time in milliseconds: 17
 1 &lt; 422
 1 &lt; Host: localhost:8000
 1 &lt; Connection: close
 1 &lt; X-Powered-By: PHP/8.3.6
 1 &lt; Cache-Control: no-cache, private
-1 &lt; Date: Wed, 11 Nov 2026 14:00:55 GMT
+1 &lt; Date: Thu, 12 Nov 2026 03:00:57 GMT
 1 &lt; Content-Type: application/json
 1 &lt; X-RateLimit-Limit: 1000
-1 &lt; X-RateLimit-Remaining: 999
-1 &lt; Access-Control-Allow-Origin: http://localhost:4200
-1 &lt; Access-Control-Allow-Credentials: true
+1 &lt; X-RateLimit-Remaining: 985
+1 &lt; Vary: Origin
 {&quot;message&quot;:&quot;El correo es obligatorio.&quot;,&quot;errors&quot;:{&quot;email&quot;:[&quot;El correo es obligatorio.&quot;]}}
 
 </div>   
@@ -2072,7 +2066,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>And</span>&nbsp;<span>match response.errors[&#39;email&#39;] == &#39;#[_ &gt; 0]&#39;</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -2092,7 +2086,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
           <div class="scenario-heading" id="[2.3:30]">
             <div class="heading-container">
               <div class="scenario-tags">
-                <a class="badge badge-primary" href="karate-tags.html">TRV-101</a><a class="badge badge-primary" href="karate-tags.html">auth</a><a class="badge badge-primary" href="karate-tags.html">TC-API-002</a>
+                <a class="badge badge-primary" href="karate-tags.html">auth</a><a class="badge badge-primary" href="karate-tags.html">HU-V01</a><a class="badge badge-primary" href="karate-tags.html">TC-API-002</a>
               </div>
               <div class="scenario-keyword">
                 Scenario: <span>[2.3:30]</span>
@@ -2101,7 +2095,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
               </div>
             </div>
             <div class="scenario-time passed">
-              <span>ms:</span>&nbsp;<span>367</span>
+              <span>ms:</span>&nbsp;<span>43</span>
             </div>
           </div>
           <div class="step-row">
@@ -2152,7 +2146,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def usuarioSchema = read(&#39;classpath:trouvels360/schemas/usuario.json&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">12</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -2180,7 +2174,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>call read(&#39;classpath:trouvels360/helpers/csrf.feature&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">281</div>
+    <div class="time-cell passed">18</div>
   </div>
 
    
@@ -2199,7 +2193,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <div class="step-indent"></div>
         <div class="step-cell passed">trouvels360.helpers.csrf</div>
       </div>
-      <div class="time-cell passed">262</div>
+      <div class="time-cell passed">7</div>
     </div>
     <div>
       <div><div>
@@ -2271,7 +2265,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method get</span>
       </div>
     </div>
-    <div class="time-cell passed">261</div>
+    <div class="time-cell passed">6</div>
   </div>
 
    
@@ -2280,7 +2274,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="3.19.0.call.0.7">09:00:55.540 request:
+  <div class="preformatted" data-parent="3.19.0.call.0.7">22:00:57.481 request:
 1 &gt; GET http://localhost:8000/api/auth/csrf
 1 &gt; Accept: application/json
 1 &gt; Host: localhost:8000
@@ -2289,18 +2283,17 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &gt; Accept-Encoding: gzip,deflate
 
 
-09:00:55.784 response time in milliseconds: 244
+22:00:57.487 response time in milliseconds: 6
 1 &lt; 200
 1 &lt; Host: localhost:8000
 1 &lt; Connection: close
 1 &lt; X-Powered-By: PHP/8.3.6
 1 &lt; Cache-Control: no-cache, private
-1 &lt; Date: Wed, 11 Nov 2026 14:00:55 GMT
+1 &lt; Date: Thu, 12 Nov 2026 03:00:57 GMT
 1 &lt; Content-Type: application/json
-1 &lt; Access-Control-Allow-Origin: http://localhost:4200
-1 &lt; Access-Control-Allow-Credentials: true
-1 &lt; Set-Cookie: XSRF-TOKEN=00cd79c21067bb25d798b633531ac896e25613ffcfd3dc48a4a35603c3e2e965; expires=Wed, 11 Nov 2026 15:00:55 GMT; Max-Age=3600; path=/; samesite=strict
-{&quot;csrf_token&quot;:&quot;00cd79c21067bb25d798b633531ac896e25613ffcfd3dc48a4a35603c3e2e965&quot;}
+1 &lt; Vary: Origin
+1 &lt; Set-Cookie: XSRF-TOKEN=8e725ba0bde605576f6860bd9c8bc789944b7180603c64aa0bdf7aee9f80d9bd; expires=Thu, 12 Nov 2026 04:00:57 GMT; Max-Age=3600; path=/; samesite=lax
+{&quot;csrf_token&quot;:&quot;8e725ba0bde605576f6860bd9c8bc789944b7180603c64aa0bdf7aee9f80d9bd&quot;}
 
 </div>   
 
@@ -2349,7 +2342,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def xsrf = responseCookies[&#39;XSRF-TOKEN&#39;].value</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -2466,7 +2459,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>And</span>&nbsp;<span>request { rol: &#39;viajero&#39;, email: &#39;#(correoCaso)&#39;, password: &#39;123&#39;, password_confirmation: &#39;123&#39;, nombre: &#39;Ana&#39;, apellido: &#39;Pérez&#39; }</span>
       </div>
     </div>
-    <div class="time-cell passed">28</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -2494,7 +2487,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method post</span>
       </div>
     </div>
-    <div class="time-cell passed">42</div>
+    <div class="time-cell passed">24</div>
   </div>
 
    
@@ -2503,31 +2496,30 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="3.24">09:00:55.836 request:
+  <div class="preformatted" data-parent="3.24">22:00:57.492 request:
 1 &gt; POST http://localhost:8000/api/auth/register
-1 &gt; X-XSRF-TOKEN: 00cd79c21067bb25d798b633531ac896e25613ffcfd3dc48a4a35603c3e2e965
+1 &gt; X-XSRF-TOKEN: 8e725ba0bde605576f6860bd9c8bc789944b7180603c64aa0bdf7aee9f80d9bd
 1 &gt; Accept: application/json
-1 &gt; Cookie: XSRF-TOKEN=00cd79c21067bb25d798b633531ac896e25613ffcfd3dc48a4a35603c3e2e965
+1 &gt; Cookie: XSRF-TOKEN=8e725ba0bde605576f6860bd9c8bc789944b7180603c64aa0bdf7aee9f80d9bd
 1 &gt; Content-Type: application/json; charset=UTF-8
-1 &gt; Content-Length: 147
+1 &gt; Content-Length: 146
 1 &gt; Host: localhost:8000
 1 &gt; Connection: Keep-Alive
 1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.12.1)
 1 &gt; Accept-Encoding: gzip,deflate
-{&quot;rol&quot;:&quot;viajero&quot;,&quot;email&quot;:&quot;qa.inv.2416622798886@trouvels360.test&quot;,&quot;password&quot;:&quot;123&quot;,&quot;password_confirmation&quot;:&quot;123&quot;,&quot;nombre&quot;:&quot;Ana&quot;,&quot;apellido&quot;:&quot;Pérez&quot;}
+{&quot;rol&quot;:&quot;viajero&quot;,&quot;email&quot;:&quot;qa.inv.328913410924@trouvels360.test&quot;,&quot;password&quot;:&quot;123&quot;,&quot;password_confirmation&quot;:&quot;123&quot;,&quot;nombre&quot;:&quot;Ana&quot;,&quot;apellido&quot;:&quot;Pérez&quot;}
 
-09:00:55.857 response time in milliseconds: 21
+22:00:57.515 response time in milliseconds: 23
 1 &lt; 422
 1 &lt; Host: localhost:8000
 1 &lt; Connection: close
 1 &lt; X-Powered-By: PHP/8.3.6
 1 &lt; Cache-Control: no-cache, private
-1 &lt; Date: Wed, 11 Nov 2026 14:00:55 GMT
+1 &lt; Date: Thu, 12 Nov 2026 03:00:57 GMT
 1 &lt; Content-Type: application/json
 1 &lt; X-RateLimit-Limit: 1000
-1 &lt; X-RateLimit-Remaining: 994
-1 &lt; Access-Control-Allow-Origin: http://localhost:4200
-1 &lt; Access-Control-Allow-Credentials: true
+1 &lt; X-RateLimit-Remaining: 984
+1 &lt; Vary: Origin
 {&quot;message&quot;:&quot;La contrase\u00f1a debe tener al menos 6 caracteres.&quot;,&quot;errors&quot;:{&quot;password&quot;:[&quot;La contrase\u00f1a debe tener al menos 6 caracteres.&quot;]}}
 
 </div>   
@@ -2605,7 +2597,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>And</span>&nbsp;<span>match response.errors[&#39;password&#39;] == &#39;#[_ &gt; 0]&#39;</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -2625,7 +2617,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
           <div class="scenario-heading" id="[2.4:30]">
             <div class="heading-container">
               <div class="scenario-tags">
-                <a class="badge badge-primary" href="karate-tags.html">TRV-101</a><a class="badge badge-primary" href="karate-tags.html">auth</a><a class="badge badge-primary" href="karate-tags.html">TC-API-002</a>
+                <a class="badge badge-primary" href="karate-tags.html">auth</a><a class="badge badge-primary" href="karate-tags.html">HU-V01</a><a class="badge badge-primary" href="karate-tags.html">TC-API-002</a>
               </div>
               <div class="scenario-keyword">
                 Scenario: <span>[2.4:30]</span>
@@ -2634,7 +2626,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
               </div>
             </div>
             <div class="scenario-time passed">
-              <span>ms:</span>&nbsp;<span>304</span>
+              <span>ms:</span>&nbsp;<span>61</span>
             </div>
           </div>
           <div class="step-row">
@@ -2713,7 +2705,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>call read(&#39;classpath:trouvels360/helpers/csrf.feature&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">266</div>
+    <div class="time-cell passed">14</div>
   </div>
 
    
@@ -2732,7 +2724,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <div class="step-indent"></div>
         <div class="step-cell passed">trouvels360.helpers.csrf</div>
       </div>
-      <div class="time-cell passed">263</div>
+      <div class="time-cell passed">6</div>
     </div>
     <div>
       <div><div>
@@ -2804,7 +2796,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method get</span>
       </div>
     </div>
-    <div class="time-cell passed">256</div>
+    <div class="time-cell passed">6</div>
   </div>
 
    
@@ -2813,7 +2805,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="4.19.0.call.0.7">09:00:55.519 request:
+  <div class="preformatted" data-parent="4.19.0.call.0.7">22:00:57.489 request:
 1 &gt; GET http://localhost:8000/api/auth/csrf
 1 &gt; Accept: application/json
 1 &gt; Host: localhost:8000
@@ -2822,18 +2814,17 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &gt; Accept-Encoding: gzip,deflate
 
 
-09:00:55.774 response time in milliseconds: 255
+22:00:57.495 response time in milliseconds: 6
 1 &lt; 200
 1 &lt; Host: localhost:8000
 1 &lt; Connection: close
 1 &lt; X-Powered-By: PHP/8.3.6
 1 &lt; Cache-Control: no-cache, private
-1 &lt; Date: Wed, 11 Nov 2026 14:00:55 GMT
+1 &lt; Date: Thu, 12 Nov 2026 03:00:57 GMT
 1 &lt; Content-Type: application/json
-1 &lt; Access-Control-Allow-Origin: http://localhost:4200
-1 &lt; Access-Control-Allow-Credentials: true
-1 &lt; Set-Cookie: XSRF-TOKEN=cfe1cebfb5a3b9565bd248bb1eb63f97cef6a5e0492425b626c0ce24740a1f7c; expires=Wed, 11 Nov 2026 15:00:55 GMT; Max-Age=3600; path=/; samesite=strict
-{&quot;csrf_token&quot;:&quot;cfe1cebfb5a3b9565bd248bb1eb63f97cef6a5e0492425b626c0ce24740a1f7c&quot;}
+1 &lt; Vary: Origin
+1 &lt; Set-Cookie: XSRF-TOKEN=6e7e478f7498af0a8ba1be0270f478dceaa1b48dff25a9a31130bc51fbfc7412; expires=Thu, 12 Nov 2026 04:00:57 GMT; Max-Age=3600; path=/; samesite=lax
+{&quot;csrf_token&quot;:&quot;6e7e478f7498af0a8ba1be0270f478dceaa1b48dff25a9a31130bc51fbfc7412&quot;}
 
 </div>   
 
@@ -2882,7 +2873,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def xsrf = responseCookies[&#39;XSRF-TOKEN&#39;].value</span>
       </div>
     </div>
-    <div class="time-cell passed">6</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -2915,7 +2906,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def correoCaso = &#39;ok&#39; == &#39;ok&#39; ? correo(&#39;qa.inv&#39;) : &#39;ok&#39;</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -2999,7 +2990,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>And</span>&nbsp;<span>request { rol: &#39;viajero&#39;, email: &#39;#(correoCaso)&#39;, password: &#39;Clave123&#39;, password_confirmation: &#39;Otra123&#39;, nombre: &#39;Ana&#39;, apellido: &#39;Pérez&#39; }</span>
       </div>
     </div>
-    <div class="time-cell passed">16</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -3027,7 +3018,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method post</span>
       </div>
     </div>
-    <div class="time-cell passed">20</div>
+    <div class="time-cell passed">42</div>
   </div>
 
    
@@ -3036,31 +3027,30 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="4.24">09:00:55.806 request:
+  <div class="preformatted" data-parent="4.24">22:00:57.496 request:
 1 &gt; POST http://localhost:8000/api/auth/register
-1 &gt; X-XSRF-TOKEN: cfe1cebfb5a3b9565bd248bb1eb63f97cef6a5e0492425b626c0ce24740a1f7c
+1 &gt; X-XSRF-TOKEN: 6e7e478f7498af0a8ba1be0270f478dceaa1b48dff25a9a31130bc51fbfc7412
 1 &gt; Accept: application/json
-1 &gt; Cookie: XSRF-TOKEN=cfe1cebfb5a3b9565bd248bb1eb63f97cef6a5e0492425b626c0ce24740a1f7c
+1 &gt; Cookie: XSRF-TOKEN=6e7e478f7498af0a8ba1be0270f478dceaa1b48dff25a9a31130bc51fbfc7412
 1 &gt; Content-Type: application/json; charset=UTF-8
-1 &gt; Content-Length: 156
+1 &gt; Content-Length: 155
 1 &gt; Host: localhost:8000
 1 &gt; Connection: Keep-Alive
 1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.12.1)
 1 &gt; Accept-Encoding: gzip,deflate
-{&quot;rol&quot;:&quot;viajero&quot;,&quot;email&quot;:&quot;qa.inv.2416618832718@trouvels360.test&quot;,&quot;password&quot;:&quot;Clave123&quot;,&quot;password_confirmation&quot;:&quot;Otra123&quot;,&quot;nombre&quot;:&quot;Ana&quot;,&quot;apellido&quot;:&quot;Pérez&quot;}
+{&quot;rol&quot;:&quot;viajero&quot;,&quot;email&quot;:&quot;qa.inv.328917810694@trouvels360.test&quot;,&quot;password&quot;:&quot;Clave123&quot;,&quot;password_confirmation&quot;:&quot;Otra123&quot;,&quot;nombre&quot;:&quot;Ana&quot;,&quot;apellido&quot;:&quot;Pérez&quot;}
 
-09:00:55.818 response time in milliseconds: 11
+22:00:57.537 response time in milliseconds: 41
 1 &lt; 422
 1 &lt; Host: localhost:8000
 1 &lt; Connection: close
 1 &lt; X-Powered-By: PHP/8.3.6
 1 &lt; Cache-Control: no-cache, private
-1 &lt; Date: Wed, 11 Nov 2026 14:00:55 GMT
+1 &lt; Date: Thu, 12 Nov 2026 03:00:57 GMT
 1 &lt; Content-Type: application/json
 1 &lt; X-RateLimit-Limit: 1000
-1 &lt; X-RateLimit-Remaining: 995
-1 &lt; Access-Control-Allow-Origin: http://localhost:4200
-1 &lt; Access-Control-Allow-Credentials: true
+1 &lt; X-RateLimit-Remaining: 983
+1 &lt; Vary: Origin
 {&quot;message&quot;:&quot;Las contrase\u00f1as no coinciden.&quot;,&quot;errors&quot;:{&quot;password&quot;:[&quot;Las contrase\u00f1as no coinciden.&quot;]}}
 
 </div>   
@@ -3138,7 +3128,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>And</span>&nbsp;<span>match response.errors[&#39;password&#39;] == &#39;#[_ &gt; 0]&#39;</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">4</div>
   </div>
 
    
@@ -3158,7 +3148,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
           <div class="scenario-heading" id="[2.5:30]">
             <div class="heading-container">
               <div class="scenario-tags">
-                <a class="badge badge-primary" href="karate-tags.html">TRV-101</a><a class="badge badge-primary" href="karate-tags.html">auth</a><a class="badge badge-primary" href="karate-tags.html">TC-API-002</a>
+                <a class="badge badge-primary" href="karate-tags.html">auth</a><a class="badge badge-primary" href="karate-tags.html">HU-V01</a><a class="badge badge-primary" href="karate-tags.html">TC-API-002</a>
               </div>
               <div class="scenario-keyword">
                 Scenario: <span>[2.5:30]</span>
@@ -3167,7 +3157,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
               </div>
             </div>
             <div class="scenario-time passed">
-              <span>ms:</span>&nbsp;<span>280</span>
+              <span>ms:</span>&nbsp;<span>75</span>
             </div>
           </div>
           <div class="step-row">
@@ -3246,7 +3236,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>call read(&#39;classpath:trouvels360/helpers/csrf.feature&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">259</div>
+    <div class="time-cell passed">32</div>
   </div>
 
    
@@ -3265,7 +3255,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <div class="step-indent"></div>
         <div class="step-cell passed">trouvels360.helpers.csrf</div>
       </div>
-      <div class="time-cell passed">257</div>
+      <div class="time-cell passed">24</div>
     </div>
     <div>
       <div><div>
@@ -3309,7 +3299,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>Given</span>&nbsp;<span>path &#39;auth&#39;, &#39;csrf&#39;</span>
       </div>
     </div>
-    <div class="time-cell passed">3</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -3337,7 +3327,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method get</span>
       </div>
     </div>
-    <div class="time-cell passed">253</div>
+    <div class="time-cell passed">24</div>
   </div>
 
    
@@ -3346,7 +3336,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="5.19.0.call.0.7">09:00:55.532 request:
+  <div class="preformatted" data-parent="5.19.0.call.0.7">22:00:57.519 request:
 1 &gt; GET http://localhost:8000/api/auth/csrf
 1 &gt; Accept: application/json
 1 &gt; Host: localhost:8000
@@ -3355,18 +3345,17 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &gt; Accept-Encoding: gzip,deflate
 
 
-09:00:55.780 response time in milliseconds: 248
+22:00:57.542 response time in milliseconds: 23
 1 &lt; 200
 1 &lt; Host: localhost:8000
 1 &lt; Connection: close
 1 &lt; X-Powered-By: PHP/8.3.6
 1 &lt; Cache-Control: no-cache, private
-1 &lt; Date: Wed, 11 Nov 2026 14:00:55 GMT
+1 &lt; Date: Thu, 12 Nov 2026 03:00:57 GMT
 1 &lt; Content-Type: application/json
-1 &lt; Access-Control-Allow-Origin: http://localhost:4200
-1 &lt; Access-Control-Allow-Credentials: true
-1 &lt; Set-Cookie: XSRF-TOKEN=a57a26439936b480dbcd36b835709ec7f22ee605ac4c2307ef2303c277a348c2; expires=Wed, 11 Nov 2026 15:00:55 GMT; Max-Age=3600; path=/; samesite=strict
-{&quot;csrf_token&quot;:&quot;a57a26439936b480dbcd36b835709ec7f22ee605ac4c2307ef2303c277a348c2&quot;}
+1 &lt; Vary: Origin
+1 &lt; Set-Cookie: XSRF-TOKEN=1b90a50841bdeb9670f564dfe8df7572817ddfbde8b80eb3da92e8a8996455e2; expires=Thu, 12 Nov 2026 04:00:57 GMT; Max-Age=3600; path=/; samesite=lax
+{&quot;csrf_token&quot;:&quot;1b90a50841bdeb9670f564dfe8df7572817ddfbde8b80eb3da92e8a8996455e2&quot;}
 
 </div>   
 
@@ -3448,7 +3437,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def correoCaso = &#39;ok&#39; == &#39;ok&#39; ? correo(&#39;qa.inv&#39;) : &#39;ok&#39;</span>
       </div>
     </div>
-    <div class="time-cell passed">2</div>
+    <div class="time-cell passed">1</div>
   </div>
 
    
@@ -3560,7 +3549,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method post</span>
       </div>
     </div>
-    <div class="time-cell passed">18</div>
+    <div class="time-cell passed">42</div>
   </div>
 
    
@@ -3569,31 +3558,30 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="5.24">09:00:55.794 request:
+  <div class="preformatted" data-parent="5.24">22:00:57.544 request:
 1 &gt; POST http://localhost:8000/api/auth/register
-1 &gt; X-XSRF-TOKEN: a57a26439936b480dbcd36b835709ec7f22ee605ac4c2307ef2303c277a348c2
+1 &gt; X-XSRF-TOKEN: 1b90a50841bdeb9670f564dfe8df7572817ddfbde8b80eb3da92e8a8996455e2
 1 &gt; Accept: application/json
-1 &gt; Cookie: XSRF-TOKEN=a57a26439936b480dbcd36b835709ec7f22ee605ac4c2307ef2303c277a348c2
+1 &gt; Cookie: XSRF-TOKEN=1b90a50841bdeb9670f564dfe8df7572817ddfbde8b80eb3da92e8a8996455e2
 1 &gt; Content-Type: application/json; charset=UTF-8
-1 &gt; Content-Length: 154
+1 &gt; Content-Length: 153
 1 &gt; Host: localhost:8000
 1 &gt; Connection: Keep-Alive
 1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.12.1)
 1 &gt; Accept-Encoding: gzip,deflate
-{&quot;rol&quot;:&quot;viajero&quot;,&quot;email&quot;:&quot;qa.inv.2416622378703@trouvels360.test&quot;,&quot;password&quot;:&quot;Clave123&quot;,&quot;password_confirmation&quot;:&quot;Clave123&quot;,&quot;nombre&quot;:&quot;&quot;,&quot;apellido&quot;:&quot;Pérez&quot;}
+{&quot;rol&quot;:&quot;viajero&quot;,&quot;email&quot;:&quot;qa.inv.328965788115@trouvels360.test&quot;,&quot;password&quot;:&quot;Clave123&quot;,&quot;password_confirmation&quot;:&quot;Clave123&quot;,&quot;nombre&quot;:&quot;&quot;,&quot;apellido&quot;:&quot;Pérez&quot;}
 
-09:00:55.804 response time in milliseconds: 10
+22:00:57.586 response time in milliseconds: 42
 1 &lt; 422
 1 &lt; Host: localhost:8000
 1 &lt; Connection: close
 1 &lt; X-Powered-By: PHP/8.3.6
 1 &lt; Cache-Control: no-cache, private
-1 &lt; Date: Wed, 11 Nov 2026 14:00:55 GMT
+1 &lt; Date: Thu, 12 Nov 2026 03:00:57 GMT
 1 &lt; Content-Type: application/json
 1 &lt; X-RateLimit-Limit: 1000
-1 &lt; X-RateLimit-Remaining: 996
-1 &lt; Access-Control-Allow-Origin: http://localhost:4200
-1 &lt; Access-Control-Allow-Credentials: true
+1 &lt; X-RateLimit-Remaining: 982
+1 &lt; Vary: Origin
 {&quot;message&quot;:&quot;El nombre es obligatorio.&quot;,&quot;errors&quot;:{&quot;nombre&quot;:[&quot;El nombre es obligatorio.&quot;]}}
 
 </div>   
@@ -3671,7 +3659,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>And</span>&nbsp;<span>match response.errors[&#39;nombre&#39;] == &#39;#[_ &gt; 0]&#39;</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -3691,7 +3679,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
           <div class="scenario-heading" id="[2.6:30]">
             <div class="heading-container">
               <div class="scenario-tags">
-                <a class="badge badge-primary" href="karate-tags.html">TRV-101</a><a class="badge badge-primary" href="karate-tags.html">auth</a><a class="badge badge-primary" href="karate-tags.html">TC-API-002</a>
+                <a class="badge badge-primary" href="karate-tags.html">auth</a><a class="badge badge-primary" href="karate-tags.html">HU-V01</a><a class="badge badge-primary" href="karate-tags.html">TC-API-002</a>
               </div>
               <div class="scenario-keyword">
                 Scenario: <span>[2.6:30]</span>
@@ -3700,7 +3688,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
               </div>
             </div>
             <div class="scenario-time passed">
-              <span>ms:</span>&nbsp;<span>306</span>
+              <span>ms:</span>&nbsp;<span>78</span>
             </div>
           </div>
           <div class="step-row">
@@ -3751,7 +3739,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def usuarioSchema = read(&#39;classpath:trouvels360/schemas/usuario.json&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -3779,7 +3767,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>call read(&#39;classpath:trouvels360/helpers/csrf.feature&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">250</div>
+    <div class="time-cell passed">30</div>
   </div>
 
    
@@ -3798,7 +3786,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <div class="step-indent"></div>
         <div class="step-cell passed">trouvels360.helpers.csrf</div>
       </div>
-      <div class="time-cell passed">228</div>
+      <div class="time-cell passed">28</div>
     </div>
     <div>
       <div><div>
@@ -3870,7 +3858,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method get</span>
       </div>
     </div>
-    <div class="time-cell passed">226</div>
+    <div class="time-cell passed">28</div>
   </div>
 
    
@@ -3879,7 +3867,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="6.19.0.call.0.7">09:00:55.578 request:
+  <div class="preformatted" data-parent="6.19.0.call.0.7">22:00:57.524 request:
 1 &gt; GET http://localhost:8000/api/auth/csrf
 1 &gt; Accept: application/json
 1 &gt; Host: localhost:8000
@@ -3888,18 +3876,17 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &gt; Accept-Encoding: gzip,deflate
 
 
-09:00:55.803 response time in milliseconds: 222
+22:00:57.551 response time in milliseconds: 27
 1 &lt; 200
 1 &lt; Host: localhost:8000
 1 &lt; Connection: close
 1 &lt; X-Powered-By: PHP/8.3.6
 1 &lt; Cache-Control: no-cache, private
-1 &lt; Date: Wed, 11 Nov 2026 14:00:55 GMT
+1 &lt; Date: Thu, 12 Nov 2026 03:00:57 GMT
 1 &lt; Content-Type: application/json
-1 &lt; Access-Control-Allow-Origin: http://localhost:4200
-1 &lt; Access-Control-Allow-Credentials: true
-1 &lt; Set-Cookie: XSRF-TOKEN=20c17cac897b13ebb7a61ca4e92ec92e857fba446a94bccdf863b7d2b5f25637; expires=Wed, 11 Nov 2026 15:00:55 GMT; Max-Age=3600; path=/; samesite=strict
-{&quot;csrf_token&quot;:&quot;20c17cac897b13ebb7a61ca4e92ec92e857fba446a94bccdf863b7d2b5f25637&quot;}
+1 &lt; Vary: Origin
+1 &lt; Set-Cookie: XSRF-TOKEN=77d48fb013b3af015a7d42411123c1c873f942f020534d010e75a0e0d77c7306; expires=Thu, 12 Nov 2026 04:00:57 GMT; Max-Age=3600; path=/; samesite=lax
+{&quot;csrf_token&quot;:&quot;77d48fb013b3af015a7d42411123c1c873f942f020534d010e75a0e0d77c7306&quot;}
 
 </div>   
 
@@ -3948,7 +3935,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def xsrf = responseCookies[&#39;XSRF-TOKEN&#39;].value</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -3981,7 +3968,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def correoCaso = &#39;ok&#39; == &#39;ok&#39; ? correo(&#39;qa.inv&#39;) : &#39;ok&#39;</span>
       </div>
     </div>
-    <div class="time-cell passed">22</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -4093,7 +4080,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method post</span>
       </div>
     </div>
-    <div class="time-cell passed">30</div>
+    <div class="time-cell passed">46</div>
   </div>
 
    
@@ -4102,31 +4089,30 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="6.24">09:00:55.839 request:
+  <div class="preformatted" data-parent="6.24">22:00:57.553 request:
 1 &gt; POST http://localhost:8000/api/auth/register
-1 &gt; X-XSRF-TOKEN: 20c17cac897b13ebb7a61ca4e92ec92e857fba446a94bccdf863b7d2b5f25637
+1 &gt; X-XSRF-TOKEN: 77d48fb013b3af015a7d42411123c1c873f942f020534d010e75a0e0d77c7306
 1 &gt; Accept: application/json
-1 &gt; Cookie: XSRF-TOKEN=20c17cac897b13ebb7a61ca4e92ec92e857fba446a94bccdf863b7d2b5f25637
+1 &gt; Cookie: XSRF-TOKEN=77d48fb013b3af015a7d42411123c1c873f942f020534d010e75a0e0d77c7306
 1 &gt; Content-Type: application/json; charset=UTF-8
-1 &gt; Content-Length: 151
+1 &gt; Content-Length: 150
 1 &gt; Host: localhost:8000
 1 &gt; Connection: Keep-Alive
 1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.12.1)
 1 &gt; Accept-Encoding: gzip,deflate
-{&quot;rol&quot;:&quot;viajero&quot;,&quot;email&quot;:&quot;qa.inv.2416673645038@trouvels360.test&quot;,&quot;password&quot;:&quot;Clave123&quot;,&quot;password_confirmation&quot;:&quot;Clave123&quot;,&quot;nombre&quot;:&quot;Ana&quot;,&quot;apellido&quot;:&quot;&quot;}
+{&quot;rol&quot;:&quot;viajero&quot;,&quot;email&quot;:&quot;qa.inv.328973899889@trouvels360.test&quot;,&quot;password&quot;:&quot;Clave123&quot;,&quot;password_confirmation&quot;:&quot;Clave123&quot;,&quot;nombre&quot;:&quot;Ana&quot;,&quot;apellido&quot;:&quot;&quot;}
 
-09:00:55.868 response time in milliseconds: 29
+22:00:57.598 response time in milliseconds: 45
 1 &lt; 422
 1 &lt; Host: localhost:8000
 1 &lt; Connection: close
 1 &lt; X-Powered-By: PHP/8.3.6
 1 &lt; Cache-Control: no-cache, private
-1 &lt; Date: Wed, 11 Nov 2026 14:00:55 GMT
+1 &lt; Date: Thu, 12 Nov 2026 03:00:57 GMT
 1 &lt; Content-Type: application/json
 1 &lt; X-RateLimit-Limit: 1000
-1 &lt; X-RateLimit-Remaining: 993
-1 &lt; Access-Control-Allow-Origin: http://localhost:4200
-1 &lt; Access-Control-Allow-Credentials: true
+1 &lt; X-RateLimit-Remaining: 981
+1 &lt; Vary: Origin
 {&quot;message&quot;:&quot;El apellido es obligatorio.&quot;,&quot;errors&quot;:{&quot;apellido&quot;:[&quot;El apellido es obligatorio.&quot;]}}
 
 </div>   
@@ -4204,7 +4190,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>And</span>&nbsp;<span>match response.errors[&#39;apellido&#39;] == &#39;#[_ &gt; 0]&#39;</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -4224,7 +4210,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
           <div class="scenario-heading" id="[3:33]">
             <div class="heading-container">
               <div class="scenario-tags">
-                <a class="badge badge-primary" href="karate-tags.html">TRV-101</a><a class="badge badge-primary" href="karate-tags.html">auth</a><a class="badge badge-primary" href="karate-tags.html">TC-API-003</a>
+                <a class="badge badge-primary" href="karate-tags.html">HU-P01</a><a class="badge badge-primary" href="karate-tags.html">auth</a><a class="badge badge-primary" href="karate-tags.html">HU-V01</a><a class="badge badge-primary" href="karate-tags.html">TC-API-003</a>
               </div>
               <div class="scenario-keyword">
                 Scenario: <span>[3:33]</span>
@@ -4233,7 +4219,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
               </div>
             </div>
             <div class="scenario-time passed">
-              <span>ms:</span>&nbsp;<span>398</span>
+              <span>ms:</span>&nbsp;<span>81</span>
             </div>
           </div>
           <div class="step-row">
@@ -4312,7 +4298,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>call read(&#39;classpath:trouvels360/helpers/csrf.feature&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">83</div>
+    <div class="time-cell passed">49</div>
   </div>
 
    
@@ -4331,7 +4317,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <div class="step-indent"></div>
         <div class="step-cell passed">trouvels360.helpers.csrf</div>
       </div>
-      <div class="time-cell passed">59</div>
+      <div class="time-cell passed">48</div>
     </div>
     <div>
       <div><div>
@@ -4347,7 +4333,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>url baseUrl</span>
       </div>
     </div>
-    <div class="time-cell passed">30</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -4403,7 +4389,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method get</span>
       </div>
     </div>
-    <div class="time-cell passed">29</div>
+    <div class="time-cell passed">48</div>
   </div>
 
    
@@ -4412,7 +4398,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.34.0.call.0.7">09:00:55.862 request:
+  <div class="preformatted" data-parent="0.34.0.call.0.7">22:00:57.545 request:
 1 &gt; GET http://localhost:8000/api/auth/csrf
 1 &gt; Accept: application/json
 1 &gt; Host: localhost:8000
@@ -4421,18 +4407,17 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &gt; Accept-Encoding: gzip,deflate
 
 
-09:00:55.890 response time in milliseconds: 28
+22:00:57.592 response time in milliseconds: 47
 1 &lt; 200
 1 &lt; Host: localhost:8000
 1 &lt; Connection: close
 1 &lt; X-Powered-By: PHP/8.3.6
 1 &lt; Cache-Control: no-cache, private
-1 &lt; Date: Wed, 11 Nov 2026 14:00:55 GMT
+1 &lt; Date: Thu, 12 Nov 2026 03:00:57 GMT
 1 &lt; Content-Type: application/json
-1 &lt; Access-Control-Allow-Origin: http://localhost:4200
-1 &lt; Access-Control-Allow-Credentials: true
-1 &lt; Set-Cookie: XSRF-TOKEN=23e1b80f1aae02d8eb56996986193b006a33be96331256d122ce42da7f243cec; expires=Wed, 11 Nov 2026 15:00:55 GMT; Max-Age=3600; path=/; samesite=strict
-{&quot;csrf_token&quot;:&quot;23e1b80f1aae02d8eb56996986193b006a33be96331256d122ce42da7f243cec&quot;}
+1 &lt; Vary: Origin
+1 &lt; Set-Cookie: XSRF-TOKEN=88894154ad3c7d6c63043cb47c1e41f3df571d144e89e5312761bd4d315f92a0; expires=Thu, 12 Nov 2026 04:00:57 GMT; Max-Age=3600; path=/; samesite=lax
+{&quot;csrf_token&quot;:&quot;88894154ad3c7d6c63043cb47c1e41f3df571d144e89e5312761bd4d315f92a0&quot;}
 
 </div>   
 
@@ -4598,7 +4583,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method post</span>
       </div>
     </div>
-    <div class="time-cell passed">313</div>
+    <div class="time-cell passed">32</div>
   </div>
 
    
@@ -4607,11 +4592,11 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.38">09:00:55.912 request:
+  <div class="preformatted" data-parent="0.38">22:00:57.593 request:
 1 &gt; POST http://localhost:8000/api/auth/register
-1 &gt; X-XSRF-TOKEN: 23e1b80f1aae02d8eb56996986193b006a33be96331256d122ce42da7f243cec
+1 &gt; X-XSRF-TOKEN: 88894154ad3c7d6c63043cb47c1e41f3df571d144e89e5312761bd4d315f92a0
 1 &gt; Accept: application/json
-1 &gt; Cookie: XSRF-TOKEN=23e1b80f1aae02d8eb56996986193b006a33be96331256d122ce42da7f243cec
+1 &gt; Cookie: XSRF-TOKEN=88894154ad3c7d6c63043cb47c1e41f3df571d144e89e5312761bd4d315f92a0
 1 &gt; Content-Type: application/json; charset=UTF-8
 1 &gt; Content-Length: 142
 1 &gt; Host: localhost:8000
@@ -4620,18 +4605,17 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &gt; Accept-Encoding: gzip,deflate
 {&quot;rol&quot;:&quot;viajero&quot;,&quot;email&quot;:&quot;EDWINVIAJERO@GMAIL.COM&quot;,&quot;password&quot;:&quot;Clave123&quot;,&quot;password_confirmation&quot;:&quot;Clave123&quot;,&quot;nombre&quot;:&quot;Ana&quot;,&quot;apellido&quot;:&quot;Pérez&quot;}
 
-09:00:56.224 response time in milliseconds: 312
+22:00:57.624 response time in milliseconds: 31
 1 &lt; 422
 1 &lt; Host: localhost:8000
 1 &lt; Connection: close
 1 &lt; X-Powered-By: PHP/8.3.6
 1 &lt; Cache-Control: no-cache, private
-1 &lt; Date: Wed, 11 Nov 2026 14:00:56 GMT
+1 &lt; Date: Thu, 12 Nov 2026 03:00:57 GMT
 1 &lt; Content-Type: application/json
 1 &lt; X-RateLimit-Limit: 1000
-1 &lt; X-RateLimit-Remaining: 990
-1 &lt; Access-Control-Allow-Origin: http://localhost:4200
-1 &lt; Access-Control-Allow-Credentials: true
+1 &lt; X-RateLimit-Remaining: 980
+1 &lt; Vary: Origin
 {&quot;message&quot;:&quot;El correo ya est\u00e1 registrado.&quot;,&quot;errors&quot;:{&quot;email&quot;:[&quot;El correo ya est\u00e1 registrado.&quot;]}}
 
 </div>   
@@ -4681,7 +4665,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>And</span>&nbsp;<span>match response.errors.email == &#39;#[_ &gt; 0]&#39;</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -4701,7 +4685,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
           <div class="scenario-heading" id="[4:43]">
             <div class="heading-container">
               <div class="scenario-tags">
-                <a class="badge badge-primary" href="karate-tags.html">TRV-101</a><a class="badge badge-primary" href="karate-tags.html">auth</a><a class="badge badge-primary" href="karate-tags.html">TC-API-004</a>
+                <a class="badge badge-primary" href="karate-tags.html">auth</a><a class="badge badge-primary" href="karate-tags.html">HU-V01</a><a class="badge badge-primary" href="karate-tags.html">TC-API-004</a>
               </div>
               <div class="scenario-keyword">
                 Scenario: <span>[4:43]</span>
@@ -4710,7 +4694,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
               </div>
             </div>
             <div class="scenario-time passed">
-              <span>ms:</span>&nbsp;<span>363</span>
+              <span>ms:</span>&nbsp;<span>85</span>
             </div>
           </div>
           <div class="step-row">
@@ -4789,7 +4773,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>call read(&#39;classpath:trouvels360/helpers/csrf.feature&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">58</div>
+    <div class="time-cell passed">46</div>
   </div>
 
    
@@ -4808,7 +4792,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <div class="step-indent"></div>
         <div class="step-cell passed">trouvels360.helpers.csrf</div>
       </div>
-      <div class="time-cell passed">39</div>
+      <div class="time-cell passed">36</div>
     </div>
     <div>
       <div><div>
@@ -4880,7 +4864,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method get</span>
       </div>
     </div>
-    <div class="time-cell passed">38</div>
+    <div class="time-cell passed">36</div>
   </div>
 
    
@@ -4889,7 +4873,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.44.0.call.0.7">09:00:55.862 request:
+  <div class="preformatted" data-parent="0.44.0.call.0.7">22:00:57.583 request:
 1 &gt; GET http://localhost:8000/api/auth/csrf
 1 &gt; Accept: application/json
 1 &gt; Host: localhost:8000
@@ -4898,18 +4882,17 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &gt; Accept-Encoding: gzip,deflate
 
 
-09:00:55.889 response time in milliseconds: 27
+22:00:57.618 response time in milliseconds: 35
 1 &lt; 200
 1 &lt; Host: localhost:8000
 1 &lt; Connection: close
 1 &lt; X-Powered-By: PHP/8.3.6
 1 &lt; Cache-Control: no-cache, private
-1 &lt; Date: Wed, 11 Nov 2026 14:00:55 GMT
+1 &lt; Date: Thu, 12 Nov 2026 03:00:57 GMT
 1 &lt; Content-Type: application/json
-1 &lt; Access-Control-Allow-Origin: http://localhost:4200
-1 &lt; Access-Control-Allow-Credentials: true
-1 &lt; Set-Cookie: XSRF-TOKEN=bb18107f05112970a9625f793bb6355dd42d45e974f448d6ba8c65ae6c43f1f0; expires=Wed, 11 Nov 2026 15:00:55 GMT; Max-Age=3600; path=/; samesite=strict
-{&quot;csrf_token&quot;:&quot;bb18107f05112970a9625f793bb6355dd42d45e974f448d6ba8c65ae6c43f1f0&quot;}
+1 &lt; Vary: Origin
+1 &lt; Set-Cookie: XSRF-TOKEN=517268c46284ed002d102a98219b60e54cdf7a99a5e0bfce4c6ef2f4ed83e7fc; expires=Thu, 12 Nov 2026 04:00:57 GMT; Max-Age=3600; path=/; samesite=lax
+{&quot;csrf_token&quot;:&quot;517268c46284ed002d102a98219b60e54cdf7a99a5e0bfce4c6ef2f4ed83e7fc&quot;}
 
 </div>   
 
@@ -5047,7 +5030,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>And</span>&nbsp;<span>request { rol: &#39;admin&#39;, email: &#39;#(correo(&quot;qa.admin&quot;))&#39;, password: &#39;Clave123&#39;, password_confirmation: &#39;Clave123&#39;, nombre: &#39;Ana&#39;, apellido: &#39;Pérez&#39; }</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -5075,7 +5058,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method post</span>
       </div>
     </div>
-    <div class="time-cell passed">303</div>
+    <div class="time-cell passed">38</div>
   </div>
 
    
@@ -5084,31 +5067,30 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.48">09:00:55.903 request:
+  <div class="preformatted" data-parent="0.48">22:00:57.619 request:
 1 &gt; POST http://localhost:8000/api/auth/register
-1 &gt; X-XSRF-TOKEN: bb18107f05112970a9625f793bb6355dd42d45e974f448d6ba8c65ae6c43f1f0
+1 &gt; X-XSRF-TOKEN: 517268c46284ed002d102a98219b60e54cdf7a99a5e0bfce4c6ef2f4ed83e7fc
 1 &gt; Accept: application/json
-1 &gt; Cookie: XSRF-TOKEN=bb18107f05112970a9625f793bb6355dd42d45e974f448d6ba8c65ae6c43f1f0
+1 &gt; Cookie: XSRF-TOKEN=517268c46284ed002d102a98219b60e54cdf7a99a5e0bfce4c6ef2f4ed83e7fc
 1 &gt; Content-Type: application/json; charset=UTF-8
-1 &gt; Content-Length: 157
+1 &gt; Content-Length: 156
 1 &gt; Host: localhost:8000
 1 &gt; Connection: Keep-Alive
 1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.12.1)
 1 &gt; Accept-Encoding: gzip,deflate
-{&quot;rol&quot;:&quot;admin&quot;,&quot;email&quot;:&quot;qa.admin.2416738008492@trouvels360.test&quot;,&quot;password&quot;:&quot;Clave123&quot;,&quot;password_confirmation&quot;:&quot;Clave123&quot;,&quot;nombre&quot;:&quot;Ana&quot;,&quot;apellido&quot;:&quot;Pérez&quot;}
+{&quot;rol&quot;:&quot;admin&quot;,&quot;email&quot;:&quot;qa.admin.329041178941@trouvels360.test&quot;,&quot;password&quot;:&quot;Clave123&quot;,&quot;password_confirmation&quot;:&quot;Clave123&quot;,&quot;nombre&quot;:&quot;Ana&quot;,&quot;apellido&quot;:&quot;Pérez&quot;}
 
-09:00:56.204 response time in milliseconds: 301
+22:00:57.657 response time in milliseconds: 38
 1 &lt; 422
 1 &lt; Host: localhost:8000
 1 &lt; Connection: close
 1 &lt; X-Powered-By: PHP/8.3.6
 1 &lt; Cache-Control: no-cache, private
-1 &lt; Date: Wed, 11 Nov 2026 14:00:56 GMT
+1 &lt; Date: Thu, 12 Nov 2026 03:00:57 GMT
 1 &lt; Content-Type: application/json
 1 &lt; X-RateLimit-Limit: 1000
-1 &lt; X-RateLimit-Remaining: 991
-1 &lt; Access-Control-Allow-Origin: http://localhost:4200
-1 &lt; Access-Control-Allow-Credentials: true
+1 &lt; X-RateLimit-Remaining: 979
+1 &lt; Vary: Origin
 {&quot;message&quot;:&quot;El rol debe ser viajero o proveedor.&quot;,&quot;errors&quot;:{&quot;rol&quot;:[&quot;El rol debe ser viajero o proveedor.&quot;]}}
 
 </div>   
@@ -5158,7 +5140,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>And</span>&nbsp;<span>match response.errors.rol == &#39;#[_ &gt; 0]&#39;</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -5178,7 +5160,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
           <div class="scenario-heading" id="[5:53]">
             <div class="heading-container">
               <div class="scenario-tags">
-                <a class="badge badge-primary" href="karate-tags.html">auth</a><a class="badge badge-primary" href="karate-tags.html">TRV-102</a><a class="badge badge-primary" href="karate-tags.html">TC-API-005</a>
+                <a class="badge badge-primary" href="karate-tags.html">HU-P01</a><a class="badge badge-primary" href="karate-tags.html">auth</a><a class="badge badge-primary" href="karate-tags.html">TC-API-005</a>
               </div>
               <div class="scenario-keyword">
                 Scenario: <span>[5:53]</span>
@@ -5187,7 +5169,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
               </div>
             </div>
             <div class="scenario-time passed">
-              <span>ms:</span>&nbsp;<span>372</span>
+              <span>ms:</span>&nbsp;<span>280</span>
             </div>
           </div>
           <div class="step-row">
@@ -5238,7 +5220,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def usuarioSchema = read(&#39;classpath:trouvels360/schemas/usuario.json&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -5266,7 +5248,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def cel = celular()</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -5294,7 +5276,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def r = call read(&#39;classpath:trouvels360/helpers/registrar.feature&#39;) { datos: { rol: &#39;proveedor&#39;, email: &#39;#(correo(&quot;qa.prov&quot;))&#39;, password: &#39;Clave123&#39;, empresa_nombre: &#39;QA Karate SAC&#39;, ruc: &#39;#(ruc())&#39;, telefono: &#39;#(cel)&#39; } }</span>
       </div>
     </div>
-    <div class="time-cell passed">368</div>
+    <div class="time-cell passed">279</div>
   </div>
 
    
@@ -5313,7 +5295,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <div class="step-indent"></div>
         <div class="step-cell passed">trouvels360.helpers.registrar</div>
       </div>
-      <div class="time-cell passed">363</div>
+      <div class="time-cell passed">277</div>
     </div>
     <div>
       <div><div>
@@ -5413,7 +5395,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>call read(&#39;this:csrf.feature&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">38</div>
+    <div class="time-cell passed">42</div>
   </div>
 
    
@@ -5433,7 +5415,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <div class="step-indent"></div>
         <div class="step-cell passed">trouvels360.helpers.csrf</div>
       </div>
-      <div class="time-cell passed">17</div>
+      <div class="time-cell passed">36</div>
     </div>
     <div>
       <div><div>
@@ -5508,7 +5490,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method get</span>
       </div>
     </div>
-    <div class="time-cell passed">17</div>
+    <div class="time-cell passed">36</div>
   </div>
 
    
@@ -5517,7 +5499,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.55.0.call.0.9.0.call.0.7">09:00:55.858 request:
+  <div class="preformatted" data-parent="0.55.0.call.0.9.0.call.0.7">22:00:57.595 request:
 1 &gt; GET http://localhost:8000/api/auth/csrf
 1 &gt; Accept: application/json
 1 &gt; Host: localhost:8000
@@ -5526,18 +5508,17 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &gt; Accept-Encoding: gzip,deflate
 
 
-09:00:55.873 response time in milliseconds: 15
+22:00:57.631 response time in milliseconds: 36
 1 &lt; 200
 1 &lt; Host: localhost:8000
 1 &lt; Connection: close
 1 &lt; X-Powered-By: PHP/8.3.6
 1 &lt; Cache-Control: no-cache, private
-1 &lt; Date: Wed, 11 Nov 2026 14:00:55 GMT
+1 &lt; Date: Thu, 12 Nov 2026 03:00:57 GMT
 1 &lt; Content-Type: application/json
-1 &lt; Access-Control-Allow-Origin: http://localhost:4200
-1 &lt; Access-Control-Allow-Credentials: true
-1 &lt; Set-Cookie: XSRF-TOKEN=1b92ca9e3780d5c632b83cc91a5df7f60d6715a76c4be826361bad0fc26a698e; expires=Wed, 11 Nov 2026 15:00:55 GMT; Max-Age=3600; path=/; samesite=strict
-{&quot;csrf_token&quot;:&quot;1b92ca9e3780d5c632b83cc91a5df7f60d6715a76c4be826361bad0fc26a698e&quot;}
+1 &lt; Vary: Origin
+1 &lt; Set-Cookie: XSRF-TOKEN=9d6dd820e4ab03814d2c96d22aab839665d432d9d7ec6b1ce9ba0442b431fa35; expires=Thu, 12 Nov 2026 04:00:57 GMT; Max-Age=3600; path=/; samesite=lax
+{&quot;csrf_token&quot;:&quot;9d6dd820e4ab03814d2c96d22aab839665d432d9d7ec6b1ce9ba0442b431fa35&quot;}
 
 </div>   
 
@@ -5621,7 +5602,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def cuerpo = karate.merge(datos, { password_confirmation: &#39;#(datos.password)&#39; })</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -5649,7 +5630,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>set cuerpo.password_confirmation = datos.password</span>
       </div>
     </div>
-    <div class="time-cell passed">13</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -5789,7 +5770,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method post</span>
       </div>
     </div>
-    <div class="time-cell passed">285</div>
+    <div class="time-cell passed">235</div>
   </div>
 
    
@@ -5798,33 +5779,32 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.55.0.call.0.16">09:00:55.896 request:
+  <div class="preformatted" data-parent="0.55.0.call.0.16">22:00:57.632 request:
 1 &gt; POST http://localhost:8000/api/auth/register
-1 &gt; X-XSRF-TOKEN: 1b92ca9e3780d5c632b83cc91a5df7f60d6715a76c4be826361bad0fc26a698e
+1 &gt; X-XSRF-TOKEN: 9d6dd820e4ab03814d2c96d22aab839665d432d9d7ec6b1ce9ba0442b431fa35
 1 &gt; Accept: application/json
-1 &gt; Cookie: XSRF-TOKEN=1b92ca9e3780d5c632b83cc91a5df7f60d6715a76c4be826361bad0fc26a698e; XSRF-TOKEN=1b92ca9e3780d5c632b83cc91a5df7f60d6715a76c4be826361bad0fc26a698e
+1 &gt; Cookie: XSRF-TOKEN=9d6dd820e4ab03814d2c96d22aab839665d432d9d7ec6b1ce9ba0442b431fa35; XSRF-TOKEN=9d6dd820e4ab03814d2c96d22aab839665d432d9d7ec6b1ce9ba0442b431fa35
 1 &gt; Content-Type: application/json; charset=UTF-8
-1 &gt; Content-Length: 201
+1 &gt; Content-Length: 200
 1 &gt; Host: localhost:8000
 1 &gt; Connection: Keep-Alive
 1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.12.1)
 1 &gt; Accept-Encoding: gzip,deflate
-{&quot;ruc&quot;:&quot;20203371404&quot;,&quot;password&quot;:&quot;Clave123&quot;,&quot;password_confirmation&quot;:&quot;Clave123&quot;,&quot;empresa_nombre&quot;:&quot;QA Karate SAC&quot;,&quot;telefono&quot;:&quot;902776225&quot;,&quot;rol&quot;:&quot;proveedor&quot;,&quot;email&quot;:&quot;qa.prov.2416668856072@trouvels360.test&quot;}
+{&quot;ruc&quot;:&quot;20332942573&quot;,&quot;password&quot;:&quot;Clave123&quot;,&quot;password_confirmation&quot;:&quot;Clave123&quot;,&quot;empresa_nombre&quot;:&quot;QA Karate SAC&quot;,&quot;telefono&quot;:&quot;905673870&quot;,&quot;rol&quot;:&quot;proveedor&quot;,&quot;email&quot;:&quot;qa.prov.329010540390@trouvels360.test&quot;}
 
-09:00:56.173 response time in milliseconds: 276
+22:00:57.866 response time in milliseconds: 234
 1 &lt; 201
 1 &lt; Host: localhost:8000
 1 &lt; Connection: close
 1 &lt; X-Powered-By: PHP/8.3.6
 1 &lt; Cache-Control: no-cache, private
-1 &lt; Date: Wed, 11 Nov 2026 14:00:56 GMT
+1 &lt; Date: Thu, 12 Nov 2026 03:00:57 GMT
 1 &lt; Content-Type: application/json
 1 &lt; X-RateLimit-Limit: 1000
-1 &lt; X-RateLimit-Remaining: 992
-1 &lt; Access-Control-Allow-Origin: http://localhost:4200
-1 &lt; Access-Control-Allow-Credentials: true
-1 &lt; Set-Cookie: access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2F1dGgvcmVnaXN0ZXIiLCJpYXQiOjE3OTQ0MDU2NTYsImV4cCI6MTc5NDQwOTI1NiwibmJmIjoxNzk0NDA1NjU2LCJqdGkiOiJJS0xsWlpEUE9hcVlPZnc4Iiwic3ViIjoiMjg4IiwicHJ2IjoiNTg3MDg2M2Q0YTYyZDc5MTQ0M2ZhZjkzNmZjMzY4MDMxZDExMGM0ZiIsInJvbCI6InByb3ZlZWRvciIsImVtYWlsIjoicWEucHJvdi4yNDE2NjY4ODU2MDcyQHRyb3V2ZWxzMzYwLnRlc3QifQ.tRm6OKq9FOr1MRXKkYxqP_9ugHrpmWkoK26AE0f4tzg; expires=Wed, 11 Nov 2026 15:00:56 GMT; Max-Age=3600; path=/; httponly; samesite=strict
-{&quot;message&quot;:&quot;Registro exitoso.&quot;,&quot;expires_in&quot;:3600,&quot;data&quot;:{&quot;user&quot;:{&quot;id&quot;:288,&quot;rol&quot;:&quot;proveedor&quot;,&quot;nombre&quot;:null,&quot;apellido&quot;:null,&quot;empresa_nombre&quot;:&quot;QA Karate SAC&quot;,&quot;telefono&quot;:&quot;+51 902776225&quot;,&quot;ruc&quot;:&quot;20203371404&quot;,&quot;email&quot;:&quot;qa.prov.2416668856072@trouvels360.test&quot;,&quot;avatar_url&quot;:null,&quot;created_at&quot;:&quot;2026-11-11T14:00:56.000000Z&quot;,&quot;updated_at&quot;:&quot;2026-11-11T14:00:56.000000Z&quot;}}}
+1 &lt; X-RateLimit-Remaining: 978
+1 &lt; Vary: Origin
+1 &lt; Set-Cookie: access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2F1dGgvcmVnaXN0ZXIiLCJpYXQiOjE3OTQ0NTI0NTcsImV4cCI6MTc5NDQ1NjA1NywibmJmIjoxNzk0NDUyNDU3LCJqdGkiOiJVeU83bGRuYzcxak9GaUNXIiwic3ViIjoiNjQiLCJwcnYiOiI1ODcwODYzZDRhNjJkNzkxNDQzZmFmOTM2ZmMzNjgwMzFkMTEwYzRmIiwicm9sIjoicHJvdmVlZG9yIiwiZW1haWwiOiJxYS5wcm92LjMyOTAxMDU0MDM5MEB0cm91dmVsczM2MC50ZXN0In0.cxG3dTIEtv4GFn_ST5huWKQaTQfkKabI-o9r1aw0_n4; expires=Thu, 12 Nov 2026 04:00:57 GMT; Max-Age=3600; path=/; httponly; samesite=lax
+{&quot;message&quot;:&quot;Registro exitoso.&quot;,&quot;expires_in&quot;:3600,&quot;data&quot;:{&quot;user&quot;:{&quot;id&quot;:64,&quot;rol&quot;:&quot;proveedor&quot;,&quot;nombre&quot;:null,&quot;apellido&quot;:null,&quot;empresa_nombre&quot;:&quot;QA Karate SAC&quot;,&quot;telefono&quot;:&quot;+51 905673870&quot;,&quot;ruc&quot;:&quot;20332942573&quot;,&quot;email&quot;:&quot;qa.prov.329010540390@trouvels360.test&quot;,&quot;avatar_url&quot;:null,&quot;created_at&quot;:&quot;2026-11-12T03:00:57.000000Z&quot;,&quot;updated_at&quot;:&quot;2026-11-12T03:00:57.000000Z&quot;}}}
 
 </div>   
 
@@ -5901,7 +5881,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def token = status == 201 ? responseCookies.access_token.value : null</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -5929,7 +5909,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def user = status == 201 ? response.data.user : null</span>
       </div>
     </div>
-    <div class="time-cell passed">24</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -6018,7 +5998,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>match r.body.data.user.telefono == &#39;+51 &#39; + cel</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -6066,7 +6046,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
           <div class="scenario-heading" id="[6.1:73]">
             <div class="heading-container">
               <div class="scenario-tags">
-                <a class="badge badge-primary" href="karate-tags.html">auth</a><a class="badge badge-primary" href="karate-tags.html">TRV-102</a><a class="badge badge-primary" href="karate-tags.html">TC-API-006</a>
+                <a class="badge badge-primary" href="karate-tags.html">HU-P01</a><a class="badge badge-primary" href="karate-tags.html">auth</a><a class="badge badge-primary" href="karate-tags.html">TC-API-006</a>
               </div>
               <div class="scenario-keyword">
                 Scenario: <span>[6.1:73]</span>
@@ -6075,7 +6055,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
               </div>
             </div>
             <div class="scenario-time passed">
-              <span>ms:</span>&nbsp;<span>368</span>
+              <span>ms:</span>&nbsp;<span>292</span>
             </div>
           </div>
           <div class="step-row">
@@ -6154,7 +6134,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>call read(&#39;classpath:trouvels360/helpers/csrf.feature&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">307</div>
+    <div class="time-cell passed">50</div>
   </div>
 
    
@@ -6173,7 +6153,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <div class="step-indent"></div>
         <div class="step-cell passed">trouvels360.helpers.csrf</div>
       </div>
-      <div class="time-cell passed">288</div>
+      <div class="time-cell passed">36</div>
     </div>
     <div>
       <div><div>
@@ -6245,7 +6225,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method get</span>
       </div>
     </div>
-    <div class="time-cell passed">287</div>
+    <div class="time-cell passed">35</div>
   </div>
 
    
@@ -6254,7 +6234,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="1.63.0.call.0.7">09:00:55.895 request:
+  <div class="preformatted" data-parent="1.63.0.call.0.7">22:00:57.615 request:
 1 &gt; GET http://localhost:8000/api/auth/csrf
 1 &gt; Accept: application/json
 1 &gt; Host: localhost:8000
@@ -6263,18 +6243,17 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &gt; Accept-Encoding: gzip,deflate
 
 
-09:00:56.181 response time in milliseconds: 285
+22:00:57.650 response time in milliseconds: 35
 1 &lt; 200
 1 &lt; Host: localhost:8000
 1 &lt; Connection: close
 1 &lt; X-Powered-By: PHP/8.3.6
 1 &lt; Cache-Control: no-cache, private
-1 &lt; Date: Wed, 11 Nov 2026 14:00:56 GMT
+1 &lt; Date: Thu, 12 Nov 2026 03:00:57 GMT
 1 &lt; Content-Type: application/json
-1 &lt; Access-Control-Allow-Origin: http://localhost:4200
-1 &lt; Access-Control-Allow-Credentials: true
-1 &lt; Set-Cookie: XSRF-TOKEN=f0041917da5f206798784e3fddc87f4223219ad515f5c07663ad457472df4915; expires=Wed, 11 Nov 2026 15:00:56 GMT; Max-Age=3600; path=/; samesite=strict
-{&quot;csrf_token&quot;:&quot;f0041917da5f206798784e3fddc87f4223219ad515f5c07663ad457472df4915&quot;}
+1 &lt; Vary: Origin
+1 &lt; Set-Cookie: XSRF-TOKEN=e27f8c3baa00007a159b589dfc25ddaccd1e89265b0c8437919162a6adde31db; expires=Thu, 12 Nov 2026 04:00:57 GMT; Max-Age=3600; path=/; samesite=lax
+{&quot;csrf_token&quot;:&quot;e27f8c3baa00007a159b589dfc25ddaccd1e89265b0c8437919162a6adde31db&quot;}
 
 </div>   
 
@@ -6440,7 +6419,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method post</span>
       </div>
     </div>
-    <div class="time-cell passed">59</div>
+    <div class="time-cell passed">239</div>
   </div>
 
    
@@ -6449,31 +6428,30 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="1.67">09:00:56.198 request:
+  <div class="preformatted" data-parent="1.67">22:00:57.652 request:
 1 &gt; POST http://localhost:8000/api/auth/register
-1 &gt; X-XSRF-TOKEN: f0041917da5f206798784e3fddc87f4223219ad515f5c07663ad457472df4915
+1 &gt; X-XSRF-TOKEN: e27f8c3baa00007a159b589dfc25ddaccd1e89265b0c8437919162a6adde31db
 1 &gt; Accept: application/json
-1 &gt; Cookie: XSRF-TOKEN=f0041917da5f206798784e3fddc87f4223219ad515f5c07663ad457472df4915
+1 &gt; Cookie: XSRF-TOKEN=e27f8c3baa00007a159b589dfc25ddaccd1e89265b0c8437919162a6adde31db
 1 &gt; Content-Type: application/json; charset=UTF-8
-1 &gt; Content-Length: 192
+1 &gt; Content-Length: 191
 1 &gt; Host: localhost:8000
 1 &gt; Connection: Keep-Alive
 1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.12.1)
 1 &gt; Accept-Encoding: gzip,deflate
-{&quot;rol&quot;:&quot;proveedor&quot;,&quot;email&quot;:&quot;qa.ruc.2417019211266@trouvels360.test&quot;,&quot;password&quot;:&quot;Clave123&quot;,&quot;password_confirmation&quot;:&quot;Clave123&quot;,&quot;empresa_nombre&quot;:&quot;QA SAC&quot;,&quot;ruc&quot;:&quot;2012345678&quot;,&quot;telefono&quot;:&quot;987654321&quot;}
+{&quot;rol&quot;:&quot;proveedor&quot;,&quot;email&quot;:&quot;qa.ruc.329073479544@trouvels360.test&quot;,&quot;password&quot;:&quot;Clave123&quot;,&quot;password_confirmation&quot;:&quot;Clave123&quot;,&quot;empresa_nombre&quot;:&quot;QA SAC&quot;,&quot;ruc&quot;:&quot;2012345678&quot;,&quot;telefono&quot;:&quot;987654321&quot;}
 
-09:00:56.241 response time in milliseconds: 43
+22:00:57.890 response time in milliseconds: 238
 1 &lt; 422
 1 &lt; Host: localhost:8000
 1 &lt; Connection: close
 1 &lt; X-Powered-By: PHP/8.3.6
 1 &lt; Cache-Control: no-cache, private
-1 &lt; Date: Wed, 11 Nov 2026 14:00:56 GMT
+1 &lt; Date: Thu, 12 Nov 2026 03:00:57 GMT
 1 &lt; Content-Type: application/json
 1 &lt; X-RateLimit-Limit: 1000
-1 &lt; X-RateLimit-Remaining: 988
-1 &lt; Access-Control-Allow-Origin: http://localhost:4200
-1 &lt; Access-Control-Allow-Credentials: true
+1 &lt; X-RateLimit-Remaining: 977
+1 &lt; Vary: Origin
 {&quot;message&quot;:&quot;El RUC debe tener exactamente 11 d\u00edgitos. (and 1 more error)&quot;,&quot;errors&quot;:{&quot;ruc&quot;:[&quot;El RUC debe tener exactamente 11 d\u00edgitos.&quot;,&quot;El RUC solo debe contener d\u00edgitos.&quot;]}}
 
 </div>   
@@ -6551,7 +6529,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>And</span>&nbsp;<span>match response.errors.ruc == &#39;#[_ &gt; 0]&#39;</span>
       </div>
     </div>
-    <div class="time-cell passed">0</div>
+    <div class="time-cell passed">2</div>
   </div>
 
    
@@ -6571,7 +6549,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
           <div class="scenario-heading" id="[6.2:73]">
             <div class="heading-container">
               <div class="scenario-tags">
-                <a class="badge badge-primary" href="karate-tags.html">auth</a><a class="badge badge-primary" href="karate-tags.html">TRV-102</a><a class="badge badge-primary" href="karate-tags.html">TC-API-006</a>
+                <a class="badge badge-primary" href="karate-tags.html">HU-P01</a><a class="badge badge-primary" href="karate-tags.html">auth</a><a class="badge badge-primary" href="karate-tags.html">TC-API-006</a>
               </div>
               <div class="scenario-keyword">
                 Scenario: <span>[6.2:73]</span>
@@ -6580,7 +6558,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
               </div>
             </div>
             <div class="scenario-time passed">
-              <span>ms:</span>&nbsp;<span>359</span>
+              <span>ms:</span>&nbsp;<span>284</span>
             </div>
           </div>
           <div class="step-row">
@@ -6631,7 +6609,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def usuarioSchema = read(&#39;classpath:trouvels360/schemas/usuario.json&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">0</div>
+    <div class="time-cell passed">4</div>
   </div>
 
    
@@ -6659,7 +6637,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>call read(&#39;classpath:trouvels360/helpers/csrf.feature&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">303</div>
+    <div class="time-cell passed">242</div>
   </div>
 
    
@@ -6678,7 +6656,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <div class="step-indent"></div>
         <div class="step-cell passed">trouvels360.helpers.csrf</div>
       </div>
-      <div class="time-cell passed">290</div>
+      <div class="time-cell passed">237</div>
     </div>
     <div>
       <div><div>
@@ -6750,7 +6728,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method get</span>
       </div>
     </div>
-    <div class="time-cell passed">290</div>
+    <div class="time-cell passed">237</div>
   </div>
 
    
@@ -6759,7 +6737,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="2.63.0.call.0.7">09:00:55.899 request:
+  <div class="preformatted" data-parent="2.63.0.call.0.7">22:00:57.634 request:
 1 &gt; GET http://localhost:8000/api/auth/csrf
 1 &gt; Accept: application/json
 1 &gt; Host: localhost:8000
@@ -6768,18 +6746,17 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &gt; Accept-Encoding: gzip,deflate
 
 
-09:00:56.187 response time in milliseconds: 288
+22:00:57.871 response time in milliseconds: 237
 1 &lt; 200
 1 &lt; Host: localhost:8000
 1 &lt; Connection: close
 1 &lt; X-Powered-By: PHP/8.3.6
 1 &lt; Cache-Control: no-cache, private
-1 &lt; Date: Wed, 11 Nov 2026 14:00:56 GMT
+1 &lt; Date: Thu, 12 Nov 2026 03:00:57 GMT
 1 &lt; Content-Type: application/json
-1 &lt; Access-Control-Allow-Origin: http://localhost:4200
-1 &lt; Access-Control-Allow-Credentials: true
-1 &lt; Set-Cookie: XSRF-TOKEN=0b83442498f5d0386526746ba37e5eabf56e1c9fa4121684e5ef402c57f4cd45; expires=Wed, 11 Nov 2026 15:00:56 GMT; Max-Age=3600; path=/; samesite=strict
-{&quot;csrf_token&quot;:&quot;0b83442498f5d0386526746ba37e5eabf56e1c9fa4121684e5ef402c57f4cd45&quot;}
+1 &lt; Vary: Origin
+1 &lt; Set-Cookie: XSRF-TOKEN=82a29437390b4fb2c83ae83dab0295892e442d126a1c953b4e93ed220acdd693; expires=Thu, 12 Nov 2026 04:00:57 GMT; Max-Age=3600; path=/; samesite=lax
+{&quot;csrf_token&quot;:&quot;82a29437390b4fb2c83ae83dab0295892e442d126a1c953b4e93ed220acdd693&quot;}
 
 </div>   
 
@@ -6945,7 +6922,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method post</span>
       </div>
     </div>
-    <div class="time-cell passed">54</div>
+    <div class="time-cell passed">37</div>
   </div>
 
    
@@ -6954,31 +6931,30 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="2.67">09:00:56.191 request:
+  <div class="preformatted" data-parent="2.67">22:00:57.873 request:
 1 &gt; POST http://localhost:8000/api/auth/register
-1 &gt; X-XSRF-TOKEN: 0b83442498f5d0386526746ba37e5eabf56e1c9fa4121684e5ef402c57f4cd45
+1 &gt; X-XSRF-TOKEN: 82a29437390b4fb2c83ae83dab0295892e442d126a1c953b4e93ed220acdd693
 1 &gt; Accept: application/json
-1 &gt; Cookie: XSRF-TOKEN=0b83442498f5d0386526746ba37e5eabf56e1c9fa4121684e5ef402c57f4cd45
+1 &gt; Cookie: XSRF-TOKEN=82a29437390b4fb2c83ae83dab0295892e442d126a1c953b4e93ed220acdd693
 1 &gt; Content-Type: application/json; charset=UTF-8
-1 &gt; Content-Length: 193
+1 &gt; Content-Length: 192
 1 &gt; Host: localhost:8000
 1 &gt; Connection: Keep-Alive
 1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.12.1)
 1 &gt; Accept-Encoding: gzip,deflate
-{&quot;rol&quot;:&quot;proveedor&quot;,&quot;email&quot;:&quot;qa.ruc.2417025902414@trouvels360.test&quot;,&quot;password&quot;:&quot;Clave123&quot;,&quot;password_confirmation&quot;:&quot;Clave123&quot;,&quot;empresa_nombre&quot;:&quot;QA SAC&quot;,&quot;ruc&quot;:&quot;2012345678a&quot;,&quot;telefono&quot;:&quot;987654321&quot;}
+{&quot;rol&quot;:&quot;proveedor&quot;,&quot;email&quot;:&quot;qa.ruc.329294312084@trouvels360.test&quot;,&quot;password&quot;:&quot;Clave123&quot;,&quot;password_confirmation&quot;:&quot;Clave123&quot;,&quot;empresa_nombre&quot;:&quot;QA SAC&quot;,&quot;ruc&quot;:&quot;2012345678a&quot;,&quot;telefono&quot;:&quot;987654321&quot;}
 
-09:00:56.243 response time in milliseconds: 52
+22:00:57.909 response time in milliseconds: 36
 1 &lt; 422
 1 &lt; Host: localhost:8000
 1 &lt; Connection: close
 1 &lt; X-Powered-By: PHP/8.3.6
 1 &lt; Cache-Control: no-cache, private
-1 &lt; Date: Wed, 11 Nov 2026 14:00:56 GMT
+1 &lt; Date: Thu, 12 Nov 2026 03:00:57 GMT
 1 &lt; Content-Type: application/json
 1 &lt; X-RateLimit-Limit: 1000
-1 &lt; X-RateLimit-Remaining: 989
-1 &lt; Access-Control-Allow-Origin: http://localhost:4200
-1 &lt; Access-Control-Allow-Credentials: true
+1 &lt; X-RateLimit-Remaining: 976
+1 &lt; Vary: Origin
 {&quot;message&quot;:&quot;El RUC debe tener exactamente 11 d\u00edgitos. (and 1 more error)&quot;,&quot;errors&quot;:{&quot;ruc&quot;:[&quot;El RUC debe tener exactamente 11 d\u00edgitos.&quot;,&quot;El RUC solo debe contener d\u00edgitos.&quot;]}}
 
 </div>   
@@ -7056,7 +7032,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>And</span>&nbsp;<span>match response.errors.ruc == &#39;#[_ &gt; 0]&#39;</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -7076,7 +7052,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
           <div class="scenario-heading" id="[6.3:73]">
             <div class="heading-container">
               <div class="scenario-tags">
-                <a class="badge badge-primary" href="karate-tags.html">auth</a><a class="badge badge-primary" href="karate-tags.html">TRV-102</a><a class="badge badge-primary" href="karate-tags.html">TC-API-006</a>
+                <a class="badge badge-primary" href="karate-tags.html">HU-P01</a><a class="badge badge-primary" href="karate-tags.html">auth</a><a class="badge badge-primary" href="karate-tags.html">TC-API-006</a>
               </div>
               <div class="scenario-keyword">
                 Scenario: <span>[6.3:73]</span>
@@ -7085,7 +7061,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
               </div>
             </div>
             <div class="scenario-time passed">
-              <span>ms:</span>&nbsp;<span>94</span>
+              <span>ms:</span>&nbsp;<span>288</span>
             </div>
           </div>
           <div class="step-row">
@@ -7164,7 +7140,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>call read(&#39;classpath:trouvels360/helpers/csrf.feature&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">46</div>
+    <div class="time-cell passed">235</div>
   </div>
 
    
@@ -7183,7 +7159,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <div class="step-indent"></div>
         <div class="step-cell passed">trouvels360.helpers.csrf</div>
       </div>
-      <div class="time-cell passed">44</div>
+      <div class="time-cell passed">233</div>
     </div>
     <div>
       <div><div>
@@ -7255,7 +7231,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method get</span>
       </div>
     </div>
-    <div class="time-cell passed">43</div>
+    <div class="time-cell passed">233</div>
   </div>
 
    
@@ -7264,7 +7240,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="3.63.0.call.0.7">09:00:56.232 request:
+  <div class="preformatted" data-parent="3.63.0.call.0.7">22:00:57.678 request:
 1 &gt; GET http://localhost:8000/api/auth/csrf
 1 &gt; Accept: application/json
 1 &gt; Host: localhost:8000
@@ -7273,18 +7249,17 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &gt; Accept-Encoding: gzip,deflate
 
 
-09:00:56.263 response time in milliseconds: 30
+22:00:57.898 response time in milliseconds: 220
 1 &lt; 200
 1 &lt; Host: localhost:8000
 1 &lt; Connection: close
 1 &lt; X-Powered-By: PHP/8.3.6
 1 &lt; Cache-Control: no-cache, private
-1 &lt; Date: Wed, 11 Nov 2026 14:00:56 GMT
+1 &lt; Date: Thu, 12 Nov 2026 03:00:57 GMT
 1 &lt; Content-Type: application/json
-1 &lt; Access-Control-Allow-Origin: http://localhost:4200
-1 &lt; Access-Control-Allow-Credentials: true
-1 &lt; Set-Cookie: XSRF-TOKEN=f2decbc75d6aa718b03002a83e40e06797944f7d11784b1009469e3f87b5b057; expires=Wed, 11 Nov 2026 15:00:56 GMT; Max-Age=3600; path=/; samesite=strict
-{&quot;csrf_token&quot;:&quot;f2decbc75d6aa718b03002a83e40e06797944f7d11784b1009469e3f87b5b057&quot;}
+1 &lt; Vary: Origin
+1 &lt; Set-Cookie: XSRF-TOKEN=fc13e9c50406021650827483b984e0f448a8418d4243ab9e1a856a2b5e31f5a8; expires=Thu, 12 Nov 2026 04:00:57 GMT; Max-Age=3600; path=/; samesite=lax
+{&quot;csrf_token&quot;:&quot;fc13e9c50406021650827483b984e0f448a8418d4243ab9e1a856a2b5e31f5a8&quot;}
 
 </div>   
 
@@ -7394,7 +7369,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>And</span>&nbsp;<span>header X-XSRF-TOKEN = xsrf</span>
       </div>
     </div>
-    <div class="time-cell passed">24</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -7450,7 +7425,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method post</span>
       </div>
     </div>
-    <div class="time-cell passed">22</div>
+    <div class="time-cell passed">51</div>
   </div>
 
    
@@ -7459,31 +7434,30 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="3.67">09:00:56.290 request:
+  <div class="preformatted" data-parent="3.67">22:00:57.900 request:
 1 &gt; POST http://localhost:8000/api/auth/register
-1 &gt; X-XSRF-TOKEN: f2decbc75d6aa718b03002a83e40e06797944f7d11784b1009469e3f87b5b057
+1 &gt; X-XSRF-TOKEN: fc13e9c50406021650827483b984e0f448a8418d4243ab9e1a856a2b5e31f5a8
 1 &gt; Accept: application/json
-1 &gt; Cookie: XSRF-TOKEN=f2decbc75d6aa718b03002a83e40e06797944f7d11784b1009469e3f87b5b057
+1 &gt; Cookie: XSRF-TOKEN=fc13e9c50406021650827483b984e0f448a8418d4243ab9e1a856a2b5e31f5a8
 1 &gt; Content-Type: application/json; charset=UTF-8
-1 &gt; Content-Length: 194
+1 &gt; Content-Length: 193
 1 &gt; Host: localhost:8000
 1 &gt; Connection: Keep-Alive
 1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.12.1)
 1 &gt; Accept-Encoding: gzip,deflate
-{&quot;rol&quot;:&quot;proveedor&quot;,&quot;email&quot;:&quot;qa.ruc.2417125059342@trouvels360.test&quot;,&quot;password&quot;:&quot;Clave123&quot;,&quot;password_confirmation&quot;:&quot;Clave123&quot;,&quot;empresa_nombre&quot;:&quot;QA SAC&quot;,&quot;ruc&quot;:&quot;201234567890&quot;,&quot;telefono&quot;:&quot;987654321&quot;}
+{&quot;rol&quot;:&quot;proveedor&quot;,&quot;email&quot;:&quot;qa.ruc.329321445057@trouvels360.test&quot;,&quot;password&quot;:&quot;Clave123&quot;,&quot;password_confirmation&quot;:&quot;Clave123&quot;,&quot;empresa_nombre&quot;:&quot;QA SAC&quot;,&quot;ruc&quot;:&quot;201234567890&quot;,&quot;telefono&quot;:&quot;987654321&quot;}
 
-09:00:56.310 response time in milliseconds: 20
+22:00:57.950 response time in milliseconds: 50
 1 &lt; 422
 1 &lt; Host: localhost:8000
 1 &lt; Connection: close
 1 &lt; X-Powered-By: PHP/8.3.6
 1 &lt; Cache-Control: no-cache, private
-1 &lt; Date: Wed, 11 Nov 2026 14:00:56 GMT
+1 &lt; Date: Thu, 12 Nov 2026 03:00:57 GMT
 1 &lt; Content-Type: application/json
 1 &lt; X-RateLimit-Limit: 1000
-1 &lt; X-RateLimit-Remaining: 986
-1 &lt; Access-Control-Allow-Origin: http://localhost:4200
-1 &lt; Access-Control-Allow-Credentials: true
+1 &lt; X-RateLimit-Remaining: 975
+1 &lt; Vary: Origin
 {&quot;message&quot;:&quot;El RUC debe tener exactamente 11 d\u00edgitos. (and 1 more error)&quot;,&quot;errors&quot;:{&quot;ruc&quot;:[&quot;El RUC debe tener exactamente 11 d\u00edgitos.&quot;,&quot;El RUC solo debe contener d\u00edgitos.&quot;]}}
 
 </div>   
@@ -7561,7 +7535,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>And</span>&nbsp;<span>match response.errors.ruc == &#39;#[_ &gt; 0]&#39;</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -7581,7 +7555,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
           <div class="scenario-heading" id="[6.4:73]">
             <div class="heading-container">
               <div class="scenario-tags">
-                <a class="badge badge-primary" href="karate-tags.html">auth</a><a class="badge badge-primary" href="karate-tags.html">TRV-102</a><a class="badge badge-primary" href="karate-tags.html">TC-API-006</a>
+                <a class="badge badge-primary" href="karate-tags.html">HU-P01</a><a class="badge badge-primary" href="karate-tags.html">auth</a><a class="badge badge-primary" href="karate-tags.html">TC-API-006</a>
               </div>
               <div class="scenario-keyword">
                 Scenario: <span>[6.4:73]</span>
@@ -7590,7 +7564,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
               </div>
             </div>
             <div class="scenario-time passed">
-              <span>ms:</span>&nbsp;<span>74</span>
+              <span>ms:</span>&nbsp;<span>103</span>
             </div>
           </div>
           <div class="step-row">
@@ -7669,7 +7643,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>call read(&#39;classpath:trouvels360/helpers/csrf.feature&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">42</div>
+    <div class="time-cell passed">55</div>
   </div>
 
    
@@ -7688,7 +7662,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <div class="step-indent"></div>
         <div class="step-cell passed">trouvels360.helpers.csrf</div>
       </div>
-      <div class="time-cell passed">15</div>
+      <div class="time-cell passed">46</div>
     </div>
     <div>
       <div><div>
@@ -7760,7 +7734,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method get</span>
       </div>
     </div>
-    <div class="time-cell passed">15</div>
+    <div class="time-cell passed">46</div>
   </div>
 
    
@@ -7769,7 +7743,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="4.63.0.call.0.7">09:00:56.239 request:
+  <div class="preformatted" data-parent="4.63.0.call.0.7">22:00:57.887 request:
 1 &gt; GET http://localhost:8000/api/auth/csrf
 1 &gt; Accept: application/json
 1 &gt; Host: localhost:8000
@@ -7778,18 +7752,17 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &gt; Accept-Encoding: gzip,deflate
 
 
-09:00:56.253 response time in milliseconds: 14
+22:00:57.932 response time in milliseconds: 45
 1 &lt; 200
 1 &lt; Host: localhost:8000
 1 &lt; Connection: close
 1 &lt; X-Powered-By: PHP/8.3.6
 1 &lt; Cache-Control: no-cache, private
-1 &lt; Date: Wed, 11 Nov 2026 14:00:56 GMT
+1 &lt; Date: Thu, 12 Nov 2026 03:00:57 GMT
 1 &lt; Content-Type: application/json
-1 &lt; Access-Control-Allow-Origin: http://localhost:4200
-1 &lt; Access-Control-Allow-Credentials: true
-1 &lt; Set-Cookie: XSRF-TOKEN=fce65509c320daeb6720026bf8a757537792b17b004c502a52a81a998841476d; expires=Wed, 11 Nov 2026 15:00:56 GMT; Max-Age=3600; path=/; samesite=strict
-{&quot;csrf_token&quot;:&quot;fce65509c320daeb6720026bf8a757537792b17b004c502a52a81a998841476d&quot;}
+1 &lt; Vary: Origin
+1 &lt; Set-Cookie: XSRF-TOKEN=105012af8d0a9e5fdcf2f419d8ee8b028e3b6acfef46eac91381254cbeb59f3d; expires=Thu, 12 Nov 2026 04:00:57 GMT; Max-Age=3600; path=/; samesite=lax
+{&quot;csrf_token&quot;:&quot;105012af8d0a9e5fdcf2f419d8ee8b028e3b6acfef46eac91381254cbeb59f3d&quot;}
 
 </div>   
 
@@ -7927,7 +7900,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>And</span>&nbsp;<span>request { rol: &#39;proveedor&#39;, email: &#39;#(correo(&quot;qa.ruc&quot;))&#39;, password: &#39;Clave123&#39;, password_confirmation: &#39;Clave123&#39;, empresa_nombre: &#39;QA SAC&#39;, ruc: &#39;20999999991&#39;, telefono: &#39;987654321&#39; }</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">4</div>
   </div>
 
    
@@ -7955,7 +7928,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method post</span>
       </div>
     </div>
-    <div class="time-cell passed">30</div>
+    <div class="time-cell passed">44</div>
   </div>
 
    
@@ -7964,31 +7937,30 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="4.67">09:00:56.256 request:
+  <div class="preformatted" data-parent="4.67">22:00:57.937 request:
 1 &gt; POST http://localhost:8000/api/auth/register
-1 &gt; X-XSRF-TOKEN: fce65509c320daeb6720026bf8a757537792b17b004c502a52a81a998841476d
+1 &gt; X-XSRF-TOKEN: 105012af8d0a9e5fdcf2f419d8ee8b028e3b6acfef46eac91381254cbeb59f3d
 1 &gt; Accept: application/json
-1 &gt; Cookie: XSRF-TOKEN=fce65509c320daeb6720026bf8a757537792b17b004c502a52a81a998841476d
+1 &gt; Cookie: XSRF-TOKEN=105012af8d0a9e5fdcf2f419d8ee8b028e3b6acfef46eac91381254cbeb59f3d
 1 &gt; Content-Type: application/json; charset=UTF-8
-1 &gt; Content-Length: 193
+1 &gt; Content-Length: 192
 1 &gt; Host: localhost:8000
 1 &gt; Connection: Keep-Alive
 1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.12.1)
 1 &gt; Accept-Encoding: gzip,deflate
-{&quot;rol&quot;:&quot;proveedor&quot;,&quot;email&quot;:&quot;qa.ruc.2417091524936@trouvels360.test&quot;,&quot;password&quot;:&quot;Clave123&quot;,&quot;password_confirmation&quot;:&quot;Clave123&quot;,&quot;empresa_nombre&quot;:&quot;QA SAC&quot;,&quot;ruc&quot;:&quot;20999999991&quot;,&quot;telefono&quot;:&quot;987654321&quot;}
+{&quot;rol&quot;:&quot;proveedor&quot;,&quot;email&quot;:&quot;qa.ruc.329359232648@trouvels360.test&quot;,&quot;password&quot;:&quot;Clave123&quot;,&quot;password_confirmation&quot;:&quot;Clave123&quot;,&quot;empresa_nombre&quot;:&quot;QA SAC&quot;,&quot;ruc&quot;:&quot;20999999991&quot;,&quot;telefono&quot;:&quot;987654321&quot;}
 
-09:00:56.285 response time in milliseconds: 28
+22:00:57.980 response time in milliseconds: 43
 1 &lt; 422
 1 &lt; Host: localhost:8000
 1 &lt; Connection: close
 1 &lt; X-Powered-By: PHP/8.3.6
 1 &lt; Cache-Control: no-cache, private
-1 &lt; Date: Wed, 11 Nov 2026 14:00:56 GMT
+1 &lt; Date: Thu, 12 Nov 2026 03:00:57 GMT
 1 &lt; Content-Type: application/json
 1 &lt; X-RateLimit-Limit: 1000
-1 &lt; X-RateLimit-Remaining: 987
-1 &lt; Access-Control-Allow-Origin: http://localhost:4200
-1 &lt; Access-Control-Allow-Credentials: true
+1 &lt; X-RateLimit-Remaining: 974
+1 &lt; Vary: Origin
 {&quot;message&quot;:&quot;El RUC ya est\u00e1 registrado.&quot;,&quot;errors&quot;:{&quot;ruc&quot;:[&quot;El RUC ya est\u00e1 registrado.&quot;]}}
 
 </div>   
@@ -8086,7 +8058,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
           <div class="scenario-heading" id="[7.1:86]">
             <div class="heading-container">
               <div class="scenario-tags">
-                <a class="badge badge-primary" href="karate-tags.html">auth</a><a class="badge badge-primary" href="karate-tags.html">TRV-102</a><a class="badge badge-primary" href="karate-tags.html">TC-API-007</a>
+                <a class="badge badge-primary" href="karate-tags.html">HU-P01</a><a class="badge badge-primary" href="karate-tags.html">auth</a><a class="badge badge-primary" href="karate-tags.html">TC-API-007</a>
               </div>
               <div class="scenario-keyword">
                 Scenario: <span>[7.1:86]</span>
@@ -8095,7 +8067,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
               </div>
             </div>
             <div class="scenario-time passed">
-              <span>ms:</span>&nbsp;<span>61</span>
+              <span>ms:</span>&nbsp;<span>98</span>
             </div>
           </div>
           <div class="step-row">
@@ -8146,7 +8118,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def usuarioSchema = read(&#39;classpath:trouvels360/schemas/usuario.json&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -8174,7 +8146,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>call read(&#39;classpath:trouvels360/helpers/csrf.feature&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">32</div>
+    <div class="time-cell passed">45</div>
   </div>
 
    
@@ -8193,7 +8165,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <div class="step-indent"></div>
         <div class="step-cell passed">trouvels360.helpers.csrf</div>
       </div>
-      <div class="time-cell passed">29</div>
+      <div class="time-cell passed">41</div>
     </div>
     <div>
       <div><div>
@@ -8265,7 +8237,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method get</span>
       </div>
     </div>
-    <div class="time-cell passed">29</div>
+    <div class="time-cell passed">41</div>
   </div>
 
    
@@ -8274,7 +8246,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="1.77.0.call.0.7">09:00:56.319 request:
+  <div class="preformatted" data-parent="1.77.0.call.0.7">22:00:57.899 request:
 1 &gt; GET http://localhost:8000/api/auth/csrf
 1 &gt; Accept: application/json
 1 &gt; Host: localhost:8000
@@ -8283,18 +8255,17 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &gt; Accept-Encoding: gzip,deflate
 
 
-09:00:56.327 response time in milliseconds: 8
+22:00:57.939 response time in milliseconds: 40
 1 &lt; 200
 1 &lt; Host: localhost:8000
 1 &lt; Connection: close
 1 &lt; X-Powered-By: PHP/8.3.6
 1 &lt; Cache-Control: no-cache, private
-1 &lt; Date: Wed, 11 Nov 2026 14:00:56 GMT
+1 &lt; Date: Thu, 12 Nov 2026 03:00:57 GMT
 1 &lt; Content-Type: application/json
-1 &lt; Access-Control-Allow-Origin: http://localhost:4200
-1 &lt; Access-Control-Allow-Credentials: true
-1 &lt; Set-Cookie: XSRF-TOKEN=9d22164337633cdb3425bda20204a56241c54bf2a28ae2d61c381adb643bcf3a; expires=Wed, 11 Nov 2026 15:00:56 GMT; Max-Age=3600; path=/; samesite=strict
-{&quot;csrf_token&quot;:&quot;9d22164337633cdb3425bda20204a56241c54bf2a28ae2d61c381adb643bcf3a&quot;}
+1 &lt; Vary: Origin
+1 &lt; Set-Cookie: XSRF-TOKEN=7a735a6934bda450b101eda7d9aa5a7076e6081c4757e4f6b477f50c07b6d4d5; expires=Thu, 12 Nov 2026 04:00:57 GMT; Max-Age=3600; path=/; samesite=lax
+{&quot;csrf_token&quot;:&quot;7a735a6934bda450b101eda7d9aa5a7076e6081c4757e4f6b477f50c07b6d4d5&quot;}
 
 </div>   
 
@@ -8432,7 +8403,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>And</span>&nbsp;<span>request { rol: &#39;proveedor&#39;, email: &#39;#(correo(&quot;qa.tel&quot;))&#39;, password: &#39;Clave123&#39;, password_confirmation: &#39;Clave123&#39;, empresa_nombre: &#39;QA SAC&#39;, ruc: &#39;#(ruc())&#39;, telefono: &#39;12345&#39; }</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -8460,7 +8431,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method post</span>
       </div>
     </div>
-    <div class="time-cell passed">27</div>
+    <div class="time-cell passed">52</div>
   </div>
 
    
@@ -8469,31 +8440,30 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="1.81">09:00:56.330 request:
+  <div class="preformatted" data-parent="1.81">22:00:57.943 request:
 1 &gt; POST http://localhost:8000/api/auth/register
-1 &gt; X-XSRF-TOKEN: 9d22164337633cdb3425bda20204a56241c54bf2a28ae2d61c381adb643bcf3a
+1 &gt; X-XSRF-TOKEN: 7a735a6934bda450b101eda7d9aa5a7076e6081c4757e4f6b477f50c07b6d4d5
 1 &gt; Accept: application/json
-1 &gt; Cookie: XSRF-TOKEN=9d22164337633cdb3425bda20204a56241c54bf2a28ae2d61c381adb643bcf3a
+1 &gt; Cookie: XSRF-TOKEN=7a735a6934bda450b101eda7d9aa5a7076e6081c4757e4f6b477f50c07b6d4d5
 1 &gt; Content-Type: application/json; charset=UTF-8
-1 &gt; Content-Length: 189
+1 &gt; Content-Length: 188
 1 &gt; Host: localhost:8000
 1 &gt; Connection: Keep-Alive
 1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.12.1)
 1 &gt; Accept-Encoding: gzip,deflate
-{&quot;rol&quot;:&quot;proveedor&quot;,&quot;email&quot;:&quot;qa.tel.2417165151114@trouvels360.test&quot;,&quot;password&quot;:&quot;Clave123&quot;,&quot;password_confirmation&quot;:&quot;Clave123&quot;,&quot;empresa_nombre&quot;:&quot;QA SAC&quot;,&quot;ruc&quot;:&quot;20299915327&quot;,&quot;telefono&quot;:&quot;12345&quot;}
+{&quot;rol&quot;:&quot;proveedor&quot;,&quot;email&quot;:&quot;qa.tel.329364579935@trouvels360.test&quot;,&quot;password&quot;:&quot;Clave123&quot;,&quot;password_confirmation&quot;:&quot;Clave123&quot;,&quot;empresa_nombre&quot;:&quot;QA SAC&quot;,&quot;ruc&quot;:&quot;20554430241&quot;,&quot;telefono&quot;:&quot;12345&quot;}
 
-09:00:56.356 response time in milliseconds: 26
+22:00:57.994 response time in milliseconds: 51
 1 &lt; 422
 1 &lt; Host: localhost:8000
 1 &lt; Connection: close
 1 &lt; X-Powered-By: PHP/8.3.6
 1 &lt; Cache-Control: no-cache, private
-1 &lt; Date: Wed, 11 Nov 2026 14:00:56 GMT
+1 &lt; Date: Thu, 12 Nov 2026 03:00:57 GMT
 1 &lt; Content-Type: application/json
 1 &lt; X-RateLimit-Limit: 1000
-1 &lt; X-RateLimit-Remaining: 985
-1 &lt; Access-Control-Allow-Origin: http://localhost:4200
-1 &lt; Access-Control-Allow-Credentials: true
+1 &lt; X-RateLimit-Remaining: 973
+1 &lt; Vary: Origin
 {&quot;message&quot;:&quot;El tel\u00e9fono debe tener el formato +51 9########.&quot;,&quot;errors&quot;:{&quot;telefono&quot;:[&quot;El tel\u00e9fono debe tener el formato +51 9########.&quot;]}}
 
 </div>   
@@ -8563,7 +8533,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
           <div class="scenario-heading" id="[7.2:86]">
             <div class="heading-container">
               <div class="scenario-tags">
-                <a class="badge badge-primary" href="karate-tags.html">auth</a><a class="badge badge-primary" href="karate-tags.html">TRV-102</a><a class="badge badge-primary" href="karate-tags.html">TC-API-007</a>
+                <a class="badge badge-primary" href="karate-tags.html">HU-P01</a><a class="badge badge-primary" href="karate-tags.html">auth</a><a class="badge badge-primary" href="karate-tags.html">TC-API-007</a>
               </div>
               <div class="scenario-keyword">
                 Scenario: <span>[7.2:86]</span>
@@ -8572,7 +8542,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
               </div>
             </div>
             <div class="scenario-time passed">
-              <span>ms:</span>&nbsp;<span>402</span>
+              <span>ms:</span>&nbsp;<span>87</span>
             </div>
           </div>
           <div class="step-row">
@@ -8651,7 +8621,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>call read(&#39;classpath:trouvels360/helpers/csrf.feature&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">77</div>
+    <div class="time-cell passed">52</div>
   </div>
 
    
@@ -8670,7 +8640,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <div class="step-indent"></div>
         <div class="step-cell passed">trouvels360.helpers.csrf</div>
       </div>
-      <div class="time-cell passed">74</div>
+      <div class="time-cell passed">50</div>
     </div>
     <div>
       <div><div>
@@ -8742,7 +8712,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method get</span>
       </div>
     </div>
-    <div class="time-cell passed">74</div>
+    <div class="time-cell passed">50</div>
   </div>
 
    
@@ -8751,7 +8721,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="2.77.0.call.0.7">09:00:56.337 request:
+  <div class="preformatted" data-parent="2.77.0.call.0.7">22:00:57.922 request:
 1 &gt; GET http://localhost:8000/api/auth/csrf
 1 &gt; Accept: application/json
 1 &gt; Host: localhost:8000
@@ -8760,18 +8730,17 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &gt; Accept-Encoding: gzip,deflate
 
 
-09:00:56.380 response time in milliseconds: 43
+22:00:57.967 response time in milliseconds: 45
 1 &lt; 200
 1 &lt; Host: localhost:8000
 1 &lt; Connection: close
 1 &lt; X-Powered-By: PHP/8.3.6
 1 &lt; Cache-Control: no-cache, private
-1 &lt; Date: Wed, 11 Nov 2026 14:00:56 GMT
+1 &lt; Date: Thu, 12 Nov 2026 03:00:57 GMT
 1 &lt; Content-Type: application/json
-1 &lt; Access-Control-Allow-Origin: http://localhost:4200
-1 &lt; Access-Control-Allow-Credentials: true
-1 &lt; Set-Cookie: XSRF-TOKEN=bf7f3edc6a69ce79f31b9dc74b53cccbb8d230800203b4835775e67f91eaacd6; expires=Wed, 11 Nov 2026 15:00:56 GMT; Max-Age=3600; path=/; samesite=strict
-{&quot;csrf_token&quot;:&quot;bf7f3edc6a69ce79f31b9dc74b53cccbb8d230800203b4835775e67f91eaacd6&quot;}
+1 &lt; Vary: Origin
+1 &lt; Set-Cookie: XSRF-TOKEN=ad64acffe1b3bbd631335e41ebaaa6d1ad0255e314a9f318b96bc51bb03fa3d3; expires=Thu, 12 Nov 2026 04:00:57 GMT; Max-Age=3600; path=/; samesite=lax
+{&quot;csrf_token&quot;:&quot;ad64acffe1b3bbd631335e41ebaaa6d1ad0255e314a9f318b96bc51bb03fa3d3&quot;}
 
 </div>   
 
@@ -8909,7 +8878,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>And</span>&nbsp;<span>request { rol: &#39;proveedor&#39;, email: &#39;#(correo(&quot;qa.tel&quot;))&#39;, password: &#39;Clave123&#39;, password_confirmation: &#39;Clave123&#39;, empresa_nombre: &#39;QA SAC&#39;, ruc: &#39;#(ruc())&#39;, telefono: &#39;887654321&#39; }</span>
       </div>
     </div>
-    <div class="time-cell passed">22</div>
+    <div class="time-cell passed">1</div>
   </div>
 
    
@@ -8937,7 +8906,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method post</span>
       </div>
     </div>
-    <div class="time-cell passed">302</div>
+    <div class="time-cell passed">33</div>
   </div>
 
    
@@ -8946,31 +8915,30 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="2.81">09:00:56.405 request:
+  <div class="preformatted" data-parent="2.81">22:00:57.969 request:
 1 &gt; POST http://localhost:8000/api/auth/register
-1 &gt; X-XSRF-TOKEN: bf7f3edc6a69ce79f31b9dc74b53cccbb8d230800203b4835775e67f91eaacd6
+1 &gt; X-XSRF-TOKEN: ad64acffe1b3bbd631335e41ebaaa6d1ad0255e314a9f318b96bc51bb03fa3d3
 1 &gt; Accept: application/json
-1 &gt; Cookie: XSRF-TOKEN=bf7f3edc6a69ce79f31b9dc74b53cccbb8d230800203b4835775e67f91eaacd6
+1 &gt; Cookie: XSRF-TOKEN=ad64acffe1b3bbd631335e41ebaaa6d1ad0255e314a9f318b96bc51bb03fa3d3
 1 &gt; Content-Type: application/json; charset=UTF-8
-1 &gt; Content-Length: 193
+1 &gt; Content-Length: 192
 1 &gt; Host: localhost:8000
 1 &gt; Connection: Keep-Alive
 1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.12.1)
 1 &gt; Accept-Encoding: gzip,deflate
-{&quot;rol&quot;:&quot;proveedor&quot;,&quot;email&quot;:&quot;qa.tel.2417219433551@trouvels360.test&quot;,&quot;password&quot;:&quot;Clave123&quot;,&quot;password_confirmation&quot;:&quot;Clave123&quot;,&quot;empresa_nombre&quot;:&quot;QA SAC&quot;,&quot;ruc&quot;:&quot;20493887349&quot;,&quot;telefono&quot;:&quot;887654321&quot;}
+{&quot;rol&quot;:&quot;proveedor&quot;,&quot;email&quot;:&quot;qa.tel.329390479238@trouvels360.test&quot;,&quot;password&quot;:&quot;Clave123&quot;,&quot;password_confirmation&quot;:&quot;Clave123&quot;,&quot;empresa_nombre&quot;:&quot;QA SAC&quot;,&quot;ruc&quot;:&quot;20282680094&quot;,&quot;telefono&quot;:&quot;887654321&quot;}
 
-09:00:56.706 response time in milliseconds: 300
+22:00:58.002 response time in milliseconds: 33
 1 &lt; 422
 1 &lt; Host: localhost:8000
 1 &lt; Connection: close
 1 &lt; X-Powered-By: PHP/8.3.6
 1 &lt; Cache-Control: no-cache, private
-1 &lt; Date: Wed, 11 Nov 2026 14:00:56 GMT
+1 &lt; Date: Thu, 12 Nov 2026 03:00:58 GMT
 1 &lt; Content-Type: application/json
 1 &lt; X-RateLimit-Limit: 1000
-1 &lt; X-RateLimit-Remaining: 982
-1 &lt; Access-Control-Allow-Origin: http://localhost:4200
-1 &lt; Access-Control-Allow-Credentials: true
+1 &lt; X-RateLimit-Remaining: 972
+1 &lt; Vary: Origin
 {&quot;message&quot;:&quot;El tel\u00e9fono debe tener el formato +51 9########.&quot;,&quot;errors&quot;:{&quot;telefono&quot;:[&quot;El tel\u00e9fono debe tener el formato +51 9########.&quot;]}}
 
 </div>   
@@ -9020,7 +8988,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>And</span>&nbsp;<span>match response.errors.telefono[0] == &#39;#string&#39;</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -9040,7 +9008,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
           <div class="scenario-heading" id="[7.3:86]">
             <div class="heading-container">
               <div class="scenario-tags">
-                <a class="badge badge-primary" href="karate-tags.html">auth</a><a class="badge badge-primary" href="karate-tags.html">TRV-102</a><a class="badge badge-primary" href="karate-tags.html">TC-API-007</a>
+                <a class="badge badge-primary" href="karate-tags.html">HU-P01</a><a class="badge badge-primary" href="karate-tags.html">auth</a><a class="badge badge-primary" href="karate-tags.html">TC-API-007</a>
               </div>
               <div class="scenario-keyword">
                 Scenario: <span>[7.3:86]</span>
@@ -9049,7 +9017,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
               </div>
             </div>
             <div class="scenario-time passed">
-              <span>ms:</span>&nbsp;<span>133</span>
+              <span>ms:</span>&nbsp;<span>120</span>
             </div>
           </div>
           <div class="step-row">
@@ -9100,7 +9068,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def usuarioSchema = read(&#39;classpath:trouvels360/schemas/usuario.json&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">39</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -9128,7 +9096,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>call read(&#39;classpath:trouvels360/helpers/csrf.feature&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">26</div>
+    <div class="time-cell passed">65</div>
   </div>
 
    
@@ -9147,7 +9115,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <div class="step-indent"></div>
         <div class="step-cell passed">trouvels360.helpers.csrf</div>
       </div>
-      <div class="time-cell passed">24</div>
+      <div class="time-cell passed">42</div>
     </div>
     <div>
       <div><div>
@@ -9219,7 +9187,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method get</span>
       </div>
     </div>
-    <div class="time-cell passed">23</div>
+    <div class="time-cell passed">42</div>
   </div>
 
    
@@ -9228,7 +9196,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="3.77.0.call.0.7">09:00:56.294 request:
+  <div class="preformatted" data-parent="3.77.0.call.0.7">22:00:57.977 request:
 1 &gt; GET http://localhost:8000/api/auth/csrf
 1 &gt; Accept: application/json
 1 &gt; Host: localhost:8000
@@ -9237,18 +9205,17 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &gt; Accept-Encoding: gzip,deflate
 
 
-09:00:56.316 response time in milliseconds: 22
+22:00:58.018 response time in milliseconds: 41
 1 &lt; 200
 1 &lt; Host: localhost:8000
 1 &lt; Connection: close
 1 &lt; X-Powered-By: PHP/8.3.6
 1 &lt; Cache-Control: no-cache, private
-1 &lt; Date: Wed, 11 Nov 2026 14:00:56 GMT
+1 &lt; Date: Thu, 12 Nov 2026 03:00:58 GMT
 1 &lt; Content-Type: application/json
-1 &lt; Access-Control-Allow-Origin: http://localhost:4200
-1 &lt; Access-Control-Allow-Credentials: true
-1 &lt; Set-Cookie: XSRF-TOKEN=e7b6ef7d0aad472b7f04d556500f3ad9fb5e8eae2b369511169bcaa3ffd2ef7d; expires=Wed, 11 Nov 2026 15:00:56 GMT; Max-Age=3600; path=/; samesite=strict
-{&quot;csrf_token&quot;:&quot;e7b6ef7d0aad472b7f04d556500f3ad9fb5e8eae2b369511169bcaa3ffd2ef7d&quot;}
+1 &lt; Vary: Origin
+1 &lt; Set-Cookie: XSRF-TOKEN=bab29d03372b83ad809c509e07da12f8d3390c41a92d6cb8b374596ded958081; expires=Thu, 12 Nov 2026 04:00:58 GMT; Max-Age=3600; path=/; samesite=lax
+{&quot;csrf_token&quot;:&quot;bab29d03372b83ad809c509e07da12f8d3390c41a92d6cb8b374596ded958081&quot;}
 
 </div>   
 
@@ -9386,7 +9353,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>And</span>&nbsp;<span>request { rol: &#39;proveedor&#39;, email: &#39;#(correo(&quot;qa.tel&quot;))&#39;, password: &#39;Clave123&#39;, password_confirmation: &#39;Clave123&#39;, empresa_nombre: &#39;QA SAC&#39;, ruc: &#39;#(ruc())&#39;, telefono: &#39;+51 98765432&#39; }</span>
       </div>
     </div>
-    <div class="time-cell passed">7</div>
+    <div class="time-cell passed">1</div>
   </div>
 
    
@@ -9414,7 +9381,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method post</span>
       </div>
     </div>
-    <div class="time-cell passed">60</div>
+    <div class="time-cell passed">53</div>
   </div>
 
    
@@ -9423,31 +9390,30 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="3.81">09:00:56.336 request:
+  <div class="preformatted" data-parent="3.81">22:00:58.020 request:
 1 &gt; POST http://localhost:8000/api/auth/register
-1 &gt; X-XSRF-TOKEN: e7b6ef7d0aad472b7f04d556500f3ad9fb5e8eae2b369511169bcaa3ffd2ef7d
+1 &gt; X-XSRF-TOKEN: bab29d03372b83ad809c509e07da12f8d3390c41a92d6cb8b374596ded958081
 1 &gt; Accept: application/json
-1 &gt; Cookie: XSRF-TOKEN=e7b6ef7d0aad472b7f04d556500f3ad9fb5e8eae2b369511169bcaa3ffd2ef7d
+1 &gt; Cookie: XSRF-TOKEN=bab29d03372b83ad809c509e07da12f8d3390c41a92d6cb8b374596ded958081
 1 &gt; Content-Type: application/json; charset=UTF-8
-1 &gt; Content-Length: 196
+1 &gt; Content-Length: 195
 1 &gt; Host: localhost:8000
 1 &gt; Connection: Keep-Alive
 1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.12.1)
 1 &gt; Accept-Encoding: gzip,deflate
-{&quot;rol&quot;:&quot;proveedor&quot;,&quot;email&quot;:&quot;qa.tel.2417154376538@trouvels360.test&quot;,&quot;password&quot;:&quot;Clave123&quot;,&quot;password_confirmation&quot;:&quot;Clave123&quot;,&quot;empresa_nombre&quot;:&quot;QA SAC&quot;,&quot;ruc&quot;:&quot;20125589702&quot;,&quot;telefono&quot;:&quot;+51 98765432&quot;}
+{&quot;rol&quot;:&quot;proveedor&quot;,&quot;email&quot;:&quot;qa.tel.329441371659@trouvels360.test&quot;,&quot;password&quot;:&quot;Clave123&quot;,&quot;password_confirmation&quot;:&quot;Clave123&quot;,&quot;empresa_nombre&quot;:&quot;QA SAC&quot;,&quot;ruc&quot;:&quot;20418222539&quot;,&quot;telefono&quot;:&quot;+51 98765432&quot;}
 
-09:00:56.384 response time in milliseconds: 45
+22:00:58.072 response time in milliseconds: 52
 1 &lt; 422
 1 &lt; Host: localhost:8000
 1 &lt; Connection: close
 1 &lt; X-Powered-By: PHP/8.3.6
 1 &lt; Cache-Control: no-cache, private
-1 &lt; Date: Wed, 11 Nov 2026 14:00:56 GMT
+1 &lt; Date: Thu, 12 Nov 2026 03:00:58 GMT
 1 &lt; Content-Type: application/json
 1 &lt; X-RateLimit-Limit: 1000
-1 &lt; X-RateLimit-Remaining: 984
-1 &lt; Access-Control-Allow-Origin: http://localhost:4200
-1 &lt; Access-Control-Allow-Credentials: true
+1 &lt; X-RateLimit-Remaining: 971
+1 &lt; Vary: Origin
 {&quot;message&quot;:&quot;El tel\u00e9fono debe tener el formato +51 9########.&quot;,&quot;errors&quot;:{&quot;telefono&quot;:[&quot;El tel\u00e9fono debe tener el formato +51 9########.&quot;]}}
 
 </div>   
@@ -9517,7 +9483,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
           <div class="scenario-heading" id="[7.4:86]">
             <div class="heading-container">
               <div class="scenario-tags">
-                <a class="badge badge-primary" href="karate-tags.html">auth</a><a class="badge badge-primary" href="karate-tags.html">TRV-102</a><a class="badge badge-primary" href="karate-tags.html">TC-API-007</a>
+                <a class="badge badge-primary" href="karate-tags.html">HU-P01</a><a class="badge badge-primary" href="karate-tags.html">auth</a><a class="badge badge-primary" href="karate-tags.html">TC-API-007</a>
               </div>
               <div class="scenario-keyword">
                 Scenario: <span>[7.4:86]</span>
@@ -9526,7 +9492,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
               </div>
             </div>
             <div class="scenario-time passed">
-              <span>ms:</span>&nbsp;<span>112</span>
+              <span>ms:</span>&nbsp;<span>111</span>
             </div>
           </div>
           <div class="step-row">
@@ -9605,7 +9571,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>call read(&#39;classpath:trouvels360/helpers/csrf.feature&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">48</div>
+    <div class="time-cell passed">34</div>
   </div>
 
    
@@ -9624,7 +9590,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <div class="step-indent"></div>
         <div class="step-cell passed">trouvels360.helpers.csrf</div>
       </div>
-      <div class="time-cell passed">45</div>
+      <div class="time-cell passed">32</div>
     </div>
     <div>
       <div><div>
@@ -9696,7 +9662,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method get</span>
       </div>
     </div>
-    <div class="time-cell passed">45</div>
+    <div class="time-cell passed">32</div>
   </div>
 
    
@@ -9705,7 +9671,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="4.77.0.call.0.7">09:00:56.328 request:
+  <div class="preformatted" data-parent="4.77.0.call.0.7">22:00:57.989 request:
 1 &gt; GET http://localhost:8000/api/auth/csrf
 1 &gt; Accept: application/json
 1 &gt; Host: localhost:8000
@@ -9714,18 +9680,17 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &gt; Accept-Encoding: gzip,deflate
 
 
-09:00:56.344 response time in milliseconds: 16
+22:00:58.020 response time in milliseconds: 31
 1 &lt; 200
 1 &lt; Host: localhost:8000
 1 &lt; Connection: close
 1 &lt; X-Powered-By: PHP/8.3.6
 1 &lt; Cache-Control: no-cache, private
-1 &lt; Date: Wed, 11 Nov 2026 14:00:56 GMT
+1 &lt; Date: Thu, 12 Nov 2026 03:00:58 GMT
 1 &lt; Content-Type: application/json
-1 &lt; Access-Control-Allow-Origin: http://localhost:4200
-1 &lt; Access-Control-Allow-Credentials: true
-1 &lt; Set-Cookie: XSRF-TOKEN=a0d322b55ab39a02875916630e92763b39c52233af8c73f05345b1a5a1001d40; expires=Wed, 11 Nov 2026 15:00:56 GMT; Max-Age=3600; path=/; samesite=strict
-{&quot;csrf_token&quot;:&quot;a0d322b55ab39a02875916630e92763b39c52233af8c73f05345b1a5a1001d40&quot;}
+1 &lt; Vary: Origin
+1 &lt; Set-Cookie: XSRF-TOKEN=196a7f8a1cc0336c41b123cd034e94474b4047dd01abaf7e667bb4d47cd4f366; expires=Thu, 12 Nov 2026 04:00:58 GMT; Max-Age=3600; path=/; samesite=lax
+{&quot;csrf_token&quot;:&quot;196a7f8a1cc0336c41b123cd034e94474b4047dd01abaf7e667bb4d47cd4f366&quot;}
 
 </div>   
 
@@ -9891,7 +9856,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method post</span>
       </div>
     </div>
-    <div class="time-cell passed">62</div>
+    <div class="time-cell passed">76</div>
   </div>
 
    
@@ -9900,31 +9865,30 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="4.81">09:00:56.372 request:
+  <div class="preformatted" data-parent="4.81">22:00:58.026 request:
 1 &gt; POST http://localhost:8000/api/auth/register
-1 &gt; X-XSRF-TOKEN: a0d322b55ab39a02875916630e92763b39c52233af8c73f05345b1a5a1001d40
+1 &gt; X-XSRF-TOKEN: 196a7f8a1cc0336c41b123cd034e94474b4047dd01abaf7e667bb4d47cd4f366
 1 &gt; Accept: application/json
-1 &gt; Cookie: XSRF-TOKEN=a0d322b55ab39a02875916630e92763b39c52233af8c73f05345b1a5a1001d40
+1 &gt; Cookie: XSRF-TOKEN=196a7f8a1cc0336c41b123cd034e94474b4047dd01abaf7e667bb4d47cd4f366
 1 &gt; Content-Type: application/json; charset=UTF-8
-1 &gt; Content-Length: 193
+1 &gt; Content-Length: 192
 1 &gt; Host: localhost:8000
 1 &gt; Connection: Keep-Alive
 1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.12.1)
 1 &gt; Accept-Encoding: gzip,deflate
-{&quot;rol&quot;:&quot;proveedor&quot;,&quot;email&quot;:&quot;qa.tel.2417182391918@trouvels360.test&quot;,&quot;password&quot;:&quot;Clave123&quot;,&quot;password_confirmation&quot;:&quot;Clave123&quot;,&quot;empresa_nombre&quot;:&quot;QA SAC&quot;,&quot;ruc&quot;:&quot;20409959807&quot;,&quot;telefono&quot;:&quot;98765432a&quot;}
+{&quot;rol&quot;:&quot;proveedor&quot;,&quot;email&quot;:&quot;qa.tel.329443765064@trouvels360.test&quot;,&quot;password&quot;:&quot;Clave123&quot;,&quot;password_confirmation&quot;:&quot;Clave123&quot;,&quot;empresa_nombre&quot;:&quot;QA SAC&quot;,&quot;ruc&quot;:&quot;20700361856&quot;,&quot;telefono&quot;:&quot;98765432a&quot;}
 
-09:00:56.408 response time in milliseconds: 36
+22:00:58.097 response time in milliseconds: 71
 1 &lt; 422
 1 &lt; Host: localhost:8000
 1 &lt; Connection: close
 1 &lt; X-Powered-By: PHP/8.3.6
 1 &lt; Cache-Control: no-cache, private
-1 &lt; Date: Wed, 11 Nov 2026 14:00:56 GMT
+1 &lt; Date: Thu, 12 Nov 2026 03:00:58 GMT
 1 &lt; Content-Type: application/json
 1 &lt; X-RateLimit-Limit: 1000
-1 &lt; X-RateLimit-Remaining: 983
-1 &lt; Access-Control-Allow-Origin: http://localhost:4200
-1 &lt; Access-Control-Allow-Credentials: true
+1 &lt; X-RateLimit-Remaining: 970
+1 &lt; Vary: Origin
 {&quot;message&quot;:&quot;El tel\u00e9fono debe tener el formato +51 9########.&quot;,&quot;errors&quot;:{&quot;telefono&quot;:[&quot;El tel\u00e9fono debe tener el formato +51 9########.&quot;]}}
 
 </div>   
@@ -9994,7 +9958,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
           <div class="scenario-heading" id="[8:89]">
             <div class="heading-container">
               <div class="scenario-tags">
-                <a class="badge badge-primary" href="karate-tags.html">auth</a><a class="badge badge-primary" href="karate-tags.html">TRV-103</a><a class="badge badge-primary" href="karate-tags.html">TC-API-008</a>
+                <a class="badge badge-primary" href="karate-tags.html">HU-P02</a><a class="badge badge-primary" href="karate-tags.html">auth</a><a class="badge badge-primary" href="karate-tags.html">HU-V02</a><a class="badge badge-primary" href="karate-tags.html">TC-API-008</a>
               </div>
               <div class="scenario-keyword">
                 Scenario: <span>[8:89]</span>
@@ -10003,7 +9967,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
               </div>
             </div>
             <div class="scenario-time passed">
-              <span>ms:</span>&nbsp;<span>1030</span>
+              <span>ms:</span>&nbsp;<span>1023</span>
             </div>
           </div>
           <div class="step-row">
@@ -10082,7 +10046,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def s = call read(&#39;classpath:trouvels360/helpers/sesion.feature&#39;) { email: &#39;qa.viajero3@trouvels360.test&#39;, password: &#39;Viajero123&#39; }</span>
       </div>
     </div>
-    <div class="time-cell passed">355</div>
+    <div class="time-cell passed">321</div>
   </div>
 
    
@@ -10101,7 +10065,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <div class="step-indent"></div>
         <div class="step-cell passed">trouvels360.helpers.sesion</div>
       </div>
-      <div class="time-cell passed">341</div>
+      <div class="time-cell passed">320</div>
     </div>
     <div>
       <div><div>
@@ -10145,7 +10109,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>configure cookies = null</span>
       </div>
     </div>
-    <div class="time-cell passed">8</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -10201,7 +10165,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>call read(&#39;this:csrf.feature&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">42</div>
+    <div class="time-cell passed">45</div>
   </div>
 
    
@@ -10221,7 +10185,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <div class="step-indent"></div>
         <div class="step-cell passed">trouvels360.helpers.csrf</div>
       </div>
-      <div class="time-cell passed">39</div>
+      <div class="time-cell passed">35</div>
     </div>
     <div>
       <div><div>
@@ -10296,7 +10260,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method get</span>
       </div>
     </div>
-    <div class="time-cell passed">39</div>
+    <div class="time-cell passed">35</div>
   </div>
 
    
@@ -10305,7 +10269,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.90.0.call.0.9.0.call.0.7">09:00:56.350 request:
+  <div class="preformatted" data-parent="0.90.0.call.0.9.0.call.0.7">22:00:58.007 request:
 1 &gt; GET http://localhost:8000/api/auth/csrf
 1 &gt; Accept: application/json
 1 &gt; Host: localhost:8000
@@ -10314,18 +10278,17 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &gt; Accept-Encoding: gzip,deflate
 
 
-09:00:56.388 response time in milliseconds: 38
+22:00:58.042 response time in milliseconds: 35
 1 &lt; 200
 1 &lt; Host: localhost:8000
 1 &lt; Connection: close
 1 &lt; X-Powered-By: PHP/8.3.6
 1 &lt; Cache-Control: no-cache, private
-1 &lt; Date: Wed, 11 Nov 2026 14:00:56 GMT
+1 &lt; Date: Thu, 12 Nov 2026 03:00:58 GMT
 1 &lt; Content-Type: application/json
-1 &lt; Access-Control-Allow-Origin: http://localhost:4200
-1 &lt; Access-Control-Allow-Credentials: true
-1 &lt; Set-Cookie: XSRF-TOKEN=b19bde732518eb7f42c63f4a6ab5680b29e3da4f51c98d32f85de5d5f6fd3b89; expires=Wed, 11 Nov 2026 15:00:56 GMT; Max-Age=3600; path=/; samesite=strict
-{&quot;csrf_token&quot;:&quot;b19bde732518eb7f42c63f4a6ab5680b29e3da4f51c98d32f85de5d5f6fd3b89&quot;}
+1 &lt; Vary: Origin
+1 &lt; Set-Cookie: XSRF-TOKEN=4d799940ac151c9d5a7c569060768a4745a185cc2c69056a2b2b7a36df905978; expires=Thu, 12 Nov 2026 04:00:58 GMT; Max-Age=3600; path=/; samesite=lax
+{&quot;csrf_token&quot;:&quot;4d799940ac151c9d5a7c569060768a4745a185cc2c69056a2b2b7a36df905978&quot;}
 
 </div>   
 
@@ -10409,7 +10372,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>Given</span>&nbsp;<span>path &#39;auth&#39;, &#39;login&#39;</span>
       </div>
     </div>
-    <div class="time-cell passed">7</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -10521,7 +10484,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method post</span>
       </div>
     </div>
-    <div class="time-cell passed">284</div>
+    <div class="time-cell passed">273</div>
   </div>
 
    
@@ -10530,11 +10493,11 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.90.0.call.0.14">09:00:56.398 request:
+  <div class="preformatted" data-parent="0.90.0.call.0.14">22:00:58.043 request:
 1 &gt; POST http://localhost:8000/api/auth/login
-1 &gt; X-XSRF-TOKEN: b19bde732518eb7f42c63f4a6ab5680b29e3da4f51c98d32f85de5d5f6fd3b89
+1 &gt; X-XSRF-TOKEN: 4d799940ac151c9d5a7c569060768a4745a185cc2c69056a2b2b7a36df905978
 1 &gt; Accept: application/json
-1 &gt; Cookie: XSRF-TOKEN=b19bde732518eb7f42c63f4a6ab5680b29e3da4f51c98d32f85de5d5f6fd3b89; XSRF-TOKEN=b19bde732518eb7f42c63f4a6ab5680b29e3da4f51c98d32f85de5d5f6fd3b89
+1 &gt; Cookie: XSRF-TOKEN=4d799940ac151c9d5a7c569060768a4745a185cc2c69056a2b2b7a36df905978; XSRF-TOKEN=4d799940ac151c9d5a7c569060768a4745a185cc2c69056a2b2b7a36df905978
 1 &gt; Content-Type: application/json; charset=UTF-8
 1 &gt; Content-Length: 64
 1 &gt; Host: localhost:8000
@@ -10543,20 +10506,19 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &gt; Accept-Encoding: gzip,deflate
 {&quot;email&quot;:&quot;qa.viajero3@trouvels360.test&quot;,&quot;password&quot;:&quot;Viajero123&quot;}
 
-09:00:56.680 response time in milliseconds: 282
+22:00:58.315 response time in milliseconds: 272
 1 &lt; 200
 1 &lt; Host: localhost:8000
 1 &lt; Connection: close
 1 &lt; X-Powered-By: PHP/8.3.6
 1 &lt; Cache-Control: no-cache, private
-1 &lt; Date: Wed, 11 Nov 2026 14:00:56 GMT
+1 &lt; Date: Thu, 12 Nov 2026 03:00:58 GMT
 1 &lt; Content-Type: application/json
 1 &lt; X-RateLimit-Limit: 1000
 1 &lt; X-RateLimit-Remaining: 998
-1 &lt; Access-Control-Allow-Origin: http://localhost:4200
-1 &lt; Access-Control-Allow-Credentials: true
-1 &lt; Set-Cookie: access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3OTQ0MDU2NTYsImV4cCI6MTc5NDQwOTI1NiwibmJmIjoxNzk0NDA1NjU2LCJqdGkiOiI1TktJOGpialc3S25JYk1nIiwic3ViIjoiMjMiLCJwcnYiOiI1ODcwODYzZDRhNjJkNzkxNDQzZmFmOTM2ZmMzNjgwMzFkMTEwYzRmIiwicm9sIjoidmlhamVybyIsImVtYWlsIjoicWEudmlhamVybzNAdHJvdXZlbHMzNjAudGVzdCJ9.R8_vUK9wANvJoSzv2nLZrFC6leUJjgGCQc6KsOXe77o; expires=Wed, 11 Nov 2026 15:00:56 GMT; Max-Age=3600; path=/; httponly; samesite=strict
-{&quot;message&quot;:&quot;Login OK&quot;,&quot;expires_in&quot;:3600,&quot;data&quot;:{&quot;user&quot;:{&quot;id&quot;:23,&quot;rol&quot;:&quot;viajero&quot;,&quot;nombre&quot;:&quot;QA&quot;,&quot;apellido&quot;:&quot;Viajero 3&quot;,&quot;empresa_nombre&quot;:null,&quot;telefono&quot;:null,&quot;ruc&quot;:null,&quot;email&quot;:&quot;qa.viajero3@trouvels360.test&quot;,&quot;avatar_url&quot;:null,&quot;created_at&quot;:&quot;2026-11-10T05:47:52.000000Z&quot;,&quot;updated_at&quot;:&quot;2026-11-10T05:47:52.000000Z&quot;}}}
+1 &lt; Vary: Origin
+1 &lt; Set-Cookie: access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3OTQ0NTI0NTgsImV4cCI6MTc5NDQ1NjA1OCwibmJmIjoxNzk0NDUyNDU4LCJqdGkiOiJSQkVQdjQwc1Vsd0lqNFgwIiwic3ViIjoiMjMiLCJwcnYiOiI1ODcwODYzZDRhNjJkNzkxNDQzZmFmOTM2ZmMzNjgwMzFkMTEwYzRmIiwicm9sIjoidmlhamVybyIsImVtYWlsIjoicWEudmlhamVybzNAdHJvdXZlbHMzNjAudGVzdCJ9.WjlhTrDE5fZY9kUVNgDFXJ1KFcncRfAtaAulDQuN-TQ; expires=Thu, 12 Nov 2026 04:00:58 GMT; Max-Age=3600; path=/; httponly; samesite=lax
+{&quot;message&quot;:&quot;Login OK&quot;,&quot;expires_in&quot;:3600,&quot;data&quot;:{&quot;user&quot;:{&quot;id&quot;:23,&quot;rol&quot;:&quot;viajero&quot;,&quot;nombre&quot;:&quot;QA&quot;,&quot;apellido&quot;:&quot;Viajero 3&quot;,&quot;empresa_nombre&quot;:null,&quot;telefono&quot;:null,&quot;ruc&quot;:null,&quot;email&quot;:&quot;qa.viajero3@trouvels360.test&quot;,&quot;avatar_url&quot;:null,&quot;created_at&quot;:&quot;2026-11-12T03:00:31.000000Z&quot;,&quot;updated_at&quot;:&quot;2026-11-12T03:00:31.000000Z&quot;}}}
 
 </div>   
 
@@ -10633,7 +10595,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def token = loginStatus == 200 ? responseCookies.access_token.value : null</span>
       </div>
     </div>
-    <div class="time-cell passed">0</div>
+    <div class="time-cell passed">1</div>
   </div>
 
    
@@ -10694,7 +10656,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>match s.loginStatus == 200</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -10722,7 +10684,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>match s.loginResponse.data.user == usuarioSchema</span>
       </div>
     </div>
-    <div class="time-cell passed">0</div>
+    <div class="time-cell passed">9</div>
   </div>
 
    
@@ -10785,7 +10747,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>call read(&#39;classpath:trouvels360/helpers/csrf.feature&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">63</div>
+    <div class="time-cell passed">442</div>
   </div>
 
    
@@ -10804,7 +10766,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <div class="step-indent"></div>
         <div class="step-cell passed">trouvels360.helpers.csrf</div>
       </div>
-      <div class="time-cell passed">56</div>
+      <div class="time-cell passed">426</div>
     </div>
     <div>
       <div><div>
@@ -10876,7 +10838,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method get</span>
       </div>
     </div>
-    <div class="time-cell passed">55</div>
+    <div class="time-cell passed">425</div>
   </div>
 
    
@@ -10885,7 +10847,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.95.0.call.0.7">09:00:56.691 request:
+  <div class="preformatted" data-parent="0.95.0.call.0.7">22:00:58.342 request:
 1 &gt; GET http://localhost:8000/api/auth/csrf
 1 &gt; Accept: application/json
 1 &gt; Host: localhost:8000
@@ -10894,18 +10856,17 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &gt; Accept-Encoding: gzip,deflate
 
 
-09:00:56.745 response time in milliseconds: 54
+22:00:58.767 response time in milliseconds: 425
 1 &lt; 200
 1 &lt; Host: localhost:8000
 1 &lt; Connection: close
 1 &lt; X-Powered-By: PHP/8.3.6
 1 &lt; Cache-Control: no-cache, private
-1 &lt; Date: Wed, 11 Nov 2026 14:00:56 GMT
+1 &lt; Date: Thu, 12 Nov 2026 03:00:58 GMT
 1 &lt; Content-Type: application/json
-1 &lt; Access-Control-Allow-Origin: http://localhost:4200
-1 &lt; Access-Control-Allow-Credentials: true
-1 &lt; Set-Cookie: XSRF-TOKEN=6ac140557af12832cff98976e8add05ec3ada1ea46455d0c5724289aacf8b8e4; expires=Wed, 11 Nov 2026 15:00:56 GMT; Max-Age=3600; path=/; samesite=strict
-{&quot;csrf_token&quot;:&quot;6ac140557af12832cff98976e8add05ec3ada1ea46455d0c5724289aacf8b8e4&quot;}
+1 &lt; Vary: Origin
+1 &lt; Set-Cookie: XSRF-TOKEN=fa5108c07a55a22e724094b09ba8d9d9dc0dda5213a42e85436c281b8b18a9b5; expires=Thu, 12 Nov 2026 04:00:58 GMT; Max-Age=3600; path=/; samesite=lax
+{&quot;csrf_token&quot;:&quot;fa5108c07a55a22e724094b09ba8d9d9dc0dda5213a42e85436c281b8b18a9b5&quot;}
 
 </div>   
 
@@ -10987,7 +10948,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>Given</span>&nbsp;<span>path &#39;auth&#39;, &#39;login&#39;</span>
       </div>
     </div>
-    <div class="time-cell passed">4</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -11071,7 +11032,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method post</span>
       </div>
     </div>
-    <div class="time-cell passed">534</div>
+    <div class="time-cell passed">241</div>
   </div>
 
    
@@ -11080,11 +11041,11 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.99">09:00:56.752 request:
+  <div class="preformatted" data-parent="0.99">22:00:58.768 request:
 1 &gt; POST http://localhost:8000/api/auth/login
-1 &gt; X-XSRF-TOKEN: 6ac140557af12832cff98976e8add05ec3ada1ea46455d0c5724289aacf8b8e4
+1 &gt; X-XSRF-TOKEN: fa5108c07a55a22e724094b09ba8d9d9dc0dda5213a42e85436c281b8b18a9b5
 1 &gt; Accept: application/json
-1 &gt; Cookie: XSRF-TOKEN=6ac140557af12832cff98976e8add05ec3ada1ea46455d0c5724289aacf8b8e4
+1 &gt; Cookie: XSRF-TOKEN=fa5108c07a55a22e724094b09ba8d9d9dc0dda5213a42e85436c281b8b18a9b5
 1 &gt; Content-Type: application/json; charset=UTF-8
 1 &gt; Content-Length: 64
 1 &gt; Host: localhost:8000
@@ -11093,20 +11054,19 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &gt; Accept-Encoding: gzip,deflate
 {&quot;email&quot;:&quot;qa.viajero3@trouvels360.test&quot;,&quot;password&quot;:&quot;Viajero123&quot;}
 
-09:00:57.285 response time in milliseconds: 532
+22:00:59.009 response time in milliseconds: 241
 1 &lt; 200
 1 &lt; Host: localhost:8000
 1 &lt; Connection: close
 1 &lt; X-Powered-By: PHP/8.3.6
 1 &lt; Cache-Control: no-cache, private
-1 &lt; Date: Wed, 11 Nov 2026 14:00:57 GMT
+1 &lt; Date: Thu, 12 Nov 2026 03:00:59 GMT
 1 &lt; Content-Type: application/json
 1 &lt; X-RateLimit-Limit: 1000
 1 &lt; X-RateLimit-Remaining: 996
-1 &lt; Access-Control-Allow-Origin: http://localhost:4200
-1 &lt; Access-Control-Allow-Credentials: true
-1 &lt; Set-Cookie: access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3OTQ0MDU2NTcsImV4cCI6MTc5NDQwOTI1NywibmJmIjoxNzk0NDA1NjU3LCJqdGkiOiJucHRHTHIzRlVnUFliWWVTIiwic3ViIjoiMjMiLCJwcnYiOiI1ODcwODYzZDRhNjJkNzkxNDQzZmFmOTM2ZmMzNjgwMzFkMTEwYzRmIiwicm9sIjoidmlhamVybyIsImVtYWlsIjoicWEudmlhamVybzNAdHJvdXZlbHMzNjAudGVzdCJ9.4IHFSEvF6TXs71kSV1MNgEJ_g1EM6mwYbUzNXKq_9bI; expires=Wed, 11 Nov 2026 15:00:57 GMT; Max-Age=3600; path=/; httponly; samesite=strict
-{&quot;message&quot;:&quot;Login OK&quot;,&quot;expires_in&quot;:3600,&quot;data&quot;:{&quot;user&quot;:{&quot;id&quot;:23,&quot;rol&quot;:&quot;viajero&quot;,&quot;nombre&quot;:&quot;QA&quot;,&quot;apellido&quot;:&quot;Viajero 3&quot;,&quot;empresa_nombre&quot;:null,&quot;telefono&quot;:null,&quot;ruc&quot;:null,&quot;email&quot;:&quot;qa.viajero3@trouvels360.test&quot;,&quot;avatar_url&quot;:null,&quot;created_at&quot;:&quot;2026-11-10T05:47:52.000000Z&quot;,&quot;updated_at&quot;:&quot;2026-11-10T05:47:52.000000Z&quot;}}}
+1 &lt; Vary: Origin
+1 &lt; Set-Cookie: access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3OTQ0NTI0NTksImV4cCI6MTc5NDQ1NjA1OSwibmJmIjoxNzk0NDUyNDU5LCJqdGkiOiJWSWlhVktCeVd3OEo1dE9JIiwic3ViIjoiMjMiLCJwcnYiOiI1ODcwODYzZDRhNjJkNzkxNDQzZmFmOTM2ZmMzNjgwMzFkMTEwYzRmIiwicm9sIjoidmlhamVybyIsImVtYWlsIjoicWEudmlhamVybzNAdHJvdXZlbHMzNjAudGVzdCJ9.ZOjFKLGc3nVkM2aValczKZDsAqvO7CT4Slm7pwDqztw; expires=Thu, 12 Nov 2026 04:00:59 GMT; Max-Age=3600; path=/; httponly; samesite=lax
+{&quot;message&quot;:&quot;Login OK&quot;,&quot;expires_in&quot;:3600,&quot;data&quot;:{&quot;user&quot;:{&quot;id&quot;:23,&quot;rol&quot;:&quot;viajero&quot;,&quot;nombre&quot;:&quot;QA&quot;,&quot;apellido&quot;:&quot;Viajero 3&quot;,&quot;empresa_nombre&quot;:null,&quot;telefono&quot;:null,&quot;ruc&quot;:null,&quot;email&quot;:&quot;qa.viajero3@trouvels360.test&quot;,&quot;avatar_url&quot;:null,&quot;created_at&quot;:&quot;2026-11-12T03:00:31.000000Z&quot;,&quot;updated_at&quot;:&quot;2026-11-12T03:00:31.000000Z&quot;}}}
 
 </div>   
 
@@ -11183,7 +11143,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def setCookies = karate.filter(karate.toJava(responseHeaders[&#39;Set-Cookie&#39;]) || [], function(c){ return c.indexOf(&#39;access_token=&#39;) == 0 })</span>
       </div>
     </div>
-    <div class="time-cell passed">66</div>
+    <div class="time-cell passed">7</div>
   </div>
 
    
@@ -11211,7 +11171,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>match setCookies == &#39;#[1]&#39;</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -11239,7 +11199,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>match setCookies[0].toLowerCase() contains &#39;httponly&#39;</span>
       </div>
     </div>
-    <div class="time-cell passed">3</div>
+    <div class="time-cell passed">1</div>
   </div>
 
    
@@ -11259,7 +11219,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
           <div class="scenario-heading" id="[9:107]">
             <div class="heading-container">
               <div class="scenario-tags">
-                <a class="badge badge-primary" href="karate-tags.html">TC-API-009</a><a class="badge badge-primary" href="karate-tags.html">auth</a><a class="badge badge-primary" href="karate-tags.html">TRV-103</a>
+                <a class="badge badge-primary" href="karate-tags.html">TC-API-009</a><a class="badge badge-primary" href="karate-tags.html">auth</a><a class="badge badge-primary" href="karate-tags.html">HU-V02</a>
               </div>
               <div class="scenario-keyword">
                 Scenario: <span>[9:107]</span>
@@ -11268,7 +11228,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
               </div>
             </div>
             <div class="scenario-time passed">
-              <span>ms:</span>&nbsp;<span>65</span>
+              <span>ms:</span>&nbsp;<span>27</span>
             </div>
           </div>
           <div class="step-row">
@@ -11319,7 +11279,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def usuarioSchema = read(&#39;classpath:trouvels360/schemas/usuario.json&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">33</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -11403,7 +11363,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method post</span>
       </div>
     </div>
-    <div class="time-cell passed">32</div>
+    <div class="time-cell passed">27</div>
   </div>
 
    
@@ -11412,7 +11372,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.110">09:00:56.394 request:
+  <div class="preformatted" data-parent="0.110">22:00:58.004 request:
 1 &gt; POST http://localhost:8000/api/auth/login
 1 &gt; Accept: application/json
 1 &gt; Content-Type: application/json; charset=UTF-8
@@ -11423,18 +11383,17 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &gt; Accept-Encoding: gzip,deflate
 {&quot;email&quot;:&quot;qa.viajero3@trouvels360.test&quot;,&quot;password&quot;:&quot;Viajero123&quot;}
 
-09:00:56.424 response time in milliseconds: 30
+22:00:58.030 response time in milliseconds: 26
 1 &lt; 403
 1 &lt; Host: localhost:8000
 1 &lt; Connection: close
 1 &lt; X-Powered-By: PHP/8.3.6
 1 &lt; Cache-Control: no-cache, private
-1 &lt; Date: Wed, 11 Nov 2026 14:00:56 GMT
+1 &lt; Date: Thu, 12 Nov 2026 03:00:58 GMT
 1 &lt; Content-Type: application/json
 1 &lt; X-RateLimit-Limit: 1000
 1 &lt; X-RateLimit-Remaining: 999
-1 &lt; Access-Control-Allow-Origin: http://localhost:4200
-1 &lt; Access-Control-Allow-Credentials: true
+1 &lt; Vary: Origin
 {&quot;message&quot;:&quot;Invalid CSRF token (missing cookie or header).&quot;}
 
 </div>   
@@ -11476,7 +11435,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
           <div class="scenario-heading" id="[10:114]">
             <div class="heading-container">
               <div class="scenario-tags">
-                <a class="badge badge-primary" href="karate-tags.html">auth</a><a class="badge badge-primary" href="karate-tags.html">TRV-103</a><a class="badge badge-primary" href="karate-tags.html">TC-API-010</a>
+                <a class="badge badge-primary" href="karate-tags.html">auth</a><a class="badge badge-primary" href="karate-tags.html">TC-API-010</a><a class="badge badge-primary" href="karate-tags.html">HU-V02</a>
               </div>
               <div class="scenario-keyword">
                 Scenario: <span>[10:114]</span>
@@ -11485,7 +11444,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
               </div>
             </div>
             <div class="scenario-time passed">
-              <span>ms:</span>&nbsp;<span>1229</span>
+              <span>ms:</span>&nbsp;<span>748</span>
             </div>
           </div>
           <div class="step-row">
@@ -11564,7 +11523,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>call read(&#39;classpath:trouvels360/helpers/csrf.feature&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">305</div>
+    <div class="time-cell passed">60</div>
   </div>
 
    
@@ -11583,7 +11542,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <div class="step-indent"></div>
         <div class="step-cell passed">trouvels360.helpers.csrf</div>
       </div>
-      <div class="time-cell passed">302</div>
+      <div class="time-cell passed">59</div>
     </div>
     <div>
       <div><div>
@@ -11655,7 +11614,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method get</span>
       </div>
     </div>
-    <div class="time-cell passed">301</div>
+    <div class="time-cell passed">59</div>
   </div>
 
    
@@ -11664,7 +11623,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.115.0.call.0.7">09:00:56.419 request:
+  <div class="preformatted" data-parent="0.115.0.call.0.7">22:00:58.036 request:
 1 &gt; GET http://localhost:8000/api/auth/csrf
 1 &gt; Accept: application/json
 1 &gt; Host: localhost:8000
@@ -11673,18 +11632,17 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &gt; Accept-Encoding: gzip,deflate
 
 
-09:00:56.708 response time in milliseconds: 289
+22:00:58.094 response time in milliseconds: 57
 1 &lt; 200
 1 &lt; Host: localhost:8000
 1 &lt; Connection: close
 1 &lt; X-Powered-By: PHP/8.3.6
 1 &lt; Cache-Control: no-cache, private
-1 &lt; Date: Wed, 11 Nov 2026 14:00:56 GMT
+1 &lt; Date: Thu, 12 Nov 2026 03:00:58 GMT
 1 &lt; Content-Type: application/json
-1 &lt; Access-Control-Allow-Origin: http://localhost:4200
-1 &lt; Access-Control-Allow-Credentials: true
-1 &lt; Set-Cookie: XSRF-TOKEN=9b5718c1b8294b31b856eb59099084647f08ca5a261e158d95ba781019853563; expires=Wed, 11 Nov 2026 15:00:56 GMT; Max-Age=3600; path=/; samesite=strict
-{&quot;csrf_token&quot;:&quot;9b5718c1b8294b31b856eb59099084647f08ca5a261e158d95ba781019853563&quot;}
+1 &lt; Vary: Origin
+1 &lt; Set-Cookie: XSRF-TOKEN=df1f340d49025c6e3d588ecd9a540e621d592d61daf3dbcd20edfe3d16ea59a7; expires=Thu, 12 Nov 2026 04:00:58 GMT; Max-Age=3600; path=/; samesite=lax
+{&quot;csrf_token&quot;:&quot;df1f340d49025c6e3d588ecd9a540e621d592d61daf3dbcd20edfe3d16ea59a7&quot;}
 
 </div>   
 
@@ -11850,7 +11808,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method post</span>
       </div>
     </div>
-    <div class="time-cell passed">311</div>
+    <div class="time-cell passed">436</div>
   </div>
 
    
@@ -11859,11 +11817,11 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.119">09:00:56.711 request:
+  <div class="preformatted" data-parent="0.119">22:00:58.095 request:
 1 &gt; POST http://localhost:8000/api/auth/login
-1 &gt; X-XSRF-TOKEN: 9b5718c1b8294b31b856eb59099084647f08ca5a261e158d95ba781019853563
+1 &gt; X-XSRF-TOKEN: df1f340d49025c6e3d588ecd9a540e621d592d61daf3dbcd20edfe3d16ea59a7
 1 &gt; Accept: application/json
-1 &gt; Cookie: XSRF-TOKEN=9b5718c1b8294b31b856eb59099084647f08ca5a261e158d95ba781019853563
+1 &gt; Cookie: XSRF-TOKEN=df1f340d49025c6e3d588ecd9a540e621d592d61daf3dbcd20edfe3d16ea59a7
 1 &gt; Content-Type: application/json; charset=UTF-8
 1 &gt; Content-Length: 64
 1 &gt; Host: localhost:8000
@@ -11872,18 +11830,17 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &gt; Accept-Encoding: gzip,deflate
 {&quot;email&quot;:&quot;qa.viajero3@trouvels360.test&quot;,&quot;password&quot;:&quot;incorrecta&quot;}
 
-09:00:57.020 response time in milliseconds: 309
+22:00:58.530 response time in milliseconds: 435
 1 &lt; 401
 1 &lt; Host: localhost:8000
 1 &lt; Connection: close
 1 &lt; X-Powered-By: PHP/8.3.6
 1 &lt; Cache-Control: no-cache, private
-1 &lt; Date: Wed, 11 Nov 2026 14:00:57 GMT
+1 &lt; Date: Thu, 12 Nov 2026 03:00:58 GMT
 1 &lt; Content-Type: application/json
 1 &lt; X-RateLimit-Limit: 1000
 1 &lt; X-RateLimit-Remaining: 997
-1 &lt; Access-Control-Allow-Origin: http://localhost:4200
-1 &lt; Access-Control-Allow-Credentials: true
+1 &lt; Vary: Origin
 {&quot;message&quot;:&quot;Credenciales inv\u00e1lidas&quot;}
 
 </div>   
@@ -12017,7 +11974,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method post</span>
       </div>
     </div>
-    <div class="time-cell passed">611</div>
+    <div class="time-cell passed">251</div>
   </div>
 
    
@@ -12026,11 +11983,11 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.124">09:00:57.022 request:
+  <div class="preformatted" data-parent="0.124">22:00:58.533 request:
 2 &gt; POST http://localhost:8000/api/auth/login
-2 &gt; X-XSRF-TOKEN: 9b5718c1b8294b31b856eb59099084647f08ca5a261e158d95ba781019853563
+2 &gt; X-XSRF-TOKEN: df1f340d49025c6e3d588ecd9a540e621d592d61daf3dbcd20edfe3d16ea59a7
 2 &gt; Accept: application/json
-2 &gt; Cookie: XSRF-TOKEN=9b5718c1b8294b31b856eb59099084647f08ca5a261e158d95ba781019853563
+2 &gt; Cookie: XSRF-TOKEN=df1f340d49025c6e3d588ecd9a540e621d592d61daf3dbcd20edfe3d16ea59a7
 2 &gt; Content-Type: application/json; charset=UTF-8
 2 &gt; Content-Length: 2
 2 &gt; Host: localhost:8000
@@ -12039,18 +11996,17 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 2 &gt; Accept-Encoding: gzip,deflate
 {}
 
-09:00:57.632 response time in milliseconds: 610
+22:00:58.782 response time in milliseconds: 248
 2 &lt; 422
 2 &lt; Host: localhost:8000
 2 &lt; Connection: close
 2 &lt; X-Powered-By: PHP/8.3.6
 2 &lt; Cache-Control: no-cache, private
-2 &lt; Date: Wed, 11 Nov 2026 14:00:57 GMT
+2 &lt; Date: Thu, 12 Nov 2026 03:00:58 GMT
 2 &lt; Content-Type: application/json
 2 &lt; X-RateLimit-Limit: 1000
 2 &lt; X-RateLimit-Remaining: 999
-2 &lt; Access-Control-Allow-Origin: http://localhost:4200
-2 &lt; Access-Control-Allow-Credentials: true
+2 &lt; Vary: Origin
 {&quot;message&quot;:&quot;Datos inv\u00e1lidos&quot;,&quot;errors&quot;:{&quot;email&quot;:[&quot;El correo es obligatorio.&quot;],&quot;password&quot;:[&quot;La contrase\u00f1a es obligatorio.&quot;]}}
 
 </div>   
@@ -12100,7 +12056,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>And</span>&nbsp;<span>match response.errors contains { email: &#39;#array&#39;, password: &#39;#array&#39; }</span>
       </div>
     </div>
-    <div class="time-cell passed">0</div>
+    <div class="time-cell passed">1</div>
   </div>
 
    
@@ -12120,7 +12076,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
           <div class="scenario-heading" id="[11:129]">
             <div class="heading-container">
               <div class="scenario-tags">
-                <a class="badge badge-primary" href="karate-tags.html">auth</a><a class="badge badge-primary" href="karate-tags.html">TRV-103</a><a class="badge badge-primary" href="karate-tags.html">TC-API-011</a>
+                <a class="badge badge-primary" href="karate-tags.html">auth</a><a class="badge badge-primary" href="karate-tags.html">TC-API-011</a><a class="badge badge-primary" href="karate-tags.html">HU-V02</a>
               </div>
               <div class="scenario-keyword">
                 Scenario: <span>[11:129]</span>
@@ -12129,7 +12085,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
               </div>
             </div>
             <div class="scenario-time passed">
-              <span>ms:</span>&nbsp;<span>1645</span>
+              <span>ms:</span>&nbsp;<span>1245</span>
             </div>
           </div>
           <div class="step-row">
@@ -12180,7 +12136,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def usuarioSchema = read(&#39;classpath:trouvels360/schemas/usuario.json&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">9</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -12208,7 +12164,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def r = call read(&#39;classpath:trouvels360/helpers/registrar.feature&#39;) { datos: { rol: &#39;viajero&#39;, email: &#39;#(correo(&quot;qa.logout&quot;))&#39;, password: &#39;Clave123&#39;, nombre: &#39;Lo&#39;, apellido: &#39;Gout&#39; } }</span>
       </div>
     </div>
-    <div class="time-cell passed">1151</div>
+    <div class="time-cell passed">703</div>
   </div>
 
    
@@ -12227,7 +12183,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <div class="step-indent"></div>
         <div class="step-cell passed">trouvels360.helpers.registrar</div>
       </div>
-      <div class="time-cell passed">1142</div>
+      <div class="time-cell passed">702</div>
     </div>
     <div>
       <div><div>
@@ -12327,7 +12283,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>call read(&#39;this:csrf.feature&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">317</div>
+    <div class="time-cell passed">269</div>
   </div>
 
    
@@ -12347,7 +12303,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <div class="step-indent"></div>
         <div class="step-cell passed">trouvels360.helpers.csrf</div>
       </div>
-      <div class="time-cell passed">315</div>
+      <div class="time-cell passed">268</div>
     </div>
     <div>
       <div><div>
@@ -12422,7 +12378,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method get</span>
       </div>
     </div>
-    <div class="time-cell passed">314</div>
+    <div class="time-cell passed">267</div>
   </div>
 
    
@@ -12431,7 +12387,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.130.0.call.0.9.0.call.0.7">09:00:56.453 request:
+  <div class="preformatted" data-parent="0.130.0.call.0.9.0.call.0.7">22:00:58.072 request:
 1 &gt; GET http://localhost:8000/api/auth/csrf
 1 &gt; Accept: application/json
 1 &gt; Host: localhost:8000
@@ -12440,18 +12396,17 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &gt; Accept-Encoding: gzip,deflate
 
 
-09:00:56.753 response time in milliseconds: 300
+22:00:58.329 response time in milliseconds: 257
 1 &lt; 200
 1 &lt; Host: localhost:8000
 1 &lt; Connection: close
 1 &lt; X-Powered-By: PHP/8.3.6
 1 &lt; Cache-Control: no-cache, private
-1 &lt; Date: Wed, 11 Nov 2026 14:00:56 GMT
+1 &lt; Date: Thu, 12 Nov 2026 03:00:58 GMT
 1 &lt; Content-Type: application/json
-1 &lt; Access-Control-Allow-Origin: http://localhost:4200
-1 &lt; Access-Control-Allow-Credentials: true
-1 &lt; Set-Cookie: XSRF-TOKEN=7e0632a2e7c72e528a0180cdf615ce2f4bafff8969fcbe2ce3119f6453d6180f; expires=Wed, 11 Nov 2026 15:00:56 GMT; Max-Age=3600; path=/; samesite=strict
-{&quot;csrf_token&quot;:&quot;7e0632a2e7c72e528a0180cdf615ce2f4bafff8969fcbe2ce3119f6453d6180f&quot;}
+1 &lt; Vary: Origin
+1 &lt; Set-Cookie: XSRF-TOKEN=44146a6b56b16e1e7537ee708e0cd0c10f22a35b4022ce759c234eaab7613430; expires=Thu, 12 Nov 2026 04:00:58 GMT; Max-Age=3600; path=/; samesite=lax
+{&quot;csrf_token&quot;:&quot;44146a6b56b16e1e7537ee708e0cd0c10f22a35b4022ce759c234eaab7613430&quot;}
 
 </div>   
 
@@ -12563,7 +12518,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>set cuerpo.password_confirmation = datos.password</span>
       </div>
     </div>
-    <div class="time-cell passed">13</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -12703,7 +12658,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method post</span>
       </div>
     </div>
-    <div class="time-cell passed">809</div>
+    <div class="time-cell passed">430</div>
   </div>
 
    
@@ -12712,33 +12667,32 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.130.0.call.0.16">09:00:56.770 request:
+  <div class="preformatted" data-parent="0.130.0.call.0.16">22:00:58.331 request:
 1 &gt; POST http://localhost:8000/api/auth/register
-1 &gt; X-XSRF-TOKEN: 7e0632a2e7c72e528a0180cdf615ce2f4bafff8969fcbe2ce3119f6453d6180f
+1 &gt; X-XSRF-TOKEN: 44146a6b56b16e1e7537ee708e0cd0c10f22a35b4022ce759c234eaab7613430
 1 &gt; Accept: application/json
-1 &gt; Cookie: XSRF-TOKEN=7e0632a2e7c72e528a0180cdf615ce2f4bafff8969fcbe2ce3119f6453d6180f; XSRF-TOKEN=7e0632a2e7c72e528a0180cdf615ce2f4bafff8969fcbe2ce3119f6453d6180f
+1 &gt; Cookie: XSRF-TOKEN=44146a6b56b16e1e7537ee708e0cd0c10f22a35b4022ce759c234eaab7613430; XSRF-TOKEN=44146a6b56b16e1e7537ee708e0cd0c10f22a35b4022ce759c234eaab7613430
 1 &gt; Content-Type: application/json; charset=UTF-8
-1 &gt; Content-Length: 157
+1 &gt; Content-Length: 156
 1 &gt; Host: localhost:8000
 1 &gt; Connection: Keep-Alive
 1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.12.1)
 1 &gt; Accept-Encoding: gzip,deflate
-{&quot;password&quot;:&quot;Clave123&quot;,&quot;password_confirmation&quot;:&quot;Clave123&quot;,&quot;nombre&quot;:&quot;Lo&quot;,&quot;rol&quot;:&quot;viajero&quot;,&quot;email&quot;:&quot;qa.logout.2417265997347@trouvels360.test&quot;,&quot;apellido&quot;:&quot;Gout&quot;}
+{&quot;password&quot;:&quot;Clave123&quot;,&quot;password_confirmation&quot;:&quot;Clave123&quot;,&quot;nombre&quot;:&quot;Lo&quot;,&quot;rol&quot;:&quot;viajero&quot;,&quot;email&quot;:&quot;qa.logout.329481610105@trouvels360.test&quot;,&quot;apellido&quot;:&quot;Gout&quot;}
 
-09:00:57.577 response time in milliseconds: 806
+22:00:58.760 response time in milliseconds: 429
 1 &lt; 201
 1 &lt; Host: localhost:8000
 1 &lt; Connection: close
 1 &lt; X-Powered-By: PHP/8.3.6
 1 &lt; Cache-Control: no-cache, private
-1 &lt; Date: Wed, 11 Nov 2026 14:00:57 GMT
+1 &lt; Date: Thu, 12 Nov 2026 03:00:58 GMT
 1 &lt; Content-Type: application/json
 1 &lt; X-RateLimit-Limit: 1000
-1 &lt; X-RateLimit-Remaining: 981
-1 &lt; Access-Control-Allow-Origin: http://localhost:4200
-1 &lt; Access-Control-Allow-Credentials: true
-1 &lt; Set-Cookie: access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2F1dGgvcmVnaXN0ZXIiLCJpYXQiOjE3OTQ0MDU2NTcsImV4cCI6MTc5NDQwOTI1NywibmJmIjoxNzk0NDA1NjU3LCJqdGkiOiJtMXhtM0gyNUR3aUkwOXZ1Iiwic3ViIjoiMjg5IiwicHJ2IjoiNTg3MDg2M2Q0YTYyZDc5MTQ0M2ZhZjkzNmZjMzY4MDMxZDExMGM0ZiIsInJvbCI6InZpYWplcm8iLCJlbWFpbCI6InFhLmxvZ291dC4yNDE3MjY1OTk3MzQ3QHRyb3V2ZWxzMzYwLnRlc3QifQ.8EORLITm14_HJaNlGwT3You1EWhkPKZwgx6SysqYntg; expires=Wed, 11 Nov 2026 15:00:57 GMT; Max-Age=3600; path=/; httponly; samesite=strict
-{&quot;message&quot;:&quot;Registro exitoso.&quot;,&quot;expires_in&quot;:3600,&quot;data&quot;:{&quot;user&quot;:{&quot;id&quot;:289,&quot;rol&quot;:&quot;viajero&quot;,&quot;nombre&quot;:&quot;Lo&quot;,&quot;apellido&quot;:&quot;Gout&quot;,&quot;empresa_nombre&quot;:null,&quot;telefono&quot;:null,&quot;ruc&quot;:null,&quot;email&quot;:&quot;qa.logout.2417265997347@trouvels360.test&quot;,&quot;avatar_url&quot;:null,&quot;created_at&quot;:&quot;2026-11-11T14:00:57.000000Z&quot;,&quot;updated_at&quot;:&quot;2026-11-11T14:00:57.000000Z&quot;}}}
+1 &lt; X-RateLimit-Remaining: 969
+1 &lt; Vary: Origin
+1 &lt; Set-Cookie: access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2F1dGgvcmVnaXN0ZXIiLCJpYXQiOjE3OTQ0NTI0NTgsImV4cCI6MTc5NDQ1NjA1OCwibmJmIjoxNzk0NDUyNDU4LCJqdGkiOiJXTHRzeXg0akxTanBveDRqIiwic3ViIjoiNjUiLCJwcnYiOiI1ODcwODYzZDRhNjJkNzkxNDQzZmFmOTM2ZmMzNjgwMzFkMTEwYzRmIiwicm9sIjoidmlhamVybyIsImVtYWlsIjoicWEubG9nb3V0LjMyOTQ4MTYxMDEwNUB0cm91dmVsczM2MC50ZXN0In0.0OePeFa77zHUk4XDJOOxEPyHeXp7pcdZd1a56JNSuig; expires=Thu, 12 Nov 2026 04:00:58 GMT; Max-Age=3600; path=/; httponly; samesite=lax
+{&quot;message&quot;:&quot;Registro exitoso.&quot;,&quot;expires_in&quot;:3600,&quot;data&quot;:{&quot;user&quot;:{&quot;id&quot;:65,&quot;rol&quot;:&quot;viajero&quot;,&quot;nombre&quot;:&quot;Lo&quot;,&quot;apellido&quot;:&quot;Gout&quot;,&quot;empresa_nombre&quot;:null,&quot;telefono&quot;:null,&quot;ruc&quot;:null,&quot;email&quot;:&quot;qa.logout.329481610105@trouvels360.test&quot;,&quot;avatar_url&quot;:null,&quot;created_at&quot;:&quot;2026-11-12T03:00:58.000000Z&quot;,&quot;updated_at&quot;:&quot;2026-11-12T03:00:58.000000Z&quot;}}}
 
 </div>   
 
@@ -12876,7 +12830,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>eval como(r)</span>
       </div>
     </div>
-    <div class="time-cell passed">8</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -12932,7 +12886,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method get</span>
       </div>
     </div>
-    <div class="time-cell passed">86</div>
+    <div class="time-cell passed">255</div>
   </div>
 
    
@@ -12941,28 +12895,27 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.133">09:00:57.590 request:
+  <div class="preformatted" data-parent="0.133">22:00:58.773 request:
 1 &gt; GET http://localhost:8000/api/auth/me
 1 &gt; Accept: application/json
-1 &gt; X-XSRF-TOKEN: 7e0632a2e7c72e528a0180cdf615ce2f4bafff8969fcbe2ce3119f6453d6180f
-1 &gt; Cookie: access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2F1dGgvcmVnaXN0ZXIiLCJpYXQiOjE3OTQ0MDU2NTcsImV4cCI6MTc5NDQwOTI1NywibmJmIjoxNzk0NDA1NjU3LCJqdGkiOiJtMXhtM0gyNUR3aUkwOXZ1Iiwic3ViIjoiMjg5IiwicHJ2IjoiNTg3MDg2M2Q0YTYyZDc5MTQ0M2ZhZjkzNmZjMzY4MDMxZDExMGM0ZiIsInJvbCI6InZpYWplcm8iLCJlbWFpbCI6InFhLmxvZ291dC4yNDE3MjY1OTk3MzQ3QHRyb3V2ZWxzMzYwLnRlc3QifQ.8EORLITm14_HJaNlGwT3You1EWhkPKZwgx6SysqYntg; XSRF-TOKEN=7e0632a2e7c72e528a0180cdf615ce2f4bafff8969fcbe2ce3119f6453d6180f
+1 &gt; X-XSRF-TOKEN: 44146a6b56b16e1e7537ee708e0cd0c10f22a35b4022ce759c234eaab7613430
+1 &gt; Cookie: access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2F1dGgvcmVnaXN0ZXIiLCJpYXQiOjE3OTQ0NTI0NTgsImV4cCI6MTc5NDQ1NjA1OCwibmJmIjoxNzk0NDUyNDU4LCJqdGkiOiJXTHRzeXg0akxTanBveDRqIiwic3ViIjoiNjUiLCJwcnYiOiI1ODcwODYzZDRhNjJkNzkxNDQzZmFmOTM2ZmMzNjgwMzFkMTEwYzRmIiwicm9sIjoidmlhamVybyIsImVtYWlsIjoicWEubG9nb3V0LjMyOTQ4MTYxMDEwNUB0cm91dmVsczM2MC50ZXN0In0.0OePeFa77zHUk4XDJOOxEPyHeXp7pcdZd1a56JNSuig; XSRF-TOKEN=44146a6b56b16e1e7537ee708e0cd0c10f22a35b4022ce759c234eaab7613430
 1 &gt; Host: localhost:8000
 1 &gt; Connection: Keep-Alive
 1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.12.1)
 1 &gt; Accept-Encoding: gzip,deflate
 
 
-09:00:57.672 response time in milliseconds: 82
+22:00:59.019 response time in milliseconds: 246
 1 &lt; 200
 1 &lt; Host: localhost:8000
 1 &lt; Connection: close
 1 &lt; X-Powered-By: PHP/8.3.6
 1 &lt; Cache-Control: no-cache, private
-1 &lt; Date: Wed, 11 Nov 2026 14:00:57 GMT
+1 &lt; Date: Thu, 12 Nov 2026 03:00:59 GMT
 1 &lt; Content-Type: application/json
-1 &lt; Access-Control-Allow-Origin: http://localhost:4200
-1 &lt; Access-Control-Allow-Credentials: true
-{&quot;data&quot;:{&quot;id&quot;:289,&quot;rol&quot;:&quot;viajero&quot;,&quot;nombre&quot;:&quot;Lo&quot;,&quot;apellido&quot;:&quot;Gout&quot;,&quot;empresa_nombre&quot;:null,&quot;telefono&quot;:null,&quot;ruc&quot;:null,&quot;email&quot;:&quot;qa.logout.2417265997347@trouvels360.test&quot;,&quot;avatar_url&quot;:null,&quot;created_at&quot;:&quot;2026-11-11T14:00:57.000000Z&quot;,&quot;updated_at&quot;:&quot;2026-11-11T14:00:57.000000Z&quot;}}
+1 &lt; Vary: Origin
+{&quot;data&quot;:{&quot;id&quot;:65,&quot;rol&quot;:&quot;viajero&quot;,&quot;nombre&quot;:&quot;Lo&quot;,&quot;apellido&quot;:&quot;Gout&quot;,&quot;empresa_nombre&quot;:null,&quot;telefono&quot;:null,&quot;ruc&quot;:null,&quot;email&quot;:&quot;qa.logout.329481610105@trouvels360.test&quot;,&quot;avatar_url&quot;:null,&quot;created_at&quot;:&quot;2026-11-12T03:00:58.000000Z&quot;,&quot;updated_at&quot;:&quot;2026-11-12T03:00:58.000000Z&quot;}}
 
 </div>   
 
@@ -13039,7 +12992,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method post</span>
       </div>
     </div>
-    <div class="time-cell passed">312</div>
+    <div class="time-cell passed">242</div>
   </div>
 
    
@@ -13048,28 +13001,27 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.136">09:00:57.674 request:
+  <div class="preformatted" data-parent="0.136">22:00:59.020 request:
 2 &gt; POST http://localhost:8000/api/auth/logout
 2 &gt; Accept: application/json
-2 &gt; X-XSRF-TOKEN: 7e0632a2e7c72e528a0180cdf615ce2f4bafff8969fcbe2ce3119f6453d6180f
-2 &gt; Cookie: access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2F1dGgvcmVnaXN0ZXIiLCJpYXQiOjE3OTQ0MDU2NTcsImV4cCI6MTc5NDQwOTI1NywibmJmIjoxNzk0NDA1NjU3LCJqdGkiOiJtMXhtM0gyNUR3aUkwOXZ1Iiwic3ViIjoiMjg5IiwicHJ2IjoiNTg3MDg2M2Q0YTYyZDc5MTQ0M2ZhZjkzNmZjMzY4MDMxZDExMGM0ZiIsInJvbCI6InZpYWplcm8iLCJlbWFpbCI6InFhLmxvZ291dC4yNDE3MjY1OTk3MzQ3QHRyb3V2ZWxzMzYwLnRlc3QifQ.8EORLITm14_HJaNlGwT3You1EWhkPKZwgx6SysqYntg; XSRF-TOKEN=7e0632a2e7c72e528a0180cdf615ce2f4bafff8969fcbe2ce3119f6453d6180f
+2 &gt; X-XSRF-TOKEN: 44146a6b56b16e1e7537ee708e0cd0c10f22a35b4022ce759c234eaab7613430
+2 &gt; Cookie: access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2F1dGgvcmVnaXN0ZXIiLCJpYXQiOjE3OTQ0NTI0NTgsImV4cCI6MTc5NDQ1NjA1OCwibmJmIjoxNzk0NDUyNDU4LCJqdGkiOiJXTHRzeXg0akxTanBveDRqIiwic3ViIjoiNjUiLCJwcnYiOiI1ODcwODYzZDRhNjJkNzkxNDQzZmFmOTM2ZmMzNjgwMzFkMTEwYzRmIiwicm9sIjoidmlhamVybyIsImVtYWlsIjoicWEubG9nb3V0LjMyOTQ4MTYxMDEwNUB0cm91dmVsczM2MC50ZXN0In0.0OePeFa77zHUk4XDJOOxEPyHeXp7pcdZd1a56JNSuig; XSRF-TOKEN=44146a6b56b16e1e7537ee708e0cd0c10f22a35b4022ce759c234eaab7613430
 2 &gt; Host: localhost:8000
 2 &gt; Connection: Keep-Alive
 2 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.12.1)
 2 &gt; Accept-Encoding: gzip,deflate
 
 
-09:00:57.985 response time in milliseconds: 310
+22:00:59.261 response time in milliseconds: 241
 2 &lt; 200
 2 &lt; Host: localhost:8000
 2 &lt; Connection: close
 2 &lt; X-Powered-By: PHP/8.3.6
 2 &lt; Cache-Control: no-cache, private
-2 &lt; Date: Wed, 11 Nov 2026 14:00:57 GMT
+2 &lt; Date: Thu, 12 Nov 2026 03:00:59 GMT
 2 &lt; Content-Type: application/json
-2 &lt; Access-Control-Allow-Origin: http://localhost:4200
-2 &lt; Access-Control-Allow-Credentials: true
-2 &lt; Set-Cookie: access_token=deleted; expires=Tue, 11 Nov 2025 14:00:56 GMT; Max-Age=0; path=/; httponly; samesite=strict
+2 &lt; Vary: Origin
+2 &lt; Set-Cookie: access_token=deleted; expires=Wed, 12 Nov 2025 03:00:58 GMT; Max-Age=0; path=/; httponly; samesite=lax
 {&quot;message&quot;:&quot;Logout OK&quot;}
 
 </div>   
@@ -13126,7 +13078,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>eval como(r)</span>
       </div>
     </div>
-    <div class="time-cell passed">6</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -13182,7 +13134,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method get</span>
       </div>
     </div>
-    <div class="time-cell passed">74</div>
+    <div class="time-cell passed">44</div>
   </div>
 
    
@@ -13191,27 +13143,26 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.141">09:00:57.997 request:
+  <div class="preformatted" data-parent="0.141">22:00:59.262 request:
 3 &gt; GET http://localhost:8000/api/auth/me
 3 &gt; Accept: application/json
-3 &gt; X-XSRF-TOKEN: 7e0632a2e7c72e528a0180cdf615ce2f4bafff8969fcbe2ce3119f6453d6180f
-3 &gt; Cookie: access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2F1dGgvcmVnaXN0ZXIiLCJpYXQiOjE3OTQ0MDU2NTcsImV4cCI6MTc5NDQwOTI1NywibmJmIjoxNzk0NDA1NjU3LCJqdGkiOiJtMXhtM0gyNUR3aUkwOXZ1Iiwic3ViIjoiMjg5IiwicHJ2IjoiNTg3MDg2M2Q0YTYyZDc5MTQ0M2ZhZjkzNmZjMzY4MDMxZDExMGM0ZiIsInJvbCI6InZpYWplcm8iLCJlbWFpbCI6InFhLmxvZ291dC4yNDE3MjY1OTk3MzQ3QHRyb3V2ZWxzMzYwLnRlc3QifQ.8EORLITm14_HJaNlGwT3You1EWhkPKZwgx6SysqYntg; XSRF-TOKEN=7e0632a2e7c72e528a0180cdf615ce2f4bafff8969fcbe2ce3119f6453d6180f
+3 &gt; X-XSRF-TOKEN: 44146a6b56b16e1e7537ee708e0cd0c10f22a35b4022ce759c234eaab7613430
+3 &gt; Cookie: access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2F1dGgvcmVnaXN0ZXIiLCJpYXQiOjE3OTQ0NTI0NTgsImV4cCI6MTc5NDQ1NjA1OCwibmJmIjoxNzk0NDUyNDU4LCJqdGkiOiJXTHRzeXg0akxTanBveDRqIiwic3ViIjoiNjUiLCJwcnYiOiI1ODcwODYzZDRhNjJkNzkxNDQzZmFmOTM2ZmMzNjgwMzFkMTEwYzRmIiwicm9sIjoidmlhamVybyIsImVtYWlsIjoicWEubG9nb3V0LjMyOTQ4MTYxMDEwNUB0cm91dmVsczM2MC50ZXN0In0.0OePeFa77zHUk4XDJOOxEPyHeXp7pcdZd1a56JNSuig; XSRF-TOKEN=44146a6b56b16e1e7537ee708e0cd0c10f22a35b4022ce759c234eaab7613430
 3 &gt; Host: localhost:8000
 3 &gt; Connection: Keep-Alive
 3 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.12.1)
 3 &gt; Accept-Encoding: gzip,deflate
 
 
-09:00:58.064 response time in milliseconds: 67
+22:00:59.304 response time in milliseconds: 42
 3 &lt; 401
 3 &lt; Host: localhost:8000
 3 &lt; Connection: close
 3 &lt; X-Powered-By: PHP/8.3.6
 3 &lt; Cache-Control: no-cache, private
-3 &lt; Date: Wed, 11 Nov 2026 14:00:58 GMT
+3 &lt; Date: Thu, 12 Nov 2026 03:00:59 GMT
 3 &lt; Content-Type: application/json
-3 &lt; Access-Control-Allow-Origin: http://localhost:4200
-3 &lt; Access-Control-Allow-Credentials: true
+3 &lt; Vary: Origin
 {&quot;message&quot;:&quot;No autenticado. Inicia sesi\u00f3n.&quot;}
 
 </div>   
@@ -13253,7 +13204,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
           <div class="scenario-heading" id="[12:145]">
             <div class="heading-container">
               <div class="scenario-tags">
-                <a class="badge badge-primary" href="karate-tags.html">auth</a><a class="badge badge-primary" href="karate-tags.html">TRV-103</a><a class="badge badge-primary" href="karate-tags.html">TC-API-012</a>
+                <a class="badge badge-primary" href="karate-tags.html">HU-P02</a><a class="badge badge-primary" href="karate-tags.html">auth</a><a class="badge badge-primary" href="karate-tags.html">TC-API-012</a>
               </div>
               <div class="scenario-keyword">
                 Scenario: <span>[12:145]</span>
@@ -13262,7 +13213,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
               </div>
             </div>
             <div class="scenario-time passed">
-              <span>ms:</span>&nbsp;<span>297</span>
+              <span>ms:</span>&nbsp;<span>263</span>
             </div>
           </div>
           <div class="step-row">
@@ -13313,7 +13264,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def usuarioSchema = read(&#39;classpath:trouvels360/schemas/usuario.json&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -13341,7 +13292,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>eval como(S.viajero2)</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -13397,7 +13348,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method get</span>
       </div>
     </div>
-    <div class="time-cell passed">294</div>
+    <div class="time-cell passed">262</div>
   </div>
 
    
@@ -13406,27 +13357,26 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.148">09:00:56.435 request:
+  <div class="preformatted" data-parent="0.148">22:00:58.076 request:
 1 &gt; GET http://localhost:8000/api/proveedor/reservas
 1 &gt; Accept: application/json
-1 &gt; X-XSRF-TOKEN: 18afb7a70fa65015052dc3c2b96224e16119b1740c6ef4bf2ce86322bd6167e2
-1 &gt; Cookie: access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3OTQ0MDU2NTQsImV4cCI6MTc5NDQwOTI1NCwibmJmIjoxNzk0NDA1NjU0LCJqdGkiOiJrOTI3UE9YVElrSXE2UVY1Iiwic3ViIjoiMjIiLCJwcnYiOiI1ODcwODYzZDRhNjJkNzkxNDQzZmFmOTM2ZmMzNjgwMzFkMTEwYzRmIiwicm9sIjoidmlhamVybyIsImVtYWlsIjoicWEudmlhamVybzJAdHJvdXZlbHMzNjAudGVzdCJ9.fDDOwDKpsf_3W9C_2sqXeFcdN3Z6xNkMRAOlnS8wk9w; XSRF-TOKEN=18afb7a70fa65015052dc3c2b96224e16119b1740c6ef4bf2ce86322bd6167e2
+1 &gt; X-XSRF-TOKEN: be39ad443682073d08606dc4829524865db6c52617606cf6f6d1c5bf1e539213
+1 &gt; Cookie: access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3OTQ0NTI0NDgsImV4cCI6MTc5NDQ1NjA0OCwibmJmIjoxNzk0NDUyNDQ4LCJqdGkiOiJ5OUhzUldwQVNUeXlVSkJiIiwic3ViIjoiMjIiLCJwcnYiOiI1ODcwODYzZDRhNjJkNzkxNDQzZmFmOTM2ZmMzNjgwMzFkMTEwYzRmIiwicm9sIjoidmlhamVybyIsImVtYWlsIjoicWEudmlhamVybzJAdHJvdXZlbHMzNjAudGVzdCJ9.JKPyca24GJBwhWSHIYDxTUa5sE1DOTOxUH2Ipk64hwA; XSRF-TOKEN=be39ad443682073d08606dc4829524865db6c52617606cf6f6d1c5bf1e539213
 1 &gt; Host: localhost:8000
 1 &gt; Connection: Keep-Alive
 1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.12.1)
 1 &gt; Accept-Encoding: gzip,deflate
 
 
-09:00:56.728 response time in milliseconds: 293
+22:00:58.338 response time in milliseconds: 262
 1 &lt; 403
 1 &lt; Host: localhost:8000
 1 &lt; Connection: close
 1 &lt; X-Powered-By: PHP/8.3.6
 1 &lt; Cache-Control: no-cache, private
-1 &lt; Date: Wed, 11 Nov 2026 14:00:56 GMT
+1 &lt; Date: Thu, 12 Nov 2026 03:00:58 GMT
 1 &lt; Content-Type: application/json
-1 &lt; Access-Control-Allow-Origin: http://localhost:4200
-1 &lt; Access-Control-Allow-Credentials: true
+1 &lt; Vary: Origin
 {&quot;message&quot;:&quot;Esta secci\u00f3n es solo para proveedores.&quot;}
 
 </div>   
@@ -13476,7 +13426,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>And</span>&nbsp;<span>assert responseTime &lt; maxMs</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    

@@ -1,5 +1,5 @@
 @aprobacion
-Feature: Flujo de aprobación de solicitudes de hotel por el proveedor (TRV-204)
+Feature: Flujo de aprobación de solicitudes de hotel por el proveedor (HU-P13/HU-P14)
 
   Background:
     * url baseUrl
@@ -10,7 +10,7 @@ Feature: Flujo de aprobación de solicitudes de hotel por el proveedor (TRV-204)
     * def rango = { check_in: '#(fecha(dia))', check_out: '#(fecha(dia + 2))', adultos: 1, habitaciones: 1 }
     * def solicitar = function(s){ return karate.call('classpath:trouvels360/helpers/reservar-hotel.feature', { sesion: s, fecha_inicio: fecha(dia), fecha_fin: fecha(dia + 2), items: [{ habitacion_id: habId, cantidad: 1 }] }) }
 
-  @TRV-204 @TC-API-031
+  @HU-V12 @HU-P13 @TC-API-031
   Scenario: Viajero solicita → proveedor acepta → viajero ve CONFIRMADA
     * def res = solicitar(S.viajero2)
     * match res.status == 201
@@ -27,7 +27,7 @@ Feature: Flujo de aprobación de solicitudes de hotel por el proveedor (TRV-204)
     Then status 200
     And match response.data.estado == 'confirmada'
 
-  @TRV-204 @TC-API-032
+  @HU-P14 @TC-API-032
   Scenario: Rechazar con motivo libera las unidades
     Given path 'hoteles', h.hotelId, 'disponibilidad'
     And params rango
@@ -50,7 +50,7 @@ Feature: Flujo de aprobación de solicitudes de hotel por el proveedor (TRV-204)
     When method get
     Then match response.data.habitaciones[0].unidades_disponibles == 3
 
-  @TRV-204 @TC-API-033
+  @HU-P13 @TC-API-033
   Scenario: Aceptar dos veces o aceptar una cancelada devuelve 409
     * def a = solicitar(S.viajero2)
     * def idA = a.body.data.reservas[0].id
@@ -73,7 +73,7 @@ Feature: Flujo de aprobación de solicitudes de hotel por el proveedor (TRV-204)
     When method post
     Then status 409
 
-  @TRV-204 @TC-API-034
+  @HU-P13 @TC-API-034
   Scenario: Un proveedor no puede decidir sobre reservas de otro proveedor (403)
     * def res = solicitar(S.viajero2)
     * def id = res.body.data.reservas[0].id
@@ -86,7 +86,7 @@ Feature: Flujo de aprobación de solicitudes de hotel por el proveedor (TRV-204)
     When method post
     Then status 403
 
-  @TRV-204 @TC-API-035
+  @HU-P14 @TC-API-035
   Scenario: Rechazar sin motivo (o con menos de 10 caracteres) devuelve 422
     * def res = solicitar(S.viajero2)
     * def id = res.body.data.reservas[0].id

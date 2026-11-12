@@ -71,7 +71,7 @@ public class Evidencias implements BeforeTestExecutionCallback, AfterTestExecuti
     private void registrar(ExtensionContext ctx, String estado, Throwable causa) {
         Long inicio = ctx.getStore(NS).get("inicio", Long.class);
         List<String> capturas = ctx.getStore(NS).get("capturas", List.class);
-        String hu = ctx.getTags().stream().filter(t -> t.startsWith("TRV-")).findFirst().orElse("");
+        String hu = String.join(", ", ctx.getTags().stream().filter(t -> t.startsWith("HU-")).sorted().toList());
         String error = causa == null ? null : causa.getClass().getSimpleName() + ": " + String.valueOf(causa.getMessage()).lines().limit(8)
                 .reduce((a, b) -> a + "\n" + b).orElse("");
         ReporteHtml.agregar(new ReporteHtml.Fila(caso(ctx), hu, ctx.getRequiredTestClass().getSimpleName(), ctx.getDisplayName(), estado,

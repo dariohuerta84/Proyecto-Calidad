@@ -23,7 +23,7 @@ import retrofit2.http.Query
  */
 interface ApiService {
 
-    // ---------------------------------------------------------------- Auth (TRV-101..103)
+    // ---------------------------------------------------------------- Auth (HU-V01..103)
     @GET("auth/csrf") suspend fun csrf(): JsonObject
     @POST("auth/login") suspend fun login(@Body body: LoginRequest): AuthResponse
     @POST("auth/register") suspend fun register(@Body body: RegisterRequest): AuthResponse
@@ -31,13 +31,13 @@ interface ApiService {
     @POST("auth/refresh") suspend fun refresh(): MessageResponse
     @POST("auth/logout") suspend fun logout(): MessageResponse
 
-    // ---------------------------------------------------------------- Mi cuenta (TRV-104, TRV-105)
+    // ---------------------------------------------------------------- Mi cuenta (HU-V03, HU-V04)
     @GET("usuarios/me") suspend fun perfil(): DataWrapper<UserDto>
     @PATCH("usuarios/me") suspend fun actualizarPerfil(@Body cambios: Map<String, String>): DataWrapper<UserDto>
     @PUT("usuarios/me/password") suspend fun cambiarPassword(@Body body: PasswordRequest): MessageResponse
     @DELETE("usuarios/me") suspend fun eliminarCuenta(): Response<Unit>
 
-    // ---------------------------------------------------------------- Hoteles (TRV-201..203)
+    // ---------------------------------------------------------------- Hoteles (HU-V05..203)
     @GET("hoteles")
     suspend fun hoteles(
         @Query("ciudad") ciudad: String?,
@@ -71,7 +71,7 @@ interface ApiService {
         @Header("Idempotency-Key") idempotencyKey: String,
     ): DataWrapper<SolicitudHotelDto>
 
-    // ---------------------------------------------------------------- Tours (TRV-301..303)
+    // ---------------------------------------------------------------- Tours (HU-V08..303)
     @GET("tours")
     suspend fun tours(
         @Query("destino") destino: String?,
@@ -95,7 +95,7 @@ interface ApiService {
         @Header("Idempotency-Key") idempotencyKey: String,
     ): DataWrapper<ReservaDto>
 
-    // ---------------------------------------------------------------- Mis reservas (TRV-401, TRV-402)
+    // ---------------------------------------------------------------- Mis reservas (HU-V11, HU-V13)
     @GET("mis-reservas")
     suspend fun misReservasHotel(@Query("estado") estado: String?, @Query("page") page: Int, @Query("per_page") perPage: Int = 10): Page<ReservaDto>
 
@@ -108,7 +108,7 @@ interface ApiService {
     @POST("tours/reservas/{id}/cancelar")
     suspend fun cancelarReservaTour(@Path("id") id: Int): DataWrapper<ReservaDto>
 
-    // ---------------------------------------------------------------- Reseñas (TRV-403)
+    // ---------------------------------------------------------------- Reseñas (HU-V14)
     @GET("reviews")
     suspend fun reviews(@Query("servicio_id") servicioId: Int, @Query("page") page: Int, @Query("per_page") perPage: Int = 5): Page<ReviewDto>
 
@@ -118,10 +118,10 @@ interface ApiService {
     @PUT("reviews/{id}") suspend fun editarReview(@Path("id") id: Int, @Body body: ReviewRequest): DataWrapper<ReviewDto>
     @DELETE("reviews/{id}") suspend fun eliminarReview(@Path("id") id: Int): Response<Unit>
 
-    // ---------------------------------------------------------------- Itinerario (TRV-404)
+    // ---------------------------------------------------------------- Itinerario (HU-V15)
     @POST("itineraries") suspend fun itinerario(@Body body: ItinerarioRequest): ItinerarioResponse
 
-    // ---------------------------------------------------------------- Proveedor (TRV-204, 501..508)
+    // ---------------------------------------------------------------- Proveedor (HU-P13/HU-P14, 501..508)
     @GET("proveedor/indicadores") suspend fun indicadores(): DataWrapper<IndicadoresDto>
 
     @GET("proveedor/servicios")
@@ -149,14 +149,14 @@ interface ApiService {
     @POST("proveedor/reservas-habitaciones/{id}/rechazar")
     suspend fun rechazarReserva(@Path("id") id: Int, @Body body: RechazoRequest): DataWrapper<ReservaDto>
 
-    // Hoteles y tipos de habitación (TRV-502, TRV-503)
+    // Hoteles y tipos de habitación (HU-P05/HU-P06, HU-P07)
     @POST("hoteles") suspend fun crearHotel(@Body body: HotelUpsert): JsonObject
     @PUT("hoteles/{id}") suspend fun editarHotel(@Path("id") id: Int, @Body body: HotelUpsert): JsonObject
     @POST("hoteles/{id}/habitaciones") suspend fun crearHabitacion(@Path("id") hotelId: Int, @Body body: HabitacionUpsert): JsonObject
     @PUT("habitaciones/{id}") suspend fun editarHabitacion(@Path("id") id: Int, @Body body: HabitacionUpsert): JsonObject
     @DELETE("habitaciones/{id}") suspend fun eliminarHabitacion(@Path("id") id: Int): Response<Unit>
 
-    // Tours, salidas y actividades (TRV-504..506)
+    // Tours, salidas y actividades (HU-P08/HU-P09..506)
     @POST("tours") suspend fun crearTour(@Body body: TourUpsert): JsonObject
     @PUT("tours/{id}") suspend fun editarTour(@Path("id") id: Int, @Body body: TourUpsert): JsonObject
     @GET("tours/{id}/salidas") suspend fun salidas(@Path("id") tourId: Int): List<SalidaDto>

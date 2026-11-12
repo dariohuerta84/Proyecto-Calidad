@@ -28,7 +28,7 @@ class ProveedorMovilTest extends BaseTestMovil {
     }
 
     @Test
-    @Tag("TRV-501") @Tag("TC-MOB-025")
+    @Tag("HU-P03") @Tag("HU-P04") @Tag("TC-MOB-025")
     @DisplayName("TC-MOB-025 Panel del proveedor con indicadores")
     void panel() {
         Api.Sesion p = Api.registrarProveedor();
@@ -47,7 +47,7 @@ class ProveedorMovilTest extends BaseTestMovil {
     }
 
     @Test
-    @Tag("TRV-502") @Tag("TC-MOB-026")
+    @Tag("HU-P05") @Tag("TC-MOB-026")
     @DisplayName("TC-MOB-026 Crear hotel desde la app del proveedor")
     void crearHotel() {
         Api.Sesion p = Api.registrarProveedor();
@@ -67,7 +67,7 @@ class ProveedorMovilTest extends BaseTestMovil {
     }
 
     @Test
-    @Tag("TRV-503") @Tag("TC-MOB-027")
+    @Tag("HU-P07") @Tag("TC-MOB-027")
     @DisplayName("TC-MOB-027 Agregar un tipo de habitación en la app")
     void agregarTipo() {
         Api.Sesion p = Api.registrarProveedor();
@@ -89,7 +89,7 @@ class ProveedorMovilTest extends BaseTestMovil {
     }
 
     @Test
-    @Tag("TRV-504") @Tag("TC-MOB-028")
+    @Tag("HU-P08") @Tag("TC-MOB-028")
     @DisplayName("TC-MOB-028 Crear tour con su salida desde la app")
     void crearTour() {
         Api.Sesion p = Api.registrarProveedor();
@@ -111,7 +111,7 @@ class ProveedorMovilTest extends BaseTestMovil {
     }
 
     @Test
-    @Tag("TRV-505") @Tag("TC-MOB-029")
+    @Tag("HU-P10") @Tag("TC-MOB-029")
     @DisplayName("TC-MOB-029 Agregar una actividad al tour desde la app")
     void actividad() {
         Api.Sesion p = Api.registrarProveedor();
@@ -126,7 +126,7 @@ class ProveedorMovilTest extends BaseTestMovil {
     }
 
     @Test
-    @Tag("TRV-506") @Tag("TC-MOB-030")
+    @Tag("HU-P11") @Tag("TC-MOB-030")
     @DisplayName("TC-MOB-030 Crear y cerrar una salida desde la app")
     void salida() {
         Api.Sesion p = Api.registrarProveedor();
@@ -145,7 +145,7 @@ class ProveedorMovilTest extends BaseTestMovil {
     }
 
     @Test
-    @Tag("TRV-507") @Tag("TC-MOB-031")
+    @Tag("HU-P12") @Tag("TC-MOB-031")
     @DisplayName("TC-MOB-031 Bandeja de reservas en la app: solo las propias y filtro por tipo")
     void bandeja() {
         Api.Sesion p = Api.registrarProveedor();
@@ -167,7 +167,7 @@ class ProveedorMovilTest extends BaseTestMovil {
     }
 
     @Test
-    @Tag("TRV-508") @Tag("TC-MOB-032")
+    @Tag("HU-P15") @Tag("TC-MOB-032")
     @DisplayName("TC-MOB-032 Eliminar una publicación desde la app")
     void eliminar() {
         Api.Sesion p = Api.registrarProveedor();

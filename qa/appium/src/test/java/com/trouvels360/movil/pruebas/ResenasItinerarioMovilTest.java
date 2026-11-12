@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class ResenasItinerarioMovilTest extends BaseTestMovil {
 
     @Test
-    @Tag("TRV-403") @Tag("TC-MOB-023")
+    @Tag("HU-V14") @Tag("TC-MOB-023")
     @DisplayName("TC-MOB-023 Publicar una reseña desde la app")
     void publicarResena() {
         long hotel = Api.idPorNombre("hotel", "Cusco", "Hotel QA Concurrencia");
@@ -43,7 +43,7 @@ class ResenasItinerarioMovilTest extends BaseTestMovil {
     }
 
     @Test
-    @Tag("TRV-404") @Tag("TC-MOB-024")
+    @Tag("HU-V15") @Tag("TC-MOB-024")
     @DisplayName("TC-MOB-024 Generar el itinerario en la app y continuar con la reserva")
     void itinerario() {
         Api.Sesion prov = Api.proveedor();

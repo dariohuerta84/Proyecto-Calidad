@@ -55,10 +55,10 @@ object Validaciones {
     fun nombreValido(s: String) = s.trim().isNotEmpty() && s.trim().length <= 100 && soloLetras.matches(s.trim())
     fun urlValida(s: String) = Regex("""^https?://\S+$""", RegexOption.IGNORE_CASE).matches(s.trim())
 
-    /** Comentario de reseña: 10 a 300 caracteres (TRV-403). */
+    /** Comentario de reseña: 10 a 300 caracteres (HU-V14). */
     fun comentarioValido(s: String) = s.trim().length in 10..300
 
-    /** Motivo de rechazo: 10 a 300 caracteres (TRV-204). */
+    /** Motivo de rechazo: 10 a 300 caracteres (HU-P14). */
     fun motivoValido(s: String) = s.trim().length in 10..300
 
     /** "HH:MM" 00:00–23:59. */

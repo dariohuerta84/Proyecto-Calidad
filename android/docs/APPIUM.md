@@ -1,4 +1,4 @@
-# Guía para Appium (TRV-604)
+# Guía para Appium (QA-04)
 
 ## Capabilities (UiAutomator2)
 

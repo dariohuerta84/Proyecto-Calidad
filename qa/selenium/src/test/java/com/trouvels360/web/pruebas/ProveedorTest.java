@@ -26,7 +26,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class ProveedorTest extends BaseTest {
 
     @Test
-    @Tag("TRV-501") @Tag("TC-WEB-023")
+    @Tag("HU-P03") @Tag("HU-P04") @Tag("TC-WEB-023")
     @DisplayName("TC-WEB-023 Panel: indicadores iguales a la API y paginación de publicaciones")
     void panelIndicadoresPaginacion() {
         Api.Sesion p = Api.registrarProveedor();
@@ -53,7 +53,7 @@ class ProveedorTest extends BaseTest {
     }
 
     @Test
-    @Tag("TRV-502") @Tag("TC-WEB-024")
+    @Tag("HU-P05") @Tag("TC-WEB-024")
     @DisplayName("TC-WEB-024 Publicar un hotel con dos tipos de habitación desde el formulario")
     void crearHotel() {
         Api.Sesion p = Api.registrarProveedor();
@@ -72,7 +72,7 @@ class ProveedorTest extends BaseTest {
     }
 
     @Test
-    @Tag("TRV-503") @Tag("TC-WEB-025")
+    @Tag("HU-P07") @Tag("TC-WEB-025")
     @DisplayName("TC-WEB-025 Editar hotel: cambiar la tarifa de un tipo y agregar otro")
     void editarHabitaciones() {
         Api.Sesion p = Api.registrarProveedor();
@@ -93,7 +93,7 @@ class ProveedorTest extends BaseTest {
     }
 
     @Test
-    @Tag("TRV-504") @Tag("TC-WEB-026")
+    @Tag("HU-P08") @Tag("TC-WEB-026")
     @DisplayName("TC-WEB-026 Publicar un tour con su primera salida desde el formulario")
     void crearTour() {
         Api.Sesion p = Api.registrarProveedor();
@@ -115,7 +115,7 @@ class ProveedorTest extends BaseTest {
     }
 
     @Test
-    @Tag("TRV-505") @Tag("TC-WEB-027")
+    @Tag("HU-P10") @Tag("TC-WEB-027")
     @DisplayName("TC-WEB-027 Agregar, reordenar y eliminar actividades del tour")
     void actividades() {
         Api.Sesion p = Api.registrarProveedor();
@@ -137,7 +137,7 @@ class ProveedorTest extends BaseTest {
     }
 
     @Test
-    @Tag("TRV-506") @Tag("TC-WEB-028")
+    @Tag("HU-P11") @Tag("TC-WEB-028")
     @DisplayName("TC-WEB-028 Programar, cerrar y eliminar una salida desde el panel")
     void salidas() {
         Api.Sesion p = Api.registrarProveedor();
@@ -159,7 +159,7 @@ class ProveedorTest extends BaseTest {
     }
 
     @Test
-    @Tag("TRV-507") @Tag("TC-WEB-029")
+    @Tag("HU-P12") @Tag("TC-WEB-029")
     @DisplayName("TC-WEB-029 Bandeja de reservas recibidas: filtros por estado y tipo, y paginación")
     void bandejaFiltros() {
         Api.Sesion p = Api.registrarProveedor();
@@ -195,7 +195,7 @@ class ProveedorTest extends BaseTest {
     }
 
     @Test
-    @Tag("TRV-508") @Tag("TC-WEB-030")
+    @Tag("HU-P15") @Tag("TC-WEB-030")
     @DisplayName("TC-WEB-030 Eliminar publicación: confirmación, éxito sin reservas y bloqueo con reservas activas")
     void eliminarPublicacion() {
         Api.Sesion p = Api.registrarProveedor();

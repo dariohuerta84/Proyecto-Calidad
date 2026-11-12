@@ -20,7 +20,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class CuentaMovilTest extends BaseTestMovil {
 
     @Test
-    @Tag("TRV-101") @Tag("TC-MOB-001")
+    @Tag("HU-V01") @Tag("TC-MOB-001")
     @DisplayName("TC-MOB-001 Registro de viajero desde la app y sesión iniciada")
     void registroViajero() {
         CuentaPantallas c = cuenta();
@@ -38,7 +38,7 @@ class CuentaMovilTest extends BaseTestMovil {
     }
 
     @Test
-    @Tag("TRV-101") @Tag("TC-MOB-002")
+    @Tag("HU-V01") @Tag("HU-P01") @Tag("TC-MOB-002")
     @DisplayName("TC-MOB-002 Botón Registrarme deshabilitado con contraseñas distintas")
     void registroContrasenasDistintas() {
         CuentaPantallas c = cuenta();
@@ -52,7 +52,7 @@ class CuentaMovilTest extends BaseTestMovil {
     }
 
     @Test
-    @Tag("TRV-102") @Tag("TC-MOB-003")
+    @Tag("HU-P01") @Tag("TC-MOB-003")
     @DisplayName("TC-MOB-003 Registro de proveedor desde la app y acceso al panel")
     void registroProveedor() {
         CuentaPantallas c = cuenta();
@@ -67,7 +67,7 @@ class CuentaMovilTest extends BaseTestMovil {
     }
 
     @Test
-    @Tag("TRV-103") @Tag("TC-MOB-004")
+    @Tag("HU-V02") @Tag("TC-MOB-004")
     @DisplayName("TC-MOB-004 Login, cierre de sesión y bloqueo de pestañas privadas")
     void loginLogoutPestanasPrivadas() {
         CuentaPantallas c = cuenta();
@@ -89,7 +89,7 @@ class CuentaMovilTest extends BaseTestMovil {
     }
 
     @Test
-    @Tag("TRV-103") @Tag("TC-MOB-005")
+    @Tag("HU-V02") @Tag("TC-MOB-005")
     @DisplayName("TC-MOB-005 Reservar sin sesión → login → regreso al detalle con la selección")
     void reservarSinSesion() {
         Api.Hotel h = Api.crearHotel(Api.proveedor(), "Doble", 3, 150);
@@ -108,7 +108,7 @@ class CuentaMovilTest extends BaseTestMovil {
     }
 
     @Test
-    @Tag("TRV-104") @Tag("TC-MOB-006")
+    @Tag("HU-V03") @Tag("TC-MOB-006")
     @DisplayName("TC-MOB-006 Editar perfil en la app y verlo en la pestaña Perfil")
     void editarPerfil() {
         Api.Sesion v = Api.registrarViajero("Tomás");
@@ -124,7 +124,7 @@ class CuentaMovilTest extends BaseTestMovil {
     }
 
     @Test
-    @Tag("TRV-104") @Tag("TC-MOB-007")
+    @Tag("HU-V03") @Tag("TC-MOB-007")
     @DisplayName("TC-MOB-007 Cambio de contraseña: confirmación distinta deshabilita Guardar")
     void cambioContrasena() {
         Api.Sesion v = Api.registrarViajero("Lía");
@@ -143,7 +143,7 @@ class CuentaMovilTest extends BaseTestMovil {
     }
 
     @Test
-    @Tag("TRV-105") @Tag("TC-MOB-008")
+    @Tag("HU-V04") @Tag("TC-MOB-008")
     @DisplayName("TC-MOB-008 Eliminar cuenta desde Perfil y volver al inicio de sesión")
     void eliminarCuenta() {
         Api.Sesion v = Api.registrarViajero("Iván");

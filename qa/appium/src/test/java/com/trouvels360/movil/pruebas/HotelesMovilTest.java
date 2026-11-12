@@ -23,7 +23,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class HotelesMovilTest extends BaseTestMovil {
 
     @Test
-    @Tag("TRV-201") @Tag("TC-MOB-009")
+    @Tag("HU-V05") @Tag("TC-MOB-009")
     @DisplayName("TC-MOB-009 Búsqueda por ciudad y fechas")
     void busqueda() {
         Api.Hotel h = Api.crearHotel(Api.proveedor(), "Doble", 3, 150);
@@ -36,7 +36,7 @@ class HotelesMovilTest extends BaseTestMovil {
     }
 
     @Test
-    @Tag("TRV-201") @Tag("TC-MOB-010")
+    @Tag("HU-V05") @Tag("TC-MOB-010")
     @DisplayName("TC-MOB-010 Estado vacío frente a error de red con Reintentar")
     void vacioVsError() {
         HotelPantallas hp = new HotelPantallas(d);
@@ -58,7 +58,7 @@ class HotelesMovilTest extends BaseTestMovil {
     }
 
     @Test
-    @Tag("TRV-202") @Tag("TC-MOB-011")
+    @Tag("HU-V06") @Tag("TC-MOB-011")
     @DisplayName("TC-MOB-011 Selección de dos tipos y total con IGV")
     void totalConIgv() {
         Api.Hotel h = Api.crearHotel(Api.proveedor(), "Doble", 3, 150, "Suite", 2, 200);
@@ -75,7 +75,7 @@ class HotelesMovilTest extends BaseTestMovil {
     }
 
     @Test
-    @Tag("TRV-202") @Tag("TC-MOB-012")
+    @Tag("HU-V06") @Tag("TC-MOB-012")
     @DisplayName("TC-MOB-012 El botón + se deshabilita al llegar a las unidades disponibles")
     void topeDeUnidades() {
         Api.Hotel h = Api.crearHotel(Api.proveedor(), "Doble", 2, 150);
@@ -89,7 +89,7 @@ class HotelesMovilTest extends BaseTestMovil {
     }
 
     @Test
-    @Tag("TRV-203") @Tag("TC-MOB-013")
+    @Tag("HU-V07") @Tag("TC-MOB-013")
     @DisplayName("TC-MOB-013 Flujo completo de reserva de hotel: comprobante PENDIENTE")
     void flujoCompleto() {
         Api.Hotel h = Api.crearHotel(Api.proveedor(), "Doble", 3, 150);
@@ -113,7 +113,7 @@ class HotelesMovilTest extends BaseTestMovil {
     }
 
     @Test
-    @Tag("TRV-203") @Tag("TC-MOB-014")
+    @Tag("HU-V07") @Tag("TC-MOB-014")
     @DisplayName("TC-MOB-014 El formulario de pago rechaza una tarjeta vencida")
     void tarjetaVencida() {
         Api.Hotel h = Api.crearHotel(Api.proveedor(), "Doble", 3, 150);

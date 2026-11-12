@@ -4,7 +4,7 @@
 
 Las historias se reorganizaron en 15 del viajero y 15 del proveedor. **No se perdió ningún criterio**: los 119 criterios de la versión anterior (CA-TRV-xxx-yy) están dentro de los 130 criterios nuevos (algunos se dividieron para que cada uno diga una sola cosa, y se agregaron criterios de rendimiento que antes estaban implícitos). Los 160 casos de prueba conservan su identificador.
 
-> **Importante para el código.** Las suites de `qa/` todavía etiquetan sus casos con el identificador anterior (por ejemplo `@TRV-203 @TC-API-026` en Karate o `@Tag("TRV-203")` en Selenium y Appium), y algunos comentarios del backend, la web y la app citan `TRV-xxx`. Mientras no se renombren, use estas tablas: el **TC-xxx** es el vínculo estable entre la historia y el código.
+> **En el código ya se usan los identificadores nuevos:** las suites de `qa/` etiquetan cada caso con sus historias (`@HU-V07 @TC-API-026` en Karate, `@Tag("HU-V07")` en Selenium y Appium), y los comentarios del backend, la web y la app citan `HU-xxx` o `CA-xxx`. Estas tablas sirven para leer los documentos y entregas anteriores.
 
 ## Historias anteriores → historias nuevas
 

@@ -146,7 +146,7 @@ object Repository {
     private fun mensaje(json: JsonObject?, porDefecto: String): String =
         json?.get("message")?.takeIf { it.isJsonPrimitive }?.asString ?: porDefecto
 
-    // ============================================================ Auth (TRV-101..103)
+    // ============================================================ Auth (HU-V01..103)
 
     suspend fun login(email: String, password: String) = mutate {
         val user = api.login(LoginRequest(email.trim().lowercase(), password)).data?.user
@@ -174,7 +174,7 @@ object Repository {
         Session.clear()
     }
 
-    // ============================================================ Mi cuenta (TRV-104, TRV-105)
+    // ============================================================ Mi cuenta (HU-V03, HU-V04)
 
     suspend fun perfil() = call { api.perfil().data }
 
@@ -193,7 +193,7 @@ object Repository {
         Session.clear()
     }
 
-    // ============================================================ Hoteles (TRV-201..203)
+    // ============================================================ Hoteles (HU-V05..203)
 
     suspend fun buscarHoteles(ciudad: String?, checkIn: String?, checkOut: String?, adultos: Int, ninos: Int, habitaciones: Int, page: Int) = call {
         val conFechas = !checkIn.isNullOrBlank() && !checkOut.isNullOrBlank()
@@ -220,7 +220,7 @@ object Repository {
     suspend fun reservarHotel(checkIn: String, checkOut: String, items: List<ItemHabitacion>, pago: PagoDto, clave: String) =
         mutate { requireNotNull(api.reservarHotel(CrearReservaHotelRequest(checkIn, checkOut, items, pago), clave).data) }
 
-    // ============================================================ Tours (TRV-301..303)
+    // ============================================================ Tours (HU-V08..303)
 
     suspend fun buscarTours(destino: String?, categoria: String?, desde: String?, hasta: String?, personas: Int, page: Int) = call {
         api.tours(destino?.trim()?.ifBlank { null }, categoria, desde, hasta, personas.takeIf { it > 1 }, page)
@@ -234,14 +234,14 @@ object Repository {
     suspend fun reservarTour(salidaId: Int, personas: Int, pago: PagoDto, clave: String) =
         mutate { requireNotNull(api.reservarTour(salidaId, CrearReservaTourRequest(personas, pago), clave).data) }
 
-    // ============================================================ Mis reservas (TRV-401, TRV-402)
+    // ============================================================ Mis reservas (HU-V11, HU-V13)
 
     suspend fun misReservasHotel(estado: String?, page: Int) = call { api.misReservasHotel(estado, page) }
     suspend fun misReservasTour(estado: String?, page: Int) = call { api.misReservasTour(estado, page) }
     suspend fun cancelarReservaHotel(id: Int) = mutate { api.cancelarReservaHotel(id) }
     suspend fun cancelarReservaTour(id: Int) = mutate { api.cancelarReservaTour(id) }
 
-    // ============================================================ Reseñas (TRV-403)
+    // ============================================================ Reseñas (HU-V14)
 
     suspend fun reviews(servicioId: Int, page: Int) = call { api.reviews(servicioId, page) }
     suspend fun resumenReviews(servicioId: Int) = call { api.resumenReviews(servicioId).data }
@@ -252,12 +252,12 @@ object Repository {
         mutate { api.editarReview(id, ReviewRequest(null, calificacion, comentario.trim())) }
     suspend fun eliminarReview(id: Int) = mutate { api.eliminarReview(id).orThrow() }
 
-    // ============================================================ Itinerario (TRV-404)
+    // ============================================================ Itinerario (HU-V15)
 
     suspend fun itinerario(destino: String, hotelId: Int, checkIn: String, checkOut: String, interes: String) =
         mutate { api.itinerario(ItinerarioRequest(destino, hotelId, checkIn, checkOut, interes)) }
 
-    // ============================================================ Proveedor (TRV-204, TRV-501..508)
+    // ============================================================ Proveedor (HU-P13/HU-P14, HU-P03/HU-P04..508)
 
     suspend fun indicadores() = call { api.indicadores().data }
     suspend fun misServicios(page: Int, tipo: String?, busqueda: String?) =

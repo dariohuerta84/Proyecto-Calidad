@@ -76,7 +76,7 @@ class TourCheckoutViewModel : ViewModel() {
         }
     }
 
-    /** TRV-303: la reserva de tour se confirma automáticamente y descuenta cupos. */
+    /** HU-V10: la reserva de tour se confirma automáticamente y descuenta cupos. */
     fun pagar(pago: PagoDto) {
         val s = seleccion ?: return
         viewModelScope.launch {

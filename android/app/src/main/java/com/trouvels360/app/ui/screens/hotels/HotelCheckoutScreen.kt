@@ -67,7 +67,7 @@ class HotelCheckoutViewModel : ViewModel() {
         cotizar()
     }
 
-    /** TRV-202: el importe oficial (subtotal + IGV 18 % = total) lo calcula la API. */
+    /** HU-V06: el importe oficial (subtotal + IGV 18 % = total) lo calcula la API. */
     fun cotizar() {
         val s = seleccion
         if (s == null) { cotizando = false; errorCotizacion = "Faltan datos de la reserva. Vuelve al hotel y elige fechas y habitaciones."; return }
@@ -81,7 +81,7 @@ class HotelCheckoutViewModel : ViewModel() {
         }
     }
 
-    /** TRV-203: crea la solicitud; queda PENDIENTE hasta que el proveedor la acepte o rechace. */
+    /** HU-V07: crea la solicitud; queda PENDIENTE hasta que el proveedor la acepte o rechace. */
     fun pagar(pago: PagoDto) {
         val s = seleccion ?: return
         viewModelScope.launch {

@@ -81,7 +81,7 @@ class MisReservasViewModel : ViewModel() {
         }
     }
 
-    /** TRV-402 — Cancelar (solo si la API la marca como cancelable). */
+    /** HU-V13 — Cancelar (solo si la API la marca como cancelable). */
     fun cancelar() {
         val res = aCancelar ?: return
         val id = res.id ?: return
@@ -100,7 +100,7 @@ class MisReservasViewModel : ViewModel() {
 private val ESTADOS_HOTEL = listOf(null, "pendiente", "confirmada", "rechazada", "cancelada")
 private val ESTADOS_TOUR = listOf(null, "confirmada", "cancelada")
 
-/** TRV-401 — Mis reservas de hotel y tour con su estado (fuente de verdad: la API). */
+/** HU-V11 — Mis reservas de hotel y tour con su estado (fuente de verdad: la API). */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MisReservasScreen(vm: MisReservasViewModel = viewModel()) {

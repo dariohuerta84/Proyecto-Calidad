@@ -1,5 +1,5 @@
 @hoteles
-Feature: Búsqueda, detalle y cotización de hoteles (TRV-201, TRV-202)
+Feature: Búsqueda, detalle y cotización de hoteles (HU-V05, HU-V06)
 
   Background:
     * url baseUrl
@@ -9,7 +9,7 @@ Feature: Búsqueda, detalle y cotización de hoteles (TRV-201, TRV-202)
     * def meta = read('classpath:trouvels360/schemas/meta.json')
     * eval anonimo()
 
-  @TRV-201 @TC-API-020
+  @HU-V05 @TC-API-020
   Scenario: Búsqueda válida: todos los resultados cumplen ciudad, capacidad y unidades libres
     * def dia = diaLibre()
     Given path 'hoteles'
@@ -25,7 +25,7 @@ Feature: Búsqueda, detalle y cotización de hoteles (TRV-201, TRV-202)
     * def apto = function(h){ return karate.filter(h.habitaciones, function(x){ return x.unidades_disponibles >= 1 && x.capacidad_adultos * x.unidades_disponibles >= 2 }).length > 0 }
     * match each response.data == '#? apto(_)'
 
-  @TRV-201 @TC-API-021
+  @HU-V05 @TC-API-021
   Scenario Outline: Búsqueda inválida (<caso>) devuelve 422
     Given path 'hoteles'
     And params { ciudad: 'Cusco', check_in: '#(fecha(<check_in>))', check_out: '#(fecha(<check_out>))', adultos: <adultos>, habitaciones: <habitaciones> }
@@ -37,7 +37,7 @@ Feature: Búsqueda, detalle y cotización de hoteles (TRV-201, TRV-202)
     Examples:
       | read('classpath:trouvels360/data/busqueda-invalida.csv') |
 
-  @TRV-201 @TC-API-022
+  @HU-V05 @TC-API-022
   Scenario: Un hotel con todas sus unidades ocupadas por reservas pendientes no aparece
     * def h = call read('classpath:trouvels360/helpers/hotel-propio.feature') { sesion: '#(S.proveedor)' }
     * def dia = diaLibre()
@@ -57,7 +57,7 @@ Feature: Búsqueda, detalle y cotización de hoteles (TRV-201, TRV-202)
     Then status 200
     And match response.meta.total == 1
 
-  @TRV-202 @TC-API-023
+  @HU-V06 @TC-API-023
   Scenario: Esquema del detalle de hotel (habitaciones y calificación) y sus reseñas
     Given path 'hoteles', F.hotelQaId
     When method get
@@ -72,7 +72,7 @@ Feature: Búsqueda, detalle y cotización de hoteles (TRV-201, TRV-202)
     Then status 200
     And match response.meta contains { total: '#number', last_page: '#number' }
 
-  @TRV-202 @TC-API-024
+  @HU-V06 @TC-API-024
   Scenario Outline: Cotización <tipo> × <unidades> × <noches> noches = S/ <total> con IGV
     * def tipos = { unica: '#(F.unica.id)', doble: '#(F.doble.id)', suite: '#(F.suite.id)' }
     * def dia = diaLibre()
@@ -90,7 +90,7 @@ Feature: Búsqueda, detalle y cotización de hoteles (TRV-201, TRV-202)
     Examples:
       | read('classpath:trouvels360/data/cotizaciones.csv') |
 
-  @TRV-202 @TC-API-025
+  @HU-V06 @TC-API-025
   Scenario: Cotizar más unidades que las libres devuelve 422 con el máximo
     * def dia = diaLibre()
     Given path 'reservas-habitaciones', 'cotizar'

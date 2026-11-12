@@ -148,7 +148,7 @@ SampleResult.setSuccessful(vars.get('hab_id') != 'NOT_FOUND' && vars.get('salida
     comentario='Crea datos nuevos en cada corrida para que las pruebas de carrera sean repetibles.')
 
 # ------------------------------------------------------------------ TC-PERF-001 login
-g_login = grupo('ThreadGroup', 'TC-PERF-001 Login concurrente (TRV-103) - 50 usuarios', '${__P(usuarios.login,50)}', '${__P(rampa.login,10)}', '${__P(iteraciones.login,3)}', None,
+g_login = grupo('ThreadGroup', 'TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios', '${__P(usuarios.login,50)}', '${__P(rampa.login,10)}', '${__P(iteraciones.login,3)}', None,
     csvds('CSV usuarios', 'datos/usuarios.csv'),
     http('TC-PERF-001 GET /auth/csrf', 'GET', '/api/auth/csrf', None, codigo('Código 200', '200')),
     http('TC-PERF-001 POST /auth/login', 'POST', '/api/auth/login', '{"email":"${email}","password":"${password}"}',
@@ -159,7 +159,7 @@ g_login = grupo('ThreadGroup', 'TC-PERF-001 Login concurrente (TRV-103) - 50 usu
     comentario='Objetivo: p95 < 800 ms y 0 % de errores. Requiere LOGIN_RATE_LIMIT alto en el entorno de pruebas.')
 
 # ------------------------------------------------------------------ TC-PERF-002 catálogo de hoteles
-g_hoteles = grupo('ThreadGroup', 'TC-PERF-002 Catálogo de hoteles (TRV-201/202) - 100 usuarios', '${__P(usuarios.catalogo,100)}', '${__P(rampa.catalogo,60)}', '-1', '${__P(duracion,300)}',
+g_hoteles = grupo('ThreadGroup', 'TC-PERF-002 Catálogo de hoteles (HU-V05/HU-V06) - 100 usuarios', '${__P(usuarios.catalogo,100)}', '${__P(rampa.catalogo,60)}', '-1', '${__P(duracion,300)}',
     csvds('CSV ciudades', 'datos/ciudades.csv'),
     http('TC-PERF-002 GET /hoteles (búsqueda)', 'GET',
          '/api/hoteles?ciudad=${ciudad}&check_in=${__timeShift(yyyy-MM-dd,,P30D,,)}&check_out=${__timeShift(yyyy-MM-dd,,P32D,,)}&adultos=${adultos}&habitaciones=1&per_page=12',
@@ -173,7 +173,7 @@ g_hoteles = grupo('ThreadGroup', 'TC-PERF-002 Catálogo de hoteles (TRV-201/202)
     comentario='Objetivo: p95 < 1 s con 100 usuarios, ramp-up 60 s, 5 minutos.')
 
 # ------------------------------------------------------------------ TC-PERF-004 tours
-g_tours = grupo('ThreadGroup', 'TC-PERF-004 Búsqueda de tours (TRV-301/302) - 100 usuarios', '${__P(usuarios.tours,100)}', '${__P(rampa.catalogo,60)}', '-1', '${__P(duracion,300)}',
+g_tours = grupo('ThreadGroup', 'TC-PERF-004 Búsqueda de tours (HU-V08/HU-V09) - 100 usuarios', '${__P(usuarios.tours,100)}', '${__P(rampa.catalogo,60)}', '-1', '${__P(duracion,300)}',
     csvds('CSV categorías', 'datos/categorias.csv'),
     http('TC-PERF-004 GET /tours (filtros)', 'GET', '/api/tours?categoria=${__urlencode(${categoria})}&destino=${destino}&per_page=12',
          None, codigo('Código 200', '200'), jsonpath('Trae meta.total', '$.meta.total', '\\d+'), duracion(1000), extraer('tour_id', '$.data[0].id')),
@@ -183,7 +183,7 @@ g_tours = grupo('ThreadGroup', 'TC-PERF-004 Búsqueda de tours (TRV-301/302) - 1
     comentario='Objetivo: p95 < 1 s.')
 
 # ------------------------------------------------------------------ TC-PERF-003 última habitación
-g_ultima = grupo('ThreadGroup', 'TC-PERF-003 Carrera por la última habitación (TRV-203) - 20 hilos', '${__P(hilos.hotel,20)}', '1', '1', None,
+g_ultima = grupo('ThreadGroup', 'TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos', '${__P(hilos.hotel,20)}', '1', '1', None,
     csvds('CSV usuarios (uno distinto por hilo)', 'datos/usuarios.csv'),
     *login('TC-PERF-003', '${email}', '${password}'),
     http('TC-PERF-003 POST /reservas-habitaciones (simultáneo)', 'POST', '/api/reservas-habitaciones',
@@ -195,7 +195,7 @@ g_ultima = grupo('ThreadGroup', 'TC-PERF-003 Carrera por la última habitación 
     comentario='Esperado: exactamente 1x201 y el resto 409. La verificación está en el tearDown.')
 
 # ------------------------------------------------------------------ TC-PERF-005 cupos de tour
-g_cupos = grupo('ThreadGroup', 'TC-PERF-005 Carrera por cupos de un tour (TRV-303) - 30 hilos', '${__P(hilos.tour,30)}', '1', '1', None,
+g_cupos = grupo('ThreadGroup', 'TC-PERF-005 Carrera por cupos de un tour (HU-V10) - 30 hilos', '${__P(hilos.tour,30)}', '1', '1', None,
     csvds('CSV usuarios', 'datos/usuarios.csv'),
     *login('TC-PERF-005', '${email}', '${password}'),
     http('TC-PERF-005 POST /tours/salidas/{id}/reservas (simultáneo)', 'POST', '/api/tours/salidas/${__P(perf.salida_id)}/reservas',
@@ -207,7 +207,7 @@ g_cupos = grupo('ThreadGroup', 'TC-PERF-005 Carrera por cupos de un tour (TRV-30
     comentario='Esperado: personas confirmadas == cupo (10) y nunca más. La verificación está en el tearDown.')
 
 # ------------------------------------------------------------------ TC-PERF-006 panel proveedor
-g_panel = grupo('ThreadGroup', 'TC-PERF-006 Panel del proveedor (TRV-501/507) - 30 usuarios', '${__P(usuarios.panel,30)}', '${__P(rampa.panel,15)}', '${__P(iteraciones.panel,5)}', None,
+g_panel = grupo('ThreadGroup', 'TC-PERF-006 Panel del proveedor (HU-P03/HU-P04/HU-P12) - 30 usuarios', '${__P(usuarios.panel,30)}', '${__P(rampa.panel,15)}', '${__P(iteraciones.panel,5)}', None,
     una_vez('Login una vez por hilo', *login('TC-PERF-006', '${PROV_EMAIL}', '${PROV_PASS}')),
     http('TC-PERF-006 GET /proveedor/indicadores', 'GET', '/api/proveedor/indicadores', None, codigo('Código 200', '200'),
          jsonpath('Trae conteos por estado', '$.data.reservas_hotel.pendiente', '\\d+'), duracion(1500)),
@@ -237,7 +237,7 @@ if (!bien) { AssertionResult.setFailure(true); AssertionResult.setFailureMessage
 
 # ------------------------------------------------------------------ plan
 plan = node(
-    '<TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Trouvels360 - Pruebas de rendimiento y concurrencia (TRV-604)" enabled="true">'
+    '<TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Trouvels360 - Pruebas de rendimiento y concurrencia (QA-02)" enabled="true">'
     + s('TestPlan.comments', 'TC-PERF-001..006. Ejecutar en modo no GUI: ver README.md. Parámetros con -J (host, port, usuarios.*, duracion...).')
     + b('TestPlan.functional_mode', False) + b('TestPlan.tearDown_on_shutdown', True) + b('TestPlan.serialize_threadgroups', True)
     + '<elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="Variables" enabled="true">'

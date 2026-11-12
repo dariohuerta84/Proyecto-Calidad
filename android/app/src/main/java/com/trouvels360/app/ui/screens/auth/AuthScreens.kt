@@ -80,7 +80,7 @@ fun PasswordField(
 }
 
 /**
- * TRV-103 — Inicio de sesión. Al terminar vuelve a la pantalla que lo pidió (retorno al destino).
+ * HU-V02 — Inicio de sesión. Al terminar vuelve a la pantalla que lo pidió (retorno al destino).
  * Si la sesión había expirado, lo indica.
  */
 @Composable
@@ -132,7 +132,7 @@ fun LoginScreen(sesionExpirada: Boolean, onDone: (UserDto?) -> Unit, onRegister:
     }
 }
 
-/** TRV-101 (viajero) y TRV-102 (proveedor) — Registro con las mismas reglas que la API. */
+/** HU-V01 (viajero) y HU-P01 (proveedor) — Registro con las mismas reglas que la API. */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun RegisterScreen(onDone: (UserDto?) -> Unit, onLogin: () -> Unit) {

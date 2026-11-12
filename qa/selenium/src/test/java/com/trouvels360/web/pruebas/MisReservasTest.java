@@ -23,7 +23,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class MisReservasTest extends BaseTest {
 
     @Test
-    @Tag("TRV-401") @Tag("TC-WEB-018")
+    @Tag("HU-V11") @Tag("TC-WEB-018")
     @DisplayName("TC-WEB-018 Mis reservas: pestañas hotel/tour, filtro por estado y paginación")
     void pestanasFiltrosPaginacion() {
         Api.Sesion prov = Api.proveedor();
@@ -56,7 +56,7 @@ class MisReservasTest extends BaseTest {
     }
 
     @Test
-    @Tag("TRV-401") @Tag("TC-WEB-019")
+    @Tag("HU-V12") @Tag("TC-WEB-019")
     @DisplayName("TC-WEB-019 Una reserva rechazada muestra el motivo del proveedor")
     void rechazadaConMotivo() {
         Api.Sesion prov = Api.proveedor();
@@ -73,7 +73,7 @@ class MisReservasTest extends BaseTest {
     }
 
     @Test
-    @Tag("TRV-402") @Tag("TC-WEB-020")
+    @Tag("HU-V13") @Tag("TC-WEB-020")
     @DisplayName("TC-WEB-020 Cancelar desde Mis reservas pide confirmación y libera la habitación")
     void cancelarConConfirmacion() {
         Api.Sesion prov = Api.proveedor();

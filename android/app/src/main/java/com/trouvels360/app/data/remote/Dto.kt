@@ -455,7 +455,7 @@ data class HotelUpsert(
     @SerializedName("imagen_url") val imagenUrl: String,
     val direccion: String,
     val estrellas: Int,
-    /** Solo al crear (TRV-502). Al editar, las habitaciones se gestionan aparte (TRV-503). */
+    /** Solo al crear (HU-P05). Al editar, las habitaciones se gestionan aparte (HU-P07). */
     val habitaciones: List<HabitacionUpsert>? = null,
 )
 
@@ -470,7 +470,7 @@ data class TourUpsert(
     val categoria: String,
     val duracion: Int,
     val precio: Double,
-    /** Solo al crear (TRV-504). Luego se gestionan en "Salidas y actividades" (TRV-506). */
+    /** Solo al crear (HU-P08). Luego se gestionan en "Salidas y actividades" (HU-P11). */
     val salidas: List<SalidaUpsert>? = null,
 )
 

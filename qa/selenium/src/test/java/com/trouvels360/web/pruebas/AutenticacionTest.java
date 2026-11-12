@@ -24,7 +24,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class AutenticacionTest extends BaseTest {
 
     @Test
-    @Tag("TRV-101") @Tag("TC-WEB-001")
+    @Tag("HU-V01") @Tag("TC-WEB-001")
     @DisplayName("TC-WEB-001 Registro de viajero end-to-end y aterrizaje en el catálogo")
     void registroViajero() {
         String correo = Datos.correo("web.registro");
@@ -43,7 +43,7 @@ class AutenticacionTest extends BaseTest {
     }
 
     @Test
-    @Tag("TRV-101") @Tag("TC-WEB-002")
+    @Tag("HU-V01") @Tag("HU-P01") @Tag("TC-WEB-002")
     @DisplayName("TC-WEB-002 Mensajes de validación en el formulario de registro")
     void validacionesRegistro() {
         RegistroPage r = new RegistroPage(d).abrir("viajero");
@@ -70,7 +70,7 @@ class AutenticacionTest extends BaseTest {
     }
 
     @Test
-    @Tag("TRV-102") @Tag("TC-WEB-003")
+    @Tag("HU-P01") @Tag("TC-WEB-003")
     @DisplayName("TC-WEB-003 Registro de proveedor y acceso a su panel")
     void registroProveedor() {
         String empresa = "Turismo Selenium " + Datos.sufijo() + " SAC";
@@ -86,7 +86,7 @@ class AutenticacionTest extends BaseTest {
     }
 
     @Test
-    @Tag("TRV-103") @Tag("TC-WEB-004")
+    @Tag("HU-V02") @Tag("HU-P02") @Tag("TC-WEB-004")
     @DisplayName("TC-WEB-004 Login de viajero y de proveedor muestran el menú de su rol")
     void loginPorRol() {
         LoginPage login = new LoginPage(d).abrir();
@@ -111,7 +111,7 @@ class AutenticacionTest extends BaseTest {
     }
 
     @Test
-    @Tag("TRV-103") @Tag("TC-WEB-005")
+    @Tag("HU-V02") @Tag("TC-WEB-005")
     @DisplayName("TC-WEB-005 Login desde 'Confirmar y pagar' vuelve al resumen con la misma selección")
     void loginDesdeReservar() {
         Api.Hotel h = Api.crearHotel(Api.proveedor(), "Doble", 3, 150);
@@ -133,7 +133,7 @@ class AutenticacionTest extends BaseTest {
     }
 
     @Test
-    @Tag("TRV-104") @Tag("TC-WEB-006")
+    @Tag("HU-V03") @Tag("TC-WEB-006")
     @DisplayName("TC-WEB-006 Editar perfil y ver el nombre actualizado en el menú")
     void editarPerfil() {
         Api.Sesion v = Api.registrarViajero("Mario");
@@ -147,7 +147,7 @@ class AutenticacionTest extends BaseTest {
     }
 
     @Test
-    @Tag("TRV-105") @Tag("TC-WEB-007")
+    @Tag("HU-V04") @Tag("TC-WEB-007")
     @DisplayName("TC-WEB-007 Eliminar cuenta: el diálogo pide confirmación y 'Cancelar' conserva la cuenta")
     void eliminarCuentaCancelar() {
         Api.Sesion v = Api.registrarViajero("Rosa");

@@ -105,7 +105,7 @@ class TourProgramaViewModel : ViewModel() {
     private fun ok(m: String) { mensaje = m; mensajeError = null }
     private fun ko(m: String) { mensajeError = m; mensaje = null }
 
-    // ------------------------------------------------ Salidas (TRV-506)
+    // ------------------------------------------------ Salidas (HU-P11)
 
     fun abrirSalida(s: SalidaDto?) {
         salidaForm = s ?: SalidaDto()
@@ -172,7 +172,7 @@ class TourProgramaViewModel : ViewModel() {
         }
     }
 
-    // ------------------------------------------------ Actividades (TRV-505)
+    // ------------------------------------------------ Actividades (HU-P10)
 
     fun abrirActividad(a: ActividadDto?) {
         actForm = a ?: ActividadDto()
@@ -234,7 +234,7 @@ class TourProgramaViewModel : ViewModel() {
     }
 }
 
-/** TRV-505 y TRV-506 — Salidas (cupos y estados) y actividades ordenadas de un tour. */
+/** HU-P10 y HU-P11 — Salidas (cupos y estados) y actividades ordenadas de un tour. */
 @Composable
 fun TourProgramaScreen(tourId: Int, vm: TourProgramaViewModel = viewModel(key = "programa_$tourId")) {
     LaunchedEffect(tourId) { vm.iniciar(tourId) }

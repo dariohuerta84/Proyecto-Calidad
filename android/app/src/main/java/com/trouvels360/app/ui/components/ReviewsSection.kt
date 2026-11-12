@@ -53,7 +53,7 @@ import com.trouvels360.app.ui.theme.Star
 import kotlinx.coroutines.launch
 import java.util.Locale
 
-/** Estado de la sección de reseñas de un servicio (TRV-403). */
+/** Estado de la sección de reseñas de un servicio (HU-V14). */
 class ReviewsViewModel : ViewModel() {
     var servicioId = 0; private set
     var reviews by mutableStateOf<List<ReviewDto>>(emptyList()); private set

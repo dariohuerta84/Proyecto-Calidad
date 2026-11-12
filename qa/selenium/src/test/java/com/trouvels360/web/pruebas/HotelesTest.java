@@ -27,7 +27,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class HotelesTest extends BaseTest {
 
     @Test
-    @Tag("TRV-201") @Tag("TC-WEB-008")
+    @Tag("HU-V05") @Tag("TC-WEB-008")
     @DisplayName("TC-WEB-008 Búsqueda en Cusco: todas las tarjetas son de Cusco y muestran precio")
     void busquedaCusco() {
         int dia = Datos.diaLibre();
@@ -47,7 +47,7 @@ class HotelesTest extends BaseTest {
     }
 
     @Test
-    @Tag("TRV-201") @Tag("TC-WEB-009")
+    @Tag("HU-V05") @Tag("TC-WEB-009")
     @DisplayName("TC-WEB-009 El buscador no admite fechas pasadas")
     void fechasPasadas() {
         BuscadorPage b = new BuscadorPage(d).hoteles();
@@ -63,7 +63,7 @@ class HotelesTest extends BaseTest {
     }
 
     @Test
-    @Tag("TRV-202") @Tag("TC-WEB-010")
+    @Tag("HU-V06") @Tag("TC-WEB-010")
     @DisplayName("TC-WEB-010 Elegir 2 tipos de habitación y verificar el resumen con IGV 18 %")
     void resumenConIgv() {
         Api.Hotel h = Api.crearHotel(Api.proveedor(), "Doble", 3, 150, "Suite", 2, 200);
@@ -80,7 +80,7 @@ class HotelesTest extends BaseTest {
     }
 
     @Test
-    @Tag("TRV-203") @Tag("TC-WEB-011")
+    @Tag("HU-V07") @Tag("TC-WEB-011")
     @DisplayName("TC-WEB-011 Flujo completo búsqueda → selección → pago → comprobante PENDIENTE")
     void flujoCompletoHotel() {
         Api.Hotel h = Api.crearHotel(Api.proveedor(), "Doble", 3, 150);
@@ -111,7 +111,7 @@ class HotelesTest extends BaseTest {
     }
 
     @Test
-    @Tag("TRV-203") @Tag("TC-WEB-012")
+    @Tag("HU-V07") @Tag("TC-WEB-012")
     @DisplayName("TC-WEB-012 Validaciones del formulario de pago; cancelar no crea la reserva")
     void validacionesPago() {
         Api.Hotel h = Api.crearHotel(Api.proveedor(), "Doble", 3, 150);

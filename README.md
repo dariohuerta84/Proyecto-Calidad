@@ -64,13 +64,13 @@ Proyecto-Calidad/
 │   ├── 3-trazabilidad/        # Matriz historia → criterio → caso → resultado y defectos
 │   └── 4-jira/                # CSV de importación y guía de Jira
 ├── qa/
-│   ├── karate/                # Regresión API (Etapa 5)
-│   ├── selenium/              # Pruebas E2E web
-│   ├── appium/                # Pruebas E2E Android
+│   ├── karate/                # Pruebas de API (86 casos)
+│   ├── selenium/              # Pruebas E2E web (33 casos)
+│   ├── appium/                # Pruebas E2E Android (32 casos)
 │   ├── jmeter/                # Carga, concurrencia y smoke test
 │   ├── postman/               # Colección complementaria de API
-│   ├── trazabilidad/          # Matriz HU/criterio/caso/resultado y CSV Jira
-│   └── evidencias/etapa-5/    # Reportes y capturas entregadas
+│   ├── trazabilidad/          # Matriz historia/criterio/caso/resultado
+│   └── evidencias/etapa-5/    # Reportes de la última corrida
 └── README.md
 ```
 
@@ -132,8 +132,9 @@ Docker y despliegue en la nube: [frontend/README.md](frontend/README.md).
 
 ### Android
 
-Abre la carpeta `android/` en Android Studio, sincroniza Gradle y ejecuta la app en un emulador API 26 o superior
-(Gradle JDK 17 o 21; con Java 25 no compila).
+Abre la carpeta `android/` en Android Studio, elige **JDK 21** como *Gradle JDK* (el JBR 21 que trae Android Studio;
+con Java 25 Gradle no sincroniza), sincroniza y ejecuta la app en un emulador API 26 o superior. La app llega a la API de
+tu PC por `http://10.0.2.2:8000/api/`. Detalles y cómo apuntarla a la nube: [android/README.md](android/README.md).
 
 ### Colección Postman complementaria
 
@@ -151,9 +152,10 @@ El reporte se genera en `qa/postman/reports/newman-report.html`.
 
 Ejecuta la suite vigente desde la raíz con `qa/jmeter/ejecutar.bat` o abre `qa/jmeter/trouvels360.jmx` en JMeter. En Windows, los scripts `.sh` requieren Git Bash o WSL. Los resultados se generan bajo `qa/jmeter/resultados/`.
 
-### Regresión automatizada de Etapa 5
+### Pruebas automatizadas (`qa/`)
 
-Con los servicios locales iniciados y las dependencias de cada suite instaladas:
+Requisitos, preparación del entorno (límites de la API y datos limpios) y estado de cada suite en
+[qa/README.md](qa/README.md). Las suites en Java necesitan **JDK 21** y Maven. Con todo levantado:
 
 ```powershell
 .\qa\ejecutar-todo.bat
@@ -171,4 +173,4 @@ También puedes ejecutar cada suite desde su carpeta con `ejecutar.bat`. La estr
 
 ## 6. Defectos
 
-Los defectos encontrados en la auditoría inicial, en la revisión de las APIs y al ejecutar las suites (21 en total, 19 corregidos y 2 triviales abiertos en los reportes de QA) están en [docs/3-trazabilidad/defectos.md](docs/3-trazabilidad/defectos.md), cada uno con el criterio que incumplía y el caso que lo detecta.
+Los defectos encontrados en la auditoría inicial, en la revisión de las APIs y al ejecutar las suites (23 en total, todos corregidos) están en [docs/3-trazabilidad/defectos.md](docs/3-trazabilidad/defectos.md), cada uno con el criterio que incumplía y el caso que lo detecta.

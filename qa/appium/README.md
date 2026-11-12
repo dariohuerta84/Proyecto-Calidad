@@ -1,4 +1,4 @@
-# Pruebas E2E móviles — Appium 2 + JUnit 5 (TRV-604)
+# Pruebas E2E móviles — Appium 2 + JUnit 5 (QA-04)
 
 32 casos (**TC-MOB-001 a TC-MOB-032**) sobre la app Android (Kotlin + Compose) de la etapa 4, para viajero y proveedor.
 
@@ -29,18 +29,22 @@ src/test/java/com/trouvels360/movil/
 
 ## Requisitos
 
-1. Android Studio con un emulador (API 26+). La app usa `http://10.0.2.2:8000/api/` para llegar al backend de la PC.
-2. APK de depuración: desde `android/`, ejecuta `gradlew.bat assembleDebug` en Windows o `./gradlew assembleDebug` en Linux/macOS
-   (queda en `app/build/outputs/apk/debug/app-debug.apk`; la ruta se configura en `config.properties` → `app`).
-3. Appium 2: `npm i -g appium` y `appium driver install uiautomator2`; arrancar con `appium`.
-4. Backend con `QaSeeder`, `LOGIN_RATE_LIMIT=1000` y `REGISTER_RATE_LIMIT=1000`; microservicio de itinerarios (TC-MOB-024).
-5. `fecha.patron` en `config.properties` según el idioma del emulador (`MM/dd/yyyy` en inglés, `dd/MM/yyyy` en español).
+1. **JDK 21** (o 17) y **Maven 3.9+** (nota sobre Java 25 en [`qa/README.md`](../README.md#requisitos)).
+2. **Android Studio** con un emulador API 26 o superior encendido (`adb devices` debe listarlo como `emulator-5554`).
+3. **APK de depuración:** en `android/`, `gradlew.bat assembleDebug` (Windows) o `./gradlew assembleDebug`. Queda en
+   `android/app/build/outputs/apk/debug/app-debug.apk`, la ruta que ya trae `config.properties` (`app`). Cómo compilar con
+   JDK 21: [`android/README.md`](../../android/README.md#compilar-el-apk).
+4. **Appium 2:** Node 18+, `npm i -g appium`, `appium driver install uiautomator2` y dejar corriendo `appium`
+   (escucha en http://127.0.0.1:4723).
+5. Las dos APIs levantadas con datos limpios y `LOGIN_RATE_LIMIT=1000` / `REGISTER_RATE_LIMIT=1000`. La app llega a la
+   API de tu PC por `http://10.0.2.2:8000/api/`; la suite prepara datos por `http://localhost:8000/api`.
+6. `fecha.patron` en `config.properties` según el idioma del emulador (`MM/dd/yyyy` en inglés, `dd/MM/yyyy` en español).
 
 ## Ejecutar
 
 ```bash
 mvn test                                    # todo
-mvn test -Dgroups=TRV-203                   # una historia
+mvn test -Dgroups=HU-V07                   # una historia
 mvn test -Dtest=ProveedorMovilTest          # una clase
 mvn test -Dapp=C:/ruta/app-debug.apk -Ddispositivo=emulator-5556
 ```
@@ -55,7 +59,12 @@ ejecutar contra un dispositivo**. Sí se verificó que:
 
 - compila completa (`javac`) contra las firmas de java-client 9.3 / Selenium 4.25 / JUnit 5;
 - los **184 resource-id** que usa existen en el código de la app (cruce automático contra los `testTag`);
-- los datos que prepara por API son los mismos que usan Karate y Selenium (que sí corren en verde).
+- los datos que prepara por API son los mismos que usan Karate y Selenium (que sí corren en verde);
+- la app trae el botón «Escribir las fechas» (`<campo>_dialogo_teclado`) que la suite usa para elegir fechas; faltaba en
+  la copia del repositorio y se restauró.
+
+Si Maven avisa de un conflicto de versiones entre `java-client` y `selenium-java`, quita la dependencia `selenium-java`
+del `pom.xml` (java-client ya trae la versión compatible).
 
 Para la primera corrida real conviene empezar por `mvn test -Dtest=CuentaMovilTest` y ajustar `fecha.patron` y el
 `dispositivo` si hace falta.

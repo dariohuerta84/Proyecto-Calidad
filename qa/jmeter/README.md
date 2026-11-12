@@ -1,4 +1,4 @@
-# Pruebas de rendimiento y concurrencia — JMeter (TRV-604)
+# Pruebas de rendimiento y concurrencia — JMeter (QA-02)
 
 Plan: `trouvels360.jmx` (JMeter 5.6.3). Cubre **TC-PERF-001 a TC-PERF-006**. Los grupos de hilos corren uno tras otro
 (*Run Thread Groups consecutively*) para que cada medición sea limpia.
@@ -6,12 +6,12 @@ Plan: `trouvels360.jmx` (JMeter 5.6.3). Cubre **TC-PERF-001 a TC-PERF-006**. Los
 | Grupo | Caso | HU | Carga | Criterio |
 |---|---|---|---|---|
 | setUp | — | — | 1 hilo | Crea un hotel con **1 unidad** y un tour con **10 cupos** nuevos en cada corrida |
-| Login concurrente | TC-PERF-001 | TRV-103 | 50 usuarios (CSV), ramp-up 10 s, 3 iteraciones | p95 < 800 ms, 0 % errores |
-| Catálogo de hoteles | TC-PERF-002 | TRV-201/202 | 100 usuarios, ramp-up 60 s, 5 min, ciudades por CSV | p95 < 1 s |
-| Búsqueda de tours | TC-PERF-004 | TRV-301/302 | 100 usuarios, categorías por CSV | p95 < 1 s |
-| Última habitación | TC-PERF-003 | TRV-203 | 20 hilos + **Synchronizing Timer** | exactamente 1×201 y 19×409 |
-| Cupos de tour | TC-PERF-005 | TRV-303 | 30 hilos + Synchronizing Timer sobre 10 cupos | confirmadas = 10, nunca más |
-| Panel del proveedor | TC-PERF-006 | TRV-501/507 | 30 usuarios, 5 iteraciones | p95 < 1,5 s |
+| Login concurrente | TC-PERF-001 | HU-V02 | 50 usuarios (CSV), ramp-up 10 s, 3 iteraciones | p95 < 800 ms, 0 % errores |
+| Catálogo de hoteles | TC-PERF-002 | HU-V05/HU-V06 | 100 usuarios, ramp-up 60 s, 5 min, ciudades por CSV | p95 < 1 s |
+| Búsqueda de tours | TC-PERF-004 | HU-V08/HU-V09 | 100 usuarios, categorías por CSV | p95 < 1 s |
+| Última habitación | TC-PERF-003 | HU-V07 | 20 hilos + **Synchronizing Timer** | exactamente 1×201 y 19×409 |
+| Cupos de tour | TC-PERF-005 | HU-V10 | 30 hilos + Synchronizing Timer sobre 10 cupos | confirmadas = 10, nunca más |
+| Panel del proveedor | TC-PERF-006 | HU-P03/HU-P04/HU-P12 | 30 usuarios, 5 iteraciones | p95 < 1,5 s |
 | tearDown | — | — | 1 hilo | Verifica los conteos de las carreras y el `cupo_reservado` final |
 
 **Elementos usados:** HTTP Request Defaults, HTTP Cookie Manager (JWT en cookie HttpOnly + `XSRF-TOKEN`), Header Manager
@@ -19,16 +19,25 @@ Plan: `trouvels360.jmx` (JMeter 5.6.3). Cubre **TC-PERF-001 a TC-PERF-006**. Los
 `datos/ciudades.csv`, `datos/categorias.csv`), `${__UUID()}` para `Idempotency-Key`, JSON Extractor, Response/JSON/Duration
 Assertions, If/Once Only Controllers, Uniform Random Timer (tiempo de lectura), Synchronizing Timer, Summary y Aggregate Report.
 
+## Instalar JMeter
+
+1. Java: **JDK 21** (o 17). JMeter 5.6.3 no está probado con Java 25.
+2. Descarga *Apache JMeter 5.6.3* (Binaries, `.zip`) desde https://jmeter.apache.org/download_jmeter.cgi y descomprímelo,
+   por ejemplo en `C:\apache-jmeter-5.6.3`.
+3. Agrega `C:\apache-jmeter-5.6.3\bin` al `PATH` (o define `JMETER_HOME`) y comprueba con `jmeter -v`.
+
 ## Antes de ejecutar
 
-1. Backend levantado con el `QaSeeder` (`php artisan migrate:fresh --seed`): crea `qa.viajero1..30` / `Viajero123`.
-2. En el `.env` **del entorno de pruebas** subir los límites (si no, el propio backend corta el login con 429):
+1. Las dos APIs levantadas con Docker (`backend\levantar-todo.bat`) y datos limpios
+   (`backend\api-laravel\reiniciar-datos.bat`): el `QaSeeder` crea `qa.viajero1..30` / `Viajero123`.
+2. En `backend/api-laravel/.env` subir los límites (si no, la propia API corta el login con 429) y aplicar con
+   `docker compose up -d` en `backend/`:
    ```
    LOGIN_RATE_LIMIT=1000
    REGISTER_RATE_LIMIT=1000
    ```
-   y `php artisan config:clear`. En producción se dejan los valores por defecto (6 y 10 por minuto).
-3. Mide contra el Docker (MySQL 8 + Apache), no contra `php artisan serve`: el servidor de desarrollo de PHP atiende pocas
+   En producción se dejan los valores por defecto (6 y 10 por minuto).
+3. Mide contra Docker (Apache + MySQL), no contra `php artisan serve`: el servidor de desarrollo de PHP atiende pocas
    peticiones a la vez y los tiempos no serían representativos.
 
 ## Ejecutar
@@ -64,5 +73,5 @@ TC-PERF-005  30 hilos sobre 10 cupos -> 201: 10  409: 20  otros: []  cupo_reserv
 
 ## Evidencia para Jira
 
-Adjuntar a la ejecución de TRV-604 el zip de `resultados/reporte-html`, `verificacion.txt` y una captura del Aggregate Report.
+Adjuntar a la ejecución de QA-02 el zip de `resultados/reporte-html`, `verificacion.txt` y una captura del Aggregate Report.
 `generar_jmx.py` es el script con el que se armó el `.jmx`; no hace falta ejecutarlo.

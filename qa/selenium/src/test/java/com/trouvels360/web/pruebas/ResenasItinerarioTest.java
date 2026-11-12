@@ -27,7 +27,7 @@ class ResenasItinerarioTest extends BaseTest {
     }
 
     @Test
-    @Tag("TRV-403") @Tag("TC-WEB-021")
+    @Tag("HU-V14") @Tag("TC-WEB-021")
     @DisplayName("TC-WEB-021 Publicar, editar y eliminar una reseña desde el detalle del hotel")
     void ciclodeResena() {
         long hotel = hotelQa();
@@ -57,7 +57,7 @@ class ResenasItinerarioTest extends BaseTest {
     }
 
     @Test
-    @Tag("TRV-404") @Tag("TC-WEB-022")
+    @Tag("HU-V15") @Tag("TC-WEB-022")
     @DisplayName("TC-WEB-022 Generar el itinerario sugerido desde el detalle del hotel y llevarlo al pago")
     void itinerarioSugerido() {
         // Datos propios: hotel y tour de Aventura en la misma ciudad, con salida el segundo día de la estadía

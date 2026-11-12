@@ -23,7 +23,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class ToursMovilTest extends BaseTestMovil {
 
     @Test
-    @Tag("TRV-301") @Tag("TC-MOB-017")
+    @Tag("HU-V08") @Tag("TC-MOB-017")
     @DisplayName("TC-MOB-017 Chips de categoría y búsqueda por destino")
     void categoriaYDestino() {
         Api.Sesion prov = Api.proveedor();
@@ -45,7 +45,7 @@ class ToursMovilTest extends BaseTestMovil {
     }
 
     @Test
-    @Tag("TRV-302") @Tag("TC-MOB-018")
+    @Tag("HU-V09") @Tag("TC-MOB-018")
     @DisplayName("TC-MOB-018 Elegir salida y personas; el + se deshabilita al tope de cupos")
     void personasYCupo() {
         Api.Tour tour = Api.crearTour(Api.proveedor(), 3, 120, "Cultura");
@@ -59,7 +59,7 @@ class ToursMovilTest extends BaseTestMovil {
     }
 
     @Test
-    @Tag("TRV-303") @Tag("TC-MOB-019")
+    @Tag("HU-V10") @Tag("TC-MOB-019")
     @DisplayName("TC-MOB-019 Reserva de tour end-to-end en la app")
     void reservaTour() {
         Api.Sesion prov = Api.proveedor();

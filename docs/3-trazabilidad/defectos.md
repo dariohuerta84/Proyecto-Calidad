@@ -26,8 +26,10 @@ que lo detecta, así queda cubierto por la regresión.
 | DEF-017 | Con la sesión vencida, una página privada quedaba en «No autenticado» en vez de llevar al login | Media | Web | CA-V02-04 · TC-WEB-033 | Etapa 5 | Corregido (etapa 5) |
 | DEF-018 | La app dejaba pulsar «Registrarme» y «Guardar contraseña» con la confirmación distinta | Menor | Móvil | CA-V01-03, CA-V03-04 · TC-MOB-002, TC-MOB-007 | Etapa 5 | Corregido (etapa 5) |
 | DEF-019 | El límite de registros por minuto era fijo y no se podía subir en el entorno de pruebas | Menor | Backend | — (capacidad de prueba) | Etapa 5 | Corregido (etapa 5) |
-| DEF-020 | El título del reporte HTML de JMeter cita la tarea TRV-604 en vez de la de rendimiento (TRV-602, ahora QA-02) | Trivial | QA | — (reporte) | Revisión de documentación | Abierto |
-| DEF-021 | La matriz de `qa/trazabilidad/salida/` muestra el criterio CA-TRV-102-04 sin título en los casos que se le vincularon después | Trivial | QA | — (reporte) | Revisión de documentación | Abierto |
+| DEF-020 | El título del reporte HTML de JMeter cita la tarea TRV-604 en vez de la de rendimiento (TRV-602, ahora QA-02) | Trivial | QA | — (reporte) | Revisión de documentación | Corregido (revisión final) |
+| DEF-021 | La matriz de `qa/trazabilidad/salida/` muestra el criterio CA-TRV-102-04 sin título en los casos que se le vincularon después | Trivial | QA | — (reporte) | Revisión de documentación | Corregido (revisión final) |
+| DEF-022 | La web calculaba «hoy» en hora UTC: desde las 19:00 en Perú no dejaba elegir el día actual y el detalle del tour excluía las salidas del último día de la búsqueda | Media | Web | CA-V05-03, CA-V09-01 · TC-WEB-009 | Revisión final | Corregido (revisión final) |
+| DEF-023 | En la copia del repositorio la app no tenía el botón «Escribir las fechas» que usa Appium para elegir fechas | Mayor | Móvil | CA-V05-01 · TC-MOB-009 y los demás casos con fechas | Revisión final | Corregido (revisión final) |
 
 **Severidad:** Crítica (bloquea el uso o pierde datos) · Mayor (una regla de negocio falla) · Media (la función sirve,
 pero de forma incorrecta o confusa) · Menor (detalle con alternativa) · Trivial (texto o reporte).
@@ -99,5 +101,20 @@ HU-V14, HU-V15, HU-V11/HU-V13 y HU-V04.
 
 ### DEF-020 y DEF-021 · Detalles de los reportes de QA
 
-Se corrigen al actualizar las etiquetas de `qa/` a los nuevos identificadores de historia (ver
-[equivalencias](../1-historias-de-usuario/equivalencias.md)). No afectan ningún resultado.
+Corregidos al pasar las etiquetas de `qa/` a los identificadores nuevos (`@HU-V07`) y reescribir
+`qa/trazabilidad/generar_trazabilidad.py` sobre las historias actuales. No afectaban ningún resultado.
+
+### DEF-022 · Fechas en UTC en la web
+
+- **Pasos:** a partir de las 19:00 (hora de Perú), abrir el buscador de hoteles.
+- **Esperado (CA-V05-03):** se puede elegir el día de hoy como entrada.
+- **Obtenido:** el calendario empezaba en el día siguiente, porque `toISOString()` convierte a UTC. El mismo error hacía
+  que el detalle del tour leyera mal las fechas de búsqueda.
+- **Corrección:** `shared/utils/date.utils.ts` trabaja con fechas locales y el detalle del tour usa `normalizarFecha`.
+  Lo detectó TC-WEB-009 al correr la suite de noche.
+
+### DEF-023 · Faltaba «Escribir las fechas» en la app
+
+Las pruebas de Appium eligen las fechas escribiéndolas (`<campo>_dialogo_teclado`) para no depender del calendario. La
+copia del repositorio había perdido ese botón en `DateRangeField.kt`, así que todos los casos con fechas habrían fallado.
+Se restauró.

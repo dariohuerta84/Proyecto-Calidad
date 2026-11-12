@@ -1,11 +1,11 @@
 @auth
-Feature: Autenticación y registro (TRV-101, TRV-102, TRV-103)
+Feature: Autenticación y registro (HU-V01, HU-P01, HU-V02)
 
   Background:
     * url baseUrl
     * def usuarioSchema = read('classpath:trouvels360/schemas/usuario.json')
 
-  @TRV-101 @TC-API-001
+  @HU-V01 @TC-API-001
   Scenario: Registro de viajero válido devuelve 201 y usuario sin password
     * def correo1 = correo('qa.reg')
     * def r = call read('classpath:trouvels360/helpers/registrar.feature') { datos: { rol: 'viajero', email: '#(correo1)', password: 'Clave123', nombre: 'Ana', apellido: 'Pérez' } }
@@ -14,7 +14,7 @@ Feature: Autenticación y registro (TRV-101, TRV-102, TRV-103)
     * match r.body.data.user contains { rol: 'viajero', email: '#(correo1)' }
     * match r.token == '#string'
 
-  @TRV-101 @TC-API-002
+  @HU-V01 @TC-API-002
   Scenario Outline: Registro inválido (<caso>) devuelve 422 con error en <campo>
     * call read('classpath:trouvels360/helpers/csrf.feature')
     * def correoCaso = '<email>' == 'ok' ? correo('qa.inv') : '<email>'
@@ -29,7 +29,7 @@ Feature: Autenticación y registro (TRV-101, TRV-102, TRV-103)
     Examples:
       | read('classpath:trouvels360/data/registro-invalido.csv') |
 
-  @TRV-101 @TC-API-003
+  @HU-V01 @HU-P01 @TC-API-003
   Scenario: Correo duplicado escrito en mayúsculas devuelve 422
     * call read('classpath:trouvels360/helpers/csrf.feature')
     Given path 'auth', 'register'
@@ -39,7 +39,7 @@ Feature: Autenticación y registro (TRV-101, TRV-102, TRV-103)
     Then status 422
     And match response.errors.email == '#[_ > 0]'
 
-  @TRV-101 @TC-API-004
+  @HU-V01 @TC-API-004
   Scenario: Rol 'admin' devuelve 422
     * call read('classpath:trouvels360/helpers/csrf.feature')
     Given path 'auth', 'register'
@@ -49,7 +49,7 @@ Feature: Autenticación y registro (TRV-101, TRV-102, TRV-103)
     Then status 422
     And match response.errors.rol == '#[_ > 0]'
 
-  @TRV-102 @TC-API-005
+  @HU-P01 @TC-API-005
   Scenario: Registro de proveedor normaliza el celular a '+51 9XXXXXXXX'
     * def cel = celular()
     * def r = call read('classpath:trouvels360/helpers/registrar.feature') { datos: { rol: 'proveedor', email: '#(correo("qa.prov"))', password: 'Clave123', empresa_nombre: 'QA Karate SAC', ruc: '#(ruc())', telefono: '#(cel)' } }
@@ -58,7 +58,7 @@ Feature: Autenticación y registro (TRV-101, TRV-102, TRV-103)
     * match r.body.data.user.telefono == '+51 ' + cel
     * match r.body.data.user.rol == 'proveedor'
 
-  @TRV-102 @TC-API-006
+  @HU-P01 @TC-API-006
   Scenario Outline: RUC inválido (<caso>) devuelve 422
     * call read('classpath:trouvels360/helpers/csrf.feature')
     Given path 'auth', 'register'
@@ -72,7 +72,7 @@ Feature: Autenticación y registro (TRV-101, TRV-102, TRV-103)
     Examples:
       | read('classpath:trouvels360/data/rucs-invalidos.csv') |
 
-  @TRV-102 @TC-API-007
+  @HU-P01 @TC-API-007
   Scenario Outline: Teléfono inválido (<caso>) devuelve 422 con mensaje
     * call read('classpath:trouvels360/helpers/csrf.feature')
     Given path 'auth', 'register'
@@ -85,7 +85,7 @@ Feature: Autenticación y registro (TRV-101, TRV-102, TRV-103)
     Examples:
       | read('classpath:trouvels360/data/telefonos-invalidos.csv') |
 
-  @TRV-103 @TC-API-008
+  @HU-V02 @HU-P02 @TC-API-008
   Scenario: Login devuelve 200, cookie access_token HttpOnly y el usuario
     * def s = call read('classpath:trouvels360/helpers/sesion.feature') { email: 'qa.viajero3@trouvels360.test', password: 'Viajero123' }
     * match s.loginStatus == 200
@@ -103,14 +103,14 @@ Feature: Autenticación y registro (TRV-101, TRV-102, TRV-103)
     * match setCookies == '#[1]'
     * match setCookies[0].toLowerCase() contains 'httponly'
 
-  @TRV-103 @TC-API-009
+  @HU-V02 @TC-API-009
   Scenario: POST sin header X-XSRF-TOKEN devuelve 403
     Given path 'auth', 'login'
     And request { email: 'qa.viajero3@trouvels360.test', password: 'Viajero123' }
     When method post
     Then status 403
 
-  @TRV-103 @TC-API-010
+  @HU-V02 @TC-API-010
   Scenario: Credenciales inválidas devuelven 401 y campos faltantes 422
     * call read('classpath:trouvels360/helpers/csrf.feature')
     Given path 'auth', 'login'
@@ -125,7 +125,7 @@ Feature: Autenticación y registro (TRV-101, TRV-102, TRV-103)
     Then status 422
     And match response.errors contains { email: '#array', password: '#array' }
 
-  @TRV-103 @TC-API-011
+  @HU-V02 @TC-API-011
   Scenario: El token reutilizado después del logout devuelve 401
     * def r = call read('classpath:trouvels360/helpers/registrar.feature') { datos: { rol: 'viajero', email: '#(correo("qa.logout"))', password: 'Clave123', nombre: 'Lo', apellido: 'Gout' } }
     * eval como(r)
@@ -141,7 +141,7 @@ Feature: Autenticación y registro (TRV-101, TRV-102, TRV-103)
     When method get
     Then status 401
 
-  @TRV-103 @TC-API-012
+  @HU-P02 @TC-API-012
   Scenario: Un viajero en una ruta de proveedor recibe 403
     * eval como(S.viajero2)
     Given path 'proveedor', 'reservas'

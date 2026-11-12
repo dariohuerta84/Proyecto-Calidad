@@ -22,7 +22,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class AprobacionMovilTest extends BaseTestMovil {
 
     @Test
-    @Tag("TRV-204") @Tag("TC-MOB-015")
+    @Tag("HU-P13") @Tag("TC-MOB-015")
     @DisplayName("TC-MOB-015 El proveedor acepta una solicitud desde la app y el viajero la ve CONFIRMADA")
     void aceptar() {
         Api.Sesion prov = Api.proveedor();
@@ -52,7 +52,7 @@ class AprobacionMovilTest extends BaseTestMovil {
     }
 
     @Test
-    @Tag("TRV-204") @Tag("TC-MOB-016")
+    @Tag("HU-P14") @Tag("TC-MOB-016")
     @DisplayName("TC-MOB-016 El proveedor rechaza con motivo desde la app")
     void rechazar() {
         Api.Sesion prov = Api.proveedor();

@@ -21,7 +21,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class ReservasMovilTest extends BaseTestMovil {
 
     @Test
-    @Tag("TRV-401") @Tag("TC-MOB-020")
+    @Tag("HU-V11") @Tag("TC-MOB-020")
     @DisplayName("TC-MOB-020 Mis reservas en la app coincide con la web/API (mismo código y total)")
     void coincideConApi() {
         Api.Sesion prov = Api.proveedor();
@@ -41,7 +41,7 @@ class ReservasMovilTest extends BaseTestMovil {
     }
 
     @Test
-    @Tag("TRV-401") @Tag("TC-MOB-021")
+    @Tag("HU-V11") @Tag("TC-MOB-021")
     @DisplayName("TC-MOB-021 Paginación de reservas con desplazamiento")
     void paginacion() {
         Api.Sesion prov = Api.proveedor();
@@ -63,7 +63,7 @@ class ReservasMovilTest extends BaseTestMovil {
     }
 
     @Test
-    @Tag("TRV-402") @Tag("TC-MOB-022")
+    @Tag("HU-V13") @Tag("TC-MOB-022")
     @DisplayName("TC-MOB-022 Cancelar desde la app y ver el estado CANCELADA")
     void cancelar() {
         Api.Hotel h = Api.crearHotel(Api.proveedor(), "Doble", 1, 150);

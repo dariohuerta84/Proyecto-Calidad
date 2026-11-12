@@ -1,5 +1,5 @@
 @itinerario
-Feature: Itinerario sugerido por el microservicio Python (TRV-404)
+Feature: Itinerario sugerido por el microservicio Python (HU-V15)
 
   Background:
     * url baseUrl
@@ -7,7 +7,7 @@ Feature: Itinerario sugerido por el microservicio Python (TRV-404)
     * def itinerarioSchema = read('classpath:trouvels360/schemas/itinerario.json')
     * eval como(S.viajero2)
 
-  @TRV-404 @TC-API-054
+  @HU-V15 @TC-API-054
   Scenario: Itinerario válido: un día por noche; los días con tour traen fecha y salida con cupo
     # Datos propios: hotel y tour de Aventura en la misma ciudad, con una salida dentro de la estadía
     * def dia = diaLibre()
@@ -27,7 +27,7 @@ Feature: Itinerario sugerido por el microservicio Python (TRV-404)
     And match response.data.resumen.total_dias == 3
     And match each acts contains { tour_id: '#number', nombre: '#string', salida: { salida_id: '#number', hora: '#string', cupos_disponibles: '#? _ > 0' } }
 
-  @TRV-404 @TC-API-055
+  @HU-V15 @TC-API-055
   Scenario Outline: Entrada inválida (<caso>) devuelve 422
     Given path 'itineraries'
     And request { destino: 'Cusco', hotel_id: '#(F.hotelQaId)', fecha_checkin: '#(fecha(<desde>))', fecha_checkout: '#(fecha(<hasta>))', interes: '<interes>' }

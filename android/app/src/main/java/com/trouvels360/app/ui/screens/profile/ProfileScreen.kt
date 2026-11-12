@@ -81,7 +81,7 @@ class ProfileViewModel : ViewModel() {
         empresa = u.empresaNombre.orEmpty(); telefono = u.telefono.orEmpty(); avatar = u.avatarUrl.orEmpty()
     }
 
-    /** TRV-104 — Solo se envían campos permitidos para el rol y que cambiaron. */
+    /** HU-V03 — Solo se envían campos permitidos para el rol y que cambiaron. */
     fun guardar() {
         val u = original ?: return
         val e = buildMap {
@@ -139,7 +139,7 @@ class ProfileViewModel : ViewModel() {
         }
     }
 
-    /** TRV-105 — 409 si tiene reservas activas; el historial se conserva. */
+    /** HU-V04 — 409 si tiene reservas activas; el historial se conserva. */
     fun eliminarCuenta(onEliminada: () -> Unit) {
         viewModelScope.launch {
             eliminando = true; errorEliminar = null

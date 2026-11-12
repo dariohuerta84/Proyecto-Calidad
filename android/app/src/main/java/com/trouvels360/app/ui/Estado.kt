@@ -30,7 +30,7 @@ object BusquedaTour {
     var personas by mutableIntStateOf(1)
 }
 
-/** Selección de habitaciones que pasa del detalle del hotel al pago (TRV-202 → TRV-203). */
+/** Selección de habitaciones que pasa del detalle del hotel al pago (HU-V06 → HU-V07). */
 data class SeleccionHotel(
     val hotelId: Int,
     val hotelNombre: String,
@@ -43,7 +43,7 @@ data class SeleccionHotel(
     val nombres: Map<Int, String>,
 )
 
-/** Salida y personas elegidas en el detalle del tour (TRV-302 → TRV-303). */
+/** Salida y personas elegidas en el detalle del tour (HU-V09 → HU-V10). */
 data class SeleccionTour(
     val tourId: Int,
     val tourNombre: String,

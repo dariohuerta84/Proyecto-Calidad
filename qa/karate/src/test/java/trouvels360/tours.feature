@@ -1,12 +1,12 @@
 @tours
-Feature: Búsqueda, detalle y cotización de tours (TRV-301, TRV-302)
+Feature: Búsqueda, detalle y cotización de tours (HU-V08, HU-V09)
 
   Background:
     * url baseUrl
     * eval anonimo()
     * def salidaSchema = read('classpath:trouvels360/schemas/salida.json')
 
-  @TRV-301 @TC-API-036
+  @HU-V08 @TC-API-036
   Scenario: Filtros combinados destino + categoría: todos los resultados cumplen ambos
     Given path 'tours'
     And params { destino: 'Cusco', categoria: 'Aventura', per_page: 50 }
@@ -25,7 +25,7 @@ Feature: Búsqueda, detalle y cotización de tours (TRV-301, TRV-302)
     * def tieneCupo = function(id){ var r = karate.http(baseUrl + '/tours/' + id + '?cupos=2').get(); return r.body.servicio.salidas.length > 0 }
     * match each ids == '#? tieneCupo(_)'
 
-  @TRV-301 @TC-API-037
+  @HU-V08 @TC-API-037
   Scenario Outline: Filtro inválido (<caso>) devuelve 422 con error en <campo>
     Given path 'tours'
     And param <parametro> = '<valor>'
@@ -37,7 +37,7 @@ Feature: Búsqueda, detalle y cotización de tours (TRV-301, TRV-302)
     Examples:
       | read('classpath:trouvels360/data/filtros-tour-invalidos.csv') |
 
-  @TRV-302 @TC-API-038
+  @HU-V09 @TC-API-038
   Scenario: Detalle: esquema correcto y solo salidas futuras programadas con cupo
     * def F = callonce read('classpath:trouvels360/helpers/fixtures.feature')
     Given path 'tours', F.tourQaId
@@ -58,7 +58,7 @@ Feature: Búsqueda, detalle y cotización de tours (TRV-301, TRV-302)
     When method get
     Then status 404
 
-  @TRV-302 @TC-API-039
+  @HU-V09 @TC-API-039
   Scenario Outline: Cotización de tour: S/ <precio> × <personas> + IGV 18 % = S/ <total>
     * def t = call read('classpath:trouvels360/helpers/tour-propio.feature') { sesion: '#(S.proveedor)', cupo: 10, precio: <precio> }
     * eval anonimo()
@@ -72,7 +72,7 @@ Feature: Búsqueda, detalle y cotización de tours (TRV-301, TRV-302)
     Examples:
       | read('classpath:trouvels360/data/cotizaciones-tour.csv') |
 
-  @TRV-302 @TC-API-040
+  @HU-V09 @TC-API-040
   Scenario: Cotizar más personas que el cupo libre devuelve 422 con el máximo
     * def t = call read('classpath:trouvels360/helpers/tour-propio.feature') { sesion: '#(S.proveedor)', cupo: 3 }
     * eval anonimo()

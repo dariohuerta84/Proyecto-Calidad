@@ -9,8 +9,8 @@ Feature: Criterios que no tenían caso en la etapa 1 (agregados en la etapa 5)
     * def leerSalida = read('classpath:trouvels360/helpers/salida.feature')
     * def unTipo = [{ nombre: 'Doble', capacidad_adultos: 2, capacidad_ninos: 0, cantidad: 3, precio_por_noche: 150 }]
 
-  @TRV-202 @TC-API-079
-  Scenario: CA-TRV-202-05 Cambiar la fecha de salida recalcula el total y no crea ninguna reserva
+  @HU-V06 @TC-API-079
+  Scenario: CA-V06-05 Cambiar la fecha de salida recalcula el total y no crea ninguna reserva
     * def nuevo = call read('classpath:trouvels360/helpers/registrar.feature') { datos: { rol: 'viajero', email: '#(correo("qa.cot"))', password: 'Clave123', nombre: 'Co', apellido: 'Tiza' } }
     * def h = call hotelPropio { sesion: '#(S.proveedor)', habitaciones: '#(unTipo)' }
     * def dia = diaLibre()
@@ -31,8 +31,8 @@ Feature: Criterios que no tenían caso en la etapa 1 (agregados en la etapa 5)
     When method get
     Then match response.meta.total == 0
 
-  @TRV-302 @TC-API-080
-  Scenario: CA-TRV-302-04 Un tour sin salidas futuras disponibles no muestra salidas y no se puede cotizar
+  @HU-V09 @TC-API-080
+  Scenario: CA-V09-04 Un tour sin salidas futuras disponibles no muestra salidas y no se puede cotizar
     * def t = call tourPropio { sesion: '#(S.proveedor)', cupo: 5 }
     * eval como(S.proveedor)
     Given path 'tours', t.tourId, 'salidas', t.salidaId
@@ -49,8 +49,8 @@ Feature: Criterios que no tenían caso en la etapa 1 (agregados en la etapa 5)
     When method post
     Then status 409
 
-  @TRV-303 @TC-API-081
-  Scenario Outline: CA-TRV-303-02 Pago de tour inválido (<caso>) no crea reserva ni descuenta cupos
+  @HU-V10 @TC-API-081
+  Scenario Outline: CA-V10-02 Pago de tour inválido (<caso>) no crea reserva ni descuenta cupos
     * def t = call tourPropio { sesion: '#(S.proveedor)', cupo: 5 }
     * eval como(S.viajero2)
     Given path 'tours', 'salidas', t.salidaId, 'reservas'
@@ -65,8 +65,8 @@ Feature: Criterios que no tenían caso en la etapa 1 (agregados en la etapa 5)
     Examples:
       | read('classpath:trouvels360/data/tarjetas-invalidas.csv') |
 
-  @TRV-401 @TC-API-082
-  Scenario: CA-TRV-401-04 Si el proveedor cancela la salida, la reserva sigue confirmada con el aviso del proveedor
+  @HU-V12 @TC-API-082
+  Scenario: CA-V12-04 Si el proveedor cancela la salida, la reserva sigue confirmada con el aviso del proveedor
     * def t = call tourPropio { sesion: '#(S.proveedor)', cupo: 5 }
     * def nuevo = call read('classpath:trouvels360/helpers/registrar.feature') { datos: { rol: 'viajero', email: '#(correo("qa.aviso"))', password: 'Clave123', nombre: 'Avi', apellido: 'So' } }
     * def r = call reservarTour { sesion: '#(nuevo)', salidaId: '#(t.salidaId)', personas: 1 }
@@ -82,8 +82,8 @@ Feature: Criterios que no tenían caso en la etapa 1 (agregados en la etapa 5)
     Then status 200
     And match response.data[0] contains { estado: 'confirmada', aviso: 'Salida cancelada por el proveedor', cancelado_en: null }
 
-  @TRV-502 @TC-API-083
-  Scenario: CA-TRV-502-03 Editar descripción e imágenes conserva el id y no cambia las reservas
+  @HU-P06 @TC-API-083
+  Scenario: CA-P06-01 Editar descripción e imágenes conserva el id y no cambia las reservas
     * def h = call hotelPropio { sesion: '#(S.proveedor)', habitaciones: '#(unTipo)' }
     * def dia = diaLibre()
     * def r = call read('classpath:trouvels360/helpers/reservar-hotel.feature') { sesion: '#(S.viajero2)', fecha_inicio: '#(fecha(dia))', fecha_fin: '#(fecha(dia + 1))', items: [{ habitacion_id: '#(h.habitaciones[0].id)', cantidad: 1 }] }
@@ -105,8 +105,8 @@ Feature: Criterios que no tenían caso en la etapa 1 (agregados en la etapa 5)
     When method get
     Then match response.data contains { total: '#(reserva.total)', estado: 'pendiente' }
 
-  @TRV-502 @TC-API-084
-  Scenario: CA-TRV-502-05 Si un tipo de habitación es inválido no queda un hotel a medias
+  @HU-P05 @TC-API-084
+  Scenario: CA-P05-03 Si un tipo de habitación es inválido no queda un hotel a medias
     * def ciudad = 'QA-' + sufijo()
     * eval como(S.proveedor)
     Given path 'hoteles'
@@ -125,8 +125,8 @@ Feature: Criterios que no tenían caso en la etapa 1 (agregados en la etapa 5)
     When method get
     Then match response.meta.total == 0
 
-  @TRV-503 @TC-API-085
-  Scenario: CA-TRV-503-05 Tarifa 0 devuelve 422 y un tipo de otro proveedor 403, sin cambios
+  @HU-P07 @TC-API-085
+  Scenario: CA-P07-05 Tarifa 0 devuelve 422 y un tipo de otro proveedor 403, sin cambios
     * def h = call hotelPropio { sesion: '#(S.proveedor)', habitaciones: '#(unTipo)' }
     * def habId = h.habitaciones[0].id
     * eval como(S.proveedor)
@@ -145,8 +145,8 @@ Feature: Criterios que no tenían caso en la etapa 1 (agregados en la etapa 5)
     When method get
     Then match response.habitaciones[0].precio_por_noche == 150
 
-  @TRV-508 @TC-API-086
-  Scenario: CA-TRV-508-05 Repetir la eliminación devuelve 404 sin efectos adicionales
+  @HU-P15 @TC-API-086
+  Scenario: CA-P15-05 Repetir la eliminación devuelve 404 sin efectos adicionales
     * def h = call hotelPropio { sesion: '#(S.proveedor)', habitaciones: '#(unTipo)' }
     * eval como(S.proveedor)
     Given path 'proveedor', 'indicadores'

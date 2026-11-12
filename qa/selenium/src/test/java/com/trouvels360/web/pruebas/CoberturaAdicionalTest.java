@@ -25,7 +25,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class CoberturaAdicionalTest extends BaseTest {
 
     @Test
-    @Tag("TRV-201") @Tag("TC-WEB-031")
+    @Tag("HU-V05") @Tag("HU-V08") @Tag("TC-WEB-031")
     @DisplayName("TC-WEB-031 Volver desde el detalle conserva la búsqueda (hoteles y tours)")
     void conservarBusqueda() {
         int dia = Datos.diaLibre();
@@ -42,7 +42,7 @@ class CoberturaAdicionalTest extends BaseTest {
         assertEquals(url, d.getCurrentUrl(), "Mismos filtros en la URL");
         assertEquals(antes, r.textos("resultado-nombre"), "Mismos resultados");
 
-        paso("Lo mismo en tours (CA-TRV-301-04)");
+        paso("Lo mismo en tours (CA-V08-04)");
         new BuscadorPage(d).tours().destinoTour("Cusco").categoria("Aventura").fechas(Datos.fecha(1), null).buscar();
         r.esperarUrl("/tour/resultados");
         String urlTours = d.getCurrentUrl();
@@ -56,7 +56,7 @@ class CoberturaAdicionalTest extends BaseTest {
     }
 
     @Test
-    @Tag("TRV-301") @Tag("TC-WEB-032")
+    @Tag("HU-V08") @Tag("HU-P12") @Tag("TC-WEB-032")
     @DisplayName("TC-WEB-032 Sin resultados se distingue de un error con Reintentar (tours y bandeja del proveedor)")
     void vacioVersusError() {
         Navegacion nav = new Navegacion(d);
@@ -69,7 +69,7 @@ class CoberturaAdicionalTest extends BaseTest {
         assertTrue(nav.texto("tours-error").contains("anterior a hoy"), nav.texto("tours-error"));
         assertTrue(nav.todos("tours-vacio").isEmpty());
         assertTrue(nav.visible("btn-reintentar").isDisplayed());
-        paso("Proveedor sin reservas: bandeja vacía (CA-TRV-507-03)");
+        paso("Proveedor sin reservas: bandeja vacía (CA-P12-04)");
         nav.entrarComo(Api.registrarProveedor(), "/proveedor");
         ReservasRecibidasPage rr = new ReservasRecibidasPage(d).abrir(null);
         assertTrue(rr.visible("rr-vacio").isDisplayed());
@@ -77,7 +77,7 @@ class CoberturaAdicionalTest extends BaseTest {
     }
 
     @Test
-    @Tag("TRV-103") @Tag("TC-WEB-033")
+    @Tag("HU-V02") @Tag("TC-WEB-033")
     @DisplayName("TC-WEB-033 Sesión vencida: la API responde 401, se pide iniciar sesión y se vuelve a la página")
     void sesionVencida() {
         Api.Sesion v = Api.registrarViajero("Vera");

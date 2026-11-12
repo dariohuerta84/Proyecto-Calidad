@@ -23,7 +23,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class AprobacionTest extends BaseTest {
 
     @Test
-    @Tag("TRV-204") @Tag("TC-WEB-013")
+    @Tag("HU-V12") @Tag("HU-P13") @Tag("TC-WEB-013")
     @DisplayName("TC-WEB-013 El proveedor acepta en su bandeja y el viajero ve CONFIRMADA (dos navegadores)")
     void aceptarDosNavegadores() {
         Api.Sesion prov = Api.proveedor();
@@ -52,7 +52,7 @@ class AprobacionTest extends BaseTest {
     }
 
     @Test
-    @Tag("TRV-204") @Tag("TC-WEB-014")
+    @Tag("HU-V12") @Tag("HU-P14") @Tag("TC-WEB-014")
     @DisplayName("TC-WEB-014 El proveedor rechaza con motivo (10–300 caracteres) y el viajero ve RECHAZADA")
     void rechazarConMotivo() {
         Api.Sesion prov = Api.proveedor();

@@ -69,7 +69,7 @@ class TourFormViewModel : ViewModel() {
     var nombre by mutableStateOf(""); var descripcion by mutableStateOf("")
     var ciudad by mutableStateOf(""); var pais by mutableStateOf("Perú"); var imagen by mutableStateOf("")
     var categoria by mutableStateOf("Aventura"); var duracion by mutableStateOf("240"); var precio by mutableStateOf("")
-    /** Solo al crear (TRV-504). Después se gestionan en "Salidas y actividades" (TRV-506). */
+    /** Solo al crear (HU-P08). Después se gestionan en "Salidas y actividades" (HU-P11). */
     val salidas = mutableStateListOf(SalidaForm())
     var errores by mutableStateOf(mapOf<String, String>()); private set
     var cargando by mutableStateOf(false); private set
@@ -137,7 +137,7 @@ class TourFormViewModel : ViewModel() {
     }
 }
 
-/** TRV-504 — Publicar y editar tours. Al editar no se tocan las salidas (se gestionan aparte). */
+/** HU-P08 — Publicar y editar tours. Al editar no se tocan las salidas (se gestionan aparte). */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TourFormScreen(tourId: Int?, onCreado: () -> Unit, onPrograma: (Int) -> Unit, vm: TourFormViewModel = viewModel(key = "tour_form_${tourId ?: "nuevo"}")) {

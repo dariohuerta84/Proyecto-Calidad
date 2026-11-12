@@ -7,7 +7,7 @@ itinerarios sugeridos.
 
 | Historias de usuario | Criterios de aceptación | Casos de prueba | Criterios cubiertos | Defectos registrados |
 |---|---|---|---|---|
-| **30** (15 viajero + 15 proveedor) | **130** | **160** (157 automatizados + 3 manuales) | **130 / 130** | **21** (19 corregidos) |
+| **30** (15 viajero + 15 proveedor) | **130** | **160** (157 automatizados + 3 manuales) | **130 / 130** | **23** (todos corregidos) |
 
 ## Contenido
 
@@ -36,5 +36,5 @@ la ejecución.
 
 Está junto a su código: [`backend/`](../backend/README.md) (cómo levantar y desplegar las dos APIs; en `backend/api-laravel/docs/` la referencia de endpoints y los datos de prueba),
 [`frontend/`](../frontend/README.md) (cómo levantar y desplegar la web; en `frontend/docs/` los selectores para Selenium),
-[`android/docs/`](../android/docs/SELECTORES_APPIUM.md) (selectores y guía de Appium) y el `README.md` de cada suite en
-[`qa/`](../qa/).
+[`android/docs/`](../android/docs/SELECTORES_APPIUM.md) (selectores y guía de Appium) y la guía de las pruebas en
+[`qa/README.md`](../qa/README.md).

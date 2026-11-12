@@ -3,7 +3,7 @@ function fn() {
   var config = {
     env: env,
     baseUrl: java.lang.System.getenv('API_URL') || 'http://localhost:8000/api',
-    // Tiempo máximo aceptado por respuesta (TRV-601). En CI con contenedores lentos se relaja.
+    // Tiempo máximo aceptado por respuesta (QA-01). En CI con contenedores lentos se relaja.
     maxMs: 1000
   };
   if (env == 'ci') {

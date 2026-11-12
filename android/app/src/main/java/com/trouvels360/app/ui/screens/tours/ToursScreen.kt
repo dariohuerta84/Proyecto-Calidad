@@ -59,7 +59,7 @@ class ToursViewModel : ViewModel() {
 
     fun primeraCarga() { if (!cargado) buscar(1) }
 
-    /** TRV-301: solo tours con al menos una salida programada con cupo para esas fechas y personas. */
+    /** HU-V08: solo tours con al menos una salida programada con cupo para esas fechas y personas. */
     fun buscar(p: Int) {
         cargado = true
         viewModelScope.launch {

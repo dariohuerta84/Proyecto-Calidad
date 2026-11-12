@@ -54,7 +54,7 @@ class HotelsViewModel : ViewModel() {
 
     fun primeraCarga() { if (!cargado) buscar(1) }
 
-    /** TRV-201: con fechas, la API devuelve solo hoteles con unidades libres en todo el rango. */
+    /** HU-V05: con fechas, la API devuelve solo hoteles con unidades libres en todo el rango. */
     fun buscar(p: Int) {
         cargado = true
         viewModelScope.launch {

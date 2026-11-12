@@ -13,6 +13,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.material3.Button
 import androidx.compose.material3.DatePicker
+import androidx.compose.material3.DisplayMode
 import androidx.compose.material3.DateRangePicker
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -58,11 +59,16 @@ private fun DialogoFecha(
     onDismiss: () -> Unit,
     confirmEnabled: Boolean,
     onConfirm: () -> Unit,
+    onTeclado: () -> Unit,
     content: @Composable () -> Unit,
 ) {
     Dialog(onDismissRequest = onDismiss, properties = DialogProperties(usePlatformDefaultWidth = false)) {
         Surface(shape = RoundedCornerShape(24.dp), tonalElevation = 6.dp, modifier = Modifier.width(360.dp).appiumRoot().tag(tagId)) {
             Column {
+                // Modo texto: permite escribir las fechas (accesibilidad y pruebas Appium sin depender del calendario)
+                TextButton(onClick = onTeclado, modifier = Modifier.padding(start = 12.dp, top = 8.dp).tag("${tagId}_teclado")) {
+                    Text("Escribir las fechas")
+                }
                 content()
                 Row(Modifier.fillMaxWidth().padding(12.dp), horizontalArrangement = Arrangement.End) {
                     TextButton(onClick = onDismiss, modifier = Modifier.tag("${tagId}_cancelar")) { Text("Cancelar") }
@@ -108,6 +114,7 @@ fun DateRangeField(
                 if (ini != null && fin != null) onChange(ini.toLocalDate(), fin.toLocalDate())
                 open = false
             },
+            onTeclado = { state.displayMode = DisplayMode.Input },
         ) {
             DateRangePicker(state = state, modifier = Modifier.height(500.dp), title = null)
         }
@@ -134,6 +141,7 @@ fun DateField(value: LocalDate?, onChange: (LocalDate) -> Unit, label: String, t
                 if (sel != null) onChange(sel.toLocalDate())
                 open = false
             },
+            onTeclado = { state.displayMode = DisplayMode.Input },
         ) { DatePicker(state = state) }
     }
 }

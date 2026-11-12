@@ -140,7 +140,7 @@ fun AppNavHost(nav: NavHostController = rememberNavController()) {
         if (user?.esProveedor == true && nav.currentDestination?.route == Routes.HOTELES) irAInicio(user)
     }
 
-    // Sesión expirada (401 sin refresco posible): ir al login con aviso (TRV-103)
+    // Sesión expirada (401 sin refresco posible): ir al login con aviso (HU-V02)
     LaunchedEffect(expirada) {
         if (expirada) {
             nav.navigate(Routes.login(true)) { launchSingleTop = true }

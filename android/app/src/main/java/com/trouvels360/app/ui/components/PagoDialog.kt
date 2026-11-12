@@ -22,7 +22,7 @@ import com.trouvels360.app.data.remote.PagoDto
 import com.trouvels360.app.data.ValidacionPago
 
 /**
- * Formulario de pago simulado (TRV-203, TRV-303). No guarda la tarjeta: la API solo conserva los
+ * Formulario de pago simulado (HU-V07, HU-V10). No guarda la tarjeta: la API solo conserva los
  * últimos 4 dígitos. Cerrar el diálogo antes de confirmar no crea ninguna reserva.
  */
 @Composable

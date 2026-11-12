@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <jmeterTestPlan version="1.2" properties="5.0" jmeter="5.6.3">
   <hashTree>
-    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Trouvels360 - Pruebas de rendimiento y concurrencia (TRV-604)" enabled="true">
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Trouvels360 - Pruebas de rendimiento y concurrencia (QA-02)" enabled="true">
       <stringProp name="TestPlan.comments">TC-PERF-001..006. Ejecutar en modo no GUI: ver README.md. Parámetros con -J (host, port, usuarios.*, duracion...).</stringProp>
       <boolProp name="TestPlan.functional_mode">false</boolProp>
       <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
@@ -312,7 +312,7 @@ SampleResult.setSuccessful(vars.get('hab_id') != 'NOT_FOUND' &amp;&amp; vars.get
         </JSR223Sampler>
         <hashTree/>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="TC-PERF-001 Login concurrente (TRV-103) - 50 usuarios" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios" enabled="true">
         <stringProp name="TestPlan.comments">Objetivo: p95 &lt; 800 ms y 0 % de errores. Requiere LOGIN_RATE_LIMIT alto en el entorno de pruebas.</stringProp>
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
@@ -469,7 +469,7 @@ SampleResult.setSuccessful(vars.get('hab_id') != 'NOT_FOUND' &amp;&amp; vars.get
         </UniformRandomTimer>
         <hashTree/>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="TC-PERF-002 Catálogo de hoteles (TRV-201/202) - 100 usuarios" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="TC-PERF-002 Catálogo de hoteles (HU-V05/HU-V06) - 100 usuarios" enabled="true">
         <stringProp name="TestPlan.comments">Objetivo: p95 &lt; 1 s con 100 usuarios, ramp-up 60 s, 5 minutos.</stringProp>
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
@@ -603,7 +603,7 @@ SampleResult.setSuccessful(vars.get('hab_id') != 'NOT_FOUND' &amp;&amp; vars.get
         </UniformRandomTimer>
         <hashTree/>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="TC-PERF-004 Búsqueda de tours (TRV-301/302) - 100 usuarios" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="TC-PERF-004 Búsqueda de tours (HU-V08/HU-V09) - 100 usuarios" enabled="true">
         <stringProp name="TestPlan.comments">Objetivo: p95 &lt; 1 s.</stringProp>
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
@@ -711,7 +711,7 @@ SampleResult.setSuccessful(vars.get('hab_id') != 'NOT_FOUND' &amp;&amp; vars.get
         </UniformRandomTimer>
         <hashTree/>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="TC-PERF-003 Carrera por la última habitación (TRV-203) - 20 hilos" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos" enabled="true">
         <stringProp name="TestPlan.comments">Esperado: exactamente 1x201 y el resto 409. La verificación está en el tearDown.</stringProp>
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
@@ -851,7 +851,7 @@ synchronized (props) { props.put(k, ((props.get(k) ?: 0) as int) + 1) }</stringP
           <hashTree/>
         </hashTree>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="TC-PERF-005 Carrera por cupos de un tour (TRV-303) - 30 hilos" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="TC-PERF-005 Carrera por cupos de un tour (HU-V10) - 30 hilos" enabled="true">
         <stringProp name="TestPlan.comments">Esperado: personas confirmadas == cupo (10) y nunca más. La verificación está en el tearDown.</stringProp>
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
@@ -991,7 +991,7 @@ synchronized (props) { props.put(k, ((props.get(k) ?: 0) as int) + 1) }</stringP
           <hashTree/>
         </hashTree>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="TC-PERF-006 Panel del proveedor (TRV-501/507) - 30 usuarios" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="TC-PERF-006 Panel del proveedor (HU-P03/HU-P04/HU-P12) - 30 usuarios" enabled="true">
         <stringProp name="TestPlan.comments">Objetivo: p95 &lt; 1,5 s.</stringProp>
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">

@@ -15,7 +15,7 @@
     <junit.version>5.11.3</junit.version>
     <allure.version>2.29.0</allure.version>
     <aspectj.version>1.9.22.1</aspectj.version>
-    <!-- valores por defecto; se pisan con -Dappium.url=... -Dapp=ruta/app-debug.apk -Dgroups=TRV-203 -->
+    <!-- valores por defecto; se pisan con -Dappium.url=... -Dapp=ruta/app-debug.apk -Dgroups=HU-V07 -->
     <api.url>http://localhost:8000/api</api.url>
     <appium.url>http://127.0.0.1:4723</appium.url>
   </properties>
