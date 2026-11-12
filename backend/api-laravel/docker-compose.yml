@@ -1,0 +1,64 @@
+# API Trouvels360 (Laravel) + su base MySQL. Es independiente de la API Python: se comunican por URL.
+#   docker compose up -d --build                     → API en http://localhost:8000  (salud: /api/ping)
+#   docker compose --profile herramientas up -d      → además phpMyAdmin en http://localhost:8080
+# Los valores salen de .env (copia de .env.example).
+name: trouvels360-api-laravel
+
+services:
+  app:
+    build: .
+    image: trouvels360/api-laravel
+    container_name: trouvels360-api-laravel
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      TZ: ${APP_TIMEZONE:-America/Lima}
+    ports:
+      - "${APP_PORT:-8000}:80"
+    extra_hosts:
+      # Permite llamar a la API Python publicada en el equipo (http://host.docker.internal:8001), también en Linux
+      - "host.docker.internal:host-gateway"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    volumes:
+      - storage:/var/www/html/storage
+
+  mysql:
+    image: mysql:8.0
+    container_name: trouvels360-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      TZ: ${APP_TIMEZONE:-America/Lima}
+    command: ["mysqld", "--character-set-server=utf8mb4", "--collation-server=utf8mb4_unicode_ci"]
+    ports:
+      # Publicado para que la API Python (que lee los tours) y tus herramientas lleguen a la base
+      - "${DB_FORWARD_PORT:-3306}:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${DB_ROOT_PASSWORD}"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+
+  phpmyadmin:
+    image: phpmyadmin:5
+    container_name: trouvels360-phpmyadmin
+    profiles: ["herramientas"]
+    environment:
+      PMA_HOST: mysql
+      PMA_USER: root
+      PMA_PASSWORD: ${DB_ROOT_PASSWORD}
+    ports:
+      - "${PMA_PORT:-8080}:80"
+    depends_on:
+      - mysql
+
+volumes:
+  mysql_data:
+  storage:

@@ -1,0 +1,14 @@
+# Lo que NO entra en la imagen de Docker
+.git
+.env*
+__pycache__/
+*.py[cod]
+.pytest_cache/
+venv/
+.venv/
+*.db
+*.sqlite*
+*.bat
+.vscode/
+.idea/
+.DS_Store

@@ -1,0 +1,17 @@
+# API de itinerarios de Trouvels360 (FastAPI). Es independiente de la API Laravel: se comunican por URL.
+#   docker compose up -d --build   → http://localhost:8001/api/health  ·  documentación: http://localhost:8001/docs
+# Los valores salen de .env.fastapi (copia de .env.fastapi.example).
+name: trouvels360-api-python
+
+services:
+  api-python:
+    build: .
+    image: trouvels360/api-python
+    container_name: trouvels360-api-python
+    restart: unless-stopped
+    env_file: .env.fastapi
+    ports:
+      - "${PUERTO_PYTHON:-8001}:8001"
+    extra_hosts:
+      # Permite llegar a la MySQL publicada por api-laravel (host.docker.internal:3306), también en Linux
+      - "host.docker.internal:host-gateway"

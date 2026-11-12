@@ -16,7 +16,7 @@ flowchart TB
     E2E["E2E · Selenium 33 (web) + Appium 32 (móvil)<br/>flujos completos de cada rol"]
     API["API · Karate 86 casos (136 escenarios)<br/>contratos, reglas, permisos, idempotencia"]
     PERF["Rendimiento · JMeter 6 casos<br/>carga y carreras de concurrencia"]
-    U["Unitarias y de integración del equipo de desarrollo<br/>Pest (57, Laravel) · pytest (13, microservicio)"]
+    U["Unitarias y de integración del equipo de desarrollo<br/>Pest (61, Laravel) · pytest (13, microservicio)"]
     M --- E2E --- API --- U
     API -.- PERF
 ```
@@ -28,7 +28,7 @@ flowchart TB
 | Web de punta a punta | Selenium 4.25 + JUnit 5 | `TC-WEB` | 33 | `qa/selenium` | QA-03 |
 | Móvil de punta a punta | Appium 2 (UiAutomator2) + JUnit 5 | `TC-MOB` | 32 | `qa/appium` | QA-04 |
 | Exploratorio guiado | Manual | `TC-MAN` | 3 | [pasos](casos-de-prueba.md#pasos-de-los-casos-manuales) | — |
-| Unitario / integración | Pest (Laravel), pytest (FastAPI) | — | 57 + 13 | `backend-laravel/tests`, `backend-itinerarios/tests` | — |
+| Unitario / integración | Pest (Laravel), pytest (FastAPI) | — | 61 + 13 | `backend/api-laravel/tests`, `backend/api-python/tests` | — |
 
 La colección de Postman en `qa/postman/` es de la versión base (20 historias) y se conserva como material complementario;
 no forma parte de la trazabilidad.
@@ -89,12 +89,12 @@ REGISTER_RATE_LIMIT=1000
 CACHE_STORE=file
 ```
 
-y luego ejecutar `php artisan config:clear`.
+en `backend/api-laravel/.env`, y luego `docker compose up -d` en esa carpeta para que el contenedor tome los valores.
 
 ## 6. Datos de prueba
 
 `php artisan migrate:fresh --seed` carga, además del catálogo de demostración, el **QaSeeder** (detalle en
-[`backend-laravel/docs/DATOS_DE_PRUEBA.md`](../../backend-laravel/docs/DATOS_DE_PRUEBA.md)):
+[`backend/api-laravel/docs/DATOS_DE_PRUEBA.md`](../../backend/api-laravel/docs/DATOS_DE_PRUEBA.md)):
 
 | Dato | Para qué |
 |---|---|
@@ -108,8 +108,9 @@ y luego ejecutar `php artisan config:clear`.
 
 ## 7. Cómo ejecutar
 
-1. Levantar el backend (`backend-laravel/levantar.bat`, recrea la base con los datos de prueba), el microservicio
-   (`backend-itinerarios/levantar.bat`) y la web (`frontend-angular/iniciar-docker.bat`).
+1. Levantar las dos APIs (`backend/api-laravel/levantar.bat` y `backend/api-python/levantar.bat`, ver
+   [`backend/README.md`](../../backend/README.md)), recrear los datos con `backend/api-laravel/reiniciar-datos.bat` y
+   levantar la web (`frontend-angular/iniciar-docker.bat`).
 2. Comprobar: `http://localhost:8000/api/ping`, `http://localhost:8001/api/health` y `http://localhost:4200`.
 3. Desde la raíz del repositorio:
 

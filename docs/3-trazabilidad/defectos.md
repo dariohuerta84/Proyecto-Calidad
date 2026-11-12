@@ -59,7 +59,7 @@ pero de forma incorrecta o confusa) · Menor (detalle con alternativa) · Trivia
 ### DEF-004 a DEF-014 · Correcciones de la etapa 2
 
 Encontrados al revisar el backend y el microservicio antes de integrarlos con la web. Antes y después de cada uno en
-[`backend-laravel/docs/CAMBIOS_ETAPA2.md`](../../backend-laravel/docs/CAMBIOS_ETAPA2.md). Los casos de la columna
+[`backend/api-laravel/docs/CAMBIOS_ETAPA2.md`](../../backend/api-laravel/docs/CAMBIOS_ETAPA2.md). Los casos de la columna
 «Criterio · caso» fallarían si alguno reapareciera.
 
 ### DEF-015 · Referencias a historias equivocadas en la web

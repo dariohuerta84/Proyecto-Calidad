@@ -20,8 +20,8 @@ package-lock.json
 /tmp/apache-jmeter*
 
 # Environment files with sensitive credentials
-backend-laravel/.env
-backend-itinerarios/.env
-backend-itinerarios/.env.fastapi
+backend/api-laravel/.env
+backend/api-python/.env
+backend/api-python/.env.fastapi
 frontend-angular/.env
 android/local.properties

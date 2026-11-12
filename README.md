@@ -52,8 +52,9 @@ flowchart TD
 
 ```text
 Proyecto-Calidad/
-├── backend-laravel/           # API REST y compose del backend
-├── backend-itinerarios/       # Microservicio FastAPI
+├── backend/
+│   ├── api-laravel/           # API REST principal (Laravel + MySQL), con su Docker
+│   └── api-python/            # API de itinerarios (FastAPI), con su Docker
 ├── frontend-angular/          # Aplicación web Angular
 ├── android/                   # Aplicación Kotlin + Jetpack Compose
 ├── docs/
@@ -100,48 +101,35 @@ Detalle completo en [docs/1-historias-de-usuario/](docs/1-historias-de-usuario/R
 
 ## 5. Instrucciones de Ejecución
 
-### Configuración local
+### Backend (las dos APIs)
 
-Los archivos `.env` contienen configuración local y no se versionan. Antes de ejecutar, restaura tus copias locales si faltan:
+Cada API tiene su propio Docker y su propia dirección, y se pueden levantar a la vez. Guía completa (cómo se conectan,
+variables, despliegue en la nube cada una en su dominio y problemas frecuentes) en [backend/README.md](backend/README.md).
 
-- `backend-laravel/.env`
-- `backend-itinerarios/.env.fastapi`
-- `frontend-angular/.env` (solo si tu configuración local lo requiere)
-
-Laravel puede copiar `.env.example` automáticamente si no encuentra `.env`. Para Python, copia `.env.fastapi.example` a `.env.fastapi` y verifica que `JWT_SECRET` coincida con `JWT_MS_SECRET` de Laravel. No reemplaces tus archivos locales ni los agregues al commit.
-
-### Iniciar en Windows
-
-Abre una terminal PowerShell por servicio. Ejecuta cada `.bat` desde la carpeta de su componente; los scripts resuelven sus rutas desde su propia ubicación.
-
-1. Backend Laravel (Docker Desktop debe estar iniciado):
+Con Docker Desktop abierto, en Windows:
 
 ```powershell
-Set-Location .\backend-laravel
-.\levantar.bat
+.\backend\api-laravel\levantar.bat     # API Laravel + MySQL → http://localhost:8000/api/ping
+.\backend\api-python\levantar.bat      # API de itinerarios  → http://localhost:8001/api/health
 ```
 
-`levantar.bat` ejecuta `migrate:fresh --seed`, por lo que recrea la base de datos con datos de prueba.
+Cada `levantar.bat` crea su archivo de configuración desde el ejemplo si falta (`backend/api-laravel/.env` y
+`backend/api-python/.env.fastapi`); los ejemplos ya traen los valores compartidos entre ambas para desarrollo local.
+Esos archivos no se versionan. Para detener: `detener.bat` en cada carpeta.
 
-2. Microservicio de itinerarios, después de que Laravel haya creado la red Docker:
-
-```powershell
-Set-Location .\backend-itinerarios
-.\levantar.bat
-```
-
-3. Aplicación web:
+### Aplicación web
 
 ```powershell
 Set-Location .\frontend-angular
 .\iniciar-docker.bat
 ```
 
-La web queda en http://localhost:4200, Laravel en http://localhost:8000/api/ping y FastAPI en http://localhost:8001/api/health.
+La web queda en http://localhost:4200. Para detenerla: `detener-docker.bat`.
 
-4. Android: abre la carpeta `android/` en Android Studio, sincroniza Gradle y ejecuta la app en un emulador API 26 o superior.
+### Android
 
-Para detener servicios, ejecuta `detener.bat` en `backend-laravel/`, `detener-docker.bat` en `frontend-angular/` y `docker compose down` desde `backend-itinerarios/`.
+Abre la carpeta `android/` en Android Studio, sincroniza Gradle y ejecuta la app en un emulador API 26 o superior
+(Gradle JDK 17 o 21; con Java 25 no compila).
 
 ### Colección Postman complementaria
 
