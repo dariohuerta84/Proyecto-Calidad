@@ -110,7 +110,7 @@ en `backend/api-laravel/.env`, y luego `docker compose up -d` en esa carpeta par
 
 1. Levantar las dos APIs (`backend/api-laravel/levantar.bat` y `backend/api-python/levantar.bat`, ver
    [`backend/README.md`](../../backend/README.md)), recrear los datos con `backend/api-laravel/reiniciar-datos.bat` y
-   levantar la web (`frontend-angular/iniciar-docker.bat`).
+   levantar la web (`frontend/levantar.bat`).
 2. Comprobar: `http://localhost:8000/api/ping`, `http://localhost:8001/api/health` y `http://localhost:4200`.
 3. Desde la raíz del repositorio:
 

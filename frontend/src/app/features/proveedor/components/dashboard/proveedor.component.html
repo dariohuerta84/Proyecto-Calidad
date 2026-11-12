@@ -1,0 +1,126 @@
+<div class="dashboard-container" data-testid="panel-proveedor">
+  <div class="dashboard-head">
+    <h1 class="dashboard-title">Mis publicaciones</h1>
+    <div class="head-actions">
+      <a class="btn btn-primary" routerLink="/proveedor/reservas" data-testid="link-reservas-recibidas">
+        <i class="fa-solid fa-inbox"></i> Reservas recibidas
+        <span class="pill" *ngIf="indicadores?.solicitudes_pendientes" data-testid="pendientes-badge">{{ indicadores?.solicitudes_pendientes }}</span>
+      </a>
+      <a class="btn btn-secondary" routerLink="/proveedor/crear-hotel" data-testid="link-crear-hotel"><i class="fa-solid fa-plus"></i> Hotel</a>
+      <a class="btn btn-secondary" routerLink="/proveedor/crear-tour" data-testid="link-crear-tour"><i class="fa-solid fa-plus"></i> Tour</a>
+    </div>
+  </div>
+
+  <!-- Indicadores (HU-P04): cada estado por separado -->
+  <div class="metrics-container" *ngIf="indicadores" data-testid="indicadores">
+    <div class="metric-card">
+      <div class="metric-icon-wrapper"><i class="fa-solid fa-hourglass-half"></i></div>
+      <div class="metric-info"><h4 class="metric-title">Solicitudes por decidir</h4>
+        <p class="general-metric-value" data-testid="ind-pendientes">{{ indicadores.solicitudes_pendientes }}</p></div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-icon-wrapper"><i class="fa-solid fa-calendar-check"></i></div>
+      <div class="metric-info"><h4 class="metric-title">Reservas confirmadas</h4>
+        <p class="general-metric-value" data-testid="ind-confirmadas">{{ indicadores.reservas_hotel.confirmada + indicadores.reservas_tour.confirmada }}</p>
+        <small>Rechazadas {{ indicadores.reservas_hotel.rechazada }} · Canceladas {{ indicadores.reservas_hotel.cancelada + indicadores.reservas_tour.cancelada }}</small></div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-icon-wrapper"><i class="fa-solid fa-sack-dollar"></i></div>
+      <div class="metric-info"><h4 class="metric-title">Ingresos confirmados del mes</h4>
+        <p class="general-metric-value" data-testid="ind-ingresos">{{ indicadores.ingresos_confirmados_mes | currency:'PEN':'S/ ':'1.2-2' }}</p></div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-icon-wrapper"><i class="fa-solid fa-star"></i></div>
+      <div class="metric-info"><h4 class="metric-title">Calificación promedio</h4>
+        <p class="general-metric-value" data-testid="ind-resenas">{{ indicadores.resenas.cantidad ? (indicadores.resenas.promedio + ' ★') : 'Sin reseñas' }}</p>
+        <small>{{ indicadores.resenas.cantidad }} reseñas</small></div>
+    </div>
+  </div>
+
+  <form class="filtros" (ngSubmit)="filtrar()">
+    <select name="tipo" [(ngModel)]="tipo" (change)="filtrar()" data-testid="filtro-tipo">
+      <option value="">Todos</option><option value="hotel">Hoteles</option><option value="tour">Tours</option>
+    </select>
+    <input name="busqueda" [(ngModel)]="busqueda" placeholder="Buscar por nombre" data-testid="filtro-busqueda">
+    <button class="btn btn-secondary" type="submit">Buscar</button>
+    <span class="total" *ngIf="pagina">{{ pagina.meta.total }} publicaciones</span>
+  </form>
+
+  <div class="aviso ok" *ngIf="mensaje" data-testid="mensaje-ok" role="status">{{ mensaje }}</div>
+  <div class="aviso err" *ngIf="mensajeError" data-testid="mensaje-error" role="alert">{{ mensajeError }}</div>
+
+  <div *ngIf="cargando" class="loading-state"><div class="spinner"></div><p class="loading-text">Cargando publicaciones...</p></div>
+
+  <div *ngIf="!cargando && error" class="empty-state" data-testid="error-panel">
+    <p class="empty-text">{{ error }}</p><button class="btn btn-secondary" (click)="cargar()">Reintentar</button>
+  </div>
+
+  <div *ngIf="!cargando && !error && publications.length === 0" class="empty-state" data-testid="sin-publicaciones">
+    <i class="fa-solid fa-hotel empty-icon"></i>
+    <h2 class="empty-title">{{ busqueda || tipo ? 'No hay publicaciones con ese filtro' : '¡Aún no tienes publicaciones!' }}</h2>
+    <p class="empty-text">Crea tu primer hotel o tour con los botones de arriba.</p>
+  </div>
+
+  <div *ngIf="!cargando && publications.length > 0" class="publications-grid">
+    <div *ngFor="let pub of publications" class="publication-card" data-testid="publicacion-card" [attr.data-id]="pub.id" [attr.data-tipo]="pub.tipo">
+      <div class="card-content-wrapper">
+        <div class="card-image-container">
+          <img [src]="pub.imagen_url" alt="Imagen de {{ pub.nombre }}" class="card-image">
+        </div>
+        <div class="card-details">
+          <span class="card-type-tag"><i class="fa-solid" [ngClass]="pub.tipo === 'hotel' ? 'fa-hotel' : 'fa-route'"></i> {{ pub.tipo === 'hotel' ? 'Hotel' : 'Tour' }}</span>
+          <h3 class="card-title-main" data-testid="publicacion-nombre">
+            {{ pub.nombre }}
+            <div class="card-stars-wrapper">
+              <ng-container *ngIf="(pub.resenas?.promedio ?? 0) > 0; else noReviews">
+                <ng-container *ngFor="let star of (pub.resenas?.promedio | starArray)">
+                  <i *ngIf="star === 'full'" class="fa-solid fa-star card-star full"></i>
+                  <i *ngIf="star === 'half'" class="fa-solid fa-star-half-stroke card-star half"></i>
+                  <i *ngIf="star === 'empty'" class="fa-regular fa-star card-star empty"></i>
+                </ng-container>
+                <span class="no-reviews">({{ pub.resenas?.cantidad }})</span>
+              </ng-container>
+              <ng-template #noReviews><span class="no-reviews">(Sin reseñas)</span></ng-template>
+            </div>
+          </h3>
+          <p class="card-location"><i class="fa-solid fa-map-marker-alt card-location-icon"></i> {{ pub.ciudad }}, {{ pub.pais }}</p>
+          <div class="card-metrics">
+            <div class="metric-item" *ngIf="pub.tipo === 'hotel'"><i class="fa-solid fa-tag metric-icon-price"></i> Desde
+              <span class="metric-value metric-value-price">{{ pub.meta_tipo.tarifa_min_desde | currency:'PEN':'S/ ':'1.2-2' }}</span> / noche · {{ pub.meta_tipo.habitaciones_count }} tipos</div>
+            <div class="metric-item" *ngIf="pub.tipo === 'tour'"><i class="fa-solid fa-ticket metric-icon-price"></i> Precio
+              <span class="metric-value metric-value-price">{{ pub.meta_tipo.precio | currency:'PEN':'S/ ':'1.2-2' }}</span> · {{ pub.meta_tipo.proximas_salidas }} salidas próximas</div>
+            <div class="metric-item"><i class="fa-solid fa-users metric-icon-reserva"></i>
+              <span *ngIf="pub.tipo === 'hotel'">Pendientes <b data-testid="pub-pendientes">{{ pub.reservas_totales.pendientes ?? 0 }}</b> ·</span>
+              Confirmadas <b>{{ pub.reservas_totales.confirmadas ?? 0 }}</b> ·
+              <span *ngIf="pub.tipo === 'hotel'">Rechazadas <b>{{ pub.reservas_totales.rechazadas ?? 0 }}</b> ·</span>
+              Canceladas <b>{{ pub.reservas_totales.canceladas ?? 0 }}</b>
+            </div>
+          </div>
+        </div>
+        <div class="card-acciones">
+          <button (click)="editPublication(pub.id, pub.tipo)" class="btn btn-secondary" data-testid="btn-editar"><i class="fa-solid fa-pen-to-square btn-icon-sm"></i> Editar</button>
+          <a *ngIf="pub.tipo === 'tour'" class="btn btn-secondary" [routerLink]="['/proveedor/tour', pub.id, 'programa']" data-testid="btn-salidas"><i class="fa-solid fa-calendar-days btn-icon-sm"></i> Salidas y actividades</a>
+          <a class="btn btn-secondary" routerLink="/proveedor/reservas" [queryParams]="{ servicio_id: pub.id }" data-testid="btn-ver-reservas"><i class="fa-solid fa-inbox btn-icon-sm"></i> Reservas</a>
+          <button (click)="pedirEliminar(pub)" class="btn btn-danger" data-testid="btn-eliminar"><i class="fa-solid fa-trash-can btn-icon-sm"></i> Eliminar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <nav class="paginacion" *ngIf="paginas().length > 1" data-testid="paginacion">
+    <button [disabled]="page <= 1" (click)="irPagina(page - 1)" data-testid="pagina-anterior">‹</button>
+    <button *ngFor="let p of paginas()" [class.activo]="p === page" (click)="irPagina(p)" [attr.data-testid]="'pagina-' + p">{{ p }}</button>
+    <button [disabled]="page >= (pagina?.meta?.last_page || 1)" (click)="irPagina(page + 1)" data-testid="pagina-siguiente">›</button>
+  </nav>
+
+  <div class="modal-backdrop" *ngIf="aEliminar" data-testid="modal-eliminar" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <h3>¿Eliminar «{{ aEliminar.nombre }}»?</h3>
+      <p>Dejará de aparecer en el catálogo. El historial de reservas se conserva. No se puede eliminar si tiene reservas activas.</p>
+      <div class="acciones">
+        <button class="btn btn-secondary" (click)="aEliminar = null" [disabled]="eliminando" data-testid="eliminar-no">Cancelar</button>
+        <button class="btn btn-danger" (click)="confirmarEliminar()" [disabled]="eliminando" data-testid="eliminar-si">{{ eliminando ? 'Eliminando…' : 'Sí, eliminar' }}</button>
+      </div>
+    </div>
+  </div>
+</div>

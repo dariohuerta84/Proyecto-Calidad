@@ -56,7 +56,7 @@ Proyecto-Calidad/
 │   ├── docker-compose.yml     # Levanta las dos APIs a la vez
 │   ├── api-laravel/           # API REST principal (Laravel + MySQL), con su Docker
 │   └── api-python/            # API de itinerarios (FastAPI), con su Docker
-├── frontend-angular/          # Aplicación web Angular
+├── frontend/                  # Web Angular, servida con nginx en Docker
 ├── android/                   # Aplicación Kotlin + Jetpack Compose
 ├── docs/
 │   ├── 1-historias-de-usuario/# 15 historias del viajero, 15 del proveedor y tareas de QA
@@ -126,12 +126,9 @@ Esos archivos no se versionan. Para detener: `backend\detener-todo.bat`, o `dete
 
 ### Aplicación web
 
-```powershell
-Set-Location .\frontend-angular
-.\iniciar-docker.bat
-```
-
-La web queda en http://localhost:4200. Para detenerla: `detener-docker.bat`.
+Con la API levantada, doble clic en `frontend\levantar.bat` (o `docker compose up -d --build` desde `frontend/`). La web
+queda en http://localhost:4200 y reenvía `/api` a la API. Para detenerla: `frontend\detener.bat`. Modo desarrollo sin
+Docker y despliegue en la nube: [frontend/README.md](frontend/README.md).
 
 ### Android
 

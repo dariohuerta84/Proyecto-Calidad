@@ -1,0 +1,19 @@
+# Web Trouvels360. Necesita la API Laravel levantada (ver backend/README.md).
+#   docker compose up -d --build   → http://localhost:4200
+# Los valores salen de .env (copia de .env.example).
+name: trouvels360-web
+
+services:
+  web:
+    build: .
+    image: trouvels360/web
+    container_name: trouvels360-web
+    restart: unless-stopped
+    environment:
+      # A dónde reenvía nginx las llamadas a /api (la API Laravel, sin /api al final)
+      API_URL: ${API_URL:-http://host.docker.internal:8000}
+    ports:
+      - "${PUERTO_WEB:-4200}:80"
+    extra_hosts:
+      # Permite llegar a la API publicada en el puerto 8000 del equipo, también en Linux
+      - "host.docker.internal:host-gateway"

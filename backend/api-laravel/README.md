@@ -94,7 +94,7 @@ Qué pasa al arrancar el contenedor (`docker/entrypoint.sh`):
 | `DB_HOST` … `DB_PASSWORD` | `mysql` (el contenedor) / `trouvels360` / `trouvels` / `trouvels123` | los de la base administrada |
 | `BD_AL_INICIAR` | `migrar` (o `reiniciar` antes de correr `qa/`) | `migrar` |
 | `CORS_ALLOWED_ORIGINS` | `http://localhost:4200` | `https://app.midominio.com` |
-| `COOKIE_SECURE` / `COOKIE_DOMAIN` / `COOKIE_SAMESITE` | `false` / vacío / `Lax` | `true` / `.midominio.com` / `Lax` |
+| `COOKIE_SECURE` / `COOKIE_DOMAIN` / `COOKIE_SAMESITE` | `false` / vacío / `Lax` | `true` / vacío (la web reenvía `/api`) / `Lax` |
 | `LOGIN_RATE_LIMIT` / `REGISTER_RATE_LIMIT` | `6` / `10` (`1000` solo para correr `qa/`) | `6` / `10` |
 | `PYTHON_MICROSERVICE_URL` | `http://host.docker.internal:8001` | `https://itinerarios.midominio.com` |
 | `JWT_MS_SECRET` | igual a `JWT_SECRET` de la API Python | clave compartida nueva |

@@ -1,0 +1,25 @@
+<!-- Buscador superior -->
+<app-buscador-dinamico [tipoBusqueda]="'tours'"></app-buscador-dinamico>
+
+<div class="estado-busqueda" *ngIf="cargando" data-testid="tours-cargando"><p>Buscando tours…</p></div>
+
+<!-- Error de la API: distinto de "sin resultados" y con opción de reintentar (HU-V08) -->
+<div class="no-results-message error" *ngIf="!cargando && error" data-testid="tours-error" role="alert">
+  <p>{{ error }}</p>
+  <button type="button" class="btn-reintentar" (click)="reintentar()" data-testid="btn-reintentar">Reintentar</button>
+</div>
+
+<ng-container *ngIf="!cargando && !error">
+  <app-resultados-lista
+    [tipo]="'tours'"
+    [items]="resultadosItems"
+    [totalItems]="totalTours"
+    [mostrarMas]="false">
+  </app-resultados-lista>
+
+  <!-- Sin resultados: se sugiere cambiar los filtros -->
+  <div *ngIf="toursFiltrados.length === 0" class="no-results-message" data-testid="tours-vacio">
+    <p>No se encontraron tours para su búsqueda.</p>
+    <p class="sugerencia">Prueba otra fecha, otro destino u otra categoría.</p>
+  </div>
+</ng-container>

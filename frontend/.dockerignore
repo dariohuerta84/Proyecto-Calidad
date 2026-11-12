@@ -1,0 +1,15 @@
+# Lo que NO entra en la imagen de Docker
+node_modules/
+dist/
+.angular/
+coverage/
+.git
+.env
+.env.*
+!.env.example
+*.bat
+*.log
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

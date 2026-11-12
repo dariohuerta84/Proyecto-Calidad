@@ -35,6 +35,6 @@ la ejecución.
 ## Documentación técnica de cada componente
 
 Está junto a su código: [`backend/`](../backend/README.md) (cómo levantar y desplegar las dos APIs; en `backend/api-laravel/docs/` la referencia de endpoints y los datos de prueba),
-[`frontend-angular/docs/`](../frontend-angular/docs/SELECTORES_SELENIUM.md) (selectores para Selenium),
+[`frontend/`](../frontend/README.md) (cómo levantar y desplegar la web; en `frontend/docs/` los selectores para Selenium),
 [`android/docs/`](../android/docs/SELECTORES_APPIUM.md) (selectores y guía de Appium) y el `README.md` de cada suite en
 [`qa/`](../qa/).

@@ -40,6 +40,12 @@ return Application::configure(basePath: dirname(__DIR__))
             'idempotency' => \App\Http\Middleware\Idempotency::class,
         ]);
 
+        // La web (nginx) reenvía /api a esta API: se confía en sus cabeceras X-Forwarded-* para conocer la IP real del
+        // usuario (límites de login y registro). Por defecto solo en redes privadas; configurable con TRUSTED_PROXIES.
+        $middleware->trustProxies(at: array_values(array_filter(array_map('trim', explode(',', (string) env(
+            'TRUSTED_PROXIES', '127.0.0.1,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16'
+        ))))));
+
         // Nota: No añadimos EncryptCookies al stack API para NO cifrar 'access_token'.
         // Si lo tuvieras en algún momento, asegúrate de excluir 'access_token' y 'XSRF-TOKEN'.
     })

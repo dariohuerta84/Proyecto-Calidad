@@ -1,0 +1,50 @@
+# nginx de la web Trouvels360. Al iniciar, la imagen oficial reemplaza ${API_URL} y ${PORT} por sus valores.
+server {
+    listen ${PORT};
+    server_name _;
+    server_tokens off;
+
+    root /usr/share/nginx/html;
+    index index.html;
+
+    gzip on;
+    gzip_types text/css application/javascript application/json image/svg+xml;
+    gzip_min_length 1024;
+
+    # La web llama a /api en su mismo dominio; nginx lo reenvía a la API Laravel.
+    # Así el navegador ve un solo origen: las cookies de sesión funcionan sin CORS.
+    location /api/ {
+        proxy_pass ${API_URL};
+        proxy_http_version 1.1;
+        proxy_set_header Host $proxy_host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_ssl_server_name on;
+        proxy_read_timeout 60s;
+    }
+
+    # Comprobación de salud del contenedor
+    location = /salud {
+        access_log off;
+        default_type text/plain;
+        return 200 "ok\n";
+    }
+
+    # Archivos con hash en el nombre: se pueden guardar en caché por un año
+    location ~* \.(?:js|css|woff2?|ttf|png|jpe?g|gif|svg|ico|webp)$ {
+        expires 1y;
+        add_header Cache-Control "public, immutable";
+        try_files $uri =404;
+    }
+
+    # index.html nunca en caché, para que siempre cargue la última versión
+    location = /index.html {
+        add_header Cache-Control "no-cache";
+    }
+
+    # Rutas de Angular (/hoteles, /mis-reservas…): siempre se responde index.html
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+}

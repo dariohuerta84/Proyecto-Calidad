@@ -1,0 +1,146 @@
+<div class="search-container">
+  <h3>¿A dónde vas?</h3>
+  <div class="search-form">
+
+    <ng-container *ngIf="tipoBusqueda === 'hoteles'">
+      <div class="input-group">
+        <label for="destino">Destino (Ciudad)</label>
+        <!-- El ngModel se enlaza a 'destino' que ahora es la ciudad -->
+        <input 
+          type="text" 
+          id="destino" data-testid="buscar-destino"
+          placeholder="Lima" 
+          [(ngModel)]="destino" 
+          (input)="buscarSugerencias()"
+          autocomplete="off">
+        
+        <ul *ngIf="sugerencias.length > 0" class="sugerencias-lista">
+          <li *ngFor="let sugerencia of sugerencias" data-testid="buscar-sugerencia" (click)="seleccionarDestino(sugerencia)">
+            {{sugerencia}}
+          </li>
+        </ul>
+      </div>
+
+      <div class="input-group">
+        <label for="check-in">Check In</label>
+        <input type="date" id="check-in" data-testid="buscar-checkin" [min]="minDate" [(ngModel)]="checkInDate" (change)="onCheckInChange($event)">
+      </div>
+
+      <div class="input-group">
+        <label for="check-out">Check Out</label>
+        <input type="date" id="check-out" data-testid="buscar-checkout" [min]="minCheckoutDate" [(ngModel)]="checkOutDate">
+      </div>
+
+      <div class="input-group">
+        <label for="huespedes">Cuartos & Huéspedes</label>
+        <div class="guests-selector" data-testid="buscar-huespedes" (click)="toggleGuestMenu()">
+          {{ huespedes.habitaciones }} cuartos, {{ huespedes.adultos }} adultos y {{ huespedes.ninos }} niños
+        </div>
+        
+        <!-- Menú de Opciones de Huéspedes -->
+        <div *ngIf="showGuestMenu" class="guest-options-menu">
+          
+          <div class="guest-option">
+            <span>Adultos</span>
+            <div class="counter">
+              <!-- Usamos type="button" para evitar envío de formulario, y removemos (click)="toggleGuestMenu()" -->
+              <button type="button" data-testid="buscar-adultos-menos" (click)="changeCount('adultos', -1)">-</button>
+              <span>{{ huespedes.adultos }}</span>
+              <button type="button" data-testid="buscar-adultos-mas" (click)="changeCount('adultos', 1)"[disabled]="esMaximoAlcanzado('adultos')">+</button>
+            </div>
+          </div>
+          
+          <div class="guest-option">
+            <span>Niños</span>
+            <div class="counter">
+              <button type="button" data-testid="buscar-ninos-menos" (click)="changeCount('ninos', -1)">-</button>
+              <span>{{ huespedes.ninos }}</span>
+              <button type="button" data-testid="buscar-ninos-mas" (click)="changeCount('ninos', 1)" [disabled]="esMaximoAlcanzado('ninos')">+</button>
+            </div>
+          </div>
+
+          <div class="guest-option">
+            <span>Cuartos</span>
+            <div class="counter">
+              <button type="button" data-testid="buscar-habitaciones-menos" (click)="changeCount('habitaciones', -1)">-</button>
+              <span>{{ huespedes.habitaciones }}</span>
+              <button type="button" data-testid="buscar-habitaciones-mas" (click)="changeCount('habitaciones', 1)" [disabled]="esMaximoAlcanzado('habitaciones')">+</button>
+            </div>
+          </div>
+          <button class="save-button" data-testid="buscar-huespedes-listo" (click)="toggleGuestMenu()">Listo</button>
+        </div>
+      </div>
+
+      <div *ngIf="mensajeErrorHuespedes" data-testid="buscar-error-huespedes" class="error-msg" style="color: red; font-size: 0.85rem; margin-top: 5px;">
+        <i class="fas fa-exclamation-circle"></i> {{ mensajeErrorHuespedes }}
+      </div>
+
+      <!-- El itinerario sugerido se ofrece al reservar (detalle del hotel), no en la búsqueda. -->
+    </ng-container>
+    
+    <ng-container *ngIf="tipoBusqueda === 'tours'">
+      <div class="input-group">
+        <label for="destino-tour">Destino (Ciudad)</label>
+        <input type="text" id="destino-tour" data-testid="buscar-destino-tour" placeholder="Lima" [(ngModel)]="destino" (input)="buscarSugerenciasTours()">
+        <ul *ngIf="sugerencias.length > 0" class="sugerencias-lista">
+          <li *ngFor="let sugerencia of sugerencias" (click)="seleccionarDestino(sugerencia)">
+            {{sugerencia}}
+          </li>
+        </ul>
+      </div>
+
+      <div class="input-group">
+        <label for="categoria-tour">Categoría</label>
+        <select 
+          id="categoria-tour" 
+          data-testid="buscar-categoria"
+          class="categoria-select"
+          [(ngModel)]="categoriaTour">
+          <option value="">Selecciona una categoría</option>
+          <option value="Aventura">Aventura</option>
+          <option value="Gastronomía">Gastronomía</option>
+          <option value="Cultura">Cultura</option>
+          <option value="Relajación">Relajación</option>
+        </select>
+      </div>
+
+      <div class="input-group">
+        <label for="check-in">Fecha de Tour</label>
+        <input type="date" id="check-in" data-testid="buscar-checkin" [min]="minDate" [(ngModel)]="checkInDate" (change)="onCheckInChange($event)">
+      </div>
+
+      <!-- Para tours, la fecha de salida (check-out) no suele aplicarse, pero la mantengo si la lógica de tu API lo requiere -->
+      <div class="input-group">
+        <label for="check-out">Fecha de Salida (Opcional)</label>
+        <input type="date" id="check-out" data-testid="buscar-checkout" [min]="minCheckoutDate" [(ngModel)]="checkOutDate">
+      </div>
+      
+      <div class="input-group">
+        <label for="personas-tour">Personas (máx: 15)</label>
+        <div class="guests-selector" data-testid="buscar-personas" (click)="toggleGuestMenuTour()">
+          {{ personas.total }} personas
+        </div>
+        <div *ngIf="showGuestMenuTour" class="guest-options-menu">
+          <div class="guest-option">
+            <span>Personas</span>
+            <div class="counter">
+              <button type="button" (click)="changeCountTour('total', -1)">-</button>
+              <span>{{ personas.total }}</span>
+              <button type="button" (click)="changeCountTour('total', 1)" [disabled]="personas.total >= 15">+</button>
+            </div>
+          </div>
+          <button class="save-button" (click)="toggleGuestMenuTour()">Listo</button>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+
+  <button 
+    class="search-button" data-testid="btn-buscar"
+    (click)="mostrarLugares()" 
+    [disabled]="(tipoBusqueda === 'hoteles' && (!checkInDate || !checkOutDate)) || 
+                (tipoBusqueda === 'tours' && !checkInDate)"> 
+    <i class="fa-solid" [ngClass]="{'fa-hotel': tipoBusqueda === 'hoteles', 'fa-compass': tipoBusqueda === 'tours'}"></i>
+    Mostrar {{ tipoBusqueda === 'hoteles' ? 'hoteles' : 'tours' }}
+  </button>
+</div>

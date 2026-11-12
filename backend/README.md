@@ -135,7 +135,7 @@ se cambian esas direcciones por los dominios reales. Ambos `docker-compose.yml` 
 
 ## Desplegar en la nube, cada una en su dominio
 
-Ejemplo con tres subdominios del mismo dominio (así las cookies de sesión funcionan sin trucos):
+Ejemplo con tres subdominios del mismo dominio:
 
 | Servicio | Dominio de ejemplo |
 |---|---|
@@ -166,7 +166,7 @@ JWT_SECRET=<generada>
 DB_HOST=<host de MySQL>   DB_PORT=3306   DB_DATABASE=…   DB_USERNAME=…   DB_PASSWORD=…
 CORS_ALLOWED_ORIGINS=https://app.midominio.com
 COOKIE_SECURE=true
-COOKIE_DOMAIN=.midominio.com
+COOKIE_DOMAIN=
 COOKIE_SAMESITE=Lax
 PYTHON_MICROSERVICE_URL=https://itinerarios.midominio.com
 JWT_MS_SECRET=<clave compartida>
@@ -183,7 +183,10 @@ JWT_ISSUER=https://api.midominio.com
 ALLOWED_ORIGINS=https://api.midominio.com
 ```
 
-Y en la web Angular, la URL de la API (`environment.apiUrl`) pasa a `https://api.midominio.com/api`.
+La web no se recompila: su nginx reenvía `/api` a la API con `API_URL=https://api.midominio.com` (ver
+[frontend/README.md](../frontend/README.md#desplegar-en-la-nube)). Como el navegador solo habla con el dominio de la web,
+la cookie de sesión queda en ese dominio (`COOKIE_DOMAIN` vacío). `COOKIE_DOMAIN=.midominio.com` y CORS solo hacen falta
+si algún cliente de navegador llama directo a `api.midominio.com`.
 
 ### 3. Publicar
 
