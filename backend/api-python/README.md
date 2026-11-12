@@ -74,7 +74,7 @@ docker compose logs -f api-python
 |---|---|---|
 | Levantar o aplicar cambios de código | `levantar.bat` | `docker compose up -d --build` |
 | Aplicar cambios de `.env.fastapi` | — | `docker compose up -d` |
-| Ejecutar las pruebas | `probar.bat` | `docker compose exec api-python python -m pytest -q tests` |
+| Ejecutar las pruebas | `probar.bat` | `docker exec trouvels360-api-python python -m pytest -q tests` |
 | Detener | `detener.bat` | `docker compose down` |
 
 Para publicarla en otro puerto de tu equipo: `PUERTO_PYTHON=8101 docker compose up -d` (y ajusta
@@ -96,7 +96,7 @@ Para publicarla en otro puerto de tu equipo: `PUERTO_PYTHON=8101 docker compose 
 ## Pruebas
 
 ```bash
-docker compose exec api-python python -m pytest -q tests
+docker exec trouvels360-api-python python -m pytest -q tests
 ```
 
 | Prueba | Valida |

@@ -75,8 +75,8 @@ Qué pasa al arrancar el contenedor (`docker/entrypoint.sh`):
 |---|---|---|
 | Levantar o aplicar cambios de código | `levantar.bat` | `docker compose up -d --build` |
 | Aplicar cambios del `.env` | — | `docker compose up -d` |
-| Recrear los datos de prueba | `reiniciar-datos.bat` | `docker compose exec app php artisan migrate:fresh --seed --force` |
-| Ejecutar las pruebas | `probar.bat` | `docker compose exec app php artisan test` |
+| Recrear los datos de prueba | `reiniciar-datos.bat` | `docker exec trouvels360-api-laravel php artisan migrate:fresh --seed --force` |
+| Ejecutar las pruebas | `probar.bat` | `docker exec trouvels360-api-laravel php artisan test` |
 | Ver registros | — | `docker compose logs -f app` |
 | phpMyAdmin (http://localhost:8080) | — | `docker compose --profile herramientas up -d` |
 | Detener (conserva los datos) | `detener.bat` | `docker compose --profile herramientas down` |
@@ -113,7 +113,7 @@ La API no guarda archivos: cada hotel, tour y foto de galería es un **enlace** 
 ## Pruebas
 
 ```bash
-docker compose exec app php artisan test
+docker exec trouvels360-api-laravel php artisan test
 ```
 
 61 pruebas de integración con Pest (SQLite en memoria, no tocan tu base). Su nombre empieza con el criterio que validan,

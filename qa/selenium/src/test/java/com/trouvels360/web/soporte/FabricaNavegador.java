@@ -1,6 +1,7 @@
 package com.trouvels360.web.soporte;
 
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.SessionNotCreatedException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -38,12 +39,24 @@ public final class FabricaNavegador {
                 if (headless) o.addArguments("--headless=new");
                 o.addArguments("--no-sandbox", "--disable-dev-shm-usage", "--lang=es-PE", "--disable-search-engine-choice-screen");
                 o.setExperimentalOption("prefs", Map.of("credentials_enable_service", false, "profile.password_manager_enabled", false));
-                d = new ChromeDriver(o);
+                d = abrirChrome(o);
             }
         }
         d.manage().timeouts().implicitlyWait(Duration.ZERO);
         d.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(60));
         d.manage().window().setSize(new Dimension(Integer.parseInt(tam[0].trim()), Integer.parseInt(tam[1].trim())));
         return d;
+    }
+
+    /**
+     * Si Chrome se acaba de actualizar, Selenium Manager a veces entrega primero un chromedriver viejo
+     * ("This version of ChromeDriver only supports Chrome version N"). Un segundo intento ya baja el correcto.
+     */
+    private static WebDriver abrirChrome(ChromeOptions o) {
+        try {
+            return new ChromeDriver(o);
+        } catch (SessionNotCreatedException e) {
+            return new ChromeDriver(o);
+        }
     }
 }

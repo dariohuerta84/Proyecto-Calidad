@@ -23,7 +23,7 @@ flowchart TB
 
 | Nivel | Herramienta | Prefijo | Casos | Carpeta | Tarea |
 |---|---|---|---|---|---|
-| API (contrato y negocio) | Karate 1.4.1 | `TC-API` | 86 | `qa/karate` | QA-01 |
+| API (contrato y negocio) | Karate 1.5.2 | `TC-API` | 86 | `qa/karate` | QA-01 |
 | Rendimiento y concurrencia | JMeter 5.6.3 | `TC-PERF` | 6 | `qa/jmeter` | QA-02 |
 | Web de punta a punta | Selenium 4.25 + JUnit 5 | `TC-WEB` | 33 | `qa/selenium` | QA-03 |
 | Móvil de punta a punta | Appium 2 (UiAutomator2) + JUnit 5 | `TC-MOB` | 32 | `qa/appium` | QA-04 |

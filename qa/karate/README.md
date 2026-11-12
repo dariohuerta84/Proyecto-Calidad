@@ -1,8 +1,12 @@
-# Pruebas de API — Karate 1.4.1 (QA-01)
+# Pruebas de API — Karate 1.5.2 (QA-01)
 
 **136 escenarios** que cubren los **86 casos TC-API-001 a TC-API-086**. Cada escenario lleva la etiqueta de sus
 historias y de su caso (`@HU-V07 @TC-API-026`) y valida código HTTP, esquema JSON, reglas de negocio y tiempo de
 respuesta (`responseTime < 1000 ms`; 2000 ms con `karate.env=ci`).
+
+> **Versión:** la suite pasó 136/136 con Karate 1.4.1, pero esa versión ya no se descarga de Maven Central
+> (`Could not find artifact io.karatelabs:karate-junit5:jar:1.4.1`), así que el `pom.xml` usa 1.5.2.
+> Si Maven sigue sin encontrarla, corre una vez `mvn -U test` para que vuelva a consultar el repositorio.
 
 ## Estructura
 

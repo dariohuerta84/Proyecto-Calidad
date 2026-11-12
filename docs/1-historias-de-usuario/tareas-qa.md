@@ -6,7 +6,7 @@ Las cinco tareas corresponden a los entregables de calidad de la rúbrica. No so
 
 | Id | Tarea | Herramienta | Carpeta | Casos | Prioridad | Pts |
 |---|---|---|---|---|---|---|
-| QA-01 | Suite de pruebas de API con Karate | Karate 1.4.1 | `qa/karate` | 86 | Más alta | 8 |
+| QA-01 | Suite de pruebas de API con Karate | Karate 1.5.2 | `qa/karate` | 86 | Más alta | 8 |
 | QA-02 | Plan de rendimiento y concurrencia con JMeter | Apache JMeter 5.6.3 | `qa/jmeter` | 6 | Alta | 5 |
 | QA-03 | Automatización web con Selenium | Selenium 4.25 + JUnit 5 | `qa/selenium` | 33 | Más alta | 8 |
 | QA-04 | Automatización móvil con Appium | Appium 2 (UiAutomator2) + java-client 9.3 | `qa/appium` | 32 | Más alta | 8 |
@@ -18,7 +18,7 @@ Las cinco tareas corresponden a los entregables de calidad de la rúbrica. No so
 
 | Herramienta | Carpeta | Reemplaza a | Prioridad | Story points |
 |---|---|---|---|---|
-| Karate 1.4.1 | `qa/karate` | TRV-601 | Más alta | 8 |
+| Karate 1.5.2 | `qa/karate` | TRV-601 | Más alta | 8 |
 
 **Criterios de aceptación**
 

@@ -5,7 +5,7 @@ Las cuatro suites de la rúbrica más la trazabilidad. Cada caso tiene un id (`T
 
 | Carpeta | Herramienta | Casos | Qué prueba | Último resultado |
 |---|---|---|---|---|
-| [`karate/`](karate/README.md) | Karate 1.4.1 | 86 (136 escenarios) | API Laravel: contratos, reglas, permisos, idempotencia | **136 / 136 OK** |
+| [`karate/`](karate/README.md) | Karate 1.5.2 | 86 (136 escenarios) | API Laravel: contratos, reglas, permisos, idempotencia | **136 / 136 OK** |
 | [`selenium/`](selenium/README.md) | Selenium 4.25 + JUnit 5 | 33 | Web Angular de punta a punta | **33 / 33 OK** (web servida por nginx) |
 | [`appium/`](appium/README.md) | Appium 2 + JUnit 5 | 32 | App Android de punta a punta | Compila; **pendiente correr en un emulador** |
 | [`jmeter/`](jmeter/README.md) | JMeter 5.6.3 | 6 | Carga y carreras de concurrencia | Carreras OK con el script de Python; **pendiente la corrida con JMeter** |

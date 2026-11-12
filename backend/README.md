@@ -215,8 +215,8 @@ no debería quedar abierto a internet: bloquéalo en el firewall (la API Python 
 
 | Qué | Comando | Resultado al preparar esta versión |
 |---|---|---|
-| API Laravel (Pest, 61 pruebas) | `api-laravel\probar.bat` o `docker compose exec app php artisan test` | 61 / 61 OK |
-| API Python (pytest, 13 pruebas) | `api-python\probar.bat` o `docker compose exec api-python python -m pytest -q tests` | 13 / 13 OK |
+| API Laravel (Pest, 61 pruebas) | `api-laravel\probar.bat` o `docker exec trouvels360-api-laravel php artisan test` | 61 / 61 OK |
+| API Python (pytest, 13 pruebas) | `api-python\probar.bat` o `docker exec trouvels360-api-python python -m pytest -q tests` | 13 / 13 OK |
 | Las dos conectadas | login → `POST /api/itineraries` a través de Laravel | 200 con la propuesta; la API Python rechaza sin firma (401) |
 
 Antes de correr las suites de `qa/` (Karate, Selenium, JMeter, Appium), sube los límites de uso en `api-laravel/.env`

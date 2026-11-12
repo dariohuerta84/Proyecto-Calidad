@@ -3,6 +3,12 @@ REM Corre las suites en orden y regenera la trazabilidad. Requiere backend (:800
 REM Uso: ejecutar-todo.bat [appium] [jmeter]
 cd /d "%~dp0"
 set "ESTADO=0"
+REM Aviso si la terminal no usa Java 21 (con Java 25 fallan Maven/Allure: ver qa\README.md).
+java -version 2>&1 | findstr /c:"version \"21." >nul
+if errorlevel 1 (
+  echo AVISO: esta terminal no usa Java 21. Ver "Java" en qa\README.md.
+  java -version
+)
 echo == Karate (API)
 pushd karate
 call mvn -q test
