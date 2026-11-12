@@ -12,11 +12,10 @@ target/
 node_modules/
 package-lock.json
 
-# Postman Newman reports
-postman/node_modules/
+# Newman report generated locally
+/qa/postman/reports/
 
-# JMeter JTLs and temp downloads
-/jmeter/reports/*.jtl
+# JMeter results and temp downloads
 /qa/jmeter/resultados/
 /tmp/apache-jmeter*
 

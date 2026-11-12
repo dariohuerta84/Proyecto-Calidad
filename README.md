@@ -12,12 +12,12 @@ Este repositorio contiene la solución de software y sus artefactos de calidad p
 
 El repositorio implementa un enfoque de pruebas en múltiples niveles:
 - **Especificación Ágil:** 20 Historias de Usuario completas (10 para Proveedor y 10 para Viajero) con criterios de aceptación en formato Given-When-Then.
-- **Pruebas de API:** suites históricas con Karate 1.5.2 y regresión de Etapa 5 con Karate 1.4.1.
+- **Pruebas de API:** suite de regresión centralizada en `qa/karate/` con Karate 1.4.1.
 - **Pruebas E2E:** Selenium 4 para la web y Appium 2 para Android, con trazabilidad por caso.
-- **Pruebas de Servicios con Postman & Newman:** Colección completa v2.1 con aserciones `pm.test(...)` y reportería HTML interactiva (`htmlextra`).
-- **Pruebas Funcionales y de Rendimiento con Apache JMeter 5.6.3:** Catálogo de comandos `curl` listos para importar vía `Tools → Import from cURL`, plan funcional de Samplers HTTP encadenados y plan de pruebas de Carga/Stress.
+- **Pruebas de rendimiento:** suite JMeter 5.6.3 y smoke test de concurrencia en `qa/jmeter/`.
+- **Colección complementaria:** Postman & Newman en `qa/postman/`, con aserciones `pm.test(...)` y reportería HTML (`htmlextra`).
 
-Las implementaciones anteriores se conservan en el historial de Git. Las herramientas de Karate, Postman y JMeter se mantienen en la raíz como recursos de aseguramiento de calidad.
+`qa/` es la ubicación única de las suites, los ejecutores y la trazabilidad de pruebas. Los servicios de aplicación permanecen en sus carpetas raíz; las implementaciones anteriores se conservan en el historial de Git.
 
 ---
 
@@ -60,14 +60,12 @@ Proyecto-Calidad/
 │   ├── etapas/                # Hitos, cambios y entregables por etapa
 │   ├── historias-usuario/     # Historias y criterios de aceptación
 │   └── trazabilidad/          # Matriz de trazabilidad y defectos
-├── karate-tests/              # Pruebas BDD
-├── postman/                   # Pruebas de API con Newman
-├── jmeter/                    # Pruebas funcionales y de rendimiento
 ├── qa/
 │   ├── karate/                # Regresión API (Etapa 5)
 │   ├── selenium/              # Pruebas E2E web
 │   ├── appium/                # Pruebas E2E Android
 │   ├── jmeter/                # Carga, concurrencia y smoke test
+│   ├── postman/               # Colección complementaria de API
 │   ├── trazabilidad/          # Matriz HU/criterio/caso/resultado y CSV Jira
 │   └── evidencias/etapa-5/    # Reportes y capturas entregadas
 └── README.md
@@ -149,29 +147,21 @@ La web queda en http://localhost:4200, Laravel en http://localhost:8000/api/ping
 
 Para detener servicios, ejecuta `detener.bat` en `backend-laravel/`, `detener-docker.bat` en `frontend-angular/` y `docker compose down` desde `backend-itinerarios/`.
 
-### 1. Pruebas BDD con Karate Framework
-```bash
-cd karate-tests
-mvn clean test
-```
-*Reporte generado:* `karate-tests/target/karate-reports/karate-summary.html`
+### Colección Postman complementaria
 
-### 2. Pruebas de Servicios con Postman & Newman
-```bash
-cd postman
+La colección conservada en `qa/postman/` no forma parte del runner principal de Etapa 5. Sus endpoints o datos podrían requerir actualización para coincidir con el contrato vigente.
+
+```powershell
+Set-Location .\qa\postman
 npm install
 npm test
 ```
-*Reporte generado:* `postman/reports/newman-report.html`
 
-### 3. Ejecución de cURL y Apache JMeter
-En Windows, los scripts `.sh` de JMeter requieren Git Bash o WSL. Los archivos `.jmx` se pueden abrir directamente en Apache JMeter.
+El reporte se genera en `qa/postman/reports/newman-report.html`.
 
-*Dashboards generados:*
-- `jmeter/reports/crud-dashboard/index.html` (Pruebas Funcionales CRUD)
-- `jmeter/reports/load-dashboard/index.html` (Pruebas de Carga y Rendimiento)
+### JMeter
 
-Los artefactos de Karate, Postman y JMeter se conservaron desde la versión inicial y pueden requerir ajustes de datos o endpoints para coincidir con el contrato actual.
+Ejecuta la suite vigente desde la raíz con `qa/jmeter/ejecutar.bat` o abre `qa/jmeter/trouvels360.jmx` en JMeter. En Windows, los scripts `.sh` requieren Git Bash o WSL. Los resultados se generan bajo `qa/jmeter/resultados/`.
 
 ### Regresión automatizada de Etapa 5
 
