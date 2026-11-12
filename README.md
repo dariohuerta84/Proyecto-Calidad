@@ -8,10 +8,10 @@
 
 ## 1. Descripción del Proyecto
 
-Este repositorio contiene la solución de software y sus artefactos de calidad para **Trouvels360**, un marketplace turístico que conecta a proveedores de alojamiento y tours con viajeros e integra un microservicio de optimización de itinerarios. La versión vigente está directamente en la raíz; la evolución de cada etapa se documenta en [docs/etapas/README.md](docs/etapas/README.md).
+Este repositorio contiene la solución de software y sus artefactos de calidad para **Trouvels360**, un marketplace turístico que conecta a proveedores de alojamiento y tours con viajeros e integra un microservicio de optimización de itinerarios. La versión vigente está directamente en la raíz; toda la documentación está en [docs/README.md](docs/README.md); las versiones de cada etapa están en el historial de Git.
 
 El repositorio implementa un enfoque de pruebas en múltiples niveles:
-- **Especificación Ágil:** 20 Historias de Usuario completas (10 para Proveedor y 10 para Viajero) con criterios de aceptación en formato Given-When-Then.
+- **Especificación ágil:** 30 historias de usuario (15 del viajero y 15 del proveedor) con 130 criterios de aceptación Dado / Cuando / Entonces, todos cubiertos por al menos uno de los 160 casos de prueba.
 - **Pruebas de API:** suite de regresión centralizada en `qa/karate/` con Karate 1.4.1.
 - **Pruebas E2E:** Selenium 4 para la web y Appium 2 para Android, con trazabilidad por caso.
 - **Pruebas de rendimiento:** suite JMeter 5.6.3 y smoke test de concurrencia en `qa/jmeter/`.
@@ -57,9 +57,10 @@ Proyecto-Calidad/
 ├── frontend-angular/          # Aplicación web Angular
 ├── android/                   # Aplicación Kotlin + Jetpack Compose
 ├── docs/
-│   ├── etapas/                # Hitos, cambios y entregables por etapa
-│   ├── historias-usuario/     # Historias y criterios de aceptación
-│   └── trazabilidad/          # Matriz de trazabilidad y defectos
+│   ├── 1-historias-de-usuario/# 15 historias del viajero, 15 del proveedor y tareas de QA
+│   ├── 2-pruebas/             # Estrategia y catálogo de los 160 casos
+│   ├── 3-trazabilidad/        # Matriz historia → criterio → caso → resultado y defectos
+│   └── 4-jira/                # CSV de importación y guía de Jira
 ├── qa/
 │   ├── karate/                # Regresión API (Etapa 5)
 │   ├── selenium/              # Pruebas E2E web
@@ -73,32 +74,27 @@ Proyecto-Calidad/
 
 ---
 
-## 4. Resumen de las 20 Historias de Usuario
+## 4. Historias de usuario
 
-| Módulo | ID HU | Título de la Historia de Usuario | Verbos HTTP Probados |
-| :--- | :--- | :--- | :--- |
-| **Proveedor** | `HU-PRO-001` | Registrarme y gestionar mi sesión como proveedor | `POST` |
-| **Proveedor** | `HU-PRO-002` | Gestionar mi perfil y cuenta de proveedor | `GET`, `PUT`, `DELETE` |
-| **Proveedor** | `HU-PRO-003` | Consultar mis publicaciones e indicadores | `GET` |
-| **Proveedor** | `HU-PRO-004` | Publicar y editar hoteles | `POST`, `GET`, `PUT` |
-| **Proveedor** | `HU-PRO-005` | Gestionar habitaciones de un hotel | `POST`, `PUT`, `DELETE` |
-| **Proveedor** | `HU-PRO-006` | Publicar y editar tours | `POST`, `GET`, `PUT` |
-| **Proveedor** | `HU-PRO-007` | Gestionar actividades del itinerario del tour | `POST`, `GET`, `PUT`, `DELETE` |
-| **Proveedor** | `HU-PRO-008` | Gestionar salidas y cupos del tour | `POST`, `GET`, `PUT`, `DELETE` |
-| **Proveedor** | `HU-PRO-009` | Consultar reservas recibidas de mis servicios | `GET` |
-| **Proveedor** | `HU-PRO-010` | Retirar y eliminar publicaciones propias | `DELETE`, `GET` |
-| **Viajero** | `HU-VIA-001` | Registrarme y gestionar mi sesión como viajero | `POST` |
-| **Viajero** | `HU-VIA-002` | Gestionar mi perfil y cuenta de viajero | `GET`, `PUT`, `DELETE` |
-| **Viajero** | `HU-VIA-003` | Buscar hoteles y consultar disponibilidad | `GET` |
-| **Viajero** | `HU-VIA-004` | Solicitar reserva de hotel | `POST` |
-| **Viajero** | `HU-VIA-005` | Consultar mis reservas y estados actuales | `GET` |
-| **Viajero** | `HU-VIA-006` | Buscar tours y consultar salidas programadas | `GET` |
-| **Viajero** | `HU-VIA-007` | Reservar un tour y asegurar cupos | `POST` |
-| **Viajero** | `HU-VIA-008` | Cancelar reservas propias | `POST` |
-| **Viajero** | `HU-VIA-009` | Generar sugerencias de itinerario optimizado | `GET`, `POST` |
-| **Viajero** | `HU-VIA-010` | Consultar, publicar y gestionar reseñas | `GET`, `POST`, `PUT`, `DELETE` |
+Detalle completo en [docs/1-historias-de-usuario/](docs/1-historias-de-usuario/README.md) y trazabilidad en [docs/3-trazabilidad/](docs/3-trazabilidad/matriz-de-trazabilidad.md).
 
-*Para el detalle completo de criterios y esquemas JSON consultar [docs/historias-usuario/](docs/historias-usuario/) y [docs/trazabilidad/](docs/trazabilidad/).*
+| Viajero | Proveedor |
+| :--- | :--- |
+| `HU-V01` Crear mi cuenta de viajero | `HU-P01` Crear mi cuenta de proveedor |
+| `HU-V02` Iniciar sesión y volver a lo que estaba haciendo | `HU-P02` Entrar a mi panel y mantener los datos de mi empresa |
+| `HU-V03` Actualizar mis datos y mi contraseña | `HU-P03` Ver mis publicaciones |
+| `HU-V04` Eliminar mi cuenta | `HU-P04` Ver los indicadores de mi negocio |
+| `HU-V05` Buscar hoteles disponibles | `HU-P05` Publicar un hotel |
+| `HU-V06` Ver un hotel y cotizar mi estadía | `HU-P06` Editar un hotel |
+| `HU-V07` Reservar un hotel con pago simulado | `HU-P07` Gestionar los tipos de habitación |
+| `HU-V08` Buscar tours | `HU-P08` Publicar un tour |
+| `HU-V09` Ver un tour y cotizar | `HU-P09` Editar un tour |
+| `HU-V10` Reservar un tour | `HU-P10` Armar el programa de actividades del tour |
+| `HU-V11` Ver mis reservas | `HU-P11` Programar salidas y cupos |
+| `HU-V12` Saber si el hotel aceptó o rechazó mi solicitud | `HU-P12` Ver las reservas que recibo |
+| `HU-V13` Cancelar una reserva | `HU-P13` Aceptar una solicitud de hotel |
+| `HU-V14` Leer y escribir reseñas | `HU-P14` Rechazar una solicitud de hotel |
+| `HU-V15` Recibir un itinerario sugerido | `HU-P15` Eliminar una publicación |
 
 ---
 
@@ -177,13 +173,10 @@ El comando ejecuta Karate y Selenium y actualiza la matriz de trazabilidad. Para
 .\qa\ejecutar-todo.bat jmeter appium
 ```
 
-También puedes ejecutar cada suite desde su carpeta con `ejecutar.bat`. La guía completa, los casos y las limitaciones de verificación están en [docs/etapas/etapa-5/LEEME_ETAPA5.md](docs/etapas/etapa-5/LEEME_ETAPA5.md). Los reportes originales se conservan en `qa/evidencias/etapa-5/`; las nuevas ejecuciones escriben sus resultados bajo `target/` o `resultados/`.
+También puedes ejecutar cada suite desde su carpeta con `ejecutar.bat`. La estrategia, los entornos y el estado de cada suite están en [docs/2-pruebas/estrategia-de-pruebas.md](docs/2-pruebas/estrategia-de-pruebas.md). Los reportes originales se conservan en `qa/evidencias/etapa-5/`; las nuevas ejecuciones escriben sus resultados bajo `target/` o `resultados/`.
 
 ---
 
-## 6. Registro histórico de defectos del SUT inicial
+## 6. Defectos
 
-Durante la auditoría inicial de caja negra se registraron los siguientes hallazgos históricos:
-1. **DEF-001 (Mayor):** Inconsistencia de nombre de columna en `ReservaTourController.php` (`precio_persona` vs `precio`), provocando cálculo de total en `$0.0`.
-2. **DEF-002 (Medio):** Ausencia de endpoint mutador de aceptación/rechazo manual de reservas de hotel para el rol proveedor en `routes/api.php`.
-3. **DEF-003 (Menor):** `DELETE /api/hoteles/{id}` elimina la entidad hija `hoteles` sin eliminar el registro padre en `servicios` (a diferencia de `DELETE /api/servicios/{id}` que realiza soft-delete en cascada).
+Los defectos encontrados en la auditoría inicial, en la revisión de las APIs y al ejecutar las suites (21 en total, 19 corregidos y 2 triviales abiertos en los reportes de QA) están en [docs/3-trazabilidad/defectos.md](docs/3-trazabilidad/defectos.md), cada uno con el criterio que incumplía y el caso que lo detecta.
