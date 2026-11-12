@@ -53,6 +53,7 @@ flowchart TD
 ```text
 Proyecto-Calidad/
 ├── backend/
+│   ├── docker-compose.yml     # Levanta las dos APIs a la vez
 │   ├── api-laravel/           # API REST principal (Laravel + MySQL), con su Docker
 │   └── api-python/            # API de itinerarios (FastAPI), con su Docker
 ├── frontend-angular/          # Aplicación web Angular
@@ -109,13 +110,19 @@ variables, despliegue en la nube cada una en su dominio y problemas frecuentes) 
 Con Docker Desktop abierto, en Windows:
 
 ```powershell
+.\backend\levantar-todo.bat            # las dos a la vez (o desde backend\: docker compose up -d --build)
+```
+
+O cada una por separado, primero Laravel:
+
+```powershell
 .\backend\api-laravel\levantar.bat     # API Laravel + MySQL → http://localhost:8000/api/ping
 .\backend\api-python\levantar.bat      # API de itinerarios  → http://localhost:8001/api/health
 ```
 
 Cada `levantar.bat` crea su archivo de configuración desde el ejemplo si falta (`backend/api-laravel/.env` y
 `backend/api-python/.env.fastapi`); los ejemplos ya traen los valores compartidos entre ambas para desarrollo local.
-Esos archivos no se versionan. Para detener: `detener.bat` en cada carpeta.
+Esos archivos no se versionan. Para detener: `backend\detener-todo.bat`, o `detener.bat` en cada carpeta.
 
 ### Aplicación web
 

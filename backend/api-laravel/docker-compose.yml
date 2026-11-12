@@ -60,5 +60,8 @@ services:
       - mysql
 
 volumes:
+  # Nombres fijos: la misma base se usa al levantar esta carpeta sola o todo desde backend/
   mysql_data:
+    name: trouvels360_mysql_data
   storage:
+    name: trouvels360_laravel_storage

@@ -8,6 +8,14 @@ pueden levantar a la vez en el mismo equipo o desplegar cada una en su propio do
 | [`api-laravel/`](api-laravel/README.md) | API principal: cuentas, hoteles, tours, reservas, reseñas, panel del proveedor. Es la que usan la web y la app. | Laravel 12 (PHP 8.2) + MySQL 8 | http://localhost:8000/api | [README](api-laravel/README.md) |
 | [`api-python/`](api-python/README.md) | API de itinerarios sugeridos (HU-V15). Solo la llama la API Laravel. | FastAPI (Python 3.11) | http://localhost:8001/api | [README](api-python/README.md) |
 
+```
+backend/
+├── docker-compose.yml       levanta las dos a la vez (incluye los de abajo)
+├── levantar-todo.bat · detener-todo.bat
+├── api-laravel/             con su Dockerfile, docker-compose.yml y .env.example
+└── api-python/              con su Dockerfile, docker-compose.yml y .env.fastapi.example
+```
+
 ## Cómo se conectan
 
 ```mermaid
@@ -47,15 +55,34 @@ Los archivos de ejemplo (`.env.example` y `.env.fastapi.example`) **ya traen eso
 > Si antes usabas las carpetas `backend-laravel` y `backend-itinerarios`, detén sus contenedores primero (en cada una:
 > `docker compose down`), porque ocupan los mismos puertos.
 
-### Windows (doble clic)
+Hay dos formas. Usan los mismos archivos de configuración y la misma base de datos, así que puedes pasar de una a otra;
+solo no las mezcles a la vez (los contenedores tienen el mismo nombre).
 
-1. `api-laravel\levantar.bat` — construye la imagen, levanta MySQL y la API, crea las tablas y carga los datos de prueba.
-   La primera vez tarda varios minutos (descarga imágenes e instala dependencias).
-2. `api-python\levantar.bat` — construye y levanta la API de itinerarios.
+### Opción A — las dos a la vez, con un solo comando (recomendada)
 
-Cada `levantar.bat` crea su archivo de configuración a partir del ejemplo si no existe.
+El `docker-compose.yml` de esta carpeta **incluye** el de cada API: no repite nada, cada una sigue leyendo su propio
+`.env`.
 
-### Cualquier sistema (terminal)
+- **Windows:** doble clic en `levantar-todo.bat` (crea los `.env` desde los ejemplos si faltan, levanta todo y espera a
+  que las dos respondan). Para detener: `detener-todo.bat`.
+- **Terminal**, desde `backend/`:
+
+```bash
+cp api-laravel/.env.example api-laravel/.env                 # solo la primera vez
+cp api-python/.env.fastapi.example api-python/.env.fastapi    # solo la primera vez
+docker compose up -d --build      # levanta MySQL, la API Laravel y la API Python
+docker compose logs -f            # ver el arranque (Ctrl+C para salir)
+docker compose down               # detener las dos
+```
+
+Requiere Docker Compose 2.20 o superior (cualquier Docker Desktop reciente).
+
+### Opción B — cada una por separado
+
+Útil para trabajar en una sola API o desplegarlas en lugares distintos. Primero Laravel (la API Python lee su base):
+
+- **Windows:** `api-laravel\levantar.bat` y después `api-python\levantar.bat`. Para detener: `detener.bat` en cada carpeta.
+- **Terminal:**
 
 ```bash
 cd backend/api-laravel
@@ -66,6 +93,9 @@ cd ../api-python
 cp .env.fastapi.example .env.fastapi   # solo la primera vez
 docker compose up -d --build
 ```
+
+La primera vez tarda varios minutos (descarga imágenes e instala dependencias). Al arrancar, la API Laravel crea las
+tablas y carga los datos de prueba si la base está vacía.
 
 ### Comprobar que funcionan
 
@@ -84,8 +114,8 @@ Más datos en [`api-laravel/docs/DATOS_DE_PRUEBA.md`](api-laravel/docs/DATOS_DE_
 
 ### Detener
 
-`detener.bat` en cada carpeta, o `docker compose down`. Los datos de MySQL se conservan en un volumen; para borrarlos:
-`docker compose down -v` en `api-laravel`.
+`detener-todo.bat` (opción A) o `detener.bat` en cada carpeta (opción B). Los datos de MySQL se conservan en el volumen
+`trouvels360_mysql_data`; para borrarlos: `docker compose down -v`.
 
 ## ¿Por qué cada una tiene su propia dirección?
 
@@ -163,7 +193,7 @@ asigna la plataforma. Agrega una base MySQL, carga las variables de arriba y asi
 `api-python/railway.json` ya trae la configuración de Railway (incluido el chequeo de salud).
 
 **Opción B — un servidor propio (VPS) con Docker:** copia la carpeta `backend/`, crea los `.env` con las variables de
-arriba y levanta cada carpeta con `docker compose up -d --build`. Delante pon un proxy con HTTPS automático, por ejemplo
+arriba y levanta todo con `docker compose up -d --build` desde `backend/` (o cada carpeta por separado). Delante pon un proxy con HTTPS automático, por ejemplo
 [Caddy](https://caddyserver.com) con este `Caddyfile`:
 
 ```
