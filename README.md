@@ -1,7 +1,12 @@
 # Proyecto-Calidad — Ecosistema Trouvels360
 ### Asignatura: Calidad de Software (C8305) — Universidad Peruana Cayetano Heredia (UPCH)
 **Coordinador del Curso:** Mg. Ing. Gustavo Henry Pachas Quispe  
-**Estudiante:** Matías Huerta  
+**Integrantes:**
+- Edwin Junior Jara Bocanegra
+- Josué Abel Florián Párraga
+- Matias Dario Huerta Cruz
+- Camilo Sebastián Silva Cuzqui
+
 **Semestre Académico:** 2026-II  
 
 ---
