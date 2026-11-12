@@ -63,9 +63,9 @@
 
 ---
 
-## 2. Registro Formal de Hallazgos y Defectos de Calidad (SUT Intacto)
+## 2. Registro histórico de defectos del SUT inicial
 
-Conforme a las buenas prácticas de ISTQB y aseguramiento de la calidad de software, durante la revisión estática y dinámica de la arquitectura del backend se documentan los siguientes defectos reales identificados en el SUT (mantenidos intactos por directiva del proyecto):
+Los siguientes hallazgos corresponden a la versión del SUT evaluada inicialmente. Las etapas posteriores incorporan correcciones y ampliaciones; esta sección se conserva como registro histórico de la evaluación original.
 
 ### Defecto DEF-001: Inconsistencia de nombre de columna en cálculo de importe de Reserva de Tour
 - **Severidad:** Mayor (Funcional / Negocio).

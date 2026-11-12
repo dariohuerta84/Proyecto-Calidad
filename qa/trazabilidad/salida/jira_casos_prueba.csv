@@ -1,0 +1,1322 @@
+﻿Issue Type,Summary,Description,Priority,Labels,Labels,Labels,Component/s,Epic Link,Link Tests
+Test,TC-API-001 Registro viajero válido devuelve 201 y esquema de usuario sin password,"*Historia:* TRV-101 — Registro de cuenta de viajero
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-101-01 Registro exitoso: Dado que completo nombre, apellido, correo nuevo y contraseña de 6+ caracteres con confirmación igual, cuando envío el formulario de registro como viajero, entonces se crea una sola cuenta con rol viajero, la API responde 201 con el usuario sin contraseña y quedo con sesión iniciada.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/auth.feature:9 — Registro de viajero válido devuelve 201 y usuario sin password}}",Alta,karate,TRV-101,TC-API-001,QA,TRV-1,TRV-101
+Test,TC-API-002 Data-driven (CSV) de campos inválidos devuelve 422 con error por campo,"*Historia:* TRV-101 — Registro de cuenta de viajero
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-101-02 Campos inválidos: Dado que dejo vacío un campo obligatorio o el correo no tiene formato válido, cuando intento registrarme, entonces se marca el campo con su mensaje, la API responde 422 con el detalle por campo y no se crea ninguna cuenta.
+- CA-TRV-101-03 Contraseñas distintas: Dado que la confirmación no coincide con la contraseña, cuando envío el registro, entonces se muestra 'Las contraseñas no coinciden' y no se crea la cuenta.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/auth.feature:18 — Registro inválido (<caso>) devuelve 422 con error en <campo>}}",Alta,karate,TRV-101,TC-API-002,QA,TRV-1,TRV-101
+Test,TC-API-003 Correo duplicado en mayúsculas devuelve 422,"*Historia:* TRV-101 — Registro de cuenta de viajero
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-101-04 Correo duplicado: Dado que ya existe una cuenta con el mismo correo (sin importar mayúsculas), cuando envío el registro, entonces la API responde 422 'El correo ya está registrado' y no se crea una segunda cuenta.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/auth.feature:33 — Correo duplicado escrito en mayúsculas devuelve 422}}",Alta,karate,TRV-101,TC-API-003,QA,TRV-1,TRV-101
+Test,TC-API-004 Rol 'admin' devuelve 422,"*Historia:* TRV-101 — Registro de cuenta de viajero
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-101-05 Rol no manipulable: Dado que envío un rol distinto de viajero o proveedor, cuando llamo a la API de registro, entonces responde 422 y no se crea la cuenta.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/auth.feature:43 — Rol 'admin' devuelve 422}}",Alta,karate,TRV-101,TC-API-004,QA,TRV-1,TRV-101
+Test,TC-WEB-001 Registro de viajero end-to-end y aterrizaje en catálogo,"*Historia:* TRV-101 — Registro de cuenta de viajero
+*Herramienta:* Selenium
+
+*Criterios cubiertos:*
+- CA-TRV-101-01 Registro exitoso: Dado que completo nombre, apellido, correo nuevo y contraseña de 6+ caracteres con confirmación igual, cuando envío el formulario de registro como viajero, entonces se crea una sola cuenta con rol viajero, la API responde 201 con el usuario sin contraseña y quedo con sesión iniciada.
+
+*Automatización:*
+- {{selenium/src/test/java/com/trouvels360/web/pruebas/AutenticacionTest.java:27 — AutenticacionTest#registroViajero}}",Alta,selenium,TRV-101,TC-WEB-001,QA,TRV-1,TRV-101
+Test,TC-WEB-002 Mensajes de validación en el formulario,"*Historia:* TRV-101 — Registro de cuenta de viajero
+*Herramienta:* Selenium
+
+*Criterios cubiertos:*
+- CA-TRV-101-02 Campos inválidos: Dado que dejo vacío un campo obligatorio o el correo no tiene formato válido, cuando intento registrarme, entonces se marca el campo con su mensaje, la API responde 422 con el detalle por campo y no se crea ninguna cuenta.
+- CA-TRV-101-03 Contraseñas distintas: Dado que la confirmación no coincide con la contraseña, cuando envío el registro, entonces se muestra 'Las contraseñas no coinciden' y no se crea la cuenta.
+
+*Automatización:*
+- {{selenium/src/test/java/com/trouvels360/web/pruebas/AutenticacionTest.java:46 — AutenticacionTest#validacionesRegistro}}",Alta,selenium,TRV-101,TC-WEB-002,QA,TRV-1,TRV-101
+Test,TC-MOB-001 Registro de viajero desde la app y sesión iniciada,"*Historia:* TRV-101 — Registro de cuenta de viajero
+*Herramienta:* Appium
+
+*Criterios cubiertos:*
+- CA-TRV-101-01 Registro exitoso: Dado que completo nombre, apellido, correo nuevo y contraseña de 6+ caracteres con confirmación igual, cuando envío el formulario de registro como viajero, entonces se crea una sola cuenta con rol viajero, la API responde 201 con el usuario sin contraseña y quedo con sesión iniciada.
+
+*Automatización:*
+- {{appium/src/test/java/com/trouvels360/movil/pruebas/CuentaMovilTest.java:23 — CuentaMovilTest#registroViajero}}",Alta,appium,TRV-101,TC-MOB-001,QA,TRV-1,TRV-101
+Test,TC-MOB-002 Botón Registrarme deshabilitado con contraseñas distintas,"*Historia:* TRV-101 — Registro de cuenta de viajero
+*Herramienta:* Appium
+
+*Criterios cubiertos:*
+- CA-TRV-101-03 Contraseñas distintas: Dado que la confirmación no coincide con la contraseña, cuando envío el registro, entonces se muestra 'Las contraseñas no coinciden' y no se crea la cuenta.
+
+*Automatización:*
+- {{appium/src/test/java/com/trouvels360/movil/pruebas/CuentaMovilTest.java:41 — CuentaMovilTest#registroContrasenasDistintas}}",Alta,appium,TRV-101,TC-MOB-002,QA,TRV-1,TRV-101
+Test,TC-API-005 Registro proveedor normaliza '987654321' a '+51 987654321',"*Historia:* TRV-102 — Registro de cuenta de proveedor
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-102-01 Registro exitoso: Dado que ingreso empresa, RUC de 11 dígitos nuevo, celular peruano válido, correo nuevo y contraseña confirmada, cuando me registro como proveedor, entonces se crea una sola cuenta con rol proveedor y el teléfono queda guardado como '+51 9XXXXXXXX'.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/auth.feature:53 — Registro de proveedor normaliza el celular a '+51 9XXXXXXXX'}}",Alta,karate,TRV-102,TC-API-005,QA,TRV-1,TRV-102
+Test,TC-API-006 Data-driven de RUC inválidos y duplicado (422),"*Historia:* TRV-102 — Registro de cuenta de proveedor
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-102-02 RUC inválido o duplicado: Dado que el RUC no tiene 11 dígitos o ya está registrado, cuando envío el registro, entonces la API responde 422 indicando el problema del RUC y no se crea la cuenta.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/auth.feature:62 — RUC inválido (<caso>) devuelve 422}}",Alta,karate,TRV-102,TC-API-006,QA,TRV-1,TRV-102
+Test,TC-API-007 Teléfonos inválidos devuelven 422 con mensaje,"*Historia:* TRV-102 — Registro de cuenta de proveedor
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-102-03 Teléfono inválido: Dado que el teléfono no es un celular peruano (9 dígitos que empiezan en 9), cuando envío el registro, entonces se informa 'El teléfono debe tener el formato +51 9########' y no se crea la cuenta.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/auth.feature:76 — Teléfono inválido (<caso>) devuelve 422 con mensaje}}",Alta,karate,TRV-102,TC-API-007,QA,TRV-1,TRV-102
+Test,TC-WEB-003 Registro de proveedor y acceso al panel del proveedor,"*Historia:* TRV-102 — Registro de cuenta de proveedor
+*Herramienta:* Selenium
+
+*Criterios cubiertos:*
+- CA-TRV-102-01 Registro exitoso: Dado que ingreso empresa, RUC de 11 dígitos nuevo, celular peruano válido, correo nuevo y contraseña confirmada, cuando me registro como proveedor, entonces se crea una sola cuenta con rol proveedor y el teléfono queda guardado como '+51 9XXXXXXXX'.
+
+*Automatización:*
+- {{selenium/src/test/java/com/trouvels360/web/pruebas/AutenticacionTest.java:73 — AutenticacionTest#registroProveedor}}",Alta,selenium,TRV-102,TC-WEB-003,QA,TRV-1,TRV-102
+Test,TC-MOB-003 Registro de proveedor desde la app y acceso al panel,"*Historia:* TRV-102 — Registro de cuenta de proveedor
+*Herramienta:* Appium
+
+*Criterios cubiertos:*
+- CA-TRV-102-01 Registro exitoso: Dado que ingreso empresa, RUC de 11 dígitos nuevo, celular peruano válido, correo nuevo y contraseña confirmada, cuando me registro como proveedor, entonces se crea una sola cuenta con rol proveedor y el teléfono queda guardado como '+51 9XXXXXXXX'.
+
+*Automatización:*
+- {{appium/src/test/java/com/trouvels360/movil/pruebas/CuentaMovilTest.java:55 — CuentaMovilTest#registroProveedor}}",Alta,appium,TRV-102,TC-MOB-003,QA,TRV-1,TRV-102
+Test,"TC-API-008 Login devuelve 200, cookie access_token HttpOnly y esquema de usuario","*Historia:* TRV-103 — Inicio y cierre de sesión con retorno al destino
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-103-01 Login correcto: Dado que tengo una cuenta activa, cuando ingreso correo y contraseña correctos, entonces accedo con mi rol y veo el menú de viajero o el panel de proveedor según corresponda.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/auth.feature:89 — Login devuelve 200, cookie access_token HttpOnly y el usuario}}",Más alta,karate,TRV-103,TC-API-008,QA,TRV-1,TRV-103
+Test,TC-API-009 POST sin X-XSRF-TOKEN devuelve 403,"*Historia:* TRV-103 — Inicio y cierre de sesión con retorno al destino
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-103-01 Login correcto: Dado que tengo una cuenta activa, cuando ingreso correo y contraseña correctos, entonces accedo con mi rol y veo el menú de viajero o el panel de proveedor según corresponda.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/auth.feature:107 — POST sin header X-XSRF-TOKEN devuelve 403}}",Más alta,karate,TRV-103,TC-API-009,QA,TRV-1,TRV-103
+Test,TC-API-010 Credenciales inválidas 401 y faltantes 422,"*Historia:* TRV-103 — Inicio y cierre de sesión con retorno al destino
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-103-03 Credenciales incorrectas: Dado que la contraseña es incorrecta o falta un campo, cuando intento ingresar, entonces veo 'Credenciales inválidas' (401) o el campo faltante (422) y no se crea sesión.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/auth.feature:114 — Credenciales inválidas devuelven 401 y campos faltantes 422}}",Más alta,karate,TRV-103,TC-API-010,QA,TRV-1,TRV-103
+Test,TC-API-011 Token reutilizado tras logout devuelve 401,"*Historia:* TRV-103 — Inicio y cierre de sesión con retorno al destino
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-103-05 Cierre de sesión: Dado que tengo sesión iniciada, cuando cierro sesión y reutilizo el token anterior, entonces la API responde 401: el token quedó invalidado.
+- CA-TRV-103-04 Sesión vencida: Dado que mi token expiró, cuando intento una acción privada, entonces la API responde 401, se limpia la sesión local y se me pide iniciar sesión.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/auth.feature:129 — El token reutilizado después del logout devuelve 401}}",Más alta,karate,TRV-103,TC-API-011,QA,TRV-1,TRV-103
+Test,TC-API-012 Viajero en ruta de proveedor devuelve 403,"*Historia:* TRV-103 — Inicio y cierre de sesión con retorno al destino
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-103-06 Separación de roles: Dado que soy viajero, cuando llamo a una ruta exclusiva de proveedor, entonces la API responde 403 y no se expone información.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/auth.feature:145 — Un viajero en una ruta de proveedor recibe 403}}",Más alta,karate,TRV-103,TC-API-012,QA,TRV-1,TRV-103
+Test,"TC-PERF-001 Login con 50 usuarios concurrentes desde CSV: p95 < 800 ms, 0% errores","*Historia:* TRV-103 — Inicio y cierre de sesión con retorno al destino
+*Herramienta:* JMeter
+
+*Criterios cubiertos:*
+- CA-TRV-103-01 Login correcto: Dado que tengo una cuenta activa, cuando ingreso correo y contraseña correctos, entonces accedo con mi rol y veo el menú de viajero o el panel de proveedor según corresponda.
+
+*Automatización:*
+- {{jmeter/trouvels360.jmx — TC-PERF-001 Login concurrente (TRV-103) - 50 usuarios}}",Más alta,jmeter,TRV-103,TC-PERF-001,QA,TRV-1,TRV-103
+Test,TC-WEB-004 Login viajero y proveedor muestran el menú de su rol,"*Historia:* TRV-103 — Inicio y cierre de sesión con retorno al destino
+*Herramienta:* Selenium
+
+*Criterios cubiertos:*
+- CA-TRV-103-01 Login correcto: Dado que tengo una cuenta activa, cuando ingreso correo y contraseña correctos, entonces accedo con mi rol y veo el menú de viajero o el panel de proveedor según corresponda.
+- CA-TRV-103-06 Separación de roles: Dado que soy viajero, cuando llamo a una ruta exclusiva de proveedor, entonces la API responde 403 y no se expone información.
+
+*Automatización:*
+- {{selenium/src/test/java/com/trouvels360/web/pruebas/AutenticacionTest.java:89 — AutenticacionTest#loginPorRol}}",Más alta,selenium,TRV-103,TC-WEB-004,QA,TRV-1,TRV-103
+Test,TC-WEB-005 Login desde 'Reservar' vuelve al detalle con la selección,"*Historia:* TRV-103 — Inicio y cierre de sesión con retorno al destino
+*Herramienta:* Selenium
+
+*Criterios cubiertos:*
+- CA-TRV-103-02 Retorno a la reserva: Dado que pulsé 'Reservar' sin sesión con fechas y habitaciones elegidas, cuando inicio sesión correctamente, entonces vuelvo al detalle del hotel o tour con la misma selección si sigue disponible.
+
+*Automatización:*
+- {{selenium/src/test/java/com/trouvels360/web/pruebas/AutenticacionTest.java:114 — AutenticacionTest#loginDesdeReservar}}",Más alta,selenium,TRV-103,TC-WEB-005,QA,TRV-1,TRV-103
+Test,"TC-MOB-004 Login, cierre de sesión y bloqueo de pestañas privadas","*Historia:* TRV-103 — Inicio y cierre de sesión con retorno al destino
+*Herramienta:* Appium
+
+*Criterios cubiertos:*
+- CA-TRV-103-01 Login correcto: Dado que tengo una cuenta activa, cuando ingreso correo y contraseña correctos, entonces accedo con mi rol y veo el menú de viajero o el panel de proveedor según corresponda.
+- CA-TRV-103-05 Cierre de sesión: Dado que tengo sesión iniciada, cuando cierro sesión y reutilizo el token anterior, entonces la API responde 401: el token quedó invalidado.
+
+*Automatización:*
+- {{appium/src/test/java/com/trouvels360/movil/pruebas/CuentaMovilTest.java:70 — CuentaMovilTest#loginLogoutPestanasPrivadas}}",Más alta,appium,TRV-103,TC-MOB-004,QA,TRV-1,TRV-103
+Test,TC-MOB-005 Reservar sin sesión → login → regreso al detalle,"*Historia:* TRV-103 — Inicio y cierre de sesión con retorno al destino
+*Herramienta:* Appium
+
+*Criterios cubiertos:*
+- CA-TRV-103-02 Retorno a la reserva: Dado que pulsé 'Reservar' sin sesión con fechas y habitaciones elegidas, cuando inicio sesión correctamente, entonces vuelvo al detalle del hotel o tour con la misma selección si sigue disponible.
+
+*Automatización:*
+- {{appium/src/test/java/com/trouvels360/movil/pruebas/CuentaMovilTest.java:92 — CuentaMovilTest#reservarSinSesion}}",Más alta,appium,TRV-103,TC-MOB-005,QA,TRV-1,TRV-103
+Test,"TC-WEB-033 Sesión vencida: 401, login y regreso a la página","*Historia:* TRV-103 — Inicio y cierre de sesión con retorno al destino
+*Herramienta:* Selenium
+
+*Criterios cubiertos:*
+- CA-TRV-103-04 Sesión vencida: Dado que mi token expiró, cuando intento una acción privada, entonces la API responde 401, se limpia la sesión local y se me pide iniciar sesión.
+
+*Automatización:*
+- {{selenium/src/test/java/com/trouvels360/web/pruebas/CoberturaAdicionalTest.java:80 — CoberturaAdicionalTest#sesionVencida}}",Más alta,selenium,TRV-103,TC-WEB-033,QA,TRV-1,TRV-103
+Test,TC-API-013 PATCH /usuarios/me actualiza y GET /auth/me devuelve lo mismo,"*Historia:* TRV-104 — Gestionar perfil y contraseña
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-104-01 Editar datos: Dado que tengo sesión, cuando guardo datos válidos, entonces los cambios persisten y se ven igual al consultar desde web y desde móvil.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/cuenta.feature:10 — PATCH /usuarios/me actualiza y GET /auth/me devuelve lo mismo}}",Media,karate,TRV-104,TC-API-013,QA,TRV-1,TRV-104
+Test,TC-API-014 Avatar y teléfono inválidos devuelven 422,"*Historia:* TRV-104 — Gestionar perfil y contraseña
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-104-02 Datos inválidos: Dado que envío un teléfono o URL de imagen inválidos, cuando guardo, entonces se informa el campo con error y se conservan los datos anteriores.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/cuenta.feature:24 — Avatar y teléfono inválidos devuelven 422}}",Media,karate,TRV-104,TC-API-014,QA,TRV-1,TRV-104
+Test,TC-API-015 Enviar rol devuelve 422,"*Historia:* TRV-104 — Gestionar perfil y contraseña
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-104-03 Intento de cambiar rol: Dado que envío el campo rol, cuando llamo a PATCH /usuarios/me, entonces la API responde 422 y el rol no cambia.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/cuenta.feature:39 — Enviar el rol devuelve 422 y el rol no cambia}}",Media,karate,TRV-104,TC-API-015,QA,TRV-1,TRV-104
+Test,TC-API-016 Cambio de contraseña: login con nueva 200 y con anterior 401,"*Historia:* TRV-104 — Gestionar perfil y contraseña
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-104-04 Cambiar contraseña: Dado que ingreso la contraseña actual correcta y una nueva confirmada, cuando guardo y vuelvo a iniciar sesión, entonces la nueva contraseña funciona y la anterior responde 401.
+- CA-TRV-104-05 Contraseña actual incorrecta: Dado que la contraseña actual no coincide, cuando intento cambiarla, entonces se informa 'La contraseña actual no es correcta' y no cambia.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/cuenta.feature:51 — Cambio de contraseña: login con la nueva 200 y con la anterior 401}}",Media,karate,TRV-104,TC-API-016,QA,TRV-1,TRV-104
+Test,TC-WEB-006 Editar perfil y ver el nombre actualizado en el menú,"*Historia:* TRV-104 — Gestionar perfil y contraseña
+*Herramienta:* Selenium
+
+*Criterios cubiertos:*
+- CA-TRV-104-01 Editar datos: Dado que tengo sesión, cuando guardo datos válidos, entonces los cambios persisten y se ven igual al consultar desde web y desde móvil.
+
+*Automatización:*
+- {{selenium/src/test/java/com/trouvels360/web/pruebas/AutenticacionTest.java:136 — AutenticacionTest#editarPerfil}}",Media,selenium,TRV-104,TC-WEB-006,QA,TRV-1,TRV-104
+Test,TC-MOB-006 Editar perfil en la app y verificarlo en la pestaña Perfil,"*Historia:* TRV-104 — Gestionar perfil y contraseña
+*Herramienta:* Appium
+
+*Criterios cubiertos:*
+- CA-TRV-104-01 Editar datos: Dado que tengo sesión, cuando guardo datos válidos, entonces los cambios persisten y se ven igual al consultar desde web y desde móvil.
+
+*Automatización:*
+- {{appium/src/test/java/com/trouvels360/movil/pruebas/CuentaMovilTest.java:111 — CuentaMovilTest#editarPerfil}}",Media,appium,TRV-104,TC-MOB-006,QA,TRV-1,TRV-104
+Test,TC-MOB-007 Cambio de contraseña con confirmación distinta deshabilita Guardar,"*Historia:* TRV-104 — Gestionar perfil y contraseña
+*Herramienta:* Appium
+
+*Criterios cubiertos:*
+- CA-TRV-104-04 Cambiar contraseña: Dado que ingreso la contraseña actual correcta y una nueva confirmada, cuando guardo y vuelvo a iniciar sesión, entonces la nueva contraseña funciona y la anterior responde 401.
+
+*Automatización:*
+- {{appium/src/test/java/com/trouvels360/movil/pruebas/CuentaMovilTest.java:127 — CuentaMovilTest#cambioContrasena}}",Media,appium,TRV-104,TC-MOB-007,QA,TRV-1,TRV-104
+Test,TC-MAN-001 Error de servidor al guardar el perfil: mensaje con reintentar y sin éxito falso,"*Historia:* TRV-104 — Gestionar perfil y contraseña
+*Herramienta:* Manual
+
+*Criterios cubiertos:*
+- CA-TRV-104-06 Error de servidor: Dado que la API falla al guardar, cuando termina la operación, entonces se muestra un error con opción de reintentar y no se anuncia un cambio que no se guardó.
+
+*Pasos (prueba manual):*
+Con la sesión abierta en Mi cuenta, detener el backend (o bloquear /api/auth/me en DevTools > Network request blocking), cambiar el nombre y Guardar. Esperado: mensaje de error, el nombre del menú no cambia; al reactivar y reintentar se guarda.",Media,manual,TRV-104,TC-MAN-001,QA,TRV-1,TRV-104
+Test,TC-API-017 DELETE con reserva activa devuelve 409,"*Historia:* TRV-105 — Eliminar mi cuenta conservando el historial
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-105-03 Bloqueo por reservas activas: Dado que tengo una reserva confirmada futura, cuando intento eliminar, entonces la API responde 409 'Tienes reservas activas' y la cuenta sigue activa.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/cuenta.feature:65 — Eliminar la cuenta con una reserva activa devuelve 409}}",Baja,karate,TRV-105,TC-API-017,QA,TRV-1,TRV-105
+Test,TC-API-018 DELETE sin reservas devuelve 200 y login posterior 401,"*Historia:* TRV-105 — Eliminar mi cuenta conservando el historial
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-105-02 Eliminación permitida: Dado que no tengo reservas activas, cuando confirmo la eliminación, entonces se cierra mi sesión y no puedo volver a ingresar con esa cuenta (401).
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/cuenta.feature:78 — Eliminar la cuenta sin reservas devuelve 200 y el login posterior 401}}",Baja,karate,TRV-105,TC-API-018,QA,TRV-1,TRV-105
+Test,TC-API-019 Reservas de la cuenta eliminada siguen visibles para el proveedor,"*Historia:* TRV-105 — Eliminar mi cuenta conservando el historial
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-105-04 Historial conservado: Dado que mi cuenta fue eliminada, cuando el proveedor consulta sus reservas, entonces las reservas siguen con su código, importe y estado.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/cuenta.feature:89 — Las reservas de una cuenta eliminada siguen visibles para el proveedor}}",Baja,karate,TRV-105,TC-API-019,QA,TRV-1,TRV-105
+Test,TC-WEB-007 Diálogo de confirmación: cancelar conserva la cuenta,"*Historia:* TRV-105 — Eliminar mi cuenta conservando el historial
+*Herramienta:* Selenium
+
+*Criterios cubiertos:*
+- CA-TRV-105-01 Desistir: Dado que pulsé 'Eliminar cuenta', cuando cancelo en el diálogo de confirmación, entonces no cambia nada.
+
+*Automatización:*
+- {{selenium/src/test/java/com/trouvels360/web/pruebas/AutenticacionTest.java:150 — AutenticacionTest#eliminarCuentaCancelar}}",Baja,selenium,TRV-105,TC-WEB-007,QA,TRV-1,TRV-105
+Test,TC-MOB-008 Eliminar cuenta desde Perfil y volver a la pantalla de login,"*Historia:* TRV-105 — Eliminar mi cuenta conservando el historial
+*Herramienta:* Appium
+
+*Criterios cubiertos:*
+- CA-TRV-105-02 Eliminación permitida: Dado que no tengo reservas activas, cuando confirmo la eliminación, entonces se cierra mi sesión y no puedo volver a ingresar con esa cuenta (401).
+
+*Automatización:*
+- {{appium/src/test/java/com/trouvels360/movil/pruebas/CuentaMovilTest.java:146 — CuentaMovilTest#eliminarCuenta}}",Baja,appium,TRV-105,TC-MOB-008,QA,TRV-1,TRV-105
+Test,"TC-API-020 Búsqueda válida: todos los resultados cumplen ciudad, capacidad y unidades (match each)","*Historia:* TRV-201 — Buscar hoteles por destino, fechas y huéspedes
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-201-01 Búsqueda válida: Dado que ingreso Cusco, 2 noches futuras, 2 adultos y 1 habitación, cuando busco, entonces solo veo hoteles de Cusco con habitaciones de capacidad >= 2 y unidades libres en esas fechas, con precio 'desde' por noche.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/hoteles.feature:13 — Búsqueda válida: todos los resultados cumplen ciudad, capacidad y unidades libres}}",Más alta,karate,TRV-201,TC-API-020,QA,TRV-2,TRV-201
+Test,TC-API-021 Data-driven de fechas y cantidades inválidas devuelve 422,"*Historia:* TRV-201 — Buscar hoteles por destino, fechas y huéspedes
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-201-02 Fechas inválidas: Dado que el check-in es pasado o el check-out es igual o anterior, cuando intento buscar, entonces se indica qué corregir, el botón no continúa y la API responde 422 si se llama directo.
+- CA-TRV-201-03 Cantidades inválidas: Dado que pido 0 adultos, 11 habitaciones o valores no enteros, cuando intento buscar, entonces se informa el rango permitido y no se ejecuta la búsqueda.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/hoteles.feature:29 — Búsqueda inválida (<caso>) devuelve 422}}",Más alta,karate,TRV-201,TC-API-021,QA,TRV-2,TRV-201
+Test,TC-API-022 Hotel con unidades ocupadas por reservas pendientes no aparece,"*Historia:* TRV-201 — Buscar hoteles por destino, fechas y huéspedes
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-201-01 Búsqueda válida: Dado que ingreso Cusco, 2 noches futuras, 2 adultos y 1 habitación, cuando busco, entonces solo veo hoteles de Cusco con habitaciones de capacidad >= 2 y unidades libres en esas fechas, con precio 'desde' por noche.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/hoteles.feature:41 — Un hotel con todas sus unidades ocupadas por reservas pendientes no aparece}}",Más alta,karate,TRV-201,TC-API-022,QA,TRV-2,TRV-201
+Test,"TC-PERF-002 Carga de catálogo: 100 usuarios, ramp-up 60 s, ciudades desde CSV, p95 < 1 s","*Historia:* TRV-201 — Buscar hoteles por destino, fechas y huéspedes
+*Herramienta:* JMeter
+
+*Criterios cubiertos:*
+- CA-TRV-201-01 Búsqueda válida: Dado que ingreso Cusco, 2 noches futuras, 2 adultos y 1 habitación, cuando busco, entonces solo veo hoteles de Cusco con habitaciones de capacidad >= 2 y unidades libres en esas fechas, con precio 'desde' por noche.
+
+*Automatización:*
+- {{jmeter/trouvels360.jmx — TC-PERF-002 Catálogo de hoteles (TRV-201/202) - 100 usuarios}}
+- {{jmeter/trouvels360.jmx — TC-PERF-002 GET /hoteles (búsqueda)}}
+- {{jmeter/trouvels360.jmx — TC-PERF-002 GET /hoteles/{id} (detalle)}}",Más alta,jmeter,TRV-201,TC-PERF-002,QA,TRV-2,TRV-201
+Test,TC-WEB-008 Búsqueda en Cusco y validación de tarjetas de resultado,"*Historia:* TRV-201 — Buscar hoteles por destino, fechas y huéspedes
+*Herramienta:* Selenium
+
+*Criterios cubiertos:*
+- CA-TRV-201-01 Búsqueda válida: Dado que ingreso Cusco, 2 noches futuras, 2 adultos y 1 habitación, cuando busco, entonces solo veo hoteles de Cusco con habitaciones de capacidad >= 2 y unidades libres en esas fechas, con precio 'desde' por noche.
+
+*Automatización:*
+- {{selenium/src/test/java/com/trouvels360/web/pruebas/HotelesTest.java:30 — HotelesTest#busquedaCusco}}",Más alta,selenium,TRV-201,TC-WEB-008,QA,TRV-2,TRV-201
+Test,TC-WEB-009 Validación de fechas pasadas en el buscador,"*Historia:* TRV-201 — Buscar hoteles por destino, fechas y huéspedes
+*Herramienta:* Selenium
+
+*Criterios cubiertos:*
+- CA-TRV-201-02 Fechas inválidas: Dado que el check-in es pasado o el check-out es igual o anterior, cuando intento buscar, entonces se indica qué corregir, el botón no continúa y la API responde 422 si se llama directo.
+
+*Automatización:*
+- {{selenium/src/test/java/com/trouvels360/web/pruebas/HotelesTest.java:50 — HotelesTest#fechasPasadas}}",Más alta,selenium,TRV-201,TC-WEB-009,QA,TRV-2,TRV-201
+Test,TC-MOB-009 Búsqueda por ciudad y fechas en la app,"*Historia:* TRV-201 — Buscar hoteles por destino, fechas y huéspedes
+*Herramienta:* Appium
+
+*Criterios cubiertos:*
+- CA-TRV-201-01 Búsqueda válida: Dado que ingreso Cusco, 2 noches futuras, 2 adultos y 1 habitación, cuando busco, entonces solo veo hoteles de Cusco con habitaciones de capacidad >= 2 y unidades libres en esas fechas, con precio 'desde' por noche.
+
+*Automatización:*
+- {{appium/src/test/java/com/trouvels360/movil/pruebas/HotelesMovilTest.java:26 — HotelesMovilTest#busqueda}}",Más alta,appium,TRV-201,TC-MOB-009,QA,TRV-2,TRV-201
+Test,TC-MOB-010 Estado vacío vs error con Reintentar,"*Historia:* TRV-201 — Buscar hoteles por destino, fechas y huéspedes
+*Herramienta:* Appium
+
+*Criterios cubiertos:*
+- CA-TRV-201-04 Sin resultados vs error: Dado que no hay hoteles disponibles o la API falla, cuando termina la búsqueda, entonces distingo 'No encontramos hoteles' de 'No pudimos cargar los resultados' con botón Reintentar.
+
+*Automatización:*
+- {{appium/src/test/java/com/trouvels360/movil/pruebas/HotelesMovilTest.java:39 — HotelesMovilTest#vacioVsError}}",Más alta,appium,TRV-201,TC-MOB-010,QA,TRV-2,TRV-201
+Test,TC-WEB-031 Volver desde el detalle conserva la búsqueda (hoteles y tours),"*Historia:* TRV-201 — Buscar hoteles por destino, fechas y huéspedes
+*Herramienta:* Selenium
+
+*Criterios cubiertos:*
+- CA-TRV-201-05 Conservar búsqueda: Dado que abro un resultado, cuando vuelvo atrás, entonces conservo los filtros y la página donde estaba.
+
+*Automatización:*
+- {{selenium/src/test/java/com/trouvels360/web/pruebas/CoberturaAdicionalTest.java:28 — CoberturaAdicionalTest#conservarBusqueda}}",Más alta,selenium,TRV-201,TC-WEB-031,QA,TRV-2,TRV-201
+Test,"TC-API-023 Esquema JSON del detalle de hotel (habitaciones, calificación, reseñas)","*Historia:* TRV-202 — Ver detalle del hotel y cotizar habitaciones con IGV
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-202-01 Detalle completo: Dado que abro un hotel desde la búsqueda, cuando carga el detalle, entonces veo ubicación, tipos con capacidad, tarifa, unidades disponibles para mis fechas y opiniones.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/hoteles.feature:61 — Esquema del detalle de hotel (habitaciones y calificación) y sus reseñas}}",Alta,karate,TRV-202,TC-API-023,QA,TRV-2,TRV-202
+Test,"TC-API-024 Cotización data-driven (CSV) con tarifas, noches y unidades → subtotal, igv, total exactos","*Historia:* TRV-202 — Ver detalle del hotel y cotizar habitaciones con IGV
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-202-03 Cálculo con IGV: Dado que una Doble cuesta S/ 150.00, 2 noches, 2 unidades, cuando veo el importe, entonces subtotal S/ 600.00, IGV S/ 108.00 y total S/ 708.00, igual en web, móvil y en la respuesta de /cotizar.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/hoteles.feature:76 — Cotización <tipo> × <unidades> × <noches> noches = S/ <total> con IGV}}",Alta,karate,TRV-202,TC-API-024,QA,TRV-2,TRV-202
+Test,TC-API-025 Cotizar más unidades que las libres devuelve 422,"*Historia:* TRV-202 — Ver detalle del hotel y cotizar habitaciones con IGV
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-202-04 Cantidad excedida: Dado que un tipo tiene 3 unidades libres, cuando intento elegir 4, entonces el selector no lo permite y /cotizar responde 422 indicando el máximo.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/hoteles.feature:94 — Cotizar más unidades que las libres devuelve 422 con el máximo}}",Alta,karate,TRV-202,TC-API-025,QA,TRV-2,TRV-202
+Test,TC-WEB-010 Selección de 2 tipos y verificación del resumen con IGV,"*Historia:* TRV-202 — Ver detalle del hotel y cotizar habitaciones con IGV
+*Herramienta:* Selenium
+
+*Criterios cubiertos:*
+- CA-TRV-202-02 Selección múltiple: Dado que elijo 2 unidades del tipo Doble y 1 del tipo Suite, cuando reviso el resumen, entonces el resumen lista cada tipo con unidades, fechas y noches.
+- CA-TRV-202-03 Cálculo con IGV: Dado que una Doble cuesta S/ 150.00, 2 noches, 2 unidades, cuando veo el importe, entonces subtotal S/ 600.00, IGV S/ 108.00 y total S/ 708.00, igual en web, móvil y en la respuesta de /cotizar.
+
+*Automatización:*
+- {{selenium/src/test/java/com/trouvels360/web/pruebas/HotelesTest.java:66 — HotelesTest#resumenConIgv}}",Alta,selenium,TRV-202,TC-WEB-010,QA,TRV-2,TRV-202
+Test,TC-MOB-011 Selección de habitaciones y total con IGV en la app,"*Historia:* TRV-202 — Ver detalle del hotel y cotizar habitaciones con IGV
+*Herramienta:* Appium
+
+*Criterios cubiertos:*
+- CA-TRV-202-02 Selección múltiple: Dado que elijo 2 unidades del tipo Doble y 1 del tipo Suite, cuando reviso el resumen, entonces el resumen lista cada tipo con unidades, fechas y noches.
+- CA-TRV-202-03 Cálculo con IGV: Dado que una Doble cuesta S/ 150.00, 2 noches, 2 unidades, cuando veo el importe, entonces subtotal S/ 600.00, IGV S/ 108.00 y total S/ 708.00, igual en web, móvil y en la respuesta de /cotizar.
+
+*Automatización:*
+- {{appium/src/test/java/com/trouvels360/movil/pruebas/HotelesMovilTest.java:61 — HotelesMovilTest#totalConIgv}}",Alta,appium,TRV-202,TC-MOB-011,QA,TRV-2,TRV-202
+Test,TC-MOB-012 Botón + deshabilitado al llegar a las unidades disponibles,"*Historia:* TRV-202 — Ver detalle del hotel y cotizar habitaciones con IGV
+*Herramienta:* Appium
+
+*Criterios cubiertos:*
+- CA-TRV-202-04 Cantidad excedida: Dado que un tipo tiene 3 unidades libres, cuando intento elegir 4, entonces el selector no lo permite y /cotizar responde 422 indicando el máximo.
+
+*Automatización:*
+- {{appium/src/test/java/com/trouvels360/movil/pruebas/HotelesMovilTest.java:78 — HotelesMovilTest#topeDeUnidades}}",Alta,appium,TRV-202,TC-MOB-012,QA,TRV-2,TRV-202
+Test,TC-API-079 Cambiar la fecha de salida recalcula el total y no crea reserva,"*Historia:* TRV-202 — Ver detalle del hotel y cotizar habitaciones con IGV
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-202-05 Recalcular sin reservar: Dado que cambio la fecha de salida, cuando se actualiza la cotización, entonces el total cambia y no se crea ninguna reserva.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/cobertura-adicional.feature:13 — CA-TRV-202-05 Cambiar la fecha de salida recalcula el total y no crea ninguna reserva}}",Alta,karate,TRV-202,TC-API-079,QA,TRV-2,TRV-202
+Test,"TC-API-026 Reserva válida 201: estado pendiente, código único, subtotal/igv/total = cotización","*Historia:* TRV-203 — Solicitar reserva de hotel con pago simulado
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-203-01 Solicitud registrada: Dado que tengo sesión, selección válida y datos de pago válidos, cuando confirmo el pago, entonces se registra la solicitud con código, estado PENDIENTE y el mismo total mostrado, y veo el comprobante.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/reservas-hotel.feature:11 — Reserva válida 201: PENDIENTE, código único y mismos importes que la cotización}}",Más alta,karate,TRV-203,TC-API-026,QA,TRV-2,TRV-203
+Test,"TC-API-027 Data-driven de tarjetas inválidas (Luhn, vencida, CVC) → 422 sin reserva creada","*Historia:* TRV-203 — Solicitar reserva de hotel con pago simulado
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-203-02 Pago inválido: Dado que el número no tiene 16 dígitos, la tarjeta está vencida o el CVC no tiene 3 dígitos, cuando intento pagar, entonces se señala el campo, la API responde 422 y no se crea reserva; cerrar el formulario conserva la selección.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/reservas-hotel.feature:28 — Tarjeta inválida (<caso>) devuelve 422 y no crea reserva}}",Más alta,karate,TRV-203,TC-API-027,QA,TRV-2,TRV-203
+Test,TC-API-028 Disponibilidad tras reservar descuenta las unidades,"*Historia:* TRV-203 — Solicitar reserva de hotel con pago simulado
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-203-03 Unidades ocupadas: Dado que mi solicitud quedó pendiente, cuando otro viajero consulta las mismas fechas, entonces las unidades de mi solicitud ya no figuran como disponibles.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/reservas-hotel.feature:52 — La disponibilidad descuenta las unidades reservadas}}",Más alta,karate,TRV-203,TC-API-028,QA,TRV-2,TRV-203
+Test,TC-API-029 Varios tipos con uno sin stock → 409 y ninguno registrado,"*Historia:* TRV-203 — Solicitar reserva de hotel con pago simulado
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-203-04 Disponibilidad insuficiente: Dado que otro viajero tomó las últimas unidades mientras pagaba, cuando envío, entonces la API responde 409 indicando qué tipo ya no tiene unidades y no se registra ningún tipo.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/reservas-hotel.feature:70 — Varios tipos con uno sin stock devuelve 409 y no registra ninguno}}",Más alta,karate,TRV-203,TC-API-029,QA,TRV-2,TRV-203
+Test,TC-API-030 Mismo Idempotency-Key devuelve la misma solicitud,"*Historia:* TRV-203 — Solicitar reserva de hotel con pago simulado
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-203-06 Envío repetido: Dado que la respuesta no llegó y reintento con la misma Idempotency-Key, cuando reenvío, entonces recibo la misma solicitud ya registrada sin duplicados.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/reservas-hotel.feature:87 — El mismo Idempotency-Key devuelve la misma solicitud sin duplicarla}}",Más alta,karate,TRV-203,TC-API-030,QA,TRV-2,TRV-203
+Test,TC-PERF-003 20 hilos simultáneos (Synchronizing Timer) por la última unidad: exactamente 1×201 y 19×409,"*Historia:* TRV-203 — Solicitar reserva de hotel con pago simulado
+*Herramienta:* JMeter
+
+*Criterios cubiertos:*
+- CA-TRV-203-05 Concurrencia: Dado que 20 viajeros envían a la vez por la última unidad, cuando se procesan, entonces solo una solicitud se registra y las demás reciben 409.
+
+*Automatización:*
+- {{jmeter/trouvels360.jmx — TC-PERF-003 Carrera por la última habitación (TRV-203) - 20 hilos}}
+- {{jmeter/trouvels360.jmx — TC-PERF-003 POST /reservas-habitaciones (simultáneo)}}",Más alta,jmeter,TRV-203,TC-PERF-003,QA,TRV-2,TRV-203
+Test,TC-WEB-011 Flujo completo búsqueda → selección → pago → comprobante PENDIENTE,"*Historia:* TRV-203 — Solicitar reserva de hotel con pago simulado
+*Herramienta:* Selenium
+
+*Criterios cubiertos:*
+- CA-TRV-203-01 Solicitud registrada: Dado que tengo sesión, selección válida y datos de pago válidos, cuando confirmo el pago, entonces se registra la solicitud con código, estado PENDIENTE y el mismo total mostrado, y veo el comprobante.
+
+*Automatización:*
+- {{selenium/src/test/java/com/trouvels360/web/pruebas/HotelesTest.java:83 — HotelesTest#flujoCompletoHotel}}",Más alta,selenium,TRV-203,TC-WEB-011,QA,TRV-2,TRV-203
+Test,TC-WEB-012 Validaciones del formulario de pago,"*Historia:* TRV-203 — Solicitar reserva de hotel con pago simulado
+*Herramienta:* Selenium
+
+*Criterios cubiertos:*
+- CA-TRV-203-02 Pago inválido: Dado que el número no tiene 16 dígitos, la tarjeta está vencida o el CVC no tiene 3 dígitos, cuando intento pagar, entonces se señala el campo, la API responde 422 y no se crea reserva; cerrar el formulario conserva la selección.
+
+*Automatización:*
+- {{selenium/src/test/java/com/trouvels360/web/pruebas/HotelesTest.java:114 — HotelesTest#validacionesPago}}",Más alta,selenium,TRV-203,TC-WEB-012,QA,TRV-2,TRV-203
+Test,TC-MOB-013 Flujo completo de reserva de hotel en la app,"*Historia:* TRV-203 — Solicitar reserva de hotel con pago simulado
+*Herramienta:* Appium
+
+*Criterios cubiertos:*
+- CA-TRV-203-01 Solicitud registrada: Dado que tengo sesión, selección válida y datos de pago válidos, cuando confirmo el pago, entonces se registra la solicitud con código, estado PENDIENTE y el mismo total mostrado, y veo el comprobante.
+
+*Automatización:*
+- {{appium/src/test/java/com/trouvels360/movil/pruebas/HotelesMovilTest.java:92 — HotelesMovilTest#flujoCompleto}}",Más alta,appium,TRV-203,TC-MOB-013,QA,TRV-2,TRV-203
+Test,TC-MOB-014 Formulario de pago rechaza tarjeta vencida,"*Historia:* TRV-203 — Solicitar reserva de hotel con pago simulado
+*Herramienta:* Appium
+
+*Criterios cubiertos:*
+- CA-TRV-203-02 Pago inválido: Dado que el número no tiene 16 dígitos, la tarjeta está vencida o el CVC no tiene 3 dígitos, cuando intento pagar, entonces se señala el campo, la API responde 422 y no se crea reserva; cerrar el formulario conserva la selección.
+
+*Automatización:*
+- {{appium/src/test/java/com/trouvels360/movil/pruebas/HotelesMovilTest.java:116 — HotelesMovilTest#tarjetaVencida}}",Más alta,appium,TRV-203,TC-MOB-014,QA,TRV-2,TRV-203
+Test,TC-API-031 Flujo encadenado (call): viajero reserva → proveedor acepta → viajero ve confirmada,"*Historia:* TRV-204 — Aprobar o rechazar solicitudes de hotel
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-204-01 Aceptar: Dado que tengo una solicitud pendiente de mi hotel, cuando la acepto, entonces la misma reserva queda CONFIRMADA con su importe y el viajero la ve confirmada en web y móvil.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/aprobacion.feature:14 — Viajero solicita → proveedor acepta → viajero ve CONFIRMADA}}",Más alta,karate,TRV-204,TC-API-031,QA,TRV-2,TRV-204
+Test,TC-API-032 Rechazo libera unidades: disponibilidad antes y después,"*Historia:* TRV-204 — Aprobar o rechazar solicitudes de hotel
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-204-02 Rechazar: Dado que tengo una solicitud pendiente, cuando la rechazo con un motivo, entonces queda RECHAZADA, sus unidades vuelven a estar disponibles y el viajero ve el motivo.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/aprobacion.feature:31 — Rechazar con motivo libera las unidades}}",Más alta,karate,TRV-204,TC-API-032,QA,TRV-2,TRV-204
+Test,TC-API-033 Aceptar dos veces → 409; aceptar una cancelada → 409,"*Historia:* TRV-204 — Aprobar o rechazar solicitudes de hotel
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-204-04 Decisión repetida o estado incompatible: Dado que la reserva ya fue aceptada, rechazada o cancelada por el viajero, cuando intento decidir, entonces la API responde 409 con el estado actual y no cambia nada.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/aprobacion.feature:54 — Aceptar dos veces o aceptar una cancelada devuelve 409}}",Más alta,karate,TRV-204,TC-API-033,QA,TRV-2,TRV-204
+Test,TC-API-034 Proveedor B sobre reserva de proveedor A → 403,"*Historia:* TRV-204 — Aprobar o rechazar solicitudes de hotel
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-204-05 Reserva ajena: Dado que la reserva pertenece a otro proveedor, cuando intento decidir, entonces la API responde 403.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/aprobacion.feature:77 — Un proveedor no puede decidir sobre reservas de otro proveedor (403)}}",Más alta,karate,TRV-204,TC-API-034,QA,TRV-2,TRV-204
+Test,TC-API-035 Rechazo sin motivo → 422,"*Historia:* TRV-204 — Aprobar o rechazar solicitudes de hotel
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-204-02 Rechazar: Dado que tengo una solicitud pendiente, cuando la rechazo con un motivo, entonces queda RECHAZADA, sus unidades vuelven a estar disponibles y el viajero ve el motivo.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/aprobacion.feature:90 — Rechazar sin motivo (o con menos de 10 caracteres) devuelve 422}}",Más alta,karate,TRV-204,TC-API-035,QA,TRV-2,TRV-204
+Test,TC-WEB-013 Proveedor acepta desde el panel y el viajero ve CONFIRMADA (dos navegadores),"*Historia:* TRV-204 — Aprobar o rechazar solicitudes de hotel
+*Herramienta:* Selenium
+
+*Criterios cubiertos:*
+- CA-TRV-204-01 Aceptar: Dado que tengo una solicitud pendiente de mi hotel, cuando la acepto, entonces la misma reserva queda CONFIRMADA con su importe y el viajero la ve confirmada en web y móvil.
+- CA-TRV-204-03 Sin decisión: Dado que no decido sobre una solicitud, cuando actualizo la lista, entonces sigue PENDIENTE.
+
+*Automatización:*
+- {{selenium/src/test/java/com/trouvels360/web/pruebas/AprobacionTest.java:26 — AprobacionTest#aceptarDosNavegadores}}",Más alta,selenium,TRV-204,TC-WEB-013,QA,TRV-2,TRV-204
+Test,TC-WEB-014 Proveedor rechaza con motivo y el viajero ve RECHAZADA,"*Historia:* TRV-204 — Aprobar o rechazar solicitudes de hotel
+*Herramienta:* Selenium
+
+*Criterios cubiertos:*
+- CA-TRV-204-02 Rechazar: Dado que tengo una solicitud pendiente, cuando la rechazo con un motivo, entonces queda RECHAZADA, sus unidades vuelven a estar disponibles y el viajero ve el motivo.
+
+*Automatización:*
+- {{selenium/src/test/java/com/trouvels360/web/pruebas/AprobacionTest.java:55 — AprobacionTest#rechazarConMotivo}}",Más alta,selenium,TRV-204,TC-WEB-014,QA,TRV-2,TRV-204
+Test,TC-MOB-015 Proveedor acepta una solicitud desde la app,"*Historia:* TRV-204 — Aprobar o rechazar solicitudes de hotel
+*Herramienta:* Appium
+
+*Criterios cubiertos:*
+- CA-TRV-204-01 Aceptar: Dado que tengo una solicitud pendiente de mi hotel, cuando la acepto, entonces la misma reserva queda CONFIRMADA con su importe y el viajero la ve confirmada en web y móvil.
+
+*Automatización:*
+- {{appium/src/test/java/com/trouvels360/movil/pruebas/AprobacionMovilTest.java:25 — AprobacionMovilTest#aceptar}}",Más alta,appium,TRV-204,TC-MOB-015,QA,TRV-2,TRV-204
+Test,TC-MOB-016 Proveedor rechaza con motivo desde la app,"*Historia:* TRV-204 — Aprobar o rechazar solicitudes de hotel
+*Herramienta:* Appium
+
+*Criterios cubiertos:*
+- CA-TRV-204-02 Rechazar: Dado que tengo una solicitud pendiente, cuando la rechazo con un motivo, entonces queda RECHAZADA, sus unidades vuelven a estar disponibles y el viajero ve el motivo.
+
+*Automatización:*
+- {{appium/src/test/java/com/trouvels360/movil/pruebas/AprobacionMovilTest.java:55 — AprobacionMovilTest#rechazar}}",Más alta,appium,TRV-204,TC-MOB-016,QA,TRV-2,TRV-204
+Test,TC-API-036 Filtros combinados: todos los resultados cumplen destino y categoría (match each),"*Historia:* TRV-301 — Buscar tours por destino, categoría y fechas
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-301-01 Búsqueda válida: Dado que busco 'Cusco', categoría Aventura y un rango de fechas futuro, cuando busco, entonces solo veo tours de Cusco, de Aventura y con salidas con cupo en ese rango.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/tours.feature:10 — Filtros combinados destino + categoría: todos los resultados cumplen ambos}}",Alta,karate,TRV-301,TC-API-036,QA,TRV-3,TRV-301
+Test,TC-API-037 Data-driven de filtros inválidos → 422,"*Historia:* TRV-301 — Buscar tours por destino, categoría y fechas
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-301-02 Filtros inválidos: Dado que el rango de fechas es pasado o la categoría no existe, cuando busco, entonces se informa el error (422 en la API) y no se muestran resultados.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/tours.feature:29 — Filtro inválido (<caso>) devuelve 422 con error en <campo>}}",Alta,karate,TRV-301,TC-API-037,QA,TRV-3,TRV-301
+Test,"TC-PERF-004 Carga de búsqueda de tours: 100 usuarios, categorías desde CSV, p95 < 1 s","*Historia:* TRV-301 — Buscar tours por destino, categoría y fechas
+*Herramienta:* JMeter
+
+*Criterios cubiertos:*
+- CA-TRV-301-01 Búsqueda válida: Dado que busco 'Cusco', categoría Aventura y un rango de fechas futuro, cuando busco, entonces solo veo tours de Cusco, de Aventura y con salidas con cupo en ese rango.
+
+*Automatización:*
+- {{jmeter/trouvels360.jmx — TC-PERF-004 Búsqueda de tours (TRV-301/302) - 100 usuarios}}
+- {{jmeter/trouvels360.jmx — TC-PERF-004 GET /tours (filtros)}}
+- {{jmeter/trouvels360.jmx — TC-PERF-004 GET /tours/{id} (detalle)}}",Alta,jmeter,TRV-301,TC-PERF-004,QA,TRV-3,TRV-301
+Test,TC-WEB-015 Filtrar por categoría y destino,"*Historia:* TRV-301 — Buscar tours por destino, categoría y fechas
+*Herramienta:* Selenium
+
+*Criterios cubiertos:*
+- CA-TRV-301-01 Búsqueda válida: Dado que busco 'Cusco', categoría Aventura y un rango de fechas futuro, cuando busco, entonces solo veo tours de Cusco, de Aventura y con salidas con cupo en ese rango.
+
+*Automatización:*
+- {{selenium/src/test/java/com/trouvels360/web/pruebas/ToursTest.java:28 — ToursTest#filtrarTours}}",Alta,selenium,TRV-301,TC-WEB-015,QA,TRV-3,TRV-301
+Test,TC-MOB-017 Chips de categoría y búsqueda por destino,"*Historia:* TRV-301 — Buscar tours por destino, categoría y fechas
+*Herramienta:* Appium
+
+*Criterios cubiertos:*
+- CA-TRV-301-01 Búsqueda válida: Dado que busco 'Cusco', categoría Aventura y un rango de fechas futuro, cuando busco, entonces solo veo tours de Cusco, de Aventura y con salidas con cupo en ese rango.
+
+*Automatización:*
+- {{appium/src/test/java/com/trouvels360/movil/pruebas/ToursMovilTest.java:26 — ToursMovilTest#categoriaYDestino}}",Alta,appium,TRV-301,TC-MOB-017,QA,TRV-3,TRV-301
+Test,TC-WEB-032 Sin resultados vs. error con Reintentar (tours y bandeja del proveedor),"*Historia:* TRV-301 — Buscar tours por destino, categoría y fechas
+*Herramienta:* Selenium
+
+*Criterios cubiertos:*
+- CA-TRV-301-03 Sin resultados o error: Dado que no hay tours o la API falla, cuando termina la búsqueda, entonces distingo ambos casos y puedo cambiar filtros o reintentar.
+
+*Automatización:*
+- {{selenium/src/test/java/com/trouvels360/web/pruebas/CoberturaAdicionalTest.java:59 — CoberturaAdicionalTest#vacioVersusError}}",Alta,selenium,TRV-301,TC-WEB-032,QA,TRV-3,TRV-301
+Test,TC-API-038 Esquema del detalle; ninguna salida devuelta es pasada ni no programada,"*Historia:* TRV-302 — Ver detalle del tour y elegir salida y participantes
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-302-01 Detalle: Dado que abro un tour, cuando carga, entonces veo ubicación, categoría, duración, precio por persona, actividades, opiniones y salidas futuras con cupos.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/tours.feature:41 — Detalle: esquema correcto y solo salidas futuras programadas con cupo}}",Alta,karate,TRV-302,TC-API-038,QA,TRV-3,TRV-302
+Test,TC-API-039 Cotización de tour data-driven (precio × personas + 18%),"*Historia:* TRV-302 — Ver detalle del tour y elegir salida y participantes
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-302-02 Cálculo: Dado que el precio es S/ 120.00 y elijo 3 personas, cuando veo el resumen, entonces subtotal S/ 360.00, IGV S/ 64.80 y total S/ 424.80.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/tours.feature:62 — Cotización de tour: S/ <precio> × <personas> + IGV 18 % = S/ <total>}}",Alta,karate,TRV-302,TC-API-039,QA,TRV-3,TRV-302
+Test,TC-API-040 Cotizar más personas que el cupo → 422,"*Historia:* TRV-302 — Ver detalle del tour y elegir salida y participantes
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-302-03 Selección inválida: Dado que elijo 0 personas, más que el cupo o una salida agotada, cuando intento continuar, entonces no se permite y se indica el motivo.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/tours.feature:76 — Cotizar más personas que el cupo libre devuelve 422 con el máximo}}",Alta,karate,TRV-302,TC-API-040,QA,TRV-3,TRV-302
+Test,"TC-WEB-016 Elegir salida y personas, verificar total con IGV","*Historia:* TRV-302 — Ver detalle del tour y elegir salida y participantes
+*Herramienta:* Selenium
+
+*Criterios cubiertos:*
+- CA-TRV-302-02 Cálculo: Dado que el precio es S/ 120.00 y elijo 3 personas, cuando veo el resumen, entonces subtotal S/ 360.00, IGV S/ 64.80 y total S/ 424.80.
+
+*Automatización:*
+- {{selenium/src/test/java/com/trouvels360/web/pruebas/ToursTest.java:41 — ToursTest#totalTourConIgv}}",Alta,selenium,TRV-302,TC-WEB-016,QA,TRV-3,TRV-302
+Test,TC-MOB-018 Elegir salida y personas en la app; + se deshabilita al tope de cupos,"*Historia:* TRV-302 — Ver detalle del tour y elegir salida y participantes
+*Herramienta:* Appium
+
+*Criterios cubiertos:*
+- CA-TRV-302-02 Cálculo: Dado que el precio es S/ 120.00 y elijo 3 personas, cuando veo el resumen, entonces subtotal S/ 360.00, IGV S/ 64.80 y total S/ 424.80.
+- CA-TRV-302-03 Selección inválida: Dado que elijo 0 personas, más que el cupo o una salida agotada, cuando intento continuar, entonces no se permite y se indica el motivo.
+
+*Automatización:*
+- {{appium/src/test/java/com/trouvels360/movil/pruebas/ToursMovilTest.java:48 — ToursMovilTest#personasYCupo}}",Alta,appium,TRV-302,TC-MOB-018,QA,TRV-3,TRV-302
+Test,TC-API-080 Tour sin salidas disponibles: detalle sin salidas y cotizar 409,"*Historia:* TRV-302 — Ver detalle del tour y elegir salida y participantes
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-302-04 Sin salidas: Dado que el tour no tiene salidas futuras, cuando lo consulto, entonces veo 'No hay salidas programadas' y no puedo reservar.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/cobertura-adicional.feature:35 — CA-TRV-302-04 Un tour sin salidas futuras disponibles no muestra salidas y no se puede cotizar}}",Alta,karate,TRV-302,TC-API-080,QA,TRV-3,TRV-302
+Test,"TC-API-041 Reserva 201: estado confirmada, total = cotización, cupo_reservado += personas","*Historia:* TRV-303 — Reservar tour con confirmación automática
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-303-01 Reserva confirmada: Dado que tengo sesión y elijo una salida con cupo, cuando pago, entonces se registra con código único, estado CONFIRMADA, el total mostrado, y el cupo libre baja exactamente en mis participantes.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/reservas-tour.feature:11 — Reserva 201 CONFIRMADA, total = cotización y el cupo reservado aumenta en las personas}}",Más alta,karate,TRV-303,TC-API-041,QA,TRV-3,TRV-303
+Test,TC-API-042 Salida cerrada / pasada / sin cupo → 409 o 422 y cupos sin cambio,"*Historia:* TRV-303 — Reservar tour con confirmación automática
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-303-03 Salida no válida: Dado que la salida está cerrada, cancelada, es pasada o no tiene cupo suficiente, cuando envío, entonces la API responde 409/422 con el motivo y los cupos no cambian.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/reservas-tour.feature:27 — Salida cerrada, pasada o sin cupo suficiente se rechaza y los cupos no cambian}}",Más alta,karate,TRV-303,TC-API-042,QA,TRV-3,TRV-303
+Test,"TC-API-043 Idempotencia: dos envíos, una sola reserva y un solo descuento","*Historia:* TRV-303 — Reservar tour con confirmación automática
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-303-05 Envío repetido: Dado que reintento con la misma Idempotency-Key, cuando reenvío, entonces obtengo la misma reserva sin descontar cupos otra vez.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/reservas-tour.feature:47 — Idempotencia: dos envíos con la misma clave → una reserva y un solo descuento de cupo}}",Más alta,karate,TRV-303,TC-API-043,QA,TRV-3,TRV-303
+Test,TC-PERF-005 30 hilos simultáneos sobre salida de 10 cupos: suma de personas confirmadas <= 10,"*Historia:* TRV-303 — Reservar tour con confirmación automática
+*Herramienta:* JMeter
+
+*Criterios cubiertos:*
+- CA-TRV-303-04 Concurrencia: Dado que 30 viajeros reservan a la vez una salida con 10 cupos, cuando se procesan, entonces nunca se reservan más de 10 cupos en total.
+
+*Automatización:*
+- {{jmeter/trouvels360.jmx — TC-PERF-005 Carrera por cupos de un tour (TRV-303) - 30 hilos}}
+- {{jmeter/trouvels360.jmx — TC-PERF-005 POST /tours/salidas/{id}/reservas (simultáneo)}}",Más alta,jmeter,TRV-303,TC-PERF-005,QA,TRV-3,TRV-303
+Test,TC-WEB-017 Reserva de tour end-to-end con comprobante CONFIRMADA,"*Historia:* TRV-303 — Reservar tour con confirmación automática
+*Herramienta:* Selenium
+
+*Criterios cubiertos:*
+- CA-TRV-303-01 Reserva confirmada: Dado que tengo sesión y elijo una salida con cupo, cuando pago, entonces se registra con código único, estado CONFIRMADA, el total mostrado, y el cupo libre baja exactamente en mis participantes.
+
+*Automatización:*
+- {{selenium/src/test/java/com/trouvels360/web/pruebas/ToursTest.java:56 — ToursTest#reservaTourCompleta}}",Más alta,selenium,TRV-303,TC-WEB-017,QA,TRV-3,TRV-303
+Test,TC-MOB-019 Reserva de tour end-to-end en la app,"*Historia:* TRV-303 — Reservar tour con confirmación automática
+*Herramienta:* Appium
+
+*Criterios cubiertos:*
+- CA-TRV-303-01 Reserva confirmada: Dado que tengo sesión y elijo una salida con cupo, cuando pago, entonces se registra con código único, estado CONFIRMADA, el total mostrado, y el cupo libre baja exactamente en mis participantes.
+
+*Automatización:*
+- {{appium/src/test/java/com/trouvels360/movil/pruebas/ToursMovilTest.java:62 — ToursMovilTest#reservaTour}}",Más alta,appium,TRV-303,TC-MOB-019,QA,TRV-3,TRV-303
+Test,TC-API-081 Pago de tour inválido (CSV) no crea reserva ni descuenta cupos,"*Historia:* TRV-303 — Reservar tour con confirmación automática
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-303-02 Pago inválido o desistir: Dado que el pago es inválido o cierro el formulario, cuando no completo el envío, entonces no se crea la reserva y los cupos no cambian.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/cobertura-adicional.feature:53 — CA-TRV-303-02 Pago de tour inválido (<caso>) no crea reserva ni descuenta cupos}}",Más alta,karate,TRV-303,TC-API-081,QA,TRV-3,TRV-303
+Test,"TC-API-044 Esquema paginado (data, meta.total, meta.last_page) y solo reservas propias","*Historia:* TRV-401 — Consultar mis reservas y sus estados
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-401-01 Listado propio: Dado que tengo reservas, cuando abro Mis reservas, entonces veo solo las mías con todos sus datos y estado persistido.
+- CA-TRV-401-05 Consistencia entre canales: Dado que reservé en la web, cuando abro la app, entonces veo los mismos códigos, estados e importes y puedo recorrer todas las páginas.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/mis-reservas.feature:20 — Listado paginado con solo las reservas propias (hotel y tour)}}",Alta,karate,TRV-401,TC-API-044,QA,TRV-4,TRV-401
+Test,TC-API-045 Estado tras aceptar y tras rechazar (con motivo),"*Historia:* TRV-401 — Consultar mis reservas y sus estados
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-401-02 Pendiente y aceptada: Dado que el proveedor aún no decide o ya aceptó, cuando actualizo, entonces la solicitud figura PENDIENTE o CONFIRMADA según corresponda, con los mismos datos.
+- CA-TRV-401-03 Rechazada: Dado que el proveedor rechazó mi solicitud, cuando actualizo, entonces figura RECHAZADA con el motivo, distinta de una cancelación mía, y puedo iniciar otra búsqueda.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/mis-reservas.feature:49 — El viajero ve el estado tras aceptar y el motivo tras rechazar}}",Alta,karate,TRV-401,TC-API-045,QA,TRV-4,TRV-401
+Test,TC-API-046 Reserva ajena → 404,"*Historia:* TRV-401 — Consultar mis reservas y sus estados
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-401-06 Vacío, error y ajeno: Dado que no tengo reservas, la API falla o pido una reserva de otro, cuando accedo, entonces distingo 'Aún no tienes reservas' de un error, y la ajena responde 404.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/mis-reservas.feature:73 — Consultar una reserva ajena devuelve 404 (no revela que existe)}}",Alta,karate,TRV-401,TC-API-046,QA,TRV-4,TRV-401
+Test,"TC-WEB-018 Mis reservas: pestañas hotel/tour, filtro por estado y paginación","*Historia:* TRV-401 — Consultar mis reservas y sus estados
+*Herramienta:* Selenium
+
+*Criterios cubiertos:*
+- CA-TRV-401-01 Listado propio: Dado que tengo reservas, cuando abro Mis reservas, entonces veo solo las mías con todos sus datos y estado persistido.
+- CA-TRV-401-05 Consistencia entre canales: Dado que reservé en la web, cuando abro la app, entonces veo los mismos códigos, estados e importes y puedo recorrer todas las páginas.
+
+*Automatización:*
+- {{selenium/src/test/java/com/trouvels360/web/pruebas/MisReservasTest.java:26 — MisReservasTest#pestanasFiltrosPaginacion}}",Alta,selenium,TRV-401,TC-WEB-018,QA,TRV-4,TRV-401
+Test,TC-WEB-019 Reserva rechazada muestra motivo,"*Historia:* TRV-401 — Consultar mis reservas y sus estados
+*Herramienta:* Selenium
+
+*Criterios cubiertos:*
+- CA-TRV-401-03 Rechazada: Dado que el proveedor rechazó mi solicitud, cuando actualizo, entonces figura RECHAZADA con el motivo, distinta de una cancelación mía, y puedo iniciar otra búsqueda.
+
+*Automatización:*
+- {{selenium/src/test/java/com/trouvels360/web/pruebas/MisReservasTest.java:59 — MisReservasTest#rechazadaConMotivo}}",Alta,selenium,TRV-401,TC-WEB-019,QA,TRV-4,TRV-401
+Test,TC-MOB-020 Mis reservas en la app coincide con la web (mismo código y total),"*Historia:* TRV-401 — Consultar mis reservas y sus estados
+*Herramienta:* Appium
+
+*Criterios cubiertos:*
+- CA-TRV-401-05 Consistencia entre canales: Dado que reservé en la web, cuando abro la app, entonces veo los mismos códigos, estados e importes y puedo recorrer todas las páginas.
+
+*Automatización:*
+- {{appium/src/test/java/com/trouvels360/movil/pruebas/ReservasMovilTest.java:24 — ReservasMovilTest#coincideConApi}}",Alta,appium,TRV-401,TC-MOB-020,QA,TRV-4,TRV-401
+Test,TC-MOB-021 Scroll infinito / paginación de reservas,"*Historia:* TRV-401 — Consultar mis reservas y sus estados
+*Herramienta:* Appium
+
+*Criterios cubiertos:*
+- CA-TRV-401-05 Consistencia entre canales: Dado que reservé en la web, cuando abro la app, entonces veo los mismos códigos, estados e importes y puedo recorrer todas las páginas.
+
+*Automatización:*
+- {{appium/src/test/java/com/trouvels360/movil/pruebas/ReservasMovilTest.java:44 — ReservasMovilTest#paginacion}}",Alta,appium,TRV-401,TC-MOB-021,QA,TRV-4,TRV-401
+Test,TC-API-082 Salida cancelada por el proveedor: reserva confirmada con aviso,"*Historia:* TRV-401 — Consultar mis reservas y sus estados
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-401-04 Tour con salida cancelada: Dado que el proveedor canceló la salida, cuando consulto, entonces veo el aviso 'Salida cancelada por el proveedor' sin que mi reserva aparezca como cancelada por mí.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/cobertura-adicional.feature:69 — CA-TRV-401-04 Si el proveedor cancela la salida, la reserva sigue confirmada con el aviso del proveedor}}",Alta,karate,TRV-401,TC-API-082,QA,TRV-4,TRV-401
+Test,TC-API-047 Cancelar hotel: estado cancelada y unidades liberadas,"*Historia:* TRV-402 — Cancelar mis reservas
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-402-02 Cancelación exitosa: Dado que confirmo, cuando termina, entonces la reserva figura CANCELADA en web y móvil con su historial intacto.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/mis-reservas.feature:85 — Cancelar una reserva de hotel la deja CANCELADA y libera las unidades}}",Alta,karate,TRV-402,TC-API-047,QA,TRV-4,TRV-402
+Test,TC-API-048 Cancelar tour devuelve exactamente las personas al cupo,"*Historia:* TRV-402 — Cancelar mis reservas
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-402-03 Liberar oferta una vez: Dado que mi reserva de tour tenía 3 personas, cuando la cancelo, entonces el cupo libre de la salida sube exactamente 3.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/mis-reservas.feature:98 — Cancelar un tour devuelve exactamente las personas al cupo}}",Alta,karate,TRV-402,TC-API-048,QA,TRV-4,TRV-402
+Test,TC-API-049 Cancelar dos veces → 409; cancelar rechazada → 409; ajena → 404,"*Historia:* TRV-402 — Cancelar mis reservas
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-402-04 No cancelable: Dado que la reserva es ajena, ya está cancelada o fue rechazada, cuando intento cancelar, entonces la API responde 404 o 409 y la oferta no se libera de nuevo.
+- CA-TRV-402-05 Respuesta incierta: Dado que se cortó la conexión al cancelar, cuando refresco, entonces veo el estado real guardado y no un mensaje de éxito falso.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/mis-reservas.feature:113 — Cancelar dos veces → 409; cancelar una rechazada → 409; cancelar una ajena → 404}}",Alta,karate,TRV-402,TC-API-049,QA,TRV-4,TRV-402
+Test,TC-WEB-020 Cancelar desde Mis reservas con diálogo de confirmación,"*Historia:* TRV-402 — Cancelar mis reservas
+*Herramienta:* Selenium
+
+*Criterios cubiertos:*
+- CA-TRV-402-01 Confirmar o desistir: Dado que pulso Cancelar, cuando elijo No en el diálogo, entonces la reserva no cambia.
+- CA-TRV-402-02 Cancelación exitosa: Dado que confirmo, cuando termina, entonces la reserva figura CANCELADA en web y móvil con su historial intacto.
+
+*Automatización:*
+- {{selenium/src/test/java/com/trouvels360/web/pruebas/MisReservasTest.java:76 — MisReservasTest#cancelarConConfirmacion}}",Alta,selenium,TRV-402,TC-WEB-020,QA,TRV-4,TRV-402
+Test,TC-MOB-022 Cancelar desde la app y ver estado CANCELADA,"*Historia:* TRV-402 — Cancelar mis reservas
+*Herramienta:* Appium
+
+*Criterios cubiertos:*
+- CA-TRV-402-02 Cancelación exitosa: Dado que confirmo, cuando termina, entonces la reserva figura CANCELADA en web y móvil con su historial intacto.
+
+*Automatización:*
+- {{appium/src/test/java/com/trouvels360/movil/pruebas/ReservasMovilTest.java:66 — ReservasMovilTest#cancelar}}",Alta,appium,TRV-402,TC-MOB-022,QA,TRV-4,TRV-402
+Test,TC-MAN-002 Corte de conexión al cancelar: al refrescar se ve el estado real,"*Historia:* TRV-402 — Cancelar mis reservas
+*Herramienta:* Manual
+
+*Criterios cubiertos:*
+- CA-TRV-402-05 Respuesta incierta: Dado que se cortó la conexión al cancelar, cuando refresco, entonces veo el estado real guardado y no un mensaje de éxito falso.
+
+*Pasos (prueba manual):*
+En Mis reservas, con DevTools en 'Offline' justo después de pulsar 'Sí, cancelar', volver a 'Online' y refrescar. Esperado: no aparece un mensaje de éxito falso; la tarjeta muestra el estado guardado en la API (TC-API-049 confirma que repetir la cancelación es seguro).",Alta,manual,TRV-402,TC-MAN-002,QA,TRV-4,TRV-402
+Test,TC-API-050 Resumen: promedio y total coinciden con el conjunto completo,"*Historia:* TRV-403 — Publicar, editar y eliminar reseñas
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-403-01 Consultar: Dado que abro un servicio, cuando veo opiniones, entonces son solo de ese servicio, puedo ver todas las páginas y el promedio corresponde al total.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/resenas.feature:27 — El resumen (promedio y total) coincide con el conjunto completo de reseñas}}",Media,karate,TRV-403,TC-API-050,QA,TRV-4,TRV-403
+Test,TC-API-051 Publicar con reserva finalizada 201; sin reserva 403 con mensaje,"*Historia:* TRV-403 — Publicar, editar y eliminar reseñas
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-403-02 Publicar: Dado que tengo una reserva confirmada y finalizada, cuando envío 4 estrellas y un comentario de 50 caracteres, entonces se publica a mi nombre y el promedio se recalcula.
+- CA-TRV-403-03 No permitido: Dado que no tengo reserva finalizada o el comentario tiene 5 caracteres, cuando intento publicar, entonces se informa la causa exacta (403 'Debes haber completado una reserva' o 422) y no se publica.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/resenas.feature:62 — Con estadía finalizada publica (201); sin reserva completada recibe 403 con mensaje}}",Media,karate,TRV-403,TC-API-051,QA,TRV-4,TRV-403
+Test,TC-API-052 Data-driven de longitudes de comentario y calificaciones fuera de rango → 422,"*Historia:* TRV-403 — Publicar, editar y eliminar reseñas
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-403-03 No permitido: Dado que no tengo reserva finalizada o el comentario tiene 5 caracteres, cuando intento publicar, entonces se informa la causa exacta (403 'Debes haber completado una reserva' o 422) y no se publica.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/resenas.feature:85 — Validación: <caso> devuelve 422 en <campo>}}",Media,karate,TRV-403,TC-API-052,QA,TRV-4,TRV-403
+Test,TC-API-053 Editar/eliminar reseña ajena → 403; segunda reseña → 409,"*Historia:* TRV-403 — Publicar, editar y eliminar reseñas
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-403-04 Editar y eliminar: Dado que es mi reseña, cuando la edito o la elimino tras confirmar, entonces se actualiza la misma reseña o desaparece; no puedo gestionar reseñas ajenas (403).
+- CA-TRV-403-05 Sin duplicados: Dado que reintento la publicación, cuando se procesa, entonces existe una sola reseña mía para ese servicio.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/resenas.feature:105 — Editar o eliminar una reseña ajena → 403; una segunda reseña del mismo servicio → 409}}",Media,karate,TRV-403,TC-API-053,QA,TRV-4,TRV-403
+Test,"TC-WEB-021 Publicar, editar y eliminar reseña en el detalle","*Historia:* TRV-403 — Publicar, editar y eliminar reseñas
+*Herramienta:* Selenium
+
+*Criterios cubiertos:*
+- CA-TRV-403-02 Publicar: Dado que tengo una reserva confirmada y finalizada, cuando envío 4 estrellas y un comentario de 50 caracteres, entonces se publica a mi nombre y el promedio se recalcula.
+- CA-TRV-403-04 Editar y eliminar: Dado que es mi reseña, cuando la edito o la elimino tras confirmar, entonces se actualiza la misma reseña o desaparece; no puedo gestionar reseñas ajenas (403).
+
+*Automatización:*
+- {{selenium/src/test/java/com/trouvels360/web/pruebas/ResenasItinerarioTest.java:30 — ResenasItinerarioTest#ciclodeResena}}",Media,selenium,TRV-403,TC-WEB-021,QA,TRV-4,TRV-403
+Test,TC-MOB-023 Publicar reseña desde la app,"*Historia:* TRV-403 — Publicar, editar y eliminar reseñas
+*Herramienta:* Appium
+
+*Criterios cubiertos:*
+- CA-TRV-403-02 Publicar: Dado que tengo una reserva confirmada y finalizada, cuando envío 4 estrellas y un comentario de 50 caracteres, entonces se publica a mi nombre y el promedio se recalcula.
+
+*Automatización:*
+- {{appium/src/test/java/com/trouvels360/movil/pruebas/ResenasItinerarioMovilTest.java:21 — ResenasItinerarioMovilTest#publicarResena}}",Media,appium,TRV-403,TC-MOB-023,QA,TRV-4,TRV-403
+Test,TC-API-054 Itinerario válido: esquema de días y actividades,"*Historia:* TRV-404 — Generar un itinerario sugerido para mi estadía
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-404-01 Propuesta: Dado que ingreso datos válidos, cuando genero el itinerario, entonces veo días, actividades, duraciones y costos estimados.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/itinerario.feature:11 — Itinerario válido: un día por noche; los días con tour traen fecha y salida con cupo}}",Baja,karate,TRV-404,TC-API-054,QA,TRV-4,TRV-404
+Test,TC-API-055 Interés inválido → 422,"*Historia:* TRV-404 — Generar un itinerario sugerido para mi estadía
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-404-04 Validación: Dado que el interés no existe o las fechas son inválidas, cuando genero, entonces se informa (422) y no se muestra propuesta.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/itinerario.feature:31 — Entrada inválida (<caso>) devuelve 422}}",Baja,karate,TRV-404,TC-API-055,QA,TRV-4,TRV-404
+Test,TC-WEB-022 Generar itinerario desde el detalle del hotel,"*Historia:* TRV-404 — Generar un itinerario sugerido para mi estadía
+*Herramienta:* Selenium
+
+*Criterios cubiertos:*
+- CA-TRV-404-01 Propuesta: Dado que ingreso datos válidos, cuando genero el itinerario, entonces veo días, actividades, duraciones y costos estimados.
+- CA-TRV-404-02 Sugerencia, no reserva: Dado que reviso la propuesta, cuando la miro, entonces está rotulada como sugerencia y su costo se muestra separado del total del hotel.
+
+*Automatización:*
+- {{selenium/src/test/java/com/trouvels360/web/pruebas/ResenasItinerarioTest.java:60 — ResenasItinerarioTest#itinerarioSugerido}}",Baja,selenium,TRV-404,TC-WEB-022,QA,TRV-4,TRV-404
+Test,TC-MOB-024 Generar itinerario en la app y continuar con la reserva,"*Historia:* TRV-404 — Generar un itinerario sugerido para mi estadía
+*Herramienta:* Appium
+
+*Criterios cubiertos:*
+- CA-TRV-404-01 Propuesta: Dado que ingreso datos válidos, cuando genero el itinerario, entonces veo días, actividades, duraciones y costos estimados.
+- CA-TRV-404-03 Continuar: Dado que vi o ignoré la propuesta, cuando sigo, entonces puedo terminar la reserva del hotel; reservar un tour requiere su propio flujo.
+
+*Automatización:*
+- {{appium/src/test/java/com/trouvels360/movil/pruebas/ResenasItinerarioMovilTest.java:46 — ResenasItinerarioMovilTest#itinerario}}",Baja,appium,TRV-404,TC-MOB-024,QA,TRV-4,TRV-404
+Test,TC-MAN-003 Microservicio de itinerarios caído: aviso con Reintentar y se puede seguir con el hotel,"*Historia:* TRV-404 — Generar un itinerario sugerido para mi estadía
+*Herramienta:* Manual
+
+*Criterios cubiertos:*
+- CA-TRV-404-05 Servicio caído: Dado que el microservicio falla, cuando genero, entonces veo 'No pudimos generar el itinerario' con Reintentar y puedo seguir con el hotel.
+
+*Pasos (prueba manual):*
+Detener el microservicio Python (:8001), en el detalle del hotel pulsar Reservar → 'Sí, generar itinerario'. Esperado: 'No pudimos generar el itinerario…' con opción de reintentar y 'No, continuar al pago' funciona. La API responde 503 con success=false.",Baja,manual,TRV-404,TC-MAN-003,QA,TRV-4,TRV-404
+Test,"TC-API-056 Paginación: meta.total, last_page y página 2 con los registros 16+","*Historia:* TRV-501 — Panel de publicaciones e indicadores
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-501-01 Listado propio: Dado que tengo 20 publicaciones, cuando abro el panel, entonces veo solo las mías y puedo ir a la página 2 (registros 16–20).
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/proveedor.feature:19 — Paginación de mis publicaciones: meta coherente y la página 2 empieza en el registro 16}}",Alta,karate,TRV-501,TC-API-056,QA,TRV-5,TRV-501
+Test,TC-API-057 Indicadores por estado tras crear reservas en 4 estados,"*Historia:* TRV-501 — Panel de publicaciones e indicadores
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-501-02 Indicadores por estado: Dado que una publicación tiene reservas en varios estados, cuando veo sus indicadores, entonces cada estado se cuenta por separado y pendientes o canceladas no suman como confirmadas.
+- CA-TRV-501-04 Actualización: Dado que el viajero reservó o el proveedor aceptó, cuando recargo, entonces los indicadores se recalculan.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/proveedor.feature:54 — Indicadores por estado tras crear reservas en los 4 estados}}",Alta,karate,TRV-501,TC-API-057,QA,TRV-5,TRV-501
+Test,TC-API-058 Viajero en /proveedor/servicios → 403,"*Historia:* TRV-501 — Panel de publicaciones e indicadores
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-501-05 Vacío y no autorizado: Dado que no tengo publicaciones o soy viajero, cuando accedo, entonces veo 'Aún no tienes publicaciones' o la API responde 403.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/proveedor.feature:94 — Un viajero no accede a las secciones del proveedor (403) y un anónimo recibe 401}}",Alta,karate,TRV-501,TC-API-058,QA,TRV-5,TRV-501
+Test,"TC-PERF-006 Panel del proveedor con 30 usuarios concurrentes, p95 < 1,5 s","*Historia:* TRV-501 — Panel de publicaciones e indicadores
+*Herramienta:* JMeter
+
+*Criterios cubiertos:*
+- CA-TRV-501-01 Listado propio: Dado que tengo 20 publicaciones, cuando abro el panel, entonces veo solo las mías y puedo ir a la página 2 (registros 16–20).
+
+*Automatización:*
+- {{jmeter/trouvels360.jmx — TC-PERF-006 Panel del proveedor (TRV-501/507) - 30 usuarios}}
+- {{jmeter/trouvels360.jmx — TC-PERF-006 GET /proveedor/reservas (pendientes)}}",Alta,jmeter,TRV-501,TC-PERF-006,QA,TRV-5,TRV-501
+Test,TC-WEB-023 Panel: paginación y tarjetas de indicadores,"*Historia:* TRV-501 — Panel de publicaciones e indicadores
+*Herramienta:* Selenium
+
+*Criterios cubiertos:*
+- CA-TRV-501-01 Listado propio: Dado que tengo 20 publicaciones, cuando abro el panel, entonces veo solo las mías y puedo ir a la página 2 (registros 16–20).
+- CA-TRV-501-02 Indicadores por estado: Dado que una publicación tiene reservas en varios estados, cuando veo sus indicadores, entonces cada estado se cuenta por separado y pendientes o canceladas no suman como confirmadas.
+
+*Automatización:*
+- {{selenium/src/test/java/com/trouvels360/web/pruebas/ProveedorTest.java:29 — ProveedorTest#panelIndicadoresPaginacion}}",Alta,selenium,TRV-501,TC-WEB-023,QA,TRV-5,TRV-501
+Test,TC-MOB-025 Panel del proveedor en la app con indicadores,"*Historia:* TRV-501 — Panel de publicaciones e indicadores
+*Herramienta:* Appium
+
+*Criterios cubiertos:*
+- CA-TRV-501-01 Listado propio: Dado que tengo 20 publicaciones, cuando abro el panel, entonces veo solo las mías y puedo ir a la página 2 (registros 16–20).
+- CA-TRV-501-02 Indicadores por estado: Dado que una publicación tiene reservas en varios estados, cuando veo sus indicadores, entonces cada estado se cuenta por separado y pendientes o canceladas no suman como confirmadas.
+
+*Automatización:*
+- {{appium/src/test/java/com/trouvels360/movil/pruebas/ProveedorMovilTest.java:31 — ProveedorMovilTest#panel}}",Alta,appium,TRV-501,TC-MOB-025,QA,TRV-5,TRV-501
+Test,TC-API-059 Crear hotel con habitaciones y verificar en el catálogo,"*Historia:* TRV-502 — Publicar y editar hoteles
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-502-01 Publicar: Dado que completo los datos y una habitación, cuando publico, entonces se crea mi hotel y aparece en el catálogo con los mismos datos e imágenes.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/proveedor.feature:112 — Publicar un hotel con dos tipos de habitación y encontrarlo en el catálogo}}",Alta,karate,TRV-502,TC-API-059,QA,TRV-5,TRV-502
+Test,TC-API-060 6 imágenes → 422,"*Historia:* TRV-502 — Publicar y editar hoteles
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-502-02 Galería: Dado que agrego 6 imágenes, cuando guardo, entonces se informa 'Máximo 5 imágenes' y no se guarda.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/proveedor.feature:137 — Más de 5 imágenes en la galería devuelve 422}}",Alta,karate,TRV-502,TC-API-060,QA,TRV-5,TRV-502
+Test,TC-API-061 Editar hotel ajeno → 403,"*Historia:* TRV-502 — Publicar y editar hoteles
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-502-04 Inválido o ajeno: Dado que faltan datos o el hotel es de otro, cuando guardo, entonces 422 o 403 y no se reemplaza nada.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/proveedor.feature:147 — Editar el hotel de otro proveedor devuelve 403 y no cambia nada}}",Alta,karate,TRV-502,TC-API-061,QA,TRV-5,TRV-502
+Test,TC-WEB-024 Crear hotel desde el formulario del proveedor,"*Historia:* TRV-502 — Publicar y editar hoteles
+*Herramienta:* Selenium
+
+*Criterios cubiertos:*
+- CA-TRV-502-01 Publicar: Dado que completo los datos y una habitación, cuando publico, entonces se crea mi hotel y aparece en el catálogo con los mismos datos e imágenes.
+
+*Automatización:*
+- {{selenium/src/test/java/com/trouvels360/web/pruebas/ProveedorTest.java:56 — ProveedorTest#crearHotel}}",Alta,selenium,TRV-502,TC-WEB-024,QA,TRV-5,TRV-502
+Test,TC-MOB-026 Crear hotel desde la app del proveedor,"*Historia:* TRV-502 — Publicar y editar hoteles
+*Herramienta:* Appium
+
+*Criterios cubiertos:*
+- CA-TRV-502-01 Publicar: Dado que completo los datos y una habitación, cuando publico, entonces se crea mi hotel y aparece en el catálogo con los mismos datos e imágenes.
+
+*Automatización:*
+- {{appium/src/test/java/com/trouvels360/movil/pruebas/ProveedorMovilTest.java:50 — ProveedorMovilTest#crearHotel}}",Alta,appium,TRV-502,TC-MOB-026,QA,TRV-5,TRV-502
+Test,TC-API-083 Editar descripción e imágenes conserva id y reservas,"*Historia:* TRV-502 — Publicar y editar hoteles
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-502-03 Editar: Dado que cambio la descripción y una imagen, cuando guardo, entonces se conserva el id y las reservas no cambian.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/cobertura-adicional.feature:86 — CA-TRV-502-03 Editar descripción e imágenes conserva el id y no cambia las reservas}}",Alta,karate,TRV-502,TC-API-083,QA,TRV-5,TRV-502
+Test,TC-API-084 Tipo de habitación inválido: no queda hotel a medias,"*Historia:* TRV-502 — Publicar y editar hoteles
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-502-05 Transacción: Dado que falla la creación de habitaciones, cuando se procesa, entonces no queda un hotel a medias ni duplicado.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/cobertura-adicional.feature:109 — CA-TRV-502-05 Si un tipo de habitación es inválido no queda un hotel a medias}}",Alta,karate,TRV-502,TC-API-084,QA,TRV-5,TRV-502
+Test,TC-API-062 Reducir unidades bajo ocupación → 409 con mínimo,"*Historia:* TRV-503 — Gestionar tipos de habitación
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-503-02 Reducir bajo ocupación: Dado que hay 3 unidades ocupadas el 15/12, cuando intento dejar 2 unidades, entonces la API responde 409 'Mínimo permitido: 3'.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/proveedor.feature:166 — Reducir unidades por debajo de lo ocupado devuelve 409 con el mínimo permitido}}",Media,karate,TRV-503,TC-API-062,QA,TRV-5,TRV-503
+Test,TC-API-063 Eliminar con reservas → 409; sin reservas → 204,"*Historia:* TRV-503 — Gestionar tipos de habitación
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-503-03 Eliminar con reservas: Dado que el tipo tiene reservas activas, cuando intento eliminar, entonces se impide (409); sin reservas se elimina tras confirmar.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/proveedor.feature:185 — Eliminar un tipo de habitación con reservas activas → 409; sin reservas → 204}}",Media,karate,TRV-503,TC-API-063,QA,TRV-5,TRV-503
+Test,TC-API-064 Cambio de tarifa no altera total de reservas previas,"*Historia:* TRV-503 — Gestionar tipos de habitación
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-503-04 Historial: Dado que edito la tarifa, cuando consulto reservas pasadas, entonces conservan su precio original.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/proveedor.feature:209 — Cambiar la tarifa no altera el total de reservas ya hechas, solo las nuevas cotizaciones}}",Media,karate,TRV-503,TC-API-064,QA,TRV-5,TRV-503
+Test,TC-WEB-025 Agregar y editar tipo de habitación,"*Historia:* TRV-503 — Gestionar tipos de habitación
+*Herramienta:* Selenium
+
+*Criterios cubiertos:*
+- CA-TRV-503-01 Agregar o editar: Dado que mi hotel existe, cuando guardo un tipo válido, entonces queda asociado al hotel y se ve en web y móvil.
+
+*Automatización:*
+- {{selenium/src/test/java/com/trouvels360/web/pruebas/ProveedorTest.java:75 — ProveedorTest#editarHabitaciones}}",Media,selenium,TRV-503,TC-WEB-025,QA,TRV-5,TRV-503
+Test,TC-MOB-027 Agregar tipo de habitación en la app,"*Historia:* TRV-503 — Gestionar tipos de habitación
+*Herramienta:* Appium
+
+*Criterios cubiertos:*
+- CA-TRV-503-01 Agregar o editar: Dado que mi hotel existe, cuando guardo un tipo válido, entonces queda asociado al hotel y se ve en web y móvil.
+
+*Automatización:*
+- {{appium/src/test/java/com/trouvels360/movil/pruebas/ProveedorMovilTest.java:70 — ProveedorMovilTest#agregarTipo}}",Media,appium,TRV-503,TC-MOB-027,QA,TRV-5,TRV-503
+Test,TC-API-085 Tarifa 0 → 422 y tipo ajeno → 403 sin cambios,"*Historia:* TRV-503 — Gestionar tipos de habitación
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-503-05 Inválido o ajeno: Dado que la tarifa es 0 o el tipo es de otro hotel, cuando guardo, entonces 422 o 403 sin cambios.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/cobertura-adicional.feature:129 — CA-TRV-503-05 Tarifa 0 devuelve 422 y un tipo de otro proveedor 403, sin cambios}}",Media,karate,TRV-503,TC-API-085,QA,TRV-5,TRV-503
+Test,TC-API-065 Crear tour y verificar en catálogo,"*Historia:* TRV-504 — Publicar y editar tours
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-504-01 Publicar: Dado que completo los datos y una salida, cuando publico, entonces se crea mi tour y aparece en el catálogo.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/proveedor.feature:233 — Publicar un tour con salidas e ítems y encontrarlo en el catálogo}}",Alta,karate,TRV-504,TC-API-065,QA,TRV-5,TRV-504
+Test,TC-API-066 Editar precio: ids de salidas y totales de reservas sin cambio,"*Historia:* TRV-504 — Publicar y editar tours
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-504-03 Editar sin afectar reservas: Dado que el tour tiene reservas, cuando cambio el precio, entonces las salidas conservan sus ids y las reservas su importe.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/proveedor.feature:258 — Editar el precio no cambia las salidas ni el total de reservas existentes}}",Alta,karate,TRV-504,TC-API-066,QA,TRV-5,TRV-504
+Test,"TC-API-067 Data-driven de límites (imágenes, items, categoría) → 422","*Historia:* TRV-504 — Publicar y editar tours
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-504-02 Límites: Dado que agrego 11 elementos o 6 imágenes, cuando guardo, entonces 422 con el límite correspondiente.
+- CA-TRV-504-04 Inválido o ajeno: Dado que la categoría no existe o el tour es de otro, cuando guardo, entonces 422 o 403.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/proveedor.feature:282 — Límites del formulario de tour: <caso> → 422 en <campo>}}",Alta,karate,TRV-504,TC-API-067,QA,TRV-5,TRV-504
+Test,TC-WEB-026 Crear tour con salida desde el formulario,"*Historia:* TRV-504 — Publicar y editar tours
+*Herramienta:* Selenium
+
+*Criterios cubiertos:*
+- CA-TRV-504-01 Publicar: Dado que completo los datos y una salida, cuando publico, entonces se crea mi tour y aparece en el catálogo.
+
+*Automatización:*
+- {{selenium/src/test/java/com/trouvels360/web/pruebas/ProveedorTest.java:96 — ProveedorTest#crearTour}}",Alta,selenium,TRV-504,TC-WEB-026,QA,TRV-5,TRV-504
+Test,TC-MOB-028 Crear tour desde la app,"*Historia:* TRV-504 — Publicar y editar tours
+*Herramienta:* Appium
+
+*Criterios cubiertos:*
+- CA-TRV-504-01 Publicar: Dado que completo los datos y una salida, cuando publico, entonces se crea mi tour y aparece en el catálogo.
+
+*Automatización:*
+- {{appium/src/test/java/com/trouvels360/movil/pruebas/ProveedorMovilTest.java:92 — ProveedorMovilTest#crearTour}}",Alta,appium,TRV-504,TC-MOB-028,QA,TRV-5,TRV-504
+Test,TC-API-068 Dos actividades sin orden reciben 1 y 2,"*Historia:* TRV-505 — Gestionar actividades del tour
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-505-02 Agregar o editar: Dado que guardo una actividad válida sin orden, cuando se registra, entonces queda al final con el siguiente número.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/proveedor.feature:303 — Dos actividades sin orden reciben 1 y 2; insertar con orden 1 desplaza a las demás}}",Baja,karate,TRV-505,TC-API-068,QA,TRV-5,TRV-505
+Test,TC-API-069 Actividad en tour ajeno → 403,"*Historia:* TRV-505 — Gestionar actividades del tour
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-505-04 Inválido o ajeno: Dado que el título está vacío o el tour es de otro, cuando guardo, entonces 422 o 403.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/proveedor.feature:328 — Agregar una actividad o una salida en un tour ajeno devuelve 403}}",Baja,karate,TRV-505,TC-API-069,QA,TRV-5,TRV-505
+Test,"TC-WEB-027 Agregar, reordenar y eliminar actividades","*Historia:* TRV-505 — Gestionar actividades del tour
+*Herramienta:* Selenium
+
+*Criterios cubiertos:*
+- CA-TRV-505-01 Consultar: Dado que abro mi tour, cuando veo actividades, entonces aparecen en su orden, separadas de 'qué llevar'.
+- CA-TRV-505-02 Agregar o editar: Dado que guardo una actividad válida sin orden, cuando se registra, entonces queda al final con el siguiente número.
+- CA-TRV-505-03 Eliminar: Dado que confirmo eliminar, cuando termina, entonces deja de aparecer sin tocar salidas ni reservas.
+
+*Automatización:*
+- {{selenium/src/test/java/com/trouvels360/web/pruebas/ProveedorTest.java:118 — ProveedorTest#actividades}}",Baja,selenium,TRV-505,TC-WEB-027,QA,TRV-5,TRV-505
+Test,TC-MOB-029 Agregar actividad desde la app,"*Historia:* TRV-505 — Gestionar actividades del tour
+*Herramienta:* Appium
+
+*Criterios cubiertos:*
+- CA-TRV-505-02 Agregar o editar: Dado que guardo una actividad válida sin orden, cuando se registra, entonces queda al final con el siguiente número.
+
+*Automatización:*
+- {{appium/src/test/java/com/trouvels360/movil/pruebas/ProveedorMovilTest.java:114 — ProveedorMovilTest#actividad}}",Baja,appium,TRV-505,TC-MOB-029,QA,TRV-5,TRV-505
+Test,TC-API-070 Salida duplicada → 409; fecha pasada → 422,"*Historia:* TRV-506 — Gestionar salidas y cupos
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-506-02 Duplicado o fecha pasada: Dado que ya existe esa fecha y hora o la fecha es pasada, cuando creo, entonces 409 o 422 sin duplicar.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/proveedor.feature:342 — Salida duplicada (misma fecha y hora) → 409; fecha pasada → 422}}",Alta,karate,TRV-506,TC-API-070,QA,TRV-5,TRV-506
+Test,TC-API-071 cupo_total menor a reservado → 422; cupo_reservado enviado se ignora,"*Historia:* TRV-506 — Gestionar salidas y cupos
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-506-03 Editar con reservas: Dado que la salida tiene 6 reservados, cuando pongo cupo total 5, entonces 422 'No menor a lo reservado (6)'.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/proveedor.feature:360 — cupo_total menor a lo reservado → 422; el cupo_reservado enviado por el cliente se ignora}}",Alta,karate,TRV-506,TC-API-071,QA,TRV-5,TRV-506
+Test,TC-API-072 Salida cerrada rechaza reservas (call a reserva de viajero),"*Historia:* TRV-506 — Gestionar salidas y cupos
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-506-04 Cerrar o cancelar: Dado que cierro la salida, cuando un viajero intenta reservarla, entonces recibe 409 y las reservas previas siguen.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/proveedor.feature:377 — Una salida cerrada rechaza nuevas reservas y al reabrirla vuelve a aceptarlas}}",Alta,karate,TRV-506,TC-API-072,QA,TRV-5,TRV-506
+Test,"TC-WEB-028 Crear, cerrar y eliminar salida desde el panel","*Historia:* TRV-506 — Gestionar salidas y cupos
+*Herramienta:* Selenium
+
+*Criterios cubiertos:*
+- CA-TRV-506-01 Crear: Dado que mi tour existe, cuando creo una salida válida, entonces se registra programada con 0 reservados.
+- CA-TRV-506-04 Cerrar o cancelar: Dado que cierro la salida, cuando un viajero intenta reservarla, entonces recibe 409 y las reservas previas siguen.
+- CA-TRV-506-05 Eliminar: Dado que tiene reservas confirmadas, cuando intento eliminar, entonces 409; sin reservas se elimina tras confirmar.
+- CA-TRV-506-06 Consistencia: Dado que guardé un cambio, cuando consulto en web y móvil, entonces veo los mismos estados y cupos.
+
+*Automatización:*
+- {{selenium/src/test/java/com/trouvels360/web/pruebas/ProveedorTest.java:140 — ProveedorTest#salidas}}",Alta,selenium,TRV-506,TC-WEB-028,QA,TRV-5,TRV-506
+Test,TC-MOB-030 Crear y cerrar salida desde la app,"*Historia:* TRV-506 — Gestionar salidas y cupos
+*Herramienta:* Appium
+
+*Criterios cubiertos:*
+- CA-TRV-506-01 Crear: Dado que mi tour existe, cuando creo una salida válida, entonces se registra programada con 0 reservados.
+- CA-TRV-506-04 Cerrar o cancelar: Dado que cierro la salida, cuando un viajero intenta reservarla, entonces recibe 409 y las reservas previas siguen.
+- CA-TRV-506-06 Consistencia: Dado que guardé un cambio, cuando consulto en web y móvil, entonces veo los mismos estados y cupos.
+
+*Automatización:*
+- {{appium/src/test/java/com/trouvels360/movil/pruebas/ProveedorMovilTest.java:129 — ProveedorMovilTest#salida}}",Alta,appium,TRV-506,TC-MOB-030,QA,TRV-5,TRV-506
+Test,TC-API-073 Solo reservas de servicios propios (match each servicio.proveedor_id),"*Historia:* TRV-507 — Consultar reservas recibidas
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-507-01 Listado y detalle: Dado que recibí reservas, cuando abro Reservas recibidas, entonces veo todos los datos de cada una y puedo recorrer todas las páginas.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/proveedor.feature:397 — Reservas recibidas: solo de servicios propios, con datos del cliente}}",Alta,karate,TRV-507,TC-API-073,QA,TRV-5,TRV-507
+Test,TC-API-074 Filtro estado=pendiente,"*Historia:* TRV-507 — Consultar reservas recibidas
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-507-02 Filtros: Dado que filtro por Pendiente, cuando aplico, entonces solo veo pendientes de hotel con sus acciones.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/proveedor.feature:422 — Filtro estado=pendiente devuelve solo pendientes (y primero las pendientes sin filtro)}}",Alta,karate,TRV-507,TC-API-074,QA,TRV-5,TRV-507
+Test,TC-API-075 Detalle ajeno → 404,"*Historia:* TRV-507 — Consultar reservas recibidas
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-507-04 Ajeno: Dado que pido el detalle de una reserva de otro proveedor, cuando accedo, entonces 404.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/proveedor.feature:450 — El detalle de una reserva de otro proveedor devuelve 404}}",Alta,karate,TRV-507,TC-API-075,QA,TRV-5,TRV-507
+Test,TC-WEB-029 Bandeja de reservas con filtros y paginación,"*Historia:* TRV-507 — Consultar reservas recibidas
+*Herramienta:* Selenium
+
+*Criterios cubiertos:*
+- CA-TRV-507-01 Listado y detalle: Dado que recibí reservas, cuando abro Reservas recibidas, entonces veo todos los datos de cada una y puedo recorrer todas las páginas.
+- CA-TRV-507-02 Filtros: Dado que filtro por Pendiente, cuando aplico, entonces solo veo pendientes de hotel con sus acciones.
+
+*Automatización:*
+- {{selenium/src/test/java/com/trouvels360/web/pruebas/ProveedorTest.java:162 — ProveedorTest#bandejaFiltros}}",Alta,selenium,TRV-507,TC-WEB-029,QA,TRV-5,TRV-507
+Test,TC-MOB-031 Bandeja de reservas en la app,"*Historia:* TRV-507 — Consultar reservas recibidas
+*Herramienta:* Appium
+
+*Criterios cubiertos:*
+- CA-TRV-507-01 Listado y detalle: Dado que recibí reservas, cuando abro Reservas recibidas, entonces veo todos los datos de cada una y puedo recorrer todas las páginas.
+
+*Automatización:*
+- {{appium/src/test/java/com/trouvels360/movil/pruebas/ProveedorMovilTest.java:148 — ProveedorMovilTest#bandeja}}",Alta,appium,TRV-507,TC-MOB-031,QA,TRV-5,TRV-507
+Test,TC-API-076 Eliminar servicio ajeno → 403 (seguridad),"*Historia:* TRV-508 — Eliminar publicaciones propias
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-508-04 Ajeno o con reservas activas: Dado que no es mía o tiene reservas activas, cuando intento eliminar, entonces 403 o 409 sin cambios.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/proveedor.feature:466 — Eliminar la publicación de otro proveedor devuelve 403 y sigue en el catálogo}}",Media,karate,TRV-508,TC-API-076,QA,TRV-5,TRV-508
+Test,TC-API-077 Con reserva activa → 409,"*Historia:* TRV-508 — Eliminar publicaciones propias
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-508-04 Ajeno o con reservas activas: Dado que no es mía o tiene reservas activas, cuando intento eliminar, entonces 403 o 409 sin cambios.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/proveedor.feature:489 — Con una reserva activa (pendiente o confirmada) no se puede eliminar: 409}}",Media,karate,TRV-508,TC-API-077,QA,TRV-5,TRV-508
+Test,"TC-API-078 Tras eliminar, GET /mis-reservas del viajero sigue 200 con el nombre del servicio","*Historia:* TRV-508 — Eliminar publicaciones propias
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-508-03 Historial: Dado que tenía reservas pasadas, cuando la elimino, entonces el viajero y yo seguimos viendo esas reservas con el nombre del servicio.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/proveedor.feature:504 — Tras eliminar la publicación, el viajero conserva su historial con el nombre del servicio}}",Media,karate,TRV-508,TC-API-078,QA,TRV-5,TRV-508
+Test,TC-WEB-030 Eliminar publicación con diálogo de confirmación,"*Historia:* TRV-508 — Eliminar publicaciones propias
+*Herramienta:* Selenium
+
+*Criterios cubiertos:*
+- CA-TRV-508-01 Confirmar o desistir: Dado que pulso Eliminar, cuando cancelo, entonces la publicación sigue igual.
+- CA-TRV-508-02 Eliminación permitida: Dado que no hay reservas activas, cuando confirmo, entonces deja de aparecer en el catálogo y en mi panel, sin afectar otras publicaciones.
+
+*Automatización:*
+- {{selenium/src/test/java/com/trouvels360/web/pruebas/ProveedorTest.java:198 — ProveedorTest#eliminarPublicacion}}",Media,selenium,TRV-508,TC-WEB-030,QA,TRV-5,TRV-508
+Test,TC-MOB-032 Eliminar publicación desde la app,"*Historia:* TRV-508 — Eliminar publicaciones propias
+*Herramienta:* Appium
+
+*Criterios cubiertos:*
+- CA-TRV-508-02 Eliminación permitida: Dado que no hay reservas activas, cuando confirmo, entonces deja de aparecer en el catálogo y en mi panel, sin afectar otras publicaciones.
+
+*Automatización:*
+- {{appium/src/test/java/com/trouvels360/movil/pruebas/ProveedorMovilTest.java:170 — ProveedorMovilTest#eliminar}}",Media,appium,TRV-508,TC-MOB-032,QA,TRV-5,TRV-508
+Test,TC-API-086 Repetir la eliminación devuelve 404 sin efectos,"*Historia:* TRV-508 — Eliminar publicaciones propias
+*Herramienta:* Karate
+
+*Criterios cubiertos:*
+- CA-TRV-508-05 Repetición: Dado que repito la eliminación, cuando se procesa, entonces 404 sin efectos adicionales.
+
+*Automatización:*
+- {{karate/src/test/java/trouvels360/cobertura-adicional.feature:149 — CA-TRV-508-05 Repetir la eliminación devuelve 404 sin efectos adicionales}}",Media,karate,TRV-508,TC-API-086,QA,TRV-5,TRV-508

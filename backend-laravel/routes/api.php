@@ -31,7 +31,7 @@ Route::get('ping', fn () => response()->json(['pong' => true]));
 // ------------------------------------------------------------------ AUTH (TRV-101/102/103)
 Route::prefix('auth')->group(function () {
     Route::get('/csrf', [AuthController::class, 'csrf']);
-    Route::post('/register', [AuthController::class, 'register'])->middleware(['csrf.api', 'throttle:10,1']);
+    Route::post('/register', [AuthController::class, 'register'])->middleware(['csrf.api', 'throttle:registro']);
     Route::post('/login', [AuthController::class, 'login'])->middleware(['csrf.api', 'throttle:login']);
     Route::post('/refresh', [AuthController::class, 'refresh'])->middleware(['jwt.cookie', 'csrf.api']);
 

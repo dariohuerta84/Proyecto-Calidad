@@ -1,0 +1,7 @@
+caso,campo,email,password,confirmacion,nombre,apellido
+correo sin arroba,email,sin-arroba,Clave123,Clave123,Ana,Pérez
+correo vacío,email,,Clave123,Clave123,Ana,Pérez
+contraseña corta,password,ok,123,123,Ana,Pérez
+confirmación distinta,password,ok,Clave123,Otra123,Ana,Pérez
+nombre vacío,nombre,ok,Clave123,Clave123,,Pérez
+apellido vacío,apellido,ok,Clave123,Clave123,Ana,

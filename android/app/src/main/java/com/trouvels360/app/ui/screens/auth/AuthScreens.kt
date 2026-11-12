@@ -194,7 +194,8 @@ fun RegisterScreen(onDone: (UserDto?) -> Unit, onLogin: () -> Unit) {
         }
         Campo(email, { email = it }, "Correo electrónico", "registro_email", error = fields["email"], keyboardType = KeyboardType.Email)
         PasswordField(password, { password = it }, "Contraseña (mín. 6 caracteres)", "registro_password", fields["password"])
-        PasswordField(confirmacion, { confirmacion = it }, "Repite la contraseña", "registro_password_confirmacion", fields["password_confirmation"])
+        PasswordField(confirmacion, { confirmacion = it }, "Repite la contraseña", "registro_password_confirmacion",
+            fields["password_confirmation"] ?: if (confirmacion.isNotEmpty() && confirmacion != password) "Las contraseñas no coinciden." else null)
         error?.let { Banner(it, error = true, tagId = "registro_error") }
         Button(
             onClick = {
@@ -217,7 +218,7 @@ fun RegisterScreen(onDone: (UserDto?) -> Unit, onLogin: () -> Unit) {
                     loading = false
                 }
             },
-            enabled = !loading,
+            enabled = !loading && confirmacion == password,
             modifier = Modifier.fillMaxWidth().height(50.dp).tag("registro_submit"),
         ) {
             if (loading) CircularProgressIndicator(Modifier.size(20.dp), strokeWidth = 2.dp) else Text("Registrarme")

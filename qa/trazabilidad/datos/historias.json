@@ -1,0 +1,2346 @@
+{
+ "proyecto": "Trouvels360",
+ "epicas": [
+  {
+   "key": "TRV-1",
+   "nombre": "Identidad y cuentas"
+  },
+  {
+   "key": "TRV-2",
+   "nombre": "Hoteles y aprobación de reservas"
+  },
+  {
+   "key": "TRV-3",
+   "nombre": "Tours y salidas"
+  },
+  {
+   "key": "TRV-4",
+   "nombre": "Postventa del viajero"
+  },
+  {
+   "key": "TRV-5",
+   "nombre": "Portal del proveedor"
+  },
+  {
+   "key": "TRV-6",
+   "nombre": "Calidad y automatización"
+  }
+ ],
+ "historias": [
+  {
+   "key": "TRV-101",
+   "epica": "TRV-1",
+   "resumen": "Registro de cuenta de viajero",
+   "prioridad": "Alta",
+   "puntos": 3,
+   "criterios": [
+    {
+     "id": "CA-TRV-101-01",
+     "titulo": "Registro exitoso",
+     "dado": "que completo nombre, apellido, correo nuevo y contraseña de 6+ caracteres con confirmación igual",
+     "cuando": "envío el formulario de registro como viajero",
+     "entonces": "se crea una sola cuenta con rol viajero, la API responde 201 con el usuario sin contraseña y quedo con sesión iniciada"
+    },
+    {
+     "id": "CA-TRV-101-02",
+     "titulo": "Campos inválidos",
+     "dado": "que dejo vacío un campo obligatorio o el correo no tiene formato válido",
+     "cuando": "intento registrarme",
+     "entonces": "se marca el campo con su mensaje, la API responde 422 con el detalle por campo y no se crea ninguna cuenta"
+    },
+    {
+     "id": "CA-TRV-101-03",
+     "titulo": "Contraseñas distintas",
+     "dado": "que la confirmación no coincide con la contraseña",
+     "cuando": "envío el registro",
+     "entonces": "se muestra 'Las contraseñas no coinciden' y no se crea la cuenta"
+    },
+    {
+     "id": "CA-TRV-101-04",
+     "titulo": "Correo duplicado",
+     "dado": "que ya existe una cuenta con el mismo correo (sin importar mayúsculas)",
+     "cuando": "envío el registro",
+     "entonces": "la API responde 422 'El correo ya está registrado' y no se crea una segunda cuenta"
+    },
+    {
+     "id": "CA-TRV-101-05",
+     "titulo": "Rol no manipulable",
+     "dado": "que envío un rol distinto de viajero o proveedor",
+     "cuando": "llamo a la API de registro",
+     "entonces": "responde 422 y no se crea la cuenta"
+    }
+   ],
+   "casos": [
+    {
+     "id": "TC-API-001",
+     "herramienta": "Karate",
+     "titulo": "Registro viajero válido devuelve 201 y esquema de usuario sin password",
+     "criterios": [
+      "CA-TRV-101-01"
+     ]
+    },
+    {
+     "id": "TC-API-002",
+     "herramienta": "Karate",
+     "titulo": "Data-driven (CSV) de campos inválidos devuelve 422 con error por campo",
+     "criterios": [
+      "CA-TRV-101-02",
+      "CA-TRV-101-03"
+     ]
+    },
+    {
+     "id": "TC-API-003",
+     "herramienta": "Karate",
+     "titulo": "Correo duplicado en mayúsculas devuelve 422",
+     "criterios": [
+      "CA-TRV-101-04"
+     ]
+    },
+    {
+     "id": "TC-API-004",
+     "herramienta": "Karate",
+     "titulo": "Rol 'admin' devuelve 422",
+     "criterios": [
+      "CA-TRV-101-05"
+     ]
+    },
+    {
+     "id": "TC-WEB-001",
+     "herramienta": "Selenium",
+     "titulo": "Registro de viajero end-to-end y aterrizaje en catálogo",
+     "criterios": [
+      "CA-TRV-101-01"
+     ]
+    },
+    {
+     "id": "TC-WEB-002",
+     "herramienta": "Selenium",
+     "titulo": "Mensajes de validación en el formulario",
+     "criterios": [
+      "CA-TRV-101-02",
+      "CA-TRV-101-03"
+     ]
+    },
+    {
+     "id": "TC-MOB-001",
+     "herramienta": "Appium",
+     "titulo": "Registro de viajero desde la app y sesión iniciada",
+     "criterios": [
+      "CA-TRV-101-01"
+     ]
+    },
+    {
+     "id": "TC-MOB-002",
+     "herramienta": "Appium",
+     "titulo": "Botón Registrarme deshabilitado con contraseñas distintas",
+     "criterios": [
+      "CA-TRV-101-03"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "TRV-102",
+   "epica": "TRV-1",
+   "resumen": "Registro de cuenta de proveedor",
+   "prioridad": "Alta",
+   "puntos": 3,
+   "criterios": [
+    {
+     "id": "CA-TRV-102-01",
+     "titulo": "Registro exitoso",
+     "dado": "que ingreso empresa, RUC de 11 dígitos nuevo, celular peruano válido, correo nuevo y contraseña confirmada",
+     "cuando": "me registro como proveedor",
+     "entonces": "se crea una sola cuenta con rol proveedor y el teléfono queda guardado como '+51 9XXXXXXXX'"
+    },
+    {
+     "id": "CA-TRV-102-02",
+     "titulo": "RUC inválido o duplicado",
+     "dado": "que el RUC no tiene 11 dígitos o ya está registrado",
+     "cuando": "envío el registro",
+     "entonces": "la API responde 422 indicando el problema del RUC y no se crea la cuenta"
+    },
+    {
+     "id": "CA-TRV-102-03",
+     "titulo": "Teléfono inválido",
+     "dado": "que el teléfono no es un celular peruano (9 dígitos que empiezan en 9)",
+     "cuando": "envío el registro",
+     "entonces": "se informa 'El teléfono debe tener el formato +51 9########' y no se crea la cuenta"
+    },
+    {
+     "id": "CA-TRV-102-04",
+     "titulo": "Correo duplicado o contraseñas distintas",
+     "dado": "que el correo ya existe o la confirmación no coincide",
+     "cuando": "envío el registro",
+     "entonces": "se informa el error y no se crea ninguna cuenta"
+    }
+   ],
+   "casos": [
+    {
+     "id": "TC-API-005",
+     "herramienta": "Karate",
+     "titulo": "Registro proveedor normaliza '987654321' a '+51 987654321'",
+     "criterios": [
+      "CA-TRV-102-01"
+     ]
+    },
+    {
+     "id": "TC-API-006",
+     "herramienta": "Karate",
+     "titulo": "Data-driven de RUC inválidos y duplicado (422)",
+     "criterios": [
+      "CA-TRV-102-02"
+     ]
+    },
+    {
+     "id": "TC-API-007",
+     "herramienta": "Karate",
+     "titulo": "Teléfonos inválidos devuelven 422 con mensaje",
+     "criterios": [
+      "CA-TRV-102-03"
+     ]
+    },
+    {
+     "id": "TC-WEB-003",
+     "herramienta": "Selenium",
+     "titulo": "Registro de proveedor y acceso al panel del proveedor",
+     "criterios": [
+      "CA-TRV-102-01"
+     ]
+    },
+    {
+     "id": "TC-MOB-003",
+     "herramienta": "Appium",
+     "titulo": "Registro de proveedor desde la app y acceso al panel",
+     "criterios": [
+      "CA-TRV-102-01"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "TRV-103",
+   "epica": "TRV-1",
+   "resumen": "Inicio y cierre de sesión con retorno al destino",
+   "prioridad": "Más alta",
+   "puntos": 5,
+   "criterios": [
+    {
+     "id": "CA-TRV-103-01",
+     "titulo": "Login correcto",
+     "dado": "que tengo una cuenta activa",
+     "cuando": "ingreso correo y contraseña correctos",
+     "entonces": "accedo con mi rol y veo el menú de viajero o el panel de proveedor según corresponda"
+    },
+    {
+     "id": "CA-TRV-103-02",
+     "titulo": "Retorno a la reserva",
+     "dado": "que pulsé 'Reservar' sin sesión con fechas y habitaciones elegidas",
+     "cuando": "inicio sesión correctamente",
+     "entonces": "vuelvo al detalle del hotel o tour con la misma selección si sigue disponible"
+    },
+    {
+     "id": "CA-TRV-103-03",
+     "titulo": "Credenciales incorrectas",
+     "dado": "que la contraseña es incorrecta o falta un campo",
+     "cuando": "intento ingresar",
+     "entonces": "veo 'Credenciales inválidas' (401) o el campo faltante (422) y no se crea sesión"
+    },
+    {
+     "id": "CA-TRV-103-04",
+     "titulo": "Sesión vencida",
+     "dado": "que mi token expiró",
+     "cuando": "intento una acción privada",
+     "entonces": "la API responde 401, se limpia la sesión local y se me pide iniciar sesión"
+    },
+    {
+     "id": "CA-TRV-103-05",
+     "titulo": "Cierre de sesión",
+     "dado": "que tengo sesión iniciada",
+     "cuando": "cierro sesión y reutilizo el token anterior",
+     "entonces": "la API responde 401: el token quedó invalidado"
+    },
+    {
+     "id": "CA-TRV-103-06",
+     "titulo": "Separación de roles",
+     "dado": "que soy viajero",
+     "cuando": "llamo a una ruta exclusiva de proveedor",
+     "entonces": "la API responde 403 y no se expone información"
+    }
+   ],
+   "casos": [
+    {
+     "id": "TC-API-008",
+     "herramienta": "Karate",
+     "titulo": "Login devuelve 200, cookie access_token HttpOnly y esquema de usuario",
+     "criterios": [
+      "CA-TRV-103-01"
+     ]
+    },
+    {
+     "id": "TC-API-009",
+     "herramienta": "Karate",
+     "titulo": "POST sin X-XSRF-TOKEN devuelve 403",
+     "criterios": [
+      "CA-TRV-103-01"
+     ]
+    },
+    {
+     "id": "TC-API-010",
+     "herramienta": "Karate",
+     "titulo": "Credenciales inválidas 401 y faltantes 422",
+     "criterios": [
+      "CA-TRV-103-03"
+     ]
+    },
+    {
+     "id": "TC-API-011",
+     "herramienta": "Karate",
+     "titulo": "Token reutilizado tras logout devuelve 401",
+     "criterios": [
+      "CA-TRV-103-05"
+     ]
+    },
+    {
+     "id": "TC-API-012",
+     "herramienta": "Karate",
+     "titulo": "Viajero en ruta de proveedor devuelve 403",
+     "criterios": [
+      "CA-TRV-103-06"
+     ]
+    },
+    {
+     "id": "TC-PERF-001",
+     "herramienta": "JMeter",
+     "titulo": "Login con 50 usuarios concurrentes desde CSV: p95 < 800 ms, 0% errores",
+     "criterios": [
+      "CA-TRV-103-01"
+     ]
+    },
+    {
+     "id": "TC-WEB-004",
+     "herramienta": "Selenium",
+     "titulo": "Login viajero y proveedor muestran el menú de su rol",
+     "criterios": [
+      "CA-TRV-103-01",
+      "CA-TRV-103-06"
+     ]
+    },
+    {
+     "id": "TC-WEB-005",
+     "herramienta": "Selenium",
+     "titulo": "Login desde 'Reservar' vuelve al detalle con la selección",
+     "criterios": [
+      "CA-TRV-103-02"
+     ]
+    },
+    {
+     "id": "TC-MOB-004",
+     "herramienta": "Appium",
+     "titulo": "Login, cierre de sesión y bloqueo de pestañas privadas",
+     "criterios": [
+      "CA-TRV-103-01",
+      "CA-TRV-103-05"
+     ]
+    },
+    {
+     "id": "TC-MOB-005",
+     "herramienta": "Appium",
+     "titulo": "Reservar sin sesión → login → regreso al detalle",
+     "criterios": [
+      "CA-TRV-103-02"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "TRV-104",
+   "epica": "TRV-1",
+   "resumen": "Gestionar perfil y contraseña",
+   "prioridad": "Media",
+   "puntos": 5,
+   "criterios": [
+    {
+     "id": "CA-TRV-104-01",
+     "titulo": "Editar datos",
+     "dado": "que tengo sesión",
+     "cuando": "guardo datos válidos",
+     "entonces": "los cambios persisten y se ven igual al consultar desde web y desde móvil"
+    },
+    {
+     "id": "CA-TRV-104-02",
+     "titulo": "Datos inválidos",
+     "dado": "que envío un teléfono o URL de imagen inválidos",
+     "cuando": "guardo",
+     "entonces": "se informa el campo con error y se conservan los datos anteriores"
+    },
+    {
+     "id": "CA-TRV-104-03",
+     "titulo": "Intento de cambiar rol",
+     "dado": "que envío el campo rol",
+     "cuando": "llamo a PATCH /usuarios/me",
+     "entonces": "la API responde 422 y el rol no cambia"
+    },
+    {
+     "id": "CA-TRV-104-04",
+     "titulo": "Cambiar contraseña",
+     "dado": "que ingreso la contraseña actual correcta y una nueva confirmada",
+     "cuando": "guardo y vuelvo a iniciar sesión",
+     "entonces": "la nueva contraseña funciona y la anterior responde 401"
+    },
+    {
+     "id": "CA-TRV-104-05",
+     "titulo": "Contraseña actual incorrecta",
+     "dado": "que la contraseña actual no coincide",
+     "cuando": "intento cambiarla",
+     "entonces": "se informa 'La contraseña actual no es correcta' y no cambia"
+    },
+    {
+     "id": "CA-TRV-104-06",
+     "titulo": "Error de servidor",
+     "dado": "que la API falla al guardar",
+     "cuando": "termina la operación",
+     "entonces": "se muestra un error con opción de reintentar y no se anuncia un cambio que no se guardó"
+    }
+   ],
+   "casos": [
+    {
+     "id": "TC-API-013",
+     "herramienta": "Karate",
+     "titulo": "PATCH /usuarios/me actualiza y GET /auth/me devuelve lo mismo",
+     "criterios": [
+      "CA-TRV-104-01"
+     ]
+    },
+    {
+     "id": "TC-API-014",
+     "herramienta": "Karate",
+     "titulo": "Avatar y teléfono inválidos devuelven 422",
+     "criterios": [
+      "CA-TRV-104-02"
+     ]
+    },
+    {
+     "id": "TC-API-015",
+     "herramienta": "Karate",
+     "titulo": "Enviar rol devuelve 422",
+     "criterios": [
+      "CA-TRV-104-03"
+     ]
+    },
+    {
+     "id": "TC-API-016",
+     "herramienta": "Karate",
+     "titulo": "Cambio de contraseña: login con nueva 200 y con anterior 401",
+     "criterios": [
+      "CA-TRV-104-04",
+      "CA-TRV-104-05"
+     ]
+    },
+    {
+     "id": "TC-WEB-006",
+     "herramienta": "Selenium",
+     "titulo": "Editar perfil y ver el nombre actualizado en el menú",
+     "criterios": [
+      "CA-TRV-104-01"
+     ]
+    },
+    {
+     "id": "TC-MOB-006",
+     "herramienta": "Appium",
+     "titulo": "Editar perfil en la app y verificarlo en la pestaña Perfil",
+     "criterios": [
+      "CA-TRV-104-01"
+     ]
+    },
+    {
+     "id": "TC-MOB-007",
+     "herramienta": "Appium",
+     "titulo": "Cambio de contraseña con confirmación distinta deshabilita Guardar",
+     "criterios": [
+      "CA-TRV-104-04"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "TRV-105",
+   "epica": "TRV-1",
+   "resumen": "Eliminar mi cuenta conservando el historial",
+   "prioridad": "Baja",
+   "puntos": 3,
+   "criterios": [
+    {
+     "id": "CA-TRV-105-01",
+     "titulo": "Desistir",
+     "dado": "que pulsé 'Eliminar cuenta'",
+     "cuando": "cancelo en el diálogo de confirmación",
+     "entonces": "no cambia nada"
+    },
+    {
+     "id": "CA-TRV-105-02",
+     "titulo": "Eliminación permitida",
+     "dado": "que no tengo reservas activas",
+     "cuando": "confirmo la eliminación",
+     "entonces": "se cierra mi sesión y no puedo volver a ingresar con esa cuenta (401)"
+    },
+    {
+     "id": "CA-TRV-105-03",
+     "titulo": "Bloqueo por reservas activas",
+     "dado": "que tengo una reserva confirmada futura",
+     "cuando": "intento eliminar",
+     "entonces": "la API responde 409 'Tienes reservas activas' y la cuenta sigue activa"
+    },
+    {
+     "id": "CA-TRV-105-04",
+     "titulo": "Historial conservado",
+     "dado": "que mi cuenta fue eliminada",
+     "cuando": "el proveedor consulta sus reservas",
+     "entonces": "las reservas siguen con su código, importe y estado"
+    }
+   ],
+   "casos": [
+    {
+     "id": "TC-API-017",
+     "herramienta": "Karate",
+     "titulo": "DELETE con reserva activa devuelve 409",
+     "criterios": [
+      "CA-TRV-105-03"
+     ]
+    },
+    {
+     "id": "TC-API-018",
+     "herramienta": "Karate",
+     "titulo": "DELETE sin reservas devuelve 200 y login posterior 401",
+     "criterios": [
+      "CA-TRV-105-02"
+     ]
+    },
+    {
+     "id": "TC-API-019",
+     "herramienta": "Karate",
+     "titulo": "Reservas de la cuenta eliminada siguen visibles para el proveedor",
+     "criterios": [
+      "CA-TRV-105-04"
+     ]
+    },
+    {
+     "id": "TC-WEB-007",
+     "herramienta": "Selenium",
+     "titulo": "Diálogo de confirmación: cancelar conserva la cuenta",
+     "criterios": [
+      "CA-TRV-105-01"
+     ]
+    },
+    {
+     "id": "TC-MOB-008",
+     "herramienta": "Appium",
+     "titulo": "Eliminar cuenta desde Perfil y volver a la pantalla de login",
+     "criterios": [
+      "CA-TRV-105-02"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "TRV-201",
+   "epica": "TRV-2",
+   "resumen": "Buscar hoteles por destino, fechas y huéspedes",
+   "prioridad": "Más alta",
+   "puntos": 5,
+   "criterios": [
+    {
+     "id": "CA-TRV-201-01",
+     "titulo": "Búsqueda válida",
+     "dado": "que ingreso Cusco, 2 noches futuras, 2 adultos y 1 habitación",
+     "cuando": "busco",
+     "entonces": "solo veo hoteles de Cusco con habitaciones de capacidad >= 2 y unidades libres en esas fechas, con precio 'desde' por noche"
+    },
+    {
+     "id": "CA-TRV-201-02",
+     "titulo": "Fechas inválidas",
+     "dado": "que el check-in es pasado o el check-out es igual o anterior",
+     "cuando": "intento buscar",
+     "entonces": "se indica qué corregir, el botón no continúa y la API responde 422 si se llama directo"
+    },
+    {
+     "id": "CA-TRV-201-03",
+     "titulo": "Cantidades inválidas",
+     "dado": "que pido 0 adultos, 11 habitaciones o valores no enteros",
+     "cuando": "intento buscar",
+     "entonces": "se informa el rango permitido y no se ejecuta la búsqueda"
+    },
+    {
+     "id": "CA-TRV-201-04",
+     "titulo": "Sin resultados vs error",
+     "dado": "que no hay hoteles disponibles o la API falla",
+     "cuando": "termina la búsqueda",
+     "entonces": "distingo 'No encontramos hoteles' de 'No pudimos cargar los resultados' con botón Reintentar"
+    },
+    {
+     "id": "CA-TRV-201-05",
+     "titulo": "Conservar búsqueda",
+     "dado": "que abro un resultado",
+     "cuando": "vuelvo atrás",
+     "entonces": "conservo los filtros y la página donde estaba"
+    }
+   ],
+   "casos": [
+    {
+     "id": "TC-API-020",
+     "herramienta": "Karate",
+     "titulo": "Búsqueda válida: todos los resultados cumplen ciudad, capacidad y unidades (match each)",
+     "criterios": [
+      "CA-TRV-201-01"
+     ]
+    },
+    {
+     "id": "TC-API-021",
+     "herramienta": "Karate",
+     "titulo": "Data-driven de fechas y cantidades inválidas devuelve 422",
+     "criterios": [
+      "CA-TRV-201-02",
+      "CA-TRV-201-03"
+     ]
+    },
+    {
+     "id": "TC-API-022",
+     "herramienta": "Karate",
+     "titulo": "Hotel con unidades ocupadas por reservas pendientes no aparece",
+     "criterios": [
+      "CA-TRV-201-01"
+     ]
+    },
+    {
+     "id": "TC-PERF-002",
+     "herramienta": "JMeter",
+     "titulo": "Carga de catálogo: 100 usuarios, ramp-up 60 s, ciudades desde CSV, p95 < 1 s",
+     "criterios": [
+      "CA-TRV-201-01"
+     ]
+    },
+    {
+     "id": "TC-WEB-008",
+     "herramienta": "Selenium",
+     "titulo": "Búsqueda en Cusco y validación de tarjetas de resultado",
+     "criterios": [
+      "CA-TRV-201-01"
+     ]
+    },
+    {
+     "id": "TC-WEB-009",
+     "herramienta": "Selenium",
+     "titulo": "Validación de fechas pasadas en el buscador",
+     "criterios": [
+      "CA-TRV-201-02"
+     ]
+    },
+    {
+     "id": "TC-MOB-009",
+     "herramienta": "Appium",
+     "titulo": "Búsqueda por ciudad y fechas en la app",
+     "criterios": [
+      "CA-TRV-201-01"
+     ]
+    },
+    {
+     "id": "TC-MOB-010",
+     "herramienta": "Appium",
+     "titulo": "Estado vacío vs error con Reintentar",
+     "criterios": [
+      "CA-TRV-201-04"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "TRV-202",
+   "epica": "TRV-2",
+   "resumen": "Ver detalle del hotel y cotizar habitaciones con IGV",
+   "prioridad": "Alta",
+   "puntos": 5,
+   "criterios": [
+    {
+     "id": "CA-TRV-202-01",
+     "titulo": "Detalle completo",
+     "dado": "que abro un hotel desde la búsqueda",
+     "cuando": "carga el detalle",
+     "entonces": "veo ubicación, tipos con capacidad, tarifa, unidades disponibles para mis fechas y opiniones"
+    },
+    {
+     "id": "CA-TRV-202-02",
+     "titulo": "Selección múltiple",
+     "dado": "que elijo 2 unidades del tipo Doble y 1 del tipo Suite",
+     "cuando": "reviso el resumen",
+     "entonces": "el resumen lista cada tipo con unidades, fechas y noches"
+    },
+    {
+     "id": "CA-TRV-202-03",
+     "titulo": "Cálculo con IGV",
+     "dado": "que una Doble cuesta S/ 150.00, 2 noches, 2 unidades",
+     "cuando": "veo el importe",
+     "entonces": "subtotal S/ 600.00, IGV S/ 108.00 y total S/ 708.00, igual en web, móvil y en la respuesta de /cotizar"
+    },
+    {
+     "id": "CA-TRV-202-04",
+     "titulo": "Cantidad excedida",
+     "dado": "que un tipo tiene 3 unidades libres",
+     "cuando": "intento elegir 4",
+     "entonces": "el selector no lo permite y /cotizar responde 422 indicando el máximo"
+    },
+    {
+     "id": "CA-TRV-202-05",
+     "titulo": "Recalcular sin reservar",
+     "dado": "que cambio la fecha de salida",
+     "cuando": "se actualiza la cotización",
+     "entonces": "el total cambia y no se crea ninguna reserva"
+    }
+   ],
+   "casos": [
+    {
+     "id": "TC-API-023",
+     "herramienta": "Karate",
+     "titulo": "Esquema JSON del detalle de hotel (habitaciones, calificación, reseñas)",
+     "criterios": [
+      "CA-TRV-202-01"
+     ]
+    },
+    {
+     "id": "TC-API-024",
+     "herramienta": "Karate",
+     "titulo": "Cotización data-driven (CSV) con tarifas, noches y unidades → subtotal, igv, total exactos",
+     "criterios": [
+      "CA-TRV-202-03"
+     ]
+    },
+    {
+     "id": "TC-API-025",
+     "herramienta": "Karate",
+     "titulo": "Cotizar más unidades que las libres devuelve 422",
+     "criterios": [
+      "CA-TRV-202-04"
+     ]
+    },
+    {
+     "id": "TC-WEB-010",
+     "herramienta": "Selenium",
+     "titulo": "Selección de 2 tipos y verificación del resumen con IGV",
+     "criterios": [
+      "CA-TRV-202-02",
+      "CA-TRV-202-03"
+     ]
+    },
+    {
+     "id": "TC-MOB-011",
+     "herramienta": "Appium",
+     "titulo": "Selección de habitaciones y total con IGV en la app",
+     "criterios": [
+      "CA-TRV-202-02",
+      "CA-TRV-202-03"
+     ]
+    },
+    {
+     "id": "TC-MOB-012",
+     "herramienta": "Appium",
+     "titulo": "Botón + deshabilitado al llegar a las unidades disponibles",
+     "criterios": [
+      "CA-TRV-202-04"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "TRV-203",
+   "epica": "TRV-2",
+   "resumen": "Solicitar reserva de hotel con pago simulado",
+   "prioridad": "Más alta",
+   "puntos": 8,
+   "criterios": [
+    {
+     "id": "CA-TRV-203-01",
+     "titulo": "Solicitud registrada",
+     "dado": "que tengo sesión, selección válida y datos de pago válidos",
+     "cuando": "confirmo el pago",
+     "entonces": "se registra la solicitud con código, estado PENDIENTE y el mismo total mostrado, y veo el comprobante"
+    },
+    {
+     "id": "CA-TRV-203-02",
+     "titulo": "Pago inválido",
+     "dado": "que el número no tiene 16 dígitos, la tarjeta está vencida o el CVC no tiene 3 dígitos",
+     "cuando": "intento pagar",
+     "entonces": "se señala el campo, la API responde 422 y no se crea reserva; cerrar el formulario conserva la selección"
+    },
+    {
+     "id": "CA-TRV-203-03",
+     "titulo": "Unidades ocupadas",
+     "dado": "que mi solicitud quedó pendiente",
+     "cuando": "otro viajero consulta las mismas fechas",
+     "entonces": "las unidades de mi solicitud ya no figuran como disponibles"
+    },
+    {
+     "id": "CA-TRV-203-04",
+     "titulo": "Disponibilidad insuficiente",
+     "dado": "que otro viajero tomó las últimas unidades mientras pagaba",
+     "cuando": "envío",
+     "entonces": "la API responde 409 indicando qué tipo ya no tiene unidades y no se registra ningún tipo"
+    },
+    {
+     "id": "CA-TRV-203-05",
+     "titulo": "Concurrencia",
+     "dado": "que 20 viajeros envían a la vez por la última unidad",
+     "cuando": "se procesan",
+     "entonces": "solo una solicitud se registra y las demás reciben 409"
+    },
+    {
+     "id": "CA-TRV-203-06",
+     "titulo": "Envío repetido",
+     "dado": "que la respuesta no llegó y reintento con la misma Idempotency-Key",
+     "cuando": "reenvío",
+     "entonces": "recibo la misma solicitud ya registrada sin duplicados"
+    }
+   ],
+   "casos": [
+    {
+     "id": "TC-API-026",
+     "herramienta": "Karate",
+     "titulo": "Reserva válida 201: estado pendiente, código único, subtotal/igv/total = cotización",
+     "criterios": [
+      "CA-TRV-203-01"
+     ]
+    },
+    {
+     "id": "TC-API-027",
+     "herramienta": "Karate",
+     "titulo": "Data-driven de tarjetas inválidas (Luhn, vencida, CVC) → 422 sin reserva creada",
+     "criterios": [
+      "CA-TRV-203-02"
+     ]
+    },
+    {
+     "id": "TC-API-028",
+     "herramienta": "Karate",
+     "titulo": "Disponibilidad tras reservar descuenta las unidades",
+     "criterios": [
+      "CA-TRV-203-03"
+     ]
+    },
+    {
+     "id": "TC-API-029",
+     "herramienta": "Karate",
+     "titulo": "Varios tipos con uno sin stock → 409 y ninguno registrado",
+     "criterios": [
+      "CA-TRV-203-04"
+     ]
+    },
+    {
+     "id": "TC-API-030",
+     "herramienta": "Karate",
+     "titulo": "Mismo Idempotency-Key devuelve la misma solicitud",
+     "criterios": [
+      "CA-TRV-203-06"
+     ]
+    },
+    {
+     "id": "TC-PERF-003",
+     "herramienta": "JMeter",
+     "titulo": "20 hilos simultáneos (Synchronizing Timer) por la última unidad: exactamente 1×201 y 19×409",
+     "criterios": [
+      "CA-TRV-203-05"
+     ]
+    },
+    {
+     "id": "TC-WEB-011",
+     "herramienta": "Selenium",
+     "titulo": "Flujo completo búsqueda → selección → pago → comprobante PENDIENTE",
+     "criterios": [
+      "CA-TRV-203-01"
+     ]
+    },
+    {
+     "id": "TC-WEB-012",
+     "herramienta": "Selenium",
+     "titulo": "Validaciones del formulario de pago",
+     "criterios": [
+      "CA-TRV-203-02"
+     ]
+    },
+    {
+     "id": "TC-MOB-013",
+     "herramienta": "Appium",
+     "titulo": "Flujo completo de reserva de hotel en la app",
+     "criterios": [
+      "CA-TRV-203-01"
+     ]
+    },
+    {
+     "id": "TC-MOB-014",
+     "herramienta": "Appium",
+     "titulo": "Formulario de pago rechaza tarjeta vencida",
+     "criterios": [
+      "CA-TRV-203-02"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "TRV-204",
+   "epica": "TRV-2",
+   "resumen": "Aprobar o rechazar solicitudes de hotel",
+   "prioridad": "Más alta",
+   "puntos": 8,
+   "criterios": [
+    {
+     "id": "CA-TRV-204-01",
+     "titulo": "Aceptar",
+     "dado": "que tengo una solicitud pendiente de mi hotel",
+     "cuando": "la acepto",
+     "entonces": "la misma reserva queda CONFIRMADA con su importe y el viajero la ve confirmada en web y móvil"
+    },
+    {
+     "id": "CA-TRV-204-02",
+     "titulo": "Rechazar",
+     "dado": "que tengo una solicitud pendiente",
+     "cuando": "la rechazo con un motivo",
+     "entonces": "queda RECHAZADA, sus unidades vuelven a estar disponibles y el viajero ve el motivo"
+    },
+    {
+     "id": "CA-TRV-204-03",
+     "titulo": "Sin decisión",
+     "dado": "que no decido sobre una solicitud",
+     "cuando": "actualizo la lista",
+     "entonces": "sigue PENDIENTE"
+    },
+    {
+     "id": "CA-TRV-204-04",
+     "titulo": "Decisión repetida o estado incompatible",
+     "dado": "que la reserva ya fue aceptada, rechazada o cancelada por el viajero",
+     "cuando": "intento decidir",
+     "entonces": "la API responde 409 con el estado actual y no cambia nada"
+    },
+    {
+     "id": "CA-TRV-204-05",
+     "titulo": "Reserva ajena",
+     "dado": "que la reserva pertenece a otro proveedor",
+     "cuando": "intento decidir",
+     "entonces": "la API responde 403"
+    },
+    {
+     "id": "CA-TRV-204-06",
+     "titulo": "Tours sin aprobación",
+     "dado": "que es una reserva de tour",
+     "cuando": "la consulto",
+     "entonces": "aparece confirmada automáticamente y no tiene acciones de aceptar o rechazar"
+    }
+   ],
+   "casos": [
+    {
+     "id": "TC-API-031",
+     "herramienta": "Karate",
+     "titulo": "Flujo encadenado (call): viajero reserva → proveedor acepta → viajero ve confirmada",
+     "criterios": [
+      "CA-TRV-204-01"
+     ]
+    },
+    {
+     "id": "TC-API-032",
+     "herramienta": "Karate",
+     "titulo": "Rechazo libera unidades: disponibilidad antes y después",
+     "criterios": [
+      "CA-TRV-204-02"
+     ]
+    },
+    {
+     "id": "TC-API-033",
+     "herramienta": "Karate",
+     "titulo": "Aceptar dos veces → 409; aceptar una cancelada → 409",
+     "criterios": [
+      "CA-TRV-204-04"
+     ]
+    },
+    {
+     "id": "TC-API-034",
+     "herramienta": "Karate",
+     "titulo": "Proveedor B sobre reserva de proveedor A → 403",
+     "criterios": [
+      "CA-TRV-204-05"
+     ]
+    },
+    {
+     "id": "TC-API-035",
+     "herramienta": "Karate",
+     "titulo": "Rechazo sin motivo → 422",
+     "criterios": [
+      "CA-TRV-204-02"
+     ]
+    },
+    {
+     "id": "TC-WEB-013",
+     "herramienta": "Selenium",
+     "titulo": "Proveedor acepta desde el panel y el viajero ve CONFIRMADA (dos navegadores)",
+     "criterios": [
+      "CA-TRV-204-01"
+     ]
+    },
+    {
+     "id": "TC-WEB-014",
+     "herramienta": "Selenium",
+     "titulo": "Proveedor rechaza con motivo y el viajero ve RECHAZADA",
+     "criterios": [
+      "CA-TRV-204-02"
+     ]
+    },
+    {
+     "id": "TC-MOB-015",
+     "herramienta": "Appium",
+     "titulo": "Proveedor acepta una solicitud desde la app",
+     "criterios": [
+      "CA-TRV-204-01"
+     ]
+    },
+    {
+     "id": "TC-MOB-016",
+     "herramienta": "Appium",
+     "titulo": "Proveedor rechaza con motivo desde la app",
+     "criterios": [
+      "CA-TRV-204-02"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "TRV-301",
+   "epica": "TRV-3",
+   "resumen": "Buscar tours por destino, categoría y fechas",
+   "prioridad": "Alta",
+   "puntos": 3,
+   "criterios": [
+    {
+     "id": "CA-TRV-301-01",
+     "titulo": "Búsqueda válida",
+     "dado": "que busco 'Cusco', categoría Aventura y un rango de fechas futuro",
+     "cuando": "busco",
+     "entonces": "solo veo tours de Cusco, de Aventura y con salidas con cupo en ese rango"
+    },
+    {
+     "id": "CA-TRV-301-02",
+     "titulo": "Filtros inválidos",
+     "dado": "que el rango de fechas es pasado o la categoría no existe",
+     "cuando": "busco",
+     "entonces": "se informa el error (422 en la API) y no se muestran resultados"
+    },
+    {
+     "id": "CA-TRV-301-03",
+     "titulo": "Sin resultados o error",
+     "dado": "que no hay tours o la API falla",
+     "cuando": "termina la búsqueda",
+     "entonces": "distingo ambos casos y puedo cambiar filtros o reintentar"
+    },
+    {
+     "id": "CA-TRV-301-04",
+     "titulo": "Conservar búsqueda",
+     "dado": "que abro un tour",
+     "cuando": "vuelvo",
+     "entonces": "conservo los filtros"
+    }
+   ],
+   "casos": [
+    {
+     "id": "TC-API-036",
+     "herramienta": "Karate",
+     "titulo": "Filtros combinados: todos los resultados cumplen destino y categoría (match each)",
+     "criterios": [
+      "CA-TRV-301-01"
+     ]
+    },
+    {
+     "id": "TC-API-037",
+     "herramienta": "Karate",
+     "titulo": "Data-driven de filtros inválidos → 422",
+     "criterios": [
+      "CA-TRV-301-02"
+     ]
+    },
+    {
+     "id": "TC-PERF-004",
+     "herramienta": "JMeter",
+     "titulo": "Carga de búsqueda de tours: 100 usuarios, categorías desde CSV, p95 < 1 s",
+     "criterios": [
+      "CA-TRV-301-01"
+     ]
+    },
+    {
+     "id": "TC-WEB-015",
+     "herramienta": "Selenium",
+     "titulo": "Filtrar por categoría y destino",
+     "criterios": [
+      "CA-TRV-301-01"
+     ]
+    },
+    {
+     "id": "TC-MOB-017",
+     "herramienta": "Appium",
+     "titulo": "Chips de categoría y búsqueda por destino",
+     "criterios": [
+      "CA-TRV-301-01"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "TRV-302",
+   "epica": "TRV-3",
+   "resumen": "Ver detalle del tour y elegir salida y participantes",
+   "prioridad": "Alta",
+   "puntos": 3,
+   "criterios": [
+    {
+     "id": "CA-TRV-302-01",
+     "titulo": "Detalle",
+     "dado": "que abro un tour",
+     "cuando": "carga",
+     "entonces": "veo ubicación, categoría, duración, precio por persona, actividades, opiniones y salidas futuras con cupos"
+    },
+    {
+     "id": "CA-TRV-302-02",
+     "titulo": "Cálculo",
+     "dado": "que el precio es S/ 120.00 y elijo 3 personas",
+     "cuando": "veo el resumen",
+     "entonces": "subtotal S/ 360.00, IGV S/ 64.80 y total S/ 424.80"
+    },
+    {
+     "id": "CA-TRV-302-03",
+     "titulo": "Selección inválida",
+     "dado": "que elijo 0 personas, más que el cupo o una salida agotada",
+     "cuando": "intento continuar",
+     "entonces": "no se permite y se indica el motivo"
+    },
+    {
+     "id": "CA-TRV-302-04",
+     "titulo": "Sin salidas",
+     "dado": "que el tour no tiene salidas futuras",
+     "cuando": "lo consulto",
+     "entonces": "veo 'No hay salidas programadas' y no puedo reservar"
+    }
+   ],
+   "casos": [
+    {
+     "id": "TC-API-038",
+     "herramienta": "Karate",
+     "titulo": "Esquema del detalle; ninguna salida devuelta es pasada ni no programada",
+     "criterios": [
+      "CA-TRV-302-01"
+     ]
+    },
+    {
+     "id": "TC-API-039",
+     "herramienta": "Karate",
+     "titulo": "Cotización de tour data-driven (precio × personas + 18%)",
+     "criterios": [
+      "CA-TRV-302-02"
+     ]
+    },
+    {
+     "id": "TC-API-040",
+     "herramienta": "Karate",
+     "titulo": "Cotizar más personas que el cupo → 422",
+     "criterios": [
+      "CA-TRV-302-03"
+     ]
+    },
+    {
+     "id": "TC-WEB-016",
+     "herramienta": "Selenium",
+     "titulo": "Elegir salida y personas, verificar total con IGV",
+     "criterios": [
+      "CA-TRV-302-02"
+     ]
+    },
+    {
+     "id": "TC-MOB-018",
+     "herramienta": "Appium",
+     "titulo": "Elegir salida y personas en la app; + se deshabilita al tope de cupos",
+     "criterios": [
+      "CA-TRV-302-02",
+      "CA-TRV-302-03"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "TRV-303",
+   "epica": "TRV-3",
+   "resumen": "Reservar tour con confirmación automática",
+   "prioridad": "Más alta",
+   "puntos": 5,
+   "criterios": [
+    {
+     "id": "CA-TRV-303-01",
+     "titulo": "Reserva confirmada",
+     "dado": "que tengo sesión y elijo una salida con cupo",
+     "cuando": "pago",
+     "entonces": "se registra con código único, estado CONFIRMADA, el total mostrado, y el cupo libre baja exactamente en mis participantes"
+    },
+    {
+     "id": "CA-TRV-303-02",
+     "titulo": "Pago inválido o desistir",
+     "dado": "que el pago es inválido o cierro el formulario",
+     "cuando": "no completo el envío",
+     "entonces": "no se crea la reserva y los cupos no cambian"
+    },
+    {
+     "id": "CA-TRV-303-03",
+     "titulo": "Salida no válida",
+     "dado": "que la salida está cerrada, cancelada, es pasada o no tiene cupo suficiente",
+     "cuando": "envío",
+     "entonces": "la API responde 409/422 con el motivo y los cupos no cambian"
+    },
+    {
+     "id": "CA-TRV-303-04",
+     "titulo": "Concurrencia",
+     "dado": "que 30 viajeros reservan a la vez una salida con 10 cupos",
+     "cuando": "se procesan",
+     "entonces": "nunca se reservan más de 10 cupos en total"
+    },
+    {
+     "id": "CA-TRV-303-05",
+     "titulo": "Envío repetido",
+     "dado": "que reintento con la misma Idempotency-Key",
+     "cuando": "reenvío",
+     "entonces": "obtengo la misma reserva sin descontar cupos otra vez"
+    }
+   ],
+   "casos": [
+    {
+     "id": "TC-API-041",
+     "herramienta": "Karate",
+     "titulo": "Reserva 201: estado confirmada, total = cotización, cupo_reservado += personas",
+     "criterios": [
+      "CA-TRV-303-01"
+     ]
+    },
+    {
+     "id": "TC-API-042",
+     "herramienta": "Karate",
+     "titulo": "Salida cerrada / pasada / sin cupo → 409 o 422 y cupos sin cambio",
+     "criterios": [
+      "CA-TRV-303-03"
+     ]
+    },
+    {
+     "id": "TC-API-043",
+     "herramienta": "Karate",
+     "titulo": "Idempotencia: dos envíos, una sola reserva y un solo descuento",
+     "criterios": [
+      "CA-TRV-303-05"
+     ]
+    },
+    {
+     "id": "TC-PERF-005",
+     "herramienta": "JMeter",
+     "titulo": "30 hilos simultáneos sobre salida de 10 cupos: suma de personas confirmadas <= 10",
+     "criterios": [
+      "CA-TRV-303-04"
+     ]
+    },
+    {
+     "id": "TC-WEB-017",
+     "herramienta": "Selenium",
+     "titulo": "Reserva de tour end-to-end con comprobante CONFIRMADA",
+     "criterios": [
+      "CA-TRV-303-01"
+     ]
+    },
+    {
+     "id": "TC-MOB-019",
+     "herramienta": "Appium",
+     "titulo": "Reserva de tour end-to-end en la app",
+     "criterios": [
+      "CA-TRV-303-01"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "TRV-401",
+   "epica": "TRV-4",
+   "resumen": "Consultar mis reservas y sus estados",
+   "prioridad": "Alta",
+   "puntos": 5,
+   "criterios": [
+    {
+     "id": "CA-TRV-401-01",
+     "titulo": "Listado propio",
+     "dado": "que tengo reservas",
+     "cuando": "abro Mis reservas",
+     "entonces": "veo solo las mías con todos sus datos y estado persistido"
+    },
+    {
+     "id": "CA-TRV-401-02",
+     "titulo": "Pendiente y aceptada",
+     "dado": "que el proveedor aún no decide o ya aceptó",
+     "cuando": "actualizo",
+     "entonces": "la solicitud figura PENDIENTE o CONFIRMADA según corresponda, con los mismos datos"
+    },
+    {
+     "id": "CA-TRV-401-03",
+     "titulo": "Rechazada",
+     "dado": "que el proveedor rechazó mi solicitud",
+     "cuando": "actualizo",
+     "entonces": "figura RECHAZADA con el motivo, distinta de una cancelación mía, y puedo iniciar otra búsqueda"
+    },
+    {
+     "id": "CA-TRV-401-04",
+     "titulo": "Tour con salida cancelada",
+     "dado": "que el proveedor canceló la salida",
+     "cuando": "consulto",
+     "entonces": "veo el aviso 'Salida cancelada por el proveedor' sin que mi reserva aparezca como cancelada por mí"
+    },
+    {
+     "id": "CA-TRV-401-05",
+     "titulo": "Consistencia entre canales",
+     "dado": "que reservé en la web",
+     "cuando": "abro la app",
+     "entonces": "veo los mismos códigos, estados e importes y puedo recorrer todas las páginas"
+    },
+    {
+     "id": "CA-TRV-401-06",
+     "titulo": "Vacío, error y ajeno",
+     "dado": "que no tengo reservas, la API falla o pido una reserva de otro",
+     "cuando": "accedo",
+     "entonces": "distingo 'Aún no tienes reservas' de un error, y la ajena responde 404"
+    }
+   ],
+   "casos": [
+    {
+     "id": "TC-API-044",
+     "herramienta": "Karate",
+     "titulo": "Esquema paginado (data, meta.total, meta.last_page) y solo reservas propias",
+     "criterios": [
+      "CA-TRV-401-01",
+      "CA-TRV-401-05"
+     ]
+    },
+    {
+     "id": "TC-API-045",
+     "herramienta": "Karate",
+     "titulo": "Estado tras aceptar y tras rechazar (con motivo)",
+     "criterios": [
+      "CA-TRV-401-02",
+      "CA-TRV-401-03"
+     ]
+    },
+    {
+     "id": "TC-API-046",
+     "herramienta": "Karate",
+     "titulo": "Reserva ajena → 404",
+     "criterios": [
+      "CA-TRV-401-06"
+     ]
+    },
+    {
+     "id": "TC-WEB-018",
+     "herramienta": "Selenium",
+     "titulo": "Mis reservas: pestañas hotel/tour, filtro por estado y paginación",
+     "criterios": [
+      "CA-TRV-401-01",
+      "CA-TRV-401-05"
+     ]
+    },
+    {
+     "id": "TC-WEB-019",
+     "herramienta": "Selenium",
+     "titulo": "Reserva rechazada muestra motivo",
+     "criterios": [
+      "CA-TRV-401-03"
+     ]
+    },
+    {
+     "id": "TC-MOB-020",
+     "herramienta": "Appium",
+     "titulo": "Mis reservas en la app coincide con la web (mismo código y total)",
+     "criterios": [
+      "CA-TRV-401-05"
+     ]
+    },
+    {
+     "id": "TC-MOB-021",
+     "herramienta": "Appium",
+     "titulo": "Scroll infinito / paginación de reservas",
+     "criterios": [
+      "CA-TRV-401-05"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "TRV-402",
+   "epica": "TRV-4",
+   "resumen": "Cancelar mis reservas",
+   "prioridad": "Alta",
+   "puntos": 3,
+   "criterios": [
+    {
+     "id": "CA-TRV-402-01",
+     "titulo": "Confirmar o desistir",
+     "dado": "que pulso Cancelar",
+     "cuando": "elijo No en el diálogo",
+     "entonces": "la reserva no cambia"
+    },
+    {
+     "id": "CA-TRV-402-02",
+     "titulo": "Cancelación exitosa",
+     "dado": "que confirmo",
+     "cuando": "termina",
+     "entonces": "la reserva figura CANCELADA en web y móvil con su historial intacto"
+    },
+    {
+     "id": "CA-TRV-402-03",
+     "titulo": "Liberar oferta una vez",
+     "dado": "que mi reserva de tour tenía 3 personas",
+     "cuando": "la cancelo",
+     "entonces": "el cupo libre de la salida sube exactamente 3"
+    },
+    {
+     "id": "CA-TRV-402-04",
+     "titulo": "No cancelable",
+     "dado": "que la reserva es ajena, ya está cancelada o fue rechazada",
+     "cuando": "intento cancelar",
+     "entonces": "la API responde 404 o 409 y la oferta no se libera de nuevo"
+    },
+    {
+     "id": "CA-TRV-402-05",
+     "titulo": "Respuesta incierta",
+     "dado": "que se cortó la conexión al cancelar",
+     "cuando": "refresco",
+     "entonces": "veo el estado real guardado y no un mensaje de éxito falso"
+    }
+   ],
+   "casos": [
+    {
+     "id": "TC-API-047",
+     "herramienta": "Karate",
+     "titulo": "Cancelar hotel: estado cancelada y unidades liberadas",
+     "criterios": [
+      "CA-TRV-402-02"
+     ]
+    },
+    {
+     "id": "TC-API-048",
+     "herramienta": "Karate",
+     "titulo": "Cancelar tour devuelve exactamente las personas al cupo",
+     "criterios": [
+      "CA-TRV-402-03"
+     ]
+    },
+    {
+     "id": "TC-API-049",
+     "herramienta": "Karate",
+     "titulo": "Cancelar dos veces → 409; cancelar rechazada → 409; ajena → 404",
+     "criterios": [
+      "CA-TRV-402-04"
+     ]
+    },
+    {
+     "id": "TC-WEB-020",
+     "herramienta": "Selenium",
+     "titulo": "Cancelar desde Mis reservas con diálogo de confirmación",
+     "criterios": [
+      "CA-TRV-402-01",
+      "CA-TRV-402-02"
+     ]
+    },
+    {
+     "id": "TC-MOB-022",
+     "herramienta": "Appium",
+     "titulo": "Cancelar desde la app y ver estado CANCELADA",
+     "criterios": [
+      "CA-TRV-402-02"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "TRV-403",
+   "epica": "TRV-4",
+   "resumen": "Publicar, editar y eliminar reseñas",
+   "prioridad": "Media",
+   "puntos": 5,
+   "criterios": [
+    {
+     "id": "CA-TRV-403-01",
+     "titulo": "Consultar",
+     "dado": "que abro un servicio",
+     "cuando": "veo opiniones",
+     "entonces": "son solo de ese servicio, puedo ver todas las páginas y el promedio corresponde al total"
+    },
+    {
+     "id": "CA-TRV-403-02",
+     "titulo": "Publicar",
+     "dado": "que tengo una reserva confirmada y finalizada",
+     "cuando": "envío 4 estrellas y un comentario de 50 caracteres",
+     "entonces": "se publica a mi nombre y el promedio se recalcula"
+    },
+    {
+     "id": "CA-TRV-403-03",
+     "titulo": "No permitido",
+     "dado": "que no tengo reserva finalizada o el comentario tiene 5 caracteres",
+     "cuando": "intento publicar",
+     "entonces": "se informa la causa exacta (403 'Debes haber completado una reserva' o 422) y no se publica"
+    },
+    {
+     "id": "CA-TRV-403-04",
+     "titulo": "Editar y eliminar",
+     "dado": "que es mi reseña",
+     "cuando": "la edito o la elimino tras confirmar",
+     "entonces": "se actualiza la misma reseña o desaparece; no puedo gestionar reseñas ajenas (403)"
+    },
+    {
+     "id": "CA-TRV-403-05",
+     "titulo": "Sin duplicados",
+     "dado": "que reintento la publicación",
+     "cuando": "se procesa",
+     "entonces": "existe una sola reseña mía para ese servicio"
+    }
+   ],
+   "casos": [
+    {
+     "id": "TC-API-050",
+     "herramienta": "Karate",
+     "titulo": "Resumen: promedio y total coinciden con el conjunto completo",
+     "criterios": [
+      "CA-TRV-403-01"
+     ]
+    },
+    {
+     "id": "TC-API-051",
+     "herramienta": "Karate",
+     "titulo": "Publicar con reserva finalizada 201; sin reserva 403 con mensaje",
+     "criterios": [
+      "CA-TRV-403-02",
+      "CA-TRV-403-03"
+     ]
+    },
+    {
+     "id": "TC-API-052",
+     "herramienta": "Karate",
+     "titulo": "Data-driven de longitudes de comentario y calificaciones fuera de rango → 422",
+     "criterios": [
+      "CA-TRV-403-03"
+     ]
+    },
+    {
+     "id": "TC-API-053",
+     "herramienta": "Karate",
+     "titulo": "Editar/eliminar reseña ajena → 403; segunda reseña → 409",
+     "criterios": [
+      "CA-TRV-403-04",
+      "CA-TRV-403-05"
+     ]
+    },
+    {
+     "id": "TC-WEB-021",
+     "herramienta": "Selenium",
+     "titulo": "Publicar, editar y eliminar reseña en el detalle",
+     "criterios": [
+      "CA-TRV-403-02",
+      "CA-TRV-403-04"
+     ]
+    },
+    {
+     "id": "TC-MOB-023",
+     "herramienta": "Appium",
+     "titulo": "Publicar reseña desde la app",
+     "criterios": [
+      "CA-TRV-403-02"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "TRV-404",
+   "epica": "TRV-4",
+   "resumen": "Generar un itinerario sugerido para mi estadía",
+   "prioridad": "Baja",
+   "puntos": 5,
+   "criterios": [
+    {
+     "id": "CA-TRV-404-01",
+     "titulo": "Propuesta",
+     "dado": "que ingreso datos válidos",
+     "cuando": "genero el itinerario",
+     "entonces": "veo días, actividades, duraciones y costos estimados"
+    },
+    {
+     "id": "CA-TRV-404-02",
+     "titulo": "Sugerencia, no reserva",
+     "dado": "que reviso la propuesta",
+     "cuando": "la miro",
+     "entonces": "está rotulada como sugerencia y su costo se muestra separado del total del hotel"
+    },
+    {
+     "id": "CA-TRV-404-03",
+     "titulo": "Continuar",
+     "dado": "que vi o ignoré la propuesta",
+     "cuando": "sigo",
+     "entonces": "puedo terminar la reserva del hotel; reservar un tour requiere su propio flujo"
+    },
+    {
+     "id": "CA-TRV-404-04",
+     "titulo": "Validación",
+     "dado": "que el interés no existe o las fechas son inválidas",
+     "cuando": "genero",
+     "entonces": "se informa (422) y no se muestra propuesta"
+    },
+    {
+     "id": "CA-TRV-404-05",
+     "titulo": "Servicio caído",
+     "dado": "que el microservicio falla",
+     "cuando": "genero",
+     "entonces": "veo 'No pudimos generar el itinerario' con Reintentar y puedo seguir con el hotel"
+    }
+   ],
+   "casos": [
+    {
+     "id": "TC-API-054",
+     "herramienta": "Karate",
+     "titulo": "Itinerario válido: esquema de días y actividades",
+     "criterios": [
+      "CA-TRV-404-01"
+     ]
+    },
+    {
+     "id": "TC-API-055",
+     "herramienta": "Karate",
+     "titulo": "Interés inválido → 422",
+     "criterios": [
+      "CA-TRV-404-04"
+     ]
+    },
+    {
+     "id": "TC-WEB-022",
+     "herramienta": "Selenium",
+     "titulo": "Generar itinerario desde el detalle del hotel",
+     "criterios": [
+      "CA-TRV-404-01",
+      "CA-TRV-404-02"
+     ]
+    },
+    {
+     "id": "TC-MOB-024",
+     "herramienta": "Appium",
+     "titulo": "Generar itinerario en la app y continuar con la reserva",
+     "criterios": [
+      "CA-TRV-404-01",
+      "CA-TRV-404-03"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "TRV-501",
+   "epica": "TRV-5",
+   "resumen": "Panel de publicaciones e indicadores",
+   "prioridad": "Alta",
+   "puntos": 5,
+   "criterios": [
+    {
+     "id": "CA-TRV-501-01",
+     "titulo": "Listado propio",
+     "dado": "que tengo 20 publicaciones",
+     "cuando": "abro el panel",
+     "entonces": "veo solo las mías y puedo ir a la página 2 (registros 16–20)"
+    },
+    {
+     "id": "CA-TRV-501-02",
+     "titulo": "Indicadores por estado",
+     "dado": "que una publicación tiene reservas en varios estados",
+     "cuando": "veo sus indicadores",
+     "entonces": "cada estado se cuenta por separado y pendientes o canceladas no suman como confirmadas"
+    },
+    {
+     "id": "CA-TRV-501-03",
+     "titulo": "Reseñas",
+     "dado": "que mi publicación tiene 25 reseñas",
+     "cuando": "veo su promedio",
+     "entonces": "el promedio y la cantidad corresponden a las 25, no a una página"
+    },
+    {
+     "id": "CA-TRV-501-04",
+     "titulo": "Actualización",
+     "dado": "que el viajero reservó o el proveedor aceptó",
+     "cuando": "recargo",
+     "entonces": "los indicadores se recalculan"
+    },
+    {
+     "id": "CA-TRV-501-05",
+     "titulo": "Vacío y no autorizado",
+     "dado": "que no tengo publicaciones o soy viajero",
+     "cuando": "accedo",
+     "entonces": "veo 'Aún no tienes publicaciones' o la API responde 403"
+    }
+   ],
+   "casos": [
+    {
+     "id": "TC-API-056",
+     "herramienta": "Karate",
+     "titulo": "Paginación: meta.total, last_page y página 2 con los registros 16+",
+     "criterios": [
+      "CA-TRV-501-01"
+     ]
+    },
+    {
+     "id": "TC-API-057",
+     "herramienta": "Karate",
+     "titulo": "Indicadores por estado tras crear reservas en 4 estados",
+     "criterios": [
+      "CA-TRV-501-02"
+     ]
+    },
+    {
+     "id": "TC-API-058",
+     "herramienta": "Karate",
+     "titulo": "Viajero en /proveedor/servicios → 403",
+     "criterios": [
+      "CA-TRV-501-05"
+     ]
+    },
+    {
+     "id": "TC-PERF-006",
+     "herramienta": "JMeter",
+     "titulo": "Panel del proveedor con 30 usuarios concurrentes, p95 < 1,5 s",
+     "criterios": [
+      "CA-TRV-501-01"
+     ]
+    },
+    {
+     "id": "TC-WEB-023",
+     "herramienta": "Selenium",
+     "titulo": "Panel: paginación y tarjetas de indicadores",
+     "criterios": [
+      "CA-TRV-501-01",
+      "CA-TRV-501-02"
+     ]
+    },
+    {
+     "id": "TC-MOB-025",
+     "herramienta": "Appium",
+     "titulo": "Panel del proveedor en la app con indicadores",
+     "criterios": [
+      "CA-TRV-501-01",
+      "CA-TRV-501-02"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "TRV-502",
+   "epica": "TRV-5",
+   "resumen": "Publicar y editar hoteles",
+   "prioridad": "Alta",
+   "puntos": 5,
+   "criterios": [
+    {
+     "id": "CA-TRV-502-01",
+     "titulo": "Publicar",
+     "dado": "que completo los datos y una habitación",
+     "cuando": "publico",
+     "entonces": "se crea mi hotel y aparece en el catálogo con los mismos datos e imágenes"
+    },
+    {
+     "id": "CA-TRV-502-02",
+     "titulo": "Galería",
+     "dado": "que agrego 6 imágenes",
+     "cuando": "guardo",
+     "entonces": "se informa 'Máximo 5 imágenes' y no se guarda"
+    },
+    {
+     "id": "CA-TRV-502-03",
+     "titulo": "Editar",
+     "dado": "que cambio la descripción y una imagen",
+     "cuando": "guardo",
+     "entonces": "se conserva el id y las reservas no cambian"
+    },
+    {
+     "id": "CA-TRV-502-04",
+     "titulo": "Inválido o ajeno",
+     "dado": "que faltan datos o el hotel es de otro",
+     "cuando": "guardo",
+     "entonces": "422 o 403 y no se reemplaza nada"
+    },
+    {
+     "id": "CA-TRV-502-05",
+     "titulo": "Transacción",
+     "dado": "que falla la creación de habitaciones",
+     "cuando": "se procesa",
+     "entonces": "no queda un hotel a medias ni duplicado"
+    }
+   ],
+   "casos": [
+    {
+     "id": "TC-API-059",
+     "herramienta": "Karate",
+     "titulo": "Crear hotel con habitaciones y verificar en el catálogo",
+     "criterios": [
+      "CA-TRV-502-01"
+     ]
+    },
+    {
+     "id": "TC-API-060",
+     "herramienta": "Karate",
+     "titulo": "6 imágenes → 422",
+     "criterios": [
+      "CA-TRV-502-02"
+     ]
+    },
+    {
+     "id": "TC-API-061",
+     "herramienta": "Karate",
+     "titulo": "Editar hotel ajeno → 403",
+     "criterios": [
+      "CA-TRV-502-04"
+     ]
+    },
+    {
+     "id": "TC-WEB-024",
+     "herramienta": "Selenium",
+     "titulo": "Crear hotel desde el formulario del proveedor",
+     "criterios": [
+      "CA-TRV-502-01"
+     ]
+    },
+    {
+     "id": "TC-MOB-026",
+     "herramienta": "Appium",
+     "titulo": "Crear hotel desde la app del proveedor",
+     "criterios": [
+      "CA-TRV-502-01"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "TRV-503",
+   "epica": "TRV-5",
+   "resumen": "Gestionar tipos de habitación",
+   "prioridad": "Media",
+   "puntos": 5,
+   "criterios": [
+    {
+     "id": "CA-TRV-503-01",
+     "titulo": "Agregar o editar",
+     "dado": "que mi hotel existe",
+     "cuando": "guardo un tipo válido",
+     "entonces": "queda asociado al hotel y se ve en web y móvil"
+    },
+    {
+     "id": "CA-TRV-503-02",
+     "titulo": "Reducir bajo ocupación",
+     "dado": "que hay 3 unidades ocupadas el 15/12",
+     "cuando": "intento dejar 2 unidades",
+     "entonces": "la API responde 409 'Mínimo permitido: 3'"
+    },
+    {
+     "id": "CA-TRV-503-03",
+     "titulo": "Eliminar con reservas",
+     "dado": "que el tipo tiene reservas activas",
+     "cuando": "intento eliminar",
+     "entonces": "se impide (409); sin reservas se elimina tras confirmar"
+    },
+    {
+     "id": "CA-TRV-503-04",
+     "titulo": "Historial",
+     "dado": "que edito la tarifa",
+     "cuando": "consulto reservas pasadas",
+     "entonces": "conservan su precio original"
+    },
+    {
+     "id": "CA-TRV-503-05",
+     "titulo": "Inválido o ajeno",
+     "dado": "que la tarifa es 0 o el tipo es de otro hotel",
+     "cuando": "guardo",
+     "entonces": "422 o 403 sin cambios"
+    }
+   ],
+   "casos": [
+    {
+     "id": "TC-API-062",
+     "herramienta": "Karate",
+     "titulo": "Reducir unidades bajo ocupación → 409 con mínimo",
+     "criterios": [
+      "CA-TRV-503-02"
+     ]
+    },
+    {
+     "id": "TC-API-063",
+     "herramienta": "Karate",
+     "titulo": "Eliminar con reservas → 409; sin reservas → 204",
+     "criterios": [
+      "CA-TRV-503-03"
+     ]
+    },
+    {
+     "id": "TC-API-064",
+     "herramienta": "Karate",
+     "titulo": "Cambio de tarifa no altera total de reservas previas",
+     "criterios": [
+      "CA-TRV-503-04"
+     ]
+    },
+    {
+     "id": "TC-WEB-025",
+     "herramienta": "Selenium",
+     "titulo": "Agregar y editar tipo de habitación",
+     "criterios": [
+      "CA-TRV-503-01"
+     ]
+    },
+    {
+     "id": "TC-MOB-027",
+     "herramienta": "Appium",
+     "titulo": "Agregar tipo de habitación en la app",
+     "criterios": [
+      "CA-TRV-503-01"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "TRV-504",
+   "epica": "TRV-5",
+   "resumen": "Publicar y editar tours",
+   "prioridad": "Alta",
+   "puntos": 5,
+   "criterios": [
+    {
+     "id": "CA-TRV-504-01",
+     "titulo": "Publicar",
+     "dado": "que completo los datos y una salida",
+     "cuando": "publico",
+     "entonces": "se crea mi tour y aparece en el catálogo"
+    },
+    {
+     "id": "CA-TRV-504-02",
+     "titulo": "Límites",
+     "dado": "que agrego 11 elementos o 6 imágenes",
+     "cuando": "guardo",
+     "entonces": "422 con el límite correspondiente"
+    },
+    {
+     "id": "CA-TRV-504-03",
+     "titulo": "Editar sin afectar reservas",
+     "dado": "que el tour tiene reservas",
+     "cuando": "cambio el precio",
+     "entonces": "las salidas conservan sus ids y las reservas su importe"
+    },
+    {
+     "id": "CA-TRV-504-04",
+     "titulo": "Inválido o ajeno",
+     "dado": "que la categoría no existe o el tour es de otro",
+     "cuando": "guardo",
+     "entonces": "422 o 403"
+    }
+   ],
+   "casos": [
+    {
+     "id": "TC-API-065",
+     "herramienta": "Karate",
+     "titulo": "Crear tour y verificar en catálogo",
+     "criterios": [
+      "CA-TRV-504-01"
+     ]
+    },
+    {
+     "id": "TC-API-066",
+     "herramienta": "Karate",
+     "titulo": "Editar precio: ids de salidas y totales de reservas sin cambio",
+     "criterios": [
+      "CA-TRV-504-03"
+     ]
+    },
+    {
+     "id": "TC-API-067",
+     "herramienta": "Karate",
+     "titulo": "Data-driven de límites (imágenes, items, categoría) → 422",
+     "criterios": [
+      "CA-TRV-504-02",
+      "CA-TRV-504-04"
+     ]
+    },
+    {
+     "id": "TC-WEB-026",
+     "herramienta": "Selenium",
+     "titulo": "Crear tour con salida desde el formulario",
+     "criterios": [
+      "CA-TRV-504-01"
+     ]
+    },
+    {
+     "id": "TC-MOB-028",
+     "herramienta": "Appium",
+     "titulo": "Crear tour desde la app",
+     "criterios": [
+      "CA-TRV-504-01"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "TRV-505",
+   "epica": "TRV-5",
+   "resumen": "Gestionar actividades del tour",
+   "prioridad": "Baja",
+   "puntos": 3,
+   "criterios": [
+    {
+     "id": "CA-TRV-505-01",
+     "titulo": "Consultar",
+     "dado": "que abro mi tour",
+     "cuando": "veo actividades",
+     "entonces": "aparecen en su orden, separadas de 'qué llevar'"
+    },
+    {
+     "id": "CA-TRV-505-02",
+     "titulo": "Agregar o editar",
+     "dado": "que guardo una actividad válida sin orden",
+     "cuando": "se registra",
+     "entonces": "queda al final con el siguiente número"
+    },
+    {
+     "id": "CA-TRV-505-03",
+     "titulo": "Eliminar",
+     "dado": "que confirmo eliminar",
+     "cuando": "termina",
+     "entonces": "deja de aparecer sin tocar salidas ni reservas"
+    },
+    {
+     "id": "CA-TRV-505-04",
+     "titulo": "Inválido o ajeno",
+     "dado": "que el título está vacío o el tour es de otro",
+     "cuando": "guardo",
+     "entonces": "422 o 403"
+    }
+   ],
+   "casos": [
+    {
+     "id": "TC-API-068",
+     "herramienta": "Karate",
+     "titulo": "Dos actividades sin orden reciben 1 y 2",
+     "criterios": [
+      "CA-TRV-505-02"
+     ]
+    },
+    {
+     "id": "TC-API-069",
+     "herramienta": "Karate",
+     "titulo": "Actividad en tour ajeno → 403",
+     "criterios": [
+      "CA-TRV-505-04"
+     ]
+    },
+    {
+     "id": "TC-WEB-027",
+     "herramienta": "Selenium",
+     "titulo": "Agregar, reordenar y eliminar actividades",
+     "criterios": [
+      "CA-TRV-505-01",
+      "CA-TRV-505-02",
+      "CA-TRV-505-03"
+     ]
+    },
+    {
+     "id": "TC-MOB-029",
+     "herramienta": "Appium",
+     "titulo": "Agregar actividad desde la app",
+     "criterios": [
+      "CA-TRV-505-02"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "TRV-506",
+   "epica": "TRV-5",
+   "resumen": "Gestionar salidas y cupos",
+   "prioridad": "Alta",
+   "puntos": 5,
+   "criterios": [
+    {
+     "id": "CA-TRV-506-01",
+     "titulo": "Crear",
+     "dado": "que mi tour existe",
+     "cuando": "creo una salida válida",
+     "entonces": "se registra programada con 0 reservados"
+    },
+    {
+     "id": "CA-TRV-506-02",
+     "titulo": "Duplicado o fecha pasada",
+     "dado": "que ya existe esa fecha y hora o la fecha es pasada",
+     "cuando": "creo",
+     "entonces": "409 o 422 sin duplicar"
+    },
+    {
+     "id": "CA-TRV-506-03",
+     "titulo": "Editar con reservas",
+     "dado": "que la salida tiene 6 reservados",
+     "cuando": "pongo cupo total 5",
+     "entonces": "422 'No menor a lo reservado (6)'"
+    },
+    {
+     "id": "CA-TRV-506-04",
+     "titulo": "Cerrar o cancelar",
+     "dado": "que cierro la salida",
+     "cuando": "un viajero intenta reservarla",
+     "entonces": "recibe 409 y las reservas previas siguen"
+    },
+    {
+     "id": "CA-TRV-506-05",
+     "titulo": "Eliminar",
+     "dado": "que tiene reservas confirmadas",
+     "cuando": "intento eliminar",
+     "entonces": "409; sin reservas se elimina tras confirmar"
+    },
+    {
+     "id": "CA-TRV-506-06",
+     "titulo": "Consistencia",
+     "dado": "que guardé un cambio",
+     "cuando": "consulto en web y móvil",
+     "entonces": "veo los mismos estados y cupos"
+    }
+   ],
+   "casos": [
+    {
+     "id": "TC-API-070",
+     "herramienta": "Karate",
+     "titulo": "Salida duplicada → 409; fecha pasada → 422",
+     "criterios": [
+      "CA-TRV-506-02"
+     ]
+    },
+    {
+     "id": "TC-API-071",
+     "herramienta": "Karate",
+     "titulo": "cupo_total menor a reservado → 422; cupo_reservado enviado se ignora",
+     "criterios": [
+      "CA-TRV-506-03"
+     ]
+    },
+    {
+     "id": "TC-API-072",
+     "herramienta": "Karate",
+     "titulo": "Salida cerrada rechaza reservas (call a reserva de viajero)",
+     "criterios": [
+      "CA-TRV-506-04"
+     ]
+    },
+    {
+     "id": "TC-WEB-028",
+     "herramienta": "Selenium",
+     "titulo": "Crear, cerrar y eliminar salida desde el panel",
+     "criterios": [
+      "CA-TRV-506-01",
+      "CA-TRV-506-04",
+      "CA-TRV-506-05"
+     ]
+    },
+    {
+     "id": "TC-MOB-030",
+     "herramienta": "Appium",
+     "titulo": "Crear y cerrar salida desde la app",
+     "criterios": [
+      "CA-TRV-506-01",
+      "CA-TRV-506-04"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "TRV-507",
+   "epica": "TRV-5",
+   "resumen": "Consultar reservas recibidas",
+   "prioridad": "Alta",
+   "puntos": 5,
+   "criterios": [
+    {
+     "id": "CA-TRV-507-01",
+     "titulo": "Listado y detalle",
+     "dado": "que recibí reservas",
+     "cuando": "abro Reservas recibidas",
+     "entonces": "veo todos los datos de cada una y puedo recorrer todas las páginas"
+    },
+    {
+     "id": "CA-TRV-507-02",
+     "titulo": "Filtros",
+     "dado": "que filtro por Pendiente",
+     "cuando": "aplico",
+     "entonces": "solo veo pendientes de hotel con sus acciones"
+    },
+    {
+     "id": "CA-TRV-507-03",
+     "titulo": "Vacío y error",
+     "dado": "que no tengo reservas o falla la API",
+     "cuando": "abro",
+     "entonces": "distingo vacío de error"
+    },
+    {
+     "id": "CA-TRV-507-04",
+     "titulo": "Ajeno",
+     "dado": "que pido el detalle de una reserva de otro proveedor",
+     "cuando": "accedo",
+     "entonces": "404"
+    }
+   ],
+   "casos": [
+    {
+     "id": "TC-API-073",
+     "herramienta": "Karate",
+     "titulo": "Solo reservas de servicios propios (match each servicio.proveedor_id)",
+     "criterios": [
+      "CA-TRV-507-01"
+     ]
+    },
+    {
+     "id": "TC-API-074",
+     "herramienta": "Karate",
+     "titulo": "Filtro estado=pendiente",
+     "criterios": [
+      "CA-TRV-507-02"
+     ]
+    },
+    {
+     "id": "TC-API-075",
+     "herramienta": "Karate",
+     "titulo": "Detalle ajeno → 404",
+     "criterios": [
+      "CA-TRV-507-04"
+     ]
+    },
+    {
+     "id": "TC-WEB-029",
+     "herramienta": "Selenium",
+     "titulo": "Bandeja de reservas con filtros y paginación",
+     "criterios": [
+      "CA-TRV-507-01",
+      "CA-TRV-507-02"
+     ]
+    },
+    {
+     "id": "TC-MOB-031",
+     "herramienta": "Appium",
+     "titulo": "Bandeja de reservas en la app",
+     "criterios": [
+      "CA-TRV-507-01"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "TRV-508",
+   "epica": "TRV-5",
+   "resumen": "Eliminar publicaciones propias",
+   "prioridad": "Media",
+   "puntos": 3,
+   "criterios": [
+    {
+     "id": "CA-TRV-508-01",
+     "titulo": "Confirmar o desistir",
+     "dado": "que pulso Eliminar",
+     "cuando": "cancelo",
+     "entonces": "la publicación sigue igual"
+    },
+    {
+     "id": "CA-TRV-508-02",
+     "titulo": "Eliminación permitida",
+     "dado": "que no hay reservas activas",
+     "cuando": "confirmo",
+     "entonces": "deja de aparecer en el catálogo y en mi panel, sin afectar otras publicaciones"
+    },
+    {
+     "id": "CA-TRV-508-03",
+     "titulo": "Historial",
+     "dado": "que tenía reservas pasadas",
+     "cuando": "la elimino",
+     "entonces": "el viajero y yo seguimos viendo esas reservas con el nombre del servicio"
+    },
+    {
+     "id": "CA-TRV-508-04",
+     "titulo": "Ajeno o con reservas activas",
+     "dado": "que no es mía o tiene reservas activas",
+     "cuando": "intento eliminar",
+     "entonces": "403 o 409 sin cambios"
+    },
+    {
+     "id": "CA-TRV-508-05",
+     "titulo": "Repetición",
+     "dado": "que repito la eliminación",
+     "cuando": "se procesa",
+     "entonces": "404 sin efectos adicionales"
+    }
+   ],
+   "casos": [
+    {
+     "id": "TC-API-076",
+     "herramienta": "Karate",
+     "titulo": "Eliminar servicio ajeno → 403 (seguridad)",
+     "criterios": [
+      "CA-TRV-508-04"
+     ]
+    },
+    {
+     "id": "TC-API-077",
+     "herramienta": "Karate",
+     "titulo": "Con reserva activa → 409",
+     "criterios": [
+      "CA-TRV-508-04"
+     ]
+    },
+    {
+     "id": "TC-API-078",
+     "herramienta": "Karate",
+     "titulo": "Tras eliminar, GET /mis-reservas del viajero sigue 200 con el nombre del servicio",
+     "criterios": [
+      "CA-TRV-508-03"
+     ]
+    },
+    {
+     "id": "TC-WEB-030",
+     "herramienta": "Selenium",
+     "titulo": "Eliminar publicación con diálogo de confirmación",
+     "criterios": [
+      "CA-TRV-508-01",
+      "CA-TRV-508-02"
+     ]
+    },
+    {
+     "id": "TC-MOB-032",
+     "herramienta": "Appium",
+     "titulo": "Eliminar publicación desde la app",
+     "criterios": [
+      "CA-TRV-508-02"
+     ]
+    }
+   ]
+  }
+ ],
+ "tareas_qa": [
+  {
+   "key": "TRV-601",
+   "resumen": "Suite de pruebas de API con Karate DSL"
+  },
+  {
+   "key": "TRV-602",
+   "resumen": "Plan de rendimiento con Apache JMeter"
+  },
+  {
+   "key": "TRV-603",
+   "resumen": "Automatización web con Selenium"
+  },
+  {
+   "key": "TRV-604",
+   "resumen": "Automatización móvil con Appium"
+  },
+  {
+   "key": "TRV-605",
+   "resumen": "Trazabilidad y reportes en Jira"
+  }
+ ]
+}

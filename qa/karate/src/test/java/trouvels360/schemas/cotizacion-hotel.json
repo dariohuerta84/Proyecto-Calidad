@@ -1,0 +1,11 @@
+{
+  "hotel": { "id": "#number", "nombre": "#string" },
+  "fecha_inicio": "#string",
+  "fecha_fin": "#string",
+  "noches": "#number",
+  "items": "#[_ > 0]",
+  "subtotal": "#number",
+  "impuesto": "#number",
+  "igv_porcentaje": 18,
+  "total": "#number"
+}

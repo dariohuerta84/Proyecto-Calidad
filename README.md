@@ -12,7 +12,8 @@ Este repositorio contiene la solución de software y sus artefactos de calidad p
 
 El repositorio implementa un enfoque de pruebas en múltiples niveles:
 - **Especificación Ágil:** 20 Historias de Usuario completas (10 para Proveedor y 10 para Viajero) con criterios de aceptación en formato Given-When-Then.
-- **Automatización BDD con Karate Framework 1.5.2:** Cobertura de métodos `GET`, `POST`, `PUT`, `DELETE` con escenarios parametrizados (`Scenario Outline` y `Examples`).
+- **Pruebas de API:** suites históricas con Karate 1.5.2 y regresión de Etapa 5 con Karate 1.4.1.
+- **Pruebas E2E:** Selenium 4 para la web y Appium 2 para Android, con trazabilidad por caso.
 - **Pruebas de Servicios con Postman & Newman:** Colección completa v2.1 con aserciones `pm.test(...)` y reportería HTML interactiva (`htmlextra`).
 - **Pruebas Funcionales y de Rendimiento con Apache JMeter 5.6.3:** Catálogo de comandos `curl` listos para importar vía `Tools → Import from cURL`, plan funcional de Samplers HTTP encadenados y plan de pruebas de Carga/Stress.
 
@@ -62,6 +63,13 @@ Proyecto-Calidad/
 ├── karate-tests/              # Pruebas BDD
 ├── postman/                   # Pruebas de API con Newman
 ├── jmeter/                    # Pruebas funcionales y de rendimiento
+├── qa/
+│   ├── karate/                # Regresión API (Etapa 5)
+│   ├── selenium/              # Pruebas E2E web
+│   ├── appium/                # Pruebas E2E Android
+│   ├── jmeter/                # Carga, concurrencia y smoke test
+│   ├── trazabilidad/          # Matriz HU/criterio/caso/resultado y CSV Jira
+│   └── evidencias/etapa-5/    # Reportes y capturas entregadas
 └── README.md
 ```
 
@@ -165,11 +173,27 @@ En Windows, los scripts `.sh` de JMeter requieren Git Bash o WSL. Los archivos `
 
 Los artefactos de Karate, Postman y JMeter se conservaron desde la versión inicial y pueden requerir ajustes de datos o endpoints para coincidir con el contrato actual.
 
+### Regresión automatizada de Etapa 5
+
+Con los servicios locales iniciados y las dependencias de cada suite instaladas:
+
+```powershell
+.\qa\ejecutar-todo.bat
+```
+
+El comando ejecuta Karate y Selenium y actualiza la matriz de trazabilidad. Para incluir JMeter y Appium (requieren JMeter y un emulador/Appium en ejecución):
+
+```powershell
+.\qa\ejecutar-todo.bat jmeter appium
+```
+
+También puedes ejecutar cada suite desde su carpeta con `ejecutar.bat`. La guía completa, los casos y las limitaciones de verificación están en [docs/etapas/etapa-5/LEEME_ETAPA5.md](docs/etapas/etapa-5/LEEME_ETAPA5.md). Los reportes originales se conservan en `qa/evidencias/etapa-5/`; las nuevas ejecuciones escriben sus resultados bajo `target/` o `resultados/`.
+
 ---
 
 ## 6. Registro histórico de defectos del SUT inicial
 
-Durante la auditoría de calidad y automatización se mantuvieron los tres componentes de backend intactos y se registraron formalmente los siguientes hallazgos:
+Durante la auditoría inicial de caja negra se registraron los siguientes hallazgos históricos:
 1. **DEF-001 (Mayor):** Inconsistencia de nombre de columna en `ReservaTourController.php` (`precio_persona` vs `precio`), provocando cálculo de total en `$0.0`.
 2. **DEF-002 (Medio):** Ausencia de endpoint mutador de aceptación/rechazo manual de reservas de hotel para el rol proveedor en `routes/api.php`.
 3. **DEF-003 (Menor):** `DELETE /api/hoteles/{id}` elimina la entidad hija `hoteles` sin eliminar el registro padre en `servicios` (a diferencia de `DELETE /api/servicios/{id}` que realiza soft-delete en cascada).

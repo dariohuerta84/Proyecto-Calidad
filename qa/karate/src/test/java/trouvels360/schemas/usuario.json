@@ -1,0 +1,14 @@
+{
+  "id": "#number",
+  "rol": "#regex (viajero|proveedor)",
+  "nombre": "##string",
+  "apellido": "##string",
+  "empresa_nombre": "##string",
+  "telefono": "##string",
+  "ruc": "##string",
+  "email": "#string",
+  "avatar_url": "##string",
+  "created_at": "#string",
+  "updated_at": "#string",
+  "password": "#notpresent"
+}

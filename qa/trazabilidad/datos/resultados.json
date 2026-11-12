@@ -1,0 +1,847 @@
+{
+ "TC-API-001": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:00:58 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.auth.html"
+ },
+ "TC-API-002": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:00:58 AM",
+  "ejecuciones": 6,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.auth.html"
+ },
+ "TC-API-003": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:00:58 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.auth.html"
+ },
+ "TC-API-004": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:00:58 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.auth.html"
+ },
+ "TC-API-005": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:00:58 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.auth.html"
+ },
+ "TC-API-006": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:00:58 AM",
+  "ejecuciones": 4,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.auth.html"
+ },
+ "TC-API-007": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:00:58 AM",
+  "ejecuciones": 4,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.auth.html"
+ },
+ "TC-API-008": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:00:58 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.auth.html"
+ },
+ "TC-API-009": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:00:58 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.auth.html"
+ },
+ "TC-API-010": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:00:58 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.auth.html"
+ },
+ "TC-API-011": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:00:58 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.auth.html"
+ },
+ "TC-API-012": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:00:58 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.auth.html"
+ },
+ "TC-API-013": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01:01 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.cuenta.html"
+ },
+ "TC-API-014": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01:01 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.cuenta.html"
+ },
+ "TC-API-015": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01:01 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.cuenta.html"
+ },
+ "TC-API-016": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01:01 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.cuenta.html"
+ },
+ "TC-API-017": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01:01 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.cuenta.html"
+ },
+ "TC-API-018": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01:01 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.cuenta.html"
+ },
+ "TC-API-019": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01:01 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.cuenta.html"
+ },
+ "TC-API-020": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01:02 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.hoteles.html"
+ },
+ "TC-API-021": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01:02 AM",
+  "ejecuciones": 6,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.hoteles.html"
+ },
+ "TC-API-022": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01:02 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.hoteles.html"
+ },
+ "TC-API-023": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01:02 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.hoteles.html"
+ },
+ "TC-API-024": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01:02 AM",
+  "ejecuciones": 5,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.hoteles.html"
+ },
+ "TC-API-025": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01:02 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.hoteles.html"
+ },
+ "TC-API-026": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01:09 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.reservas-hotel.html"
+ },
+ "TC-API-027": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01:09 AM",
+  "ejecuciones": 5,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.reservas-hotel.html"
+ },
+ "TC-API-028": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01:09 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.reservas-hotel.html"
+ },
+ "TC-API-029": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01:09 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.reservas-hotel.html"
+ },
+ "TC-API-030": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01:09 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.reservas-hotel.html"
+ },
+ "TC-API-031": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:00:55 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.aprobacion.html"
+ },
+ "TC-API-032": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:00:55 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.aprobacion.html"
+ },
+ "TC-API-033": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:00:55 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.aprobacion.html"
+ },
+ "TC-API-034": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:00:55 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.aprobacion.html"
+ },
+ "TC-API-035": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:00:55 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.aprobacion.html"
+ },
+ "TC-API-036": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01:10 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.tours.html"
+ },
+ "TC-API-037": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01:10 AM",
+  "ejecuciones": 6,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.tours.html"
+ },
+ "TC-API-038": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01:10 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.tours.html"
+ },
+ "TC-API-039": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01:10 AM",
+  "ejecuciones": 4,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.tours.html"
+ },
+ "TC-API-040": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01:10 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.tours.html"
+ },
+ "TC-API-041": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01:10 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.reservas-tour.html"
+ },
+ "TC-API-042": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01:10 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.reservas-tour.html"
+ },
+ "TC-API-043": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01:10 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.reservas-tour.html"
+ },
+ "TC-API-044": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01:04 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.mis-reservas.html"
+ },
+ "TC-API-045": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01:04 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.mis-reservas.html"
+ },
+ "TC-API-046": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01:04 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.mis-reservas.html"
+ },
+ "TC-API-047": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01:04 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.mis-reservas.html"
+ },
+ "TC-API-048": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01:04 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.mis-reservas.html"
+ },
+ "TC-API-049": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01:04 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.mis-reservas.html"
+ },
+ "TC-API-050": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01:09 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.resenas.html"
+ },
+ "TC-API-051": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01:09 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.resenas.html"
+ },
+ "TC-API-052": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01:09 AM",
+  "ejecuciones": 6,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.resenas.html"
+ },
+ "TC-API-053": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01:09 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.resenas.html"
+ },
+ "TC-API-054": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01:02 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.itinerario.html"
+ },
+ "TC-API-055": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01:02 AM",
+  "ejecuciones": 5,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.itinerario.html"
+ },
+ "TC-API-056": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01:06 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.proveedor.html"
+ },
+ "TC-API-057": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01:06 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.proveedor.html"
+ },
+ "TC-API-058": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01:06 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.proveedor.html"
+ },
+ "TC-API-059": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01:06 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.proveedor.html"
+ },
+ "TC-API-060": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01:06 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.proveedor.html"
+ },
+ "TC-API-061": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01:06 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.proveedor.html"
+ },
+ "TC-API-062": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01:06 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.proveedor.html"
+ },
+ "TC-API-063": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01:06 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.proveedor.html"
+ },
+ "TC-API-064": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01:06 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.proveedor.html"
+ },
+ "TC-API-065": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01:06 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.proveedor.html"
+ },
+ "TC-API-066": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01:06 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.proveedor.html"
+ },
+ "TC-API-067": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01:06 AM",
+  "ejecuciones": 6,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.proveedor.html"
+ },
+ "TC-API-068": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01:06 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.proveedor.html"
+ },
+ "TC-API-069": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01:06 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.proveedor.html"
+ },
+ "TC-API-070": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01:06 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.proveedor.html"
+ },
+ "TC-API-071": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01:06 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.proveedor.html"
+ },
+ "TC-API-072": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01:06 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.proveedor.html"
+ },
+ "TC-API-073": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01:06 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.proveedor.html"
+ },
+ "TC-API-074": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01:06 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.proveedor.html"
+ },
+ "TC-API-075": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01:06 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.proveedor.html"
+ },
+ "TC-API-076": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01:06 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.proveedor.html"
+ },
+ "TC-API-077": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01:06 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.proveedor.html"
+ },
+ "TC-API-078": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01:06 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.proveedor.html"
+ },
+ "TC-API-079": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:00:59 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.cobertura-adicional.html"
+ },
+ "TC-API-080": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:00:59 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.cobertura-adicional.html"
+ },
+ "TC-API-081": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:00:59 AM",
+  "ejecuciones": 5,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.cobertura-adicional.html"
+ },
+ "TC-API-082": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:00:59 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.cobertura-adicional.html"
+ },
+ "TC-API-083": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:00:59 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.cobertura-adicional.html"
+ },
+ "TC-API-084": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:00:59 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.cobertura-adicional.html"
+ },
+ "TC-API-085": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:00:59 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.cobertura-adicional.html"
+ },
+ "TC-API-086": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:00:59 AM",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.cobertura-adicional.html"
+ },
+ "TC-PERF-003": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11",
+  "evidencia": "jmeter/concurrencia_smoke.py",
+  "detalle": "Prueba rápida en Python (20 hilos con barrera): 1x201 y 19x409. Falta la corrida con JMeter."
+ },
+ "TC-PERF-005": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11",
+  "evidencia": "jmeter/concurrencia_smoke.py",
+  "detalle": "Prueba rápida en Python (30 hilos sobre 10 cupos): 10x201, 20x409, cupo_reservado final 10. Falta la corrida con JMeter."
+ },
+ "TC-WEB-001": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01",
+  "detalle": "",
+  "evidencia": "selenium/target/reporte-selenium/index.html",
+  "ms": 3668
+ },
+ "TC-WEB-002": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01",
+  "detalle": "",
+  "evidencia": "selenium/target/reporte-selenium/index.html",
+  "ms": 4276
+ },
+ "TC-WEB-003": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01",
+  "detalle": "",
+  "evidencia": "selenium/target/reporte-selenium/index.html",
+  "ms": 3474
+ },
+ "TC-WEB-004": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01",
+  "detalle": "",
+  "evidencia": "selenium/target/reporte-selenium/index.html",
+  "ms": 5900
+ },
+ "TC-WEB-005": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01",
+  "detalle": "",
+  "evidencia": "selenium/target/reporte-selenium/index.html",
+  "ms": 6341
+ },
+ "TC-WEB-006": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01",
+  "detalle": "",
+  "evidencia": "selenium/target/reporte-selenium/index.html",
+  "ms": 4107
+ },
+ "TC-WEB-007": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01",
+  "detalle": "",
+  "evidencia": "selenium/target/reporte-selenium/index.html",
+  "ms": 4160
+ },
+ "TC-WEB-008": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01",
+  "detalle": "",
+  "evidencia": "selenium/target/reporte-selenium/index.html",
+  "ms": 2856
+ },
+ "TC-WEB-009": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01",
+  "detalle": "",
+  "evidencia": "selenium/target/reporte-selenium/index.html",
+  "ms": 1601
+ },
+ "TC-WEB-010": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01",
+  "detalle": "",
+  "evidencia": "selenium/target/reporte-selenium/index.html",
+  "ms": 6672
+ },
+ "TC-WEB-011": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01",
+  "detalle": "",
+  "evidencia": "selenium/target/reporte-selenium/index.html",
+  "ms": 8304
+ },
+ "TC-WEB-012": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01",
+  "detalle": "",
+  "evidencia": "selenium/target/reporte-selenium/index.html",
+  "ms": 6210
+ },
+ "TC-WEB-013": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01",
+  "detalle": "",
+  "evidencia": "selenium/target/reporte-selenium/index.html",
+  "ms": 6249
+ },
+ "TC-WEB-014": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01",
+  "detalle": "",
+  "evidencia": "selenium/target/reporte-selenium/index.html",
+  "ms": 6119
+ },
+ "TC-WEB-015": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01",
+  "detalle": "",
+  "evidencia": "selenium/target/reporte-selenium/index.html",
+  "ms": 1961
+ },
+ "TC-WEB-016": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01",
+  "detalle": "",
+  "evidencia": "selenium/target/reporte-selenium/index.html",
+  "ms": 6910
+ },
+ "TC-WEB-017": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01",
+  "detalle": "",
+  "evidencia": "selenium/target/reporte-selenium/index.html",
+  "ms": 7617
+ },
+ "TC-WEB-018": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01",
+  "detalle": "",
+  "evidencia": "selenium/target/reporte-selenium/index.html",
+  "ms": 6040
+ },
+ "TC-WEB-019": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01",
+  "detalle": "",
+  "evidencia": "selenium/target/reporte-selenium/index.html",
+  "ms": 2651
+ },
+ "TC-WEB-020": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01",
+  "detalle": "",
+  "evidencia": "selenium/target/reporte-selenium/index.html",
+  "ms": 3550
+ },
+ "TC-WEB-021": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01",
+  "detalle": "",
+  "evidencia": "selenium/target/reporte-selenium/index.html",
+  "ms": 8611
+ },
+ "TC-WEB-022": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01",
+  "detalle": "",
+  "evidencia": "selenium/target/reporte-selenium/index.html",
+  "ms": 6506
+ },
+ "TC-WEB-023": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01",
+  "detalle": "",
+  "evidencia": "selenium/target/reporte-selenium/index.html",
+  "ms": 4936
+ },
+ "TC-WEB-024": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01",
+  "detalle": "",
+  "evidencia": "selenium/target/reporte-selenium/index.html",
+  "ms": 18967
+ },
+ "TC-WEB-025": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01",
+  "detalle": "",
+  "evidencia": "selenium/target/reporte-selenium/index.html",
+  "ms": 12306
+ },
+ "TC-WEB-026": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01",
+  "detalle": "",
+  "evidencia": "selenium/target/reporte-selenium/index.html",
+  "ms": 9697
+ },
+ "TC-WEB-027": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01",
+  "detalle": "",
+  "evidencia": "selenium/target/reporte-selenium/index.html",
+  "ms": 6716
+ },
+ "TC-WEB-028": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01",
+  "detalle": "",
+  "evidencia": "selenium/target/reporte-selenium/index.html",
+  "ms": 4452
+ },
+ "TC-WEB-029": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01",
+  "detalle": "",
+  "evidencia": "selenium/target/reporte-selenium/index.html",
+  "ms": 5962
+ },
+ "TC-WEB-030": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01",
+  "detalle": "",
+  "evidencia": "selenium/target/reporte-selenium/index.html",
+  "ms": 7055
+ },
+ "TC-WEB-031": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01",
+  "detalle": "",
+  "evidencia": "selenium/target/reporte-selenium/index.html",
+  "ms": 5013
+ },
+ "TC-WEB-032": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01",
+  "detalle": "",
+  "evidencia": "selenium/target/reporte-selenium/index.html",
+  "ms": 4038
+ },
+ "TC-WEB-033": {
+  "estado": "Pasó",
+  "fecha": "2026-11-11 09:01",
+  "detalle": "",
+  "evidencia": "selenium/target/reporte-selenium/index.html",
+  "ms": 3693
+ }
+}

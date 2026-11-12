@@ -1,12 +1,13 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Router, ActivatedRoute } from '@angular/router';
 import { BuscadorComponent } from '../../../../shared/components/buscador/buscador.component';
 import { ResultadosListaComponent, ResultadoItem } from '../../../../shared/components/resultados-lista/resultados-lista.component';
-import { tap, switchMap } from 'rxjs/operators';
-import { Observable } from 'rxjs';
-import { TourService, TourData } from '../../services/tour.service';
+import { catchError, tap, switchMap } from 'rxjs/operators';
+import { EMPTY, Observable, Subscription } from 'rxjs';
+import { mensajeDeError } from '../../../../core/utils/api-error';
+import { TourService } from '../../services/tour.service';
 import { ServicioTransformers } from '../../../../shared/utils/transformers';
 
 interface BusquedaTourParams {
@@ -30,7 +31,7 @@ interface BusquedaTourParams {
     ResultadosListaComponent
   ]
 })
-export class ResultadosTOURSComponent implements OnInit {
+export class ResultadosTOURSComponent implements OnInit, OnDestroy {
 
   private tourService = inject(TourService);
   private router = inject(Router);
@@ -39,7 +40,9 @@ export class ResultadosTOURSComponent implements OnInit {
   toursFiltrados: any[] = [];
   resultadosItems: ResultadoItem[] = [];
   totalTours: number = 0;
-  tours$!: Observable<any[]>;
+  cargando = true;
+  error = '';
+  private sub?: Subscription;
 
   // Filtros
   destino: string = '';
@@ -52,8 +55,12 @@ export class ResultadosTOURSComponent implements OnInit {
     this.cargarToursConFiltrosDeRuta();
   }
 
+  ngOnDestroy(): void {
+    this.sub?.unsubscribe();
+  }
+
   cargarToursConFiltrosDeRuta(): void {
-    this.tours$ = this.route.queryParams.pipe(
+    this.sub = this.route.queryParams.pipe(
       tap(params => {
         this.destino = params['destino'] || '';
         this.categoria = params['categoria'] || '';
@@ -61,30 +68,43 @@ export class ResultadosTOURSComponent implements OnInit {
         this.checkOutDate = params['checkOut'] || '';
         this.personas = +params['personas'] || 1;
       }),
-      switchMap(params => {
-        // 1) Si solo hay categoría y no hay checkIn → búsqueda rápida por imagen
-        if (this.categoria && !this.checkInDate) {
-          return this.tourService.getToursByCategoria(this.categoria);
-        }
-        // 2) Si hay checkIn (obligatorio para la búsqueda avanzada) → usar getToursFiltrados
-        return this.tourService.getToursFiltrados({
+      switchMap(() => this.buscar()),
+    ).subscribe();
+  }
+
+  private buscar(): Observable<any[]> {
+    this.cargando = true;
+    this.error = '';
+    const peticion = this.categoria && !this.checkInDate
+      ? this.tourService.getToursByCategoria(this.categoria)
+      : this.tourService.getToursFiltrados({
           destino: this.destino,
           categoria: this.categoria,
           checkIn: this.checkInDate,
           checkOut: this.checkOutDate,
-          cupos:  this.personas
+          cupos: this.personas,
         });
-      }),
+
+    return peticion.pipe(
       tap(tours => {
-        // Filtrar tours que tengan datos válidos
         this.toursFiltrados = tours.filter((t: any) => t.tour !== null);
         this.totalTours = this.toursFiltrados.length;
         this.resultadosItems = this.transformarToursAResultados(this.toursFiltrados);
-        console.log(`Tours encontrados: ${this.toursFiltrados.length}`);
-      })
+        this.cargando = false;
+      }),
+      catchError(e => {
+        this.toursFiltrados = [];
+        this.resultadosItems = [];
+        this.totalTours = 0;
+        this.cargando = false;
+        this.error = mensajeDeError(e, 'No pudimos consultar los tours. Intenta nuevamente.');
+        return EMPTY;
+      }),
     );
+  }
 
-    this.tours$.subscribe();
+  reintentar(): void {
+    this.sub?.add(this.buscar().subscribe());
   }
 
   /**

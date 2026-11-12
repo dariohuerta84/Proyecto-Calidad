@@ -21,5 +21,11 @@ class AppServiceProvider extends ServiceProvider
             $max = (int) env('LOGIN_RATE_LIMIT', 6);
             return Limit::perMinute($max)->by(mb_strtolower((string) $request->input('email')) . '|' . $request->ip());
         });
+
+        // TRV-101/102: límite configurable para registros; QA puede elevarlo en su entorno local.
+        RateLimiter::for('registro', function (Request $request) {
+            $max = (int) env('REGISTER_RATE_LIMIT', 10);
+            return Limit::perMinute($max)->by($request->ip());
+        });
     }
 }

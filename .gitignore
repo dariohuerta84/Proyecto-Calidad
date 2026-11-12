@@ -17,6 +17,7 @@ postman/node_modules/
 
 # JMeter JTLs and temp downloads
 /jmeter/reports/*.jtl
+/qa/jmeter/resultados/
 /tmp/apache-jmeter*
 
 # Environment files with sensitive credentials

@@ -1,0 +1,12 @@
+{
+  "id": "#number",
+  "servicio_id": "#number",
+  "fecha": "#regex \\d{4}-\\d{2}-\\d{2}",
+  "hora": "#regex \\d{2}:\\d{2}",
+  "cupo_total": "#number",
+  "cupo_reservado": "#number",
+  "cupos_disponibles": "##number",
+  "cupo_disponible": "##number",
+  "estado": "#regex (programada|cerrada|cancelada)",
+  "reservas_confirmadas": "##number"
+}

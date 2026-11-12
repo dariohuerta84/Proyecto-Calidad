@@ -1,0 +1,17 @@
+{
+  "id": "#number",
+  "tipo": "hotel",
+  "nombre": "#string",
+  "ciudad": "#string",
+  "pais": "#string",
+  "direccion": "#string",
+  "estrellas": "#number",
+  "precio_por_noche": "#number",
+  "imagen_url": "##string",
+  "imagenUrl": "#array",
+  "descripcion": "##string",
+  "calificacion": { "promedio": "#number", "cantidad": "#number" },
+  "disponibilidad": "##object",
+  "filtros": "##object",
+  "habitaciones": "#[] #(habitacion)"
+}

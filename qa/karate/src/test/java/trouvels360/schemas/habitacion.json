@@ -1,0 +1,11 @@
+{
+  "id": "#number",
+  "nombre": "#string",
+  "capacidad_adultos": "#number",
+  "capacidad_ninos": "#number",
+  "cantidad": "##number",
+  "precio_por_noche": "#number",
+  "unidades_totales": "#number",
+  "unidades_disponibles": "#number",
+  "descripcion": "##string"
+}

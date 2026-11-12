@@ -21,5 +21,6 @@ Para levantar cada componente, sigue su README. La web y Android usan los backen
 | 2 | HUs actualizadas y evolución de las APIs | `etapa-2/` |
 | 3 | Integración de la web Angular y ajustes de compatibilidad en las APIs | `etapa-3/` |
 | 4 | Aplicación Android y corrección de trazabilidad de la web | `etapa-4/` |
+| 5 | Automatización de API, web, Android y rendimiento; trazabilidad y correcciones detectadas por las pruebas | `etapa-5/LEEME_ETAPA5.md` |
 
 Cada etapa reemplaza o amplía la anterior; no se mantienen copias completas de backends y frontend en cada carpeta. Para recuperar un snapshot de código anterior, usa los commits de Git correspondientes a esa etapa.

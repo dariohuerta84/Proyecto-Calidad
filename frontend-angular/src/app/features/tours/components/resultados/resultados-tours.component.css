@@ -11,3 +11,8 @@
 .no-results-message p {
   margin: 0;
 }
+
+.estado-busqueda { text-align: center; color: #5e6c84; padding: 30px 0; }
+.no-results-message.error { color: #b71c1c; }
+.no-results-message .sugerencia { color: #5e6c84; font-size: .9rem; }
+.btn-reintentar { margin-top: 8px; border: 1px solid #c0c7c5; background: #fff; border-radius: 8px; padding: 8px 16px; cursor: pointer; }

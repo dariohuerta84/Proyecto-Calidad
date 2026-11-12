@@ -1,0 +1,2 @@
+TC-PERF-003  20 hilos por la última unidad -> 201: 1  409: 19  otros: []  p95: 366 ms  -> OK
+TC-PERF-005  30 hilos sobre 10 cupos -> 201: 10  409: 20  otros: []  cupo_reservado final: 10  -> OK

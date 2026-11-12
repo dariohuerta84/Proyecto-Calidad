@@ -1,0 +1,14 @@
+{
+  "id": "#number",
+  "tipo": "#regex (hotel|tour)",
+  "nombre": "#string",
+  "descripcion": "##string",
+  "ciudad": "#string",
+  "pais": "#string",
+  "imagen_url": "##string",
+  "activo": "#boolean",
+  "created_at": "##string",
+  "meta_tipo": "#object",
+  "reservas_totales": { "pendientes": "#number", "confirmadas": "#number", "rechazadas": "#number", "canceladas": "#number" },
+  "resenas": { "promedio": "#number", "cantidad": "#number" }
+}

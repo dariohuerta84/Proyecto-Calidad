@@ -1,0 +1,6 @@
+caso,campo,numero,vencimiento,cvc
+Luhn inválido,pago.numero,4242424242424241,12/39,123
+tarjeta vencida,pago.vencimiento,4242424242424242,01/20,123
+mes inexistente,pago.vencimiento,4242424242424242,13/39,123
+CVC de dos dígitos,pago.cvc,4242424242424242,12/39,12
+número corto,pago.numero,4242424242,12/39,123

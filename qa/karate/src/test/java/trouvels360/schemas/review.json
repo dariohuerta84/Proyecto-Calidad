@@ -1,0 +1,12 @@
+{
+  "id": "#number",
+  "servicio_id": "#number",
+  "servicio_nombre": "##string",
+  "servicio_tipo": "##string",
+  "usuario": { "id": "#number", "nombre": "##string", "apellido": "##string", "nombre_completo": "#string" },
+  "comentario": "#string",
+  "calificacion": "#number? _ >= 1 && _ <= 5",
+  "created_at": "#string",
+  "updated_at": "#string",
+  "fecha_formateada": "#string"
+}

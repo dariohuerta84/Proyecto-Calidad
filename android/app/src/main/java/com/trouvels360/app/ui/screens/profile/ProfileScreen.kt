@@ -195,10 +195,11 @@ fun ProfileScreen(user: UserDto, onLogout: () -> Unit, onCuentaEliminada: () -> 
                 SectionTitle("Cambiar contraseña")
                 PasswordField(vm.actual, { vm.actual = it }, "Contraseña actual", "password_actual", vm.erroresPass["password_actual"])
                 PasswordField(vm.nueva, { vm.nueva = it }, "Nueva contraseña", "password_nueva", vm.erroresPass["password"])
-                PasswordField(vm.confirmacion, { vm.confirmacion = it }, "Repite la nueva contraseña", "password_confirmacion", vm.erroresPass["password_confirmation"])
+                PasswordField(vm.confirmacion, { vm.confirmacion = it }, "Repite la nueva contraseña", "password_confirmacion",
+                    vm.erroresPass["password_confirmation"] ?: if (vm.confirmacion.isNotEmpty() && vm.confirmacion != vm.nueva) "Las contraseñas no coinciden." else null)
                 vm.mensajePass?.let { Banner(it, error = false, tagId = "password_mensaje") }
                 vm.mensajePassError?.let { Banner(it, error = true, tagId = "password_mensaje_error") }
-                Button(onClick = { vm.cambiarPassword() }, enabled = !vm.cambiandoPass, modifier = Modifier.fillMaxWidth().tag("password_guardar")) {
+                Button(onClick = { vm.cambiarPassword() }, enabled = !vm.cambiandoPass && vm.confirmacion == vm.nueva, modifier = Modifier.fillMaxWidth().tag("password_guardar")) {
                     if (vm.cambiandoPass) CircularProgressIndicator(Modifier.size(18.dp), strokeWidth = 2.dp) else Text("Actualizar contraseña")
                 }
             }

@@ -1,0 +1,7 @@
+caso,campo,parametro,valor
+categoria fuera de catálogo,categoria,categoria,Deportes
+fecha desde pasada,checkIn,checkIn,2020-01-01
+fecha con formato incorrecto,checkIn,checkIn,01/12/2030
+cupos en cero,cupos,cupos,0
+cupos sobre el máximo,cupos,cupos,51
+orden no permitido,sort,sort,rating

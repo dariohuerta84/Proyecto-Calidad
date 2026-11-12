@@ -1,0 +1,11 @@
+{
+  "success": true,
+  "data": {
+    "destino": { "nombre": "#string", "ciudad": "#string", "pais": "#string" },
+    "hotel": { "id": "#number", "nombre": "#string", "direccion": "##string", "estrellas": "##number" },
+    "itinerario": "#[_ > 0]",
+    "resumen": { "total_dias": "#number", "total_tours": "#number", "costo_total": "#present", "promedio_valoracion": "#present" }
+  },
+  "mensaje": "#string",
+  "sugerencia": true
+}

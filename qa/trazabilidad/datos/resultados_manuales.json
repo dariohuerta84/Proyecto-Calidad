@@ -1,0 +1,4 @@
+{
+ "TC-PERF-003": {"estado": "Pasó", "fecha": "2026-11-11", "evidencia": "jmeter/concurrencia_smoke.py", "detalle": "Prueba rápida en Python (20 hilos con barrera): 1x201 y 19x409. Falta la corrida con JMeter."},
+ "TC-PERF-005": {"estado": "Pasó", "fecha": "2026-11-11", "evidencia": "jmeter/concurrencia_smoke.py", "detalle": "Prueba rápida en Python (30 hilos sobre 10 cupos): 10x201, 20x409, cupo_reservado final 10. Falta la corrida con JMeter."}
+}

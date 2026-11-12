@@ -1,0 +1,20 @@
+{
+  "id": "#number",
+  "tipo": "tour",
+  "codigo": "#string",
+  "codigo_reserva": "#string",
+  "estado": "#regex (confirmada|cancelada)",
+  "personas": "#number",
+  "precio_unitario": "#number",
+  "subtotal": "#number",
+  "impuesto": "#number",
+  "total": "#number",
+  "tarjeta_ultimos4": "##string",
+  "cancelado_en": "##string",
+  "creado_en": "#string",
+  "cancelable": "#boolean",
+  "aviso": "##string",
+  "servicio": { "id": "#number", "nombre": "#string", "ciudad": "##string", "imagen_url": "##string", "eliminado": "#boolean" },
+  "salida": { "id": "#number", "fecha": "#string", "hora": "#string", "estado": "#string" },
+  "cliente": "##object"
+}

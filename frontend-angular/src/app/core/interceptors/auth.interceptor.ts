@@ -54,6 +54,13 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
         return pedirCsrf().pipe(switchMap(t => next(preparar(req, t))));
       }
 
+      if (error.status === 401 && !esAuth && !auth.isLoggedIn()) {
+        if (isPlatformBrowser(platformId) && !router.url.startsWith('/auth/')) {
+          router.navigate(['/auth/login'], { queryParams: { returnUrl: router.url, expirada: 1 } });
+        }
+        return throwError(() => error);
+      }
+
       if (error.status === 401 && !esAuth && auth.isLoggedIn()) {
         return pedirCsrf().pipe(
           switchMap(t => raw.post(`${api}/auth/refresh`, {}, {
