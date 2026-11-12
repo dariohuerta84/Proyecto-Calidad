@@ -54,7 +54,7 @@ TC-WEB-012,Validaciones del formulario de pago,HU-V07,Selenium,Pasó,2026-11-11 
 TC-MOB-014,Formulario de pago rechaza tarjeta vencida,HU-V07,Appium,No ejecutado,,,
 TC-API-028,Disponibilidad tras reservar descuenta las unidades,HU-V07,Karate,Pasó,2026-11-11 10:00:55 PM,karate-reports/trouvels360.reservas-hotel.html,
 TC-API-029,Varios tipos con uno sin stock → 409 y ninguno registrado,HU-V07,Karate,Pasó,2026-11-11 10:00:55 PM,karate-reports/trouvels360.reservas-hotel.html,
-TC-PERF-003,20 hilos simultáneos (Synchronizing Timer) por la última unidad: exactamente 1×201 y 19×409,HU-V07,JMeter,Pasó,2026-11-11,qa/evidencias/etapa-5/jmeter/concurrencia_smoke.txt,Prueba rápida en Python (20 hilos con barrera): 1x201 y 19x409. Falta la corrida con JMeter.
+TC-PERF-003,20 hilos simultáneos (Synchronizing Timer) por la última unidad: exactamente 1×201 y 19×409,HU-V07,JMeter,Pasó,2026-11-11,qa/evidencias/jmeter/concurrencia_smoke.txt,Prueba rápida en Python (20 hilos con barrera): 1x201 y 19x409. Falta la corrida con JMeter.
 TC-API-030,Mismo Idempotency-Key devuelve la misma solicitud,HU-V07,Karate,Pasó,2026-11-11 10:00:55 PM,karate-reports/trouvels360.reservas-hotel.html,
 TC-API-036,Filtros combinados: todos los resultados cumplen destino y categoría (match each),HU-V08,Karate,Pasó,2026-11-11 10:01:01 PM,karate-reports/trouvels360.tours.html,
 TC-WEB-015,Filtrar por categoría y destino,HU-V08,Selenium,Pasó,2026-11-11 22:01,selenium/target/reporte-selenium/index.html,
@@ -73,7 +73,7 @@ TC-WEB-017,Reserva de tour end-to-end con comprobante CONFIRMADA,HU-V10,Selenium
 TC-MOB-019,Reserva de tour end-to-end en la app,HU-V10,Appium,No ejecutado,,,
 TC-API-081,Pago de tour inválido (CSV) no crea reserva ni descuenta cupos,HU-V10,Karate,Pasó,2026-11-11 10:00:52 PM,karate-reports/trouvels360.cobertura-adicional.html,
 TC-API-042,Salida cerrada / pasada / sin cupo → 409 o 422 y cupos sin cambio,HU-V10,Karate,Pasó,2026-11-11 10:00:50 PM,karate-reports/trouvels360.reservas-tour.html,
-TC-PERF-005,30 hilos simultáneos sobre salida de 10 cupos: suma de personas confirmadas <= 10,HU-V10,JMeter,Pasó,2026-11-11,qa/evidencias/etapa-5/jmeter/concurrencia_smoke.txt,"Prueba rápida en Python (30 hilos sobre 10 cupos): 10x201, 20x409, cupo_reservado final 10. Falta la corrida con JMeter."
+TC-PERF-005,30 hilos simultáneos sobre salida de 10 cupos: suma de personas confirmadas <= 10,HU-V10,JMeter,Pasó,2026-11-11,qa/evidencias/jmeter/concurrencia_smoke.txt,"Prueba rápida en Python (30 hilos sobre 10 cupos): 10x201, 20x409, cupo_reservado final 10. Falta la corrida con JMeter."
 TC-API-043,"Idempotencia: dos envíos, una sola reserva y un solo descuento",HU-V10,Karate,Pasó,2026-11-11 10:00:50 PM,karate-reports/trouvels360.reservas-tour.html,
 TC-API-044,"Esquema paginado (data, meta.total, meta.last_page) y solo reservas propias",HU-V11,Karate,Pasó,2026-11-11 10:01:02 PM,karate-reports/trouvels360.mis-reservas.html,
 TC-WEB-018,"Mis reservas: pestañas hotel/tour, filtro por estado y paginación",HU-V11,Selenium,Pasó,2026-11-11 22:01,selenium/target/reporte-selenium/index.html,

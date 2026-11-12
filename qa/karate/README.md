@@ -59,4 +59,4 @@ para importar en Jira/Xray).
 ## Último resultado
 
 `136 escenarios · 136 OK · 0 fallas` en paralelo con 5 hilos (~18 s), contra la API reorganizada en `backend/`. Los
-reportes de esa corrida están en `qa/evidencias/etapa-5/karate/`.
+reportes de esa corrida están en `qa/evidencias/karate/`.

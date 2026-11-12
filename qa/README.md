@@ -10,7 +10,7 @@ Las cuatro suites de la rúbrica más la trazabilidad. Cada caso tiene un id (`T
 | [`appium/`](appium/README.md) | Appium 2 + JUnit 5 | 32 | App Android de punta a punta | Compila; **pendiente correr en un emulador** |
 | [`jmeter/`](jmeter/README.md) | JMeter 5.6.3 | 6 | Carga y carreras de concurrencia | Carreras OK con el script de Python; **pendiente la corrida con JMeter** |
 | [`trazabilidad/`](trazabilidad/README.md) | Python | 160 | Matriz historia → criterio → caso → resultado | 130 / 130 criterios con caso |
-| `evidencias/etapa-5/` | — | — | Reportes de la última corrida (Karate, Selenium, concurrencia) | — |
+| `evidencias/` | — | — | Reportes de la última corrida (Karate, Selenium, concurrencia) | — |
 | `postman/` | Postman + Newman | — | Colección de la versión base (20 historias); complementaria, fuera de la trazabilidad | — |
 
 Además hay 3 casos manuales (`TC-MAN-001` a `003`) con sus pasos en

@@ -57,27 +57,47 @@ flowchart TD
 
 ```text
 Proyecto-Calidad/
-├── backend/
-│   ├── docker-compose.yml     # Levanta las dos APIs a la vez
-│   ├── api-laravel/           # API REST principal (Laravel + MySQL), con su Docker
-│   └── api-python/            # API de itinerarios (FastAPI), con su Docker
-├── frontend/                  # Web Angular, servida con nginx en Docker
-├── android/                   # Aplicación Kotlin + Jetpack Compose
-├── docs/
-│   ├── 1-historias-de-usuario/# 15 historias del viajero, 15 del proveedor y tareas de QA
-│   ├── 2-pruebas/             # Estrategia y catálogo de los 160 casos
-│   ├── 3-trazabilidad/        # Matriz historia → criterio → caso → resultado y defectos
-│   └── 4-jira/                # CSV de importación y guía de Jira
-├── qa/
-│   ├── karate/                # Pruebas de API (86 casos)
-│   ├── selenium/              # Pruebas E2E web (33 casos)
-│   ├── appium/                # Pruebas E2E Android (32 casos)
-│   ├── jmeter/                # Carga, concurrencia y smoke test
-│   ├── postman/               # Colección complementaria de API
-│   ├── trazabilidad/          # Matriz historia/criterio/caso/resultado
-│   └── evidencias/etapa-5/    # Reportes de la última corrida
+├── backend/                         # Las dos APIs; cada una con su propio Docker
+│   ├── docker-compose.yml           #   levanta las dos a la vez
+│   ├── levantar-todo.bat · detener-todo.bat
+│   ├── api-laravel/                 # API REST principal: Laravel 12 + MySQL 8 (:8000)
+│   │   ├── app/ · routes/ · database/   #   código, rutas (con su historia) y seeders (incluye QaSeeder)
+│   │   ├── tests/Feature/           #   61 pruebas Pest
+│   │   ├── docs/                    #   referencia de la API, datos de prueba, cambios de la etapa 2
+│   │   ├── docker/ · Dockerfile · docker-compose.yml · .env.example
+│   │   └── levantar.bat · detener.bat · reiniciar-datos.bat · probar.bat
+│   └── api-python/                  # API de itinerarios: FastAPI (:8001)
+│       ├── app/ · tests/            #   código y 13 pruebas pytest
+│       └── Dockerfile · docker-compose.yml · .env.fastapi.example · railway.json · *.bat
+├── frontend/                        # Web Angular 19, servida con nginx en Docker (:4200)
+│   ├── src/app/                     #   core/ · shared/ · features/ (auth, hoteles, tours, proveedor)
+│   ├── docs/                        #   selectores para Selenium, cambios de la etapa 3
+│   ├── docker/ · Dockerfile · docker-compose.yml · .env.example · proxy.conf.json
+│   └── levantar.bat · detener.bat · desarrollo.bat
+├── android/                         # App Kotlin + Jetpack Compose (viajero y proveedor)
+│   ├── app/src/main/                #   pantallas, red (Retrofit + cookies + CSRF), validaciones
+│   ├── app/src/test/                #   pruebas unitarias y de contrato con la API
+│   ├── docs/                        #   contrato de la API, selectores y guía para Appium
+│   └── build.gradle.kts · gradle.properties (API_BASE_URL) · gradlew
+├── qa/                              # Pruebas de la rúbrica
+│   ├── karate/                      #   API: 86 casos (136 escenarios)
+│   ├── selenium/                    #   web: 33 casos
+│   ├── appium/                      #   app: 32 casos
+│   ├── jmeter/                      #   rendimiento y concurrencia: 6 casos + prueba rápida en Python
+│   ├── trazabilidad/                #   matriz historia → criterio → caso → resultado
+│   ├── evidencias/                  #   reportes de la última corrida (karate/, selenium/, jmeter/)
+│   ├── postman/                     #   colección complementaria (versión base)
+│   └── ejecutar-todo.bat · ejecutar-todo.sh
+├── docs/                            # Documentación del curso
+│   ├── 1-historias-de-usuario/      #   15 historias del viajero, 15 del proveedor, tareas de QA, Word
+│   ├── 2-pruebas/                   #   estrategia y catálogo de los 160 casos
+│   ├── 3-trazabilidad/              #   matriz (md + csv) y registro de defectos
+│   └── 4-jira/                      #   CSV de importación y guía de Jira
+├── .gitignore
 └── README.md
 ```
+
+Cada carpeta principal tiene su propio `README.md` con cómo levantarla, configurarla y probarla.
 
 ---
 
@@ -172,7 +192,7 @@ El comando ejecuta Karate y Selenium y actualiza la matriz de trazabilidad. Para
 .\qa\ejecutar-todo.bat jmeter appium
 ```
 
-También puedes ejecutar cada suite desde su carpeta con `ejecutar.bat`. La estrategia, los entornos y el estado de cada suite están en [docs/2-pruebas/estrategia-de-pruebas.md](docs/2-pruebas/estrategia-de-pruebas.md). Los reportes originales se conservan en `qa/evidencias/etapa-5/`; las nuevas ejecuciones escriben sus resultados bajo `target/` o `resultados/`.
+También puedes ejecutar cada suite desde su carpeta con `ejecutar.bat`. La estrategia, los entornos y el estado de cada suite están en [docs/2-pruebas/estrategia-de-pruebas.md](docs/2-pruebas/estrategia-de-pruebas.md). Los reportes de la última corrida se conservan en `qa/evidencias/`; las nuevas ejecuciones escriben sus resultados bajo `target/` o `resultados/`.
 
 ---
 

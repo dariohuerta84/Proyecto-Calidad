@@ -130,7 +130,7 @@ Cada suite también se ejecuta sola desde su carpeta con `ejecutar.bat` o `mvn t
 | JMeter | `qa/jmeter/resultados/reporte-html/index.html` y `qa/jmeter/resultados/verificacion.txt` |
 | Trazabilidad | `qa/trazabilidad/salida/matriz_trazabilidad.html` |
 
-Los reportes de la última corrida entregada están en `qa/evidencias/etapa-5/`.
+Los reportes de la última corrida entregada están en `qa/evidencias/`.
 
 ## 8. Criterios de entrada y de salida
 

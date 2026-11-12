@@ -66,4 +66,4 @@ La captura se toma al final de **cada** caso (y se marca `FALLA` si falló) ante
 ## Último resultado
 
 **33 / 33 OK** en Chromium headless contra la web compilada para producción y servida por nginx (como en Docker), con la
-API reorganizada en `backend/`. Reporte y capturas en `qa/evidencias/etapa-5/selenium/`.
+API reorganizada en `backend/`. Reporte y capturas en `qa/evidencias/selenium/`.
