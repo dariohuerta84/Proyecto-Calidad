@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Foto del hotel no disponible">
+  <defs><linearGradient id="f" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#dfe9f3"/><stop offset="1" stop-color="#c5d5e4"/></linearGradient></defs>
+  <rect width="800" height="500" fill="url(#f)"/>
+  <g fill="none" stroke="#7a8ea3" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" transform="translate(320 140)"><path d="M20 200V40h120v160M140 200V90h60v110M0 200h220"/><path d="M50 70h20M90 70h20M50 110h20M90 110h20M50 150h20M90 150h20"/></g>
+  <text x="400" y="380" text-anchor="middle" font-family="system-ui, Segoe UI, Roboto, sans-serif" font-size="30" fill="#5b6f84">Foto del hotel no disponible</text>
+</svg>

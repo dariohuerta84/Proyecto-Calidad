@@ -10,7 +10,7 @@ Feature: Helper - el proveedor publica un tour de prueba con una salida
     * def fechaSalida = karate.get('fechaSalida') || fecha(diaLibre())
     * def categoria = karate.get('categoria') || 'Aventura'
     Given path 'tours'
-    And request { nombre: '#("Tour " + ciudad)', descripcion: 'Tour creado por Karate', ciudad: '#(ciudad)', pais: 'Perú', imagen_url: 'https://example.com/t.jpg', categoria: '#(categoria)', duracion: 120, precio: '#(precio)', latitud: -13.52, longitud: -71.97, salidas: [{ fecha: '#(fechaSalida)', hora: '08:00', cupo_total: '#(cupo)' }] }
+    And request { nombre: '#("Tour " + ciudad)', descripcion: 'Tour creado por Karate', ciudad: '#(ciudad)', pais: 'Perú', imagen_url: 'https://www.machupicchu-inca-boletos.com/wp-content/uploads/2024/11/7584-machu-picchu-full-day-80.jpg', categoria: '#(categoria)', duracion: 120, precio: '#(precio)', latitud: -13.52, longitud: -71.97, salidas: [{ fecha: '#(fechaSalida)', hora: '08:00', cupo_total: '#(cupo)' }] }
     When method post
     Then status 201
     * def tourId = response.data.servicio_id || response.data.id

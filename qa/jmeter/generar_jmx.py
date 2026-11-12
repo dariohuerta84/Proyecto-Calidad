@@ -127,12 +127,12 @@ FECHA = "${__groovy(java.time.LocalDate.now().plusDays(400 + new Random().nextIn
 setup = grupo('SetupThreadGroup', 'setUp - Preparar datos de carrera (hotel con 1 unidad y tour con cupo limitado)', 1, 1, '1', None,
     *login('setUp', '${PROV_EMAIL}', '${PROV_PASS}'),
     http('setUp POST /hoteles (1 unidad)', 'POST', '/api/hoteles',
-         '{"nombre":"Hotel ' + CIUDAD + '","ciudad":"PERF","pais":"Perú","imagen_url":"https://example.com/perf.jpg","direccion":"Av. Carga 1","estrellas":3,'
+         '{"nombre":"Hotel ' + CIUDAD + '","ciudad":"PERF","pais":"Perú","imagen_url":"https://tierravivahoteles.com/wp-content/uploads/2023/03/TVP-3-Fachada-1.jpg","direccion":"Av. Carga 1","estrellas":3,'
          '"habitaciones":[{"nombre":"Última","capacidad_adultos":2,"capacidad_ninos":0,"cantidad":1,"precio_por_noche":100}]}',
          codigo('Código 201', '201'), extraer('hotel_id', '$.data.servicio_id')),
     http('setUp GET /hoteles/{id}', 'GET', '/api/hoteles/${hotel_id}', None, codigo('Código 200', '200'), extraer('hab_id', '$.habitaciones[0].id')),
     http('setUp POST /tours (cupo limitado)', 'POST', '/api/tours',
-         '{"nombre":"Tour ' + CIUDAD + '","descripcion":"Carga","ciudad":"PERF","pais":"Perú","imagen_url":"https://example.com/t.jpg",'
+         '{"nombre":"Tour ' + CIUDAD + '","descripcion":"Carga","ciudad":"PERF","pais":"Perú","imagen_url":"https://www.machupicchu-inca-boletos.com/wp-content/uploads/2024/11/7584-machu-picchu-full-day-80.jpg",'
          '"categoria":"Aventura","duracion":60,"precio":50,"salidas":[{"fecha":"' + FECHA + '","hora":"08:00","cupo_total":${__P(cupo.tour,10)}}]}',
          codigo('Código 201', '201'), extraer('tour_id', '$.data.id')),
     http('setUp GET /tours/{id}/salidas', 'GET', '/api/tours/${tour_id}/salidas', None, codigo('Código 200', '200'), extraer('salida_id', '$[0].id')),

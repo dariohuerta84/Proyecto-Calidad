@@ -100,6 +100,16 @@ Qué pasa al arrancar el contenedor (`docker/entrypoint.sh`):
 | `JWT_MS_SECRET` | igual a `JWT_SECRET` de la API Python | clave compartida nueva |
 | `JWT_MS_ISSUER` | `http://localhost:8000` (igual a `JWT_ISSUER` de la API Python) | `https://api.midominio.com` |
 
+## Imágenes
+
+La API no guarda archivos: cada hotel, tour y foto de galería es un **enlace** (`imagen_url`, `servicio_imagenes.url`).
+
+- Datos iniciales: los enlaces de cada hotel y tour están en `database/seeders/DatabaseSeeder.php` (y los de prueba en
+  `QaSeeder.php`); las fotos genéricas de las galerías, en `database/factories/ServicioImagenFactory.php`.
+- Para cambiar una foto, edita el enlace y recrea los datos (`reiniciar-datos.bat`).
+- Usa enlaces directos a la imagen. Si un sitio la borra o la bloquea, la web y la app muestran una imagen local
+  «no disponible» en lugar del ícono roto.
+
 ## Pruebas
 
 ```bash

@@ -56,7 +56,7 @@ class QaSeeder extends Seeder
         $tourQa = Servicio::updateOrCreate(['nombre' => 'Tour QA Cupos', 'proveedor_id' => $proveedor->id], [
             'tipo' => 'tour', 'ciudad' => 'Cusco', 'pais' => 'Perú', 'activo' => true,
             'descripcion' => 'Tour de prueba con cupos controlados para pruebas de concurrencia.',
-            'imagen_url' => 'https://images.unsplash.com/photo-1526392060635-9d6019884377?w=1200',
+            'imagen_url' => 'https://wp.tour7colores.com/wp-content/uploads/2025/05/turistas-montana-colores-vinicunca-sm.jpg',
             'latitud' => -13.5226, 'longitud' => -71.9673,
         ]);
         Tour::updateOrCreate(['servicio_id' => $tourQa->id], ['categoria' => 'Aventura', 'duracion' => 240, 'precio' => 120.00]);
@@ -108,7 +108,7 @@ class QaSeeder extends Seeder
         $serv = Servicio::updateOrCreate(['nombre' => $nombre, 'proveedor_id' => $prov->id], [
             'tipo' => 'hotel', 'ciudad' => $ciudad, 'pais' => 'Perú', 'activo' => true,
             'descripcion' => 'Hotel de prueba para las suites automatizadas.',
-            'imagen_url' => 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200',
+            'imagen_url' => 'https://media-cdn.tripadvisor.com/media/photo-s/27/59/0e/18/casa-andina-premium-cusco.jpg',
             'latitud' => $lat, 'longitud' => $lon,
         ]);
         $hotel = Hotel::updateOrCreate(['servicio_id' => $serv->id], ['direccion' => "Av. QA 123, {$ciudad}", 'estrellas' => $estrellas]);

@@ -13,21 +13,21 @@ class ServicioFactory extends Factory
 
     // 🔹 Imágenes de portada según tipo
     private static array $hotelImgs = [
-        'https://media-cdn.tripadvisor.com/media/photo-s/06/ee/c7/e2/hotel-valdivia.jpg',
-        'https://royalparkhotel.com.pe/wp-content/uploads/2016/06/hotel-de-5-estrellas-en-peru.jpg',
-        'https://www.cataloniahotels.com/es/blog/wp-content/uploads/2016/11/catalonia-riviera-maya.jpg',
-        'https://www.incatrilogytours.com/wp-content/uploads/2024/03/hotel-lujoso-cusco-cartagena2.jpg',
-        'https://www.turiweb.pe/wp-content/uploads/2021/10/hoteles-071021.jpg',
-        'https://www.viajes.cl/hubfs/Vista%20a%C3%A9rea%20del%20hotel%20Belmond%20Miraflores%20Park%20en%20Lima.jpg',
+        'https://x.cdrst.com/foto/hotel-sf/1396c2d5/granderesp/foto-hotel-1396b82b.jpg',
+        'https://www.tangol.com/Fotos/Hospedaje/selina-miraflores-lima_10419_202105061415280.JPG',
+        'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/03/5b/67/7f/hilton-lima-miraflores.jpg?w=900&h=-1&s=1',
+        'https://cf.bstatic.com/xdata/images/hotel/max1024x768/794330398.jpg?k=7b49f06ce75edcf9b541b1d5bef21a2d8c1c28f74f98906e7d12f7a305482f08&o=',
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8d3B_SWorkunmvZM55wYWWOLfDaHfjnzev_EWtBeOOqbkxZhWwfeuOBM&s=10',
+        'https://media-cdn.tripadvisor.com/media/photo-s/27/59/0e/18/casa-andina-premium-cusco.jpg',
     ];
 
     private static array $tourImgs = [
-        'https://magiccuscotoursperu.com/wp-content/uploads/2020/02/Excursiones-en-Cusco-y-Machu-Picchu-5-dias-700x500.jpg',
-        'https://www.arequipatoursagencia.com/wp-content/uploads/2023/10/puno.jpg',
-        'https://www.libertyperutravel.com/wp-content/uploads/2023/10/city-tour-lima.jpg',
-        'https://exclusiveperutours.com/wp-content/uploads/2022/03/machupicchu-exclusiveperutours.jpg',
-        'https://www.peru-tours.org/images/machupicchu/tour-machupicchu-private.jpg',
-        'https://www.unitoursperu.com/wp-content/uploads/2021/07/puno-uros.jpg',
+        'https://www.machupicchu-inca-boletos.com/wp-content/uploads/2024/11/7584-machu-picchu-full-day-80.jpg',
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSQKtGPz58-FV_busuvzEz5UcQqEt_h8aKTjcBOL-n6v7RKGdgqO2ooumx&s=10',
+        'https://www.kontikiperu.com/wp-content/uploads/2019/04/city-tour-lima7.jpg',
+        'https://wp.tour7colores.com/wp-content/uploads/2025/05/turistas-montana-colores-vinicunca-sm.jpg',
+        'https://www.qeswachakaperutours.com/wp-content/uploads/galeria-tour-laguna-humantay-3.jpg',
+        'https://www.condorxtreme.com/wp-content/uploads/2023/07/Tour-Colca-Full-Day-Arequipa-Peru.jpg',
     ];
 
     public function definition(): array

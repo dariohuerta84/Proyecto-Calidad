@@ -90,7 +90,7 @@ Feature: Criterios que no tenían caso en la etapa 1 (agregados en la etapa 5)
     * def reserva = r.body.data.reservas[0]
     * eval como(S.proveedor)
     Given path 'hoteles', h.hotelId
-    And request { descripcion: 'Descripción renovada por Karate', imagenes: [{ url: 'https://example.com/nueva.jpg', alt: 'Nueva' }] }
+    And request { descripcion: 'Descripción renovada por Karate', imagenes: [{ url: 'https://www.swissotel.com/assets/0/92/2119/2178/2217/2219/6442451722/2916b340-6b67-43c8-a285-70205acccfd5.jpg', alt: 'Nueva' }] }
     When method put
     Then status 200
     * eval anonimo()
@@ -98,7 +98,7 @@ Feature: Criterios que no tenían caso en la etapa 1 (agregados en la etapa 5)
     When method get
     Then status 200
     And match response.hotel contains { servicio_id: '#(h.hotelId)', descripcion: 'Descripción renovada por Karate' }
-    And match response.hotel.imagenes[*].url == ['https://example.com/nueva.jpg']
+    And match response.hotel.imagenes[*].url == ['https://www.swissotel.com/assets/0/92/2119/2178/2217/2219/6442451722/2916b340-6b67-43c8-a285-70205acccfd5.jpg']
     And match response.habitaciones[0].id == h.habitaciones[0].id
     * eval como(S.viajero2)
     Given path 'mis-reservas', reserva.id
@@ -110,7 +110,7 @@ Feature: Criterios que no tenían caso en la etapa 1 (agregados en la etapa 5)
     * def ciudad = 'QA-' + sufijo()
     * eval como(S.proveedor)
     Given path 'hoteles'
-    And request { nombre: '#("Hotel " + ciudad)', ciudad: '#(ciudad)', pais: 'Perú', imagen_url: 'https://example.com/h.jpg', direccion: 'Av. 1', estrellas: 3, habitaciones: [{ nombre: 'Buena', capacidad_adultos: 2, cantidad: 2, precio_por_noche: 100 }, { nombre: 'Mala', capacidad_adultos: 2, cantidad: 2, precio_por_noche: 0 }] }
+    And request { nombre: '#("Hotel " + ciudad)', ciudad: '#(ciudad)', pais: 'Perú', imagen_url: 'https://tierravivahoteles.com/wp-content/uploads/2023/03/TVP-3-Fachada-1.jpg', direccion: 'Av. 1', estrellas: 3, habitaciones: [{ nombre: 'Buena', capacidad_adultos: 2, cantidad: 2, precio_por_noche: 100 }, { nombre: 'Mala', capacidad_adultos: 2, cantidad: 2, precio_por_noche: 0 }] }
     When method post
     Then status 422
     And match response.errors['habitaciones.1.precio_por_noche'] == '#[_ > 0]'

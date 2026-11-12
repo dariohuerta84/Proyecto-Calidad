@@ -1,4 +1,6 @@
-import { Component, OnInit, inject } from '@angular/core'; // 🚨 AGREGAR OnInit e inject
+import { Component, OnInit, inject, PLATFORM_ID } from '@angular/core';
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
+import { ImageUtils } from './shared/utils/image.utils';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
@@ -18,6 +20,8 @@ export class AppComponent implements OnInit { // 🚨 IMPLEMENTAR OnInit
   
   // 🚨 Inyectar el AuthService usando inject()
   private authService = inject(AuthService);
+  private documento = inject(DOCUMENT);
+  private plataforma = inject(PLATFORM_ID);
 
   constructor(private router: Router) {
     this.router.events.subscribe((e: Event) => {
@@ -33,6 +37,10 @@ export class AppComponent implements OnInit { // 🚨 IMPLEMENTAR OnInit
     // La inyección de dependencias ya está completa.
     // Es seguro llamar a un método que utiliza HttpClient.
     this.authService.initializeAuth();
+    // Fotos que no cargan → imagen local "no disponible" en lugar del ícono roto
+    if (isPlatformBrowser(this.plataforma)) {
+      ImageUtils.activarImagenDeReemplazo(this.documento);
+    }
     console.log('✅ Inicializando autenticación (getMe) fuera del constructor.');
   }
 }

@@ -64,12 +64,12 @@ class DatabaseSeeder extends Seeder
         $hotelesConfig = [
             // --- LIMA ---
             [
-                'servicio' => ['nombre' => 'JW Marriott Lima', 'ciudad' => 'Lima', 'pais' => 'Perú', 'lat' => -12.1291, 'lon' => -77.0299, 'img' => 'https://blog.viajesmachupicchu.travel/wp-content/uploads/2020/11/image-18.png', 'desc' => 'Lujo frente al mar en Miraflores.'],
+                'servicio' => ['nombre' => 'JW Marriott Lima', 'ciudad' => 'Lima', 'pais' => 'Perú', 'lat' => -12.1291, 'lon' => -77.0299, 'img' => 'https://x.cdrst.com/foto/hotel-sf/1396c2d5/granderesp/foto-hotel-1396b82b.jpg', 'desc' => 'Lujo frente al mar en Miraflores.'],
                 'hotel' => ['estrellas' => 5],
                 'habitaciones' => [['n'=>'Deluxe Ocean View', 'p'=>210], ['n'=>'Executive Suite', 'p'=>350], ['n'=>'Family Connecting', 'p'=>420]]
             ],
             [
-                'servicio' => ['nombre' => 'Selina Miraflores', 'ciudad' => 'Lima', 'pais' => 'Perú', 'lat' => -12.1220, 'lon' => -77.0310, 'img' => 'https://z.cdrst.com/foto/hotel-sf/1247a0ea/granderesp/foto-hotel-12479640.jpg', 'desc' => 'Ambiente moderno y coworking.'],
+                'servicio' => ['nombre' => 'Selina Miraflores', 'ciudad' => 'Lima', 'pais' => 'Perú', 'lat' => -12.1220, 'lon' => -77.0310, 'img' => 'https://www.tangol.com/Fotos/Hospedaje/selina-miraflores-lima_10419_202105061415280.JPG', 'desc' => 'Ambiente moderno y coworking.'],
                 'hotel' => ['estrellas' => 3],
                 'habitaciones' => [['n'=>'Standard', 'p'=>80], ['n'=>'Micro', 'p'=>50], ['n'=>'Suite', 'p'=>120]]
             ],
@@ -81,41 +81,41 @@ class DatabaseSeeder extends Seeder
             
             // --- CUSCO ---
             [
-                'servicio' => ['nombre' => 'Palacio del Inka', 'ciudad' => 'Cusco', 'pais' => 'Perú', 'lat' => -13.5170, 'lon' => -71.9722, 'img' => 'https://cache.marriott.com/content/dam/marriott-renditions/CUZLC/cuzlc-reception-8082-hor-clsc.jpg?output-quality=70&interpolation=progressive-bilinear&downsize=1300px:*', 'desc' => 'Historia viva frente al Koricancha.'],
+                'servicio' => ['nombre' => 'Palacio del Inka', 'ciudad' => 'Cusco', 'pais' => 'Perú', 'lat' => -13.5170, 'lon' => -71.9722, 'img' => 'https://cf.bstatic.com/xdata/images/hotel/max1024x768/794330398.jpg?k=7b49f06ce75edcf9b541b1d5bef21a2d8c1c28f74f98906e7d12f7a305482f08&o=', 'desc' => 'Historia viva frente al Koricancha.'],
                 'hotel' => ['estrellas' => 5],
                 'habitaciones' => [['n'=>'Colonial', 'p'=>280], ['n'=>'Inca Suite', 'p'=>450]]
             ],
             [
-                'servicio' => ['nombre' => 'Tierra Viva Cusco Centro', 'ciudad' => 'Cusco', 'pais' => 'Perú', 'lat' => -13.5150, 'lon' => -71.9750, 'img' => 'https://tierravivahoteles.com/wp-content/uploads/2023/03/0-TVH-Cusco-Centro-Signature.jpeg', 'desc' => 'Comodidad a pasos de la Plaza.'],
+                'servicio' => ['nombre' => 'Tierra Viva Cusco Centro', 'ciudad' => 'Cusco', 'pais' => 'Perú', 'lat' => -13.5150, 'lon' => -71.9750, 'img' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8d3B_SWorkunmvZM55wYWWOLfDaHfjnzev_EWtBeOOqbkxZhWwfeuOBM&s=10', 'desc' => 'Comodidad a pasos de la Plaza.'],
                 'hotel' => ['estrellas' => 3],
                 'habitaciones' => [['n'=>'Doble', 'p'=>90], ['n'=>'Triple', 'p'=>130]]
             ],
             [
-                'servicio' => ['nombre' => 'Casa Andina Premium Cusco', 'ciudad' => 'Cusco', 'pais' => 'Perú', 'lat' => -13.521226, 'lon' => -71.968173, 'img' => 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/13/43/8e/ce/casa-andina-premium-cusco.jpg?w=900&h=500&s=1', 'desc' => 'Hotel histórico con arquitectura colonial.'],
+                'servicio' => ['nombre' => 'Casa Andina Premium Cusco', 'ciudad' => 'Cusco', 'pais' => 'Perú', 'lat' => -13.521226, 'lon' => -71.968173, 'img' => 'https://media-cdn.tripadvisor.com/media/photo-s/27/59/0e/18/casa-andina-premium-cusco.jpg', 'desc' => 'Hotel histórico con arquitectura colonial.'],
                 'hotel' => ['estrellas' => 3],
                 'habitaciones' => [['n'=>'Bungalow', 'p'=>310], ['n'=>'Doble', 'p'=>199], ['n'=>'Familiar', 'p'=>288]]
             ],
 
             // --- AREQUIPA ---
             [
-                'servicio' => ['nombre' => 'Casa Andina Premium Arequipa', 'ciudad' => 'Arequipa', 'pais' => 'Perú', 'lat' => -16.3988, 'lon' => -71.5369, 'img' => 'https://cdn.adventure-life.com/70/83/2/h76n3yjf/1300x820.webp', 'desc' => 'Casona colonial restaurada.'],
+                'servicio' => ['nombre' => 'Casa Andina Premium Arequipa', 'ciudad' => 'Arequipa', 'pais' => 'Perú', 'lat' => -16.3988, 'lon' => -71.5369, 'img' => 'https://images.trvl-media.com/lodging/3000000/2250000/2242100/2242012/e2e185db.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill', 'desc' => 'Casona colonial restaurada.'],
                 'hotel' => ['estrellas' => 4],
                 'habitaciones' => [['n'=>'Superior', 'p'=>150], ['n'=>'Suite Republicana', 'p'=>250]]
             ],
             [
-                'servicio' => ['nombre' => 'Hotel Sonesta Posadas del Inca', 'ciudad' => 'Arequipa', 'pais' => 'Perú', 'lat' => -16.403964, 'lon' => -71.537460, 'img' => 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/91/14/da/sonesta-posadas-del-inca.jpg?w=500&h=-1&s=1', 'desc' => 'Hotel acogedor cerca del Monasterio de Santa Catalina.'],
+                'servicio' => ['nombre' => 'Hotel Sonesta Posadas del Inca', 'ciudad' => 'Arequipa', 'pais' => 'Perú', 'lat' => -16.403964, 'lon' => -71.537460, 'img' => 'https://res.cloudinary.com/logicaghl/image/upload/v1688128356/fachada4_cd62cb9dcd.jpg', 'desc' => 'Hotel acogedor cerca del Monasterio de Santa Catalina.'],
                 'hotel' => ['estrellas' => 3],
                 'habitaciones' => [['n'=>'Económica', 'p'=>90], ['n'=>'Doble', 'p'=>140], ['n'=>'Triple', 'p'=>190]]
             ],
             [
-                'servicio' => ['nombre' => 'Costa del Sol Arequipa', 'ciudad' => 'Arequipa', 'pais' => 'Perú', 'lat' => -16.3988, 'lon' => -71.5350, 'img' => 'https://www.costadelsolperu.com/wp-content/uploads/2024/07/Oferta-Arequipa-2.jpg', 'desc' => 'Hotel con piscina y vista al Misti.'],
+                'servicio' => ['nombre' => 'Costa del Sol Arequipa', 'ciudad' => 'Arequipa', 'pais' => 'Perú', 'lat' => -16.3988, 'lon' => -71.5350, 'img' => 'https://www.costadelsolperu.com/wp-content/uploads/2025/08/arequipa-Fachada-1.jpg', 'desc' => 'Hotel con piscina y vista al Misti.'],
                 'hotel' => ['estrellas' => 5],
                 'habitaciones' => [['n'=>'Deluxe', 'p'=>220], ['n'=>'Suite', 'p'=>380], ['n'=>'Family', 'p'=>420]]
             ],
 
             // --- PUNO ---
             [
-                'servicio' => ['nombre' => 'GHL Hotel Lago Titicaca', 'ciudad' => 'Puno', 'pais' => 'Perú', 'lat' => -15.8378, 'lon' => -69.9965, 'img' => 'https://cf.bstatic.com/xdata/images/hotel/max1024x768/154138730.jpg?k=a8aa8187fc2981298c1b24bfd5c2651b3e571b379ef74a0f76b8c125d2ac7059&o=', 'desc' => 'Vistas impresionantes al lago.'],
+                'servicio' => ['nombre' => 'GHL Hotel Lago Titicaca', 'ciudad' => 'Puno', 'pais' => 'Perú', 'lat' => -15.8378, 'lon' => -69.9965, 'img' => 'https://res.cloudinary.com/logicaghl/image/upload/v1688153224/TT_Bar_Lago_Titicaca_5_df14413d7c.jpg', 'desc' => 'Vistas impresionantes al lago.'],
                 'hotel' => ['estrellas' => 5],
                 'habitaciones' => [['n'=>'Lake View', 'p'=>180], ['n'=>'Sunrise', 'p'=>220]]
             ],
@@ -127,17 +127,17 @@ class DatabaseSeeder extends Seeder
 
             // --- PIURA ---
             [
-                'servicio' => ['nombre' => 'Arennas Máncora', 'ciudad' => 'Piura', 'pais' => 'Perú', 'lat' => -4.1077, 'lon' => -81.0483, 'img' => 'https://www.crehotel.pe/wp-content/uploads/2022/07/Foto-Arennas-Mancora-4.jpg', 'desc' => 'Relax total frente al mar.'],
+                'servicio' => ['nombre' => 'Arennas Máncora', 'ciudad' => 'Piura', 'pais' => 'Perú', 'lat' => -4.1077, 'lon' => -81.0483, 'img' => 'https://media.staticontent.com/media/pictures/76f75e56-7326-4df6-9774-9185ad6d257e', 'desc' => 'Relax total frente al mar.'],
                 'hotel' => ['estrellas' => 5],
                 'habitaciones' => [['n'=>'Garden View', 'p'=>250], ['n'=>'Ocean Front', 'p'=>400]]
             ],
             [
-                'servicio' => ['nombre' => 'Hotel Casa Andina Piura', 'ciudad' => 'Piura', 'pais' => 'Perú', 'lat' => -5.194490, 'lon' => -80.632820, 'img' => 'https://s3.us-east-1.amazonaws.com/ca-webprod/Hoteles/banner-landing-casa-andina-premium-piura.webp', 'desc' => 'Hotel cómodo en el centro de Piura.'],
+                'servicio' => ['nombre' => 'Hotel Casa Andina Piura', 'ciudad' => 'Piura', 'pais' => 'Perú', 'lat' => -5.194490, 'lon' => -80.632820, 'img' => 'https://cf.bstatic.com/xdata/images/hotel/max1024x768/300031355.jpg?k=4c059e3856e82fe692e62660dd2324a008dbbdd9ad08651c69d16a53ab5d8753&o=', 'desc' => 'Hotel cómodo en el centro de Piura.'],
                 'hotel' => ['estrellas' => 5],
                 'habitaciones' => [['n'=>'Bungalow', 'p'=>310], ['n'=>'Doble', 'p'=>199], ['n'=>'Familiar', 'p'=>288]]
             ],
             [
-                'servicio' => ['nombre' => 'Wyndham Costa del Sol Piura', 'ciudad' => 'Piura', 'pais' => 'Perú', 'lat' => -5.193789, 'lon' => -80.629950, 'img' => 'https://images.trvl-media.com/lodging/6000000/5110000/5103900/5103882/b4868d6c.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill', 'desc' => 'Hotel moderno con piscina y restaurante.'],
+                'servicio' => ['nombre' => 'Wyndham Costa del Sol Piura', 'ciudad' => 'Piura', 'pais' => 'Perú', 'lat' => -5.193789, 'lon' => -80.629950, 'img' => 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/10/d9/3f/5d/casa-andina-premium-piura.jpg?w=900&h=500&s=1', 'desc' => 'Hotel moderno con piscina y restaurante.'],
                 'hotel' => ['estrellas' => 2],
                 'habitaciones' => [['n'=>'Bungalow', 'p'=>310], ['n'=>'Doble', 'p'=>199], ['n'=>'Familiar', 'p'=>288]]
             ]
@@ -216,7 +216,7 @@ class DatabaseSeeder extends Seeder
                     'ciudad'      => 'Arequipa',
                     'pais'        => 'Perú',
                     'descripcion' => 'Recorrido por el centro histórico, miradores y Santa Catalina.',
-                    'imagen_url'  => 'https://llamitastravel.com/wp-content/uploads/2024/02/arequipa-mosterio-santa-catalina.jpg',
+                    'imagen_url'  => 'https://www.chullostravelperu.com/wp-content/uploads/2024/02/City-tour-Arequipa-Monasterio-Santa-Catalina.webp',
                     'latitud'     => -16.398803,
                     'longitud'    => -71.536883,
                 ],
@@ -233,7 +233,7 @@ class DatabaseSeeder extends Seeder
                     'ciudad'      => 'Arequipa',
                     'pais'        => 'Perú',
                     'descripcion' => 'Descubre las canteras donde nace la ciudad blanca.',
-                    'imagen_url'  => 'https://www.arequipa.com/wp-content/uploads/2020/08/Canteras-de-A%C3%B1ashuayco-Arequipa.jpg.jpg',
+                    'imagen_url'  => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTunBv7eDtUJ3zVwgNC2Bn5w7Hpt_iRlmIxbhFkT8mFaC--BUgj9PdHyJQo&s=10',
                     'latitud'     => -16.350000,
                     'longitud'    => -71.600000,
                 ],
@@ -250,7 +250,7 @@ class DatabaseSeeder extends Seeder
                     'ciudad'      => 'Arequipa',
                     'pais'        => 'Perú',
                     'descripcion' => 'Adrenalina pura a solo 20 minutos de la plaza.',
-                    'imagen_url'  => 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-674x446/06/73/ed/8f.jpg',
+                    'imagen_url'  => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPqNaC8IjiovprwJQ3u8nscv_L9OHI9t_LU_zMh-zawWSZ2XsHLSVDlSfq&s=10',
                     'latitud'     => -16.380000,
                     'longitud'    => -71.540000,
                 ],
@@ -267,7 +267,7 @@ class DatabaseSeeder extends Seeder
                     'ciudad'      => 'Arequipa',
                     'pais'        => 'Perú',
                     'descripcion' => 'Visita uno de los cañones más profundos del mundo.',
-                    'imagen_url'  => 'https://elcomercio.pe/resizer/r9hqOnoLqmKSDvS7Qzh7ORrdWAY=/1200x715/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/W7NDWTQIO5GIDEHCBM2YLCZAFQ.jpg',
+                    'imagen_url'  => 'https://www.condorxtreme.com/wp-content/uploads/2023/07/Tour-Colca-Full-Day-Arequipa-Peru.jpg',
                     'latitud'     => -15.622755,
                     'longitud'    => -71.964438,
                 ],
@@ -284,7 +284,7 @@ class DatabaseSeeder extends Seeder
                     'ciudad'      => 'Arequipa',
                     'pais'        => 'Perú',
                     'descripcion' => 'Prueba el Rocoto Relleno y el Adobo en su origen.',
-                    'imagen_url'  => 'https://portal.andina.pe/EDPfotografia3/Thumbnail/2021/08/28/000802661M.webp',
+                    'imagen_url'  => 'https://statics.guiaturista.com.pe/2026/08/6a8a71c0c4ce4.png',
                     'latitud'     => -16.410000,
                     'longitud'    => -71.550000,
                 ],
@@ -305,7 +305,7 @@ class DatabaseSeeder extends Seeder
                     'ciudad'      => 'Lima',
                     'pais'        => 'Perú',
                     'descripcion' => 'Recorrido panorámico por la historia de Lima.',
-                    'imagen_url'  => 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-674x446/0a/74/de/e3.jpg',
+                    'imagen_url'  => 'https://www.kontikiperu.com/wp-content/uploads/2019/04/city-tour-lima7.jpg',
                     'latitud'     => -12.046374,
                     'longitud'    => -77.042793,
                 ],
@@ -322,7 +322,7 @@ class DatabaseSeeder extends Seeder
                     'ciudad'      => 'Lima',
                     'pais'        => 'Perú',
                     'descripcion' => 'Compra los ingredientes y aprende a preparar el mejor ceviche.',
-                    'imagen_url'  => 'https://tripgo.com.pe/wp-content/uploads/2024/11/tour-gastronomico-tripgo-ceviche.webp',
+                    'imagen_url'  => 'https://www.civitatis.com/f/peru/lima/tour-gastronomico-lima-589x392.jpg',
                     'latitud'     => -12.126374,
                     'longitud'    => -77.022793,
                 ],
@@ -339,7 +339,7 @@ class DatabaseSeeder extends Seeder
                     'ciudad'      => 'Lima',
                     'pais'        => 'Perú',
                     'descripcion' => 'Noche mágica con show de danzas típicas y caballos.',
-                    'imagen_url'  => 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-674x446/06/6f/52/fd.jpg',
+                    'imagen_url'  => 'https://www.terraquechuaperu.com/wp-content/uploads/2024/01/caballos-de-paso.jpg',
                     'latitud'     => -12.230000,
                     'longitud'    => -76.920000,
                 ],
@@ -356,7 +356,7 @@ class DatabaseSeeder extends Seeder
                     'ciudad'      => 'Lima',
                     'pais'        => 'Perú',
                     'descripcion' => 'Vuela sobre el mar y los edificios de Miraflores.',
-                    'imagen_url'  => 'https://360explora.com.pe/wp-content/uploads/2020/06/imagen-destaca-parapente-en-miraflores1-360explora.jpg',
+                    'imagen_url'  => 'https://360explora.com.pe/wp-content/uploads/2019/12/galeria_parapenteenmiraflores3_360explora.jpg',
                     'latitud'     => -12.136374,
                     'longitud'    => -77.032793,
                 ],
@@ -373,7 +373,7 @@ class DatabaseSeeder extends Seeder
                     'ciudad'      => 'Lima',
                     'pais'        => 'Perú',
                     'descripcion' => 'Navega hacia el Callao y nada con la naturaleza.',
-                    'imagen_url'  => 'https://www.condorxtreme.com/wp-content/uploads/2024/04/Nadar-con-Lobos-Marinos-en-Las-Islas-Palomino-3.jpg',
+                    'imagen_url'  => 'https://www.tangol.com/blog/Fotos/Galeria/puerto-madryn_0_202009061833440.JPG',
                     'latitud'     => -12.066374,
                     'longitud'    => -77.152793,
                 ],
@@ -390,7 +390,7 @@ class DatabaseSeeder extends Seeder
                     'ciudad'      => 'Lima',
                     'pais'        => 'Perú',
                     'descripcion' => 'Espectáculo de luces y fuentes de agua.',
-                    'imagen_url'  => 'https://www.libertrekperutravel.com/wp-content/uploads/2023/10/parque-de-la-reserva-circuito-magico-del-agua.jpg',
+                    'imagen_url'  => 'https://circuitomagicodelagua.pe/wp-content/uploads/2025/02/history1.jpg',
                     'latitud'     => -12.070000,
                     'longitud'    => -77.035000,
                 ],
@@ -411,7 +411,7 @@ class DatabaseSeeder extends Seeder
                     'ciudad'      => 'Cusco',
                     'pais'        => 'Perú',
                     'descripcion' => 'La maravilla del mundo en un día inolvidable.',
-                    'imagen_url'  => 'https://cdn.getyourguide.com/img/location/5c88e7336b94c.jpeg/88.jpg',
+                    'imagen_url'  => 'https://www.machupicchu-inca-boletos.com/wp-content/uploads/2024/11/7584-machu-picchu-full-day-80.jpg',
                     'latitud'     => -13.163100,
                     'longitud'    => -72.545000,
                 ],
@@ -428,7 +428,7 @@ class DatabaseSeeder extends Seeder
                     'ciudad'      => 'Cusco',
                     'pais'        => 'Perú',
                     'descripcion' => 'Trekking desafiante hacia la montaña arcoíris.',
-                    'imagen_url'  => 'https://www.incatrilogytours.com/wp-content/uploads/2023/12/1-1.jpg',
+                    'imagen_url'  => 'https://wp.tour7colores.com/wp-content/uploads/2025/05/turistas-montana-colores-vinicunca-sm.jpg',
                     'latitud'     => -13.869444,
                     'longitud'    => -71.302778,
                 ],
@@ -445,7 +445,7 @@ class DatabaseSeeder extends Seeder
                     'ciudad'      => 'Cusco',
                     'pais'        => 'Perú',
                     'descripcion' => 'Camina hacia la laguna turquesa al pie del nevado.',
-                    'imagen_url'  => 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/17/ba/55/1b/img-20190524-135656-largejpg.jpg?w=900&h=500&s=1',
+                    'imagen_url'  => 'https://www.qeswachakaperutours.com/wp-content/uploads/galeria-tour-laguna-humantay-3.jpg',
                     'latitud'     => -13.419000,
                     'longitud'    => -72.570000,
                 ],
@@ -462,7 +462,7 @@ class DatabaseSeeder extends Seeder
                     'ciudad'      => 'Cusco',
                     'pais'        => 'Perú',
                     'descripcion' => 'Prepara tu propio chocolate desde el grano.',
-                    'imagen_url'  => 'https://chocomuseo.com/wp-content/uploads/2019/09/locales-cusco-chocomuseo.jpg',
+                    'imagen_url'  => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgQJ8t8BgaVVla3AyxIs3dmhVifjYtq9anuKxcKbv4LBNHELGdeBINMPUz&s=10',
                     'latitud'     => -13.517000,
                     'longitud'    => -71.979000,
                 ],
@@ -479,7 +479,7 @@ class DatabaseSeeder extends Seeder
                     'ciudad'      => 'Cusco',
                     'pais'        => 'Perú',
                     'descripcion' => 'Relájate en aguas cristalinas en la selva cusqueña.',
-                    'imagen_url'  => 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/ac/0b/10/banos-termales-de-cocalmayo.jpg?w=1200&h=-1&s=1',
+                    'imagen_url'  => 'https://inkajungletour.com/wp-content/uploads/2025/10/aguas-termales-de-cocalmayo.jpg',
                     'latitud'     => -13.123400,
                     'longitud'    => -72.654300,
                 ],
@@ -500,7 +500,7 @@ class DatabaseSeeder extends Seeder
                     'ciudad'      => 'Puno',
                     'pais'        => 'Perú',
                     'descripcion' => 'Navega por el Titicaca y conoce culturas vivas.',
-                    'imagen_url'  => 'https://www.tayratourscusco.com/wp-content/uploads/2019/12/uros-taquile-amantani-islands-titicaca-puno-hostal-optimized.jpg',
+                    'imagen_url'  => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSQKtGPz58-FV_busuvzEz5UcQqEt_h8aKTjcBOL-n6v7RKGdgqO2ooumx&s=10',
                     'latitud'     => -15.842184,
                     'longitud'    => -70.020071,
                 ],
@@ -517,7 +517,7 @@ class DatabaseSeeder extends Seeder
                     'ciudad'      => 'Puno',
                     'pais'        => 'Perú',
                     'descripcion' => 'Rema en el lago navegable más alto del mundo.',
-                    'imagen_url'  => 'https://incalake.com/galeria/admin/short-slider/PUNO/KAYAK/kayaktopuno.webp',
+                    'imagen_url'  => 'https://www.condorxtreme.com/wp-content/uploads/2026/01/Alquiler-y-Tours-en-Kayak-en-el-Lago-Titicaca-en-Puno-Peru.jpg',
                     'latitud'     => -15.840000,
                     'longitud'    => -70.020000,
                 ],
@@ -534,7 +534,7 @@ class DatabaseSeeder extends Seeder
                     'ciudad'      => 'Puno',
                     'pais'        => 'Perú',
                     'descripcion' => 'Necrópolis pre-inca con vistas a la laguna Umayo.',
-                    'imagen_url'  => 'https://www.peru.travel/Contenido/Atractivo/Imagen/es/19/1.2/InformacionGeneral/Vista%20arquitectonica.jpg',
+                    'imagen_url'  => 'https://peru.info/archivos/publicacion/40-imagen-1630102452018.jpg',
                     'latitud'     => -15.720000,
                     'longitud'    => -70.150000,
                 ],
@@ -555,7 +555,7 @@ class DatabaseSeeder extends Seeder
                     'ciudad'      => 'Piura',
                     'pais'        => 'Perú',
                     'descripcion' => 'Nada junto a tortugas verdes gigantes en su hábitat.',
-                    'imagen_url'  => 'https://blog.viajesmachupicchu.travel/wp-content/uploads/2025/06/playa-el-nuro-talara-tortugas-grupo-1024x576.jpg',
+                    'imagen_url'  => 'https://denomades.imgix.net/destinos/mancora/876/nado-tortugas.jpg',
                     'latitud'     => -4.215000,
                     'longitud'    => -81.168000,
                 ],
@@ -572,7 +572,7 @@ class DatabaseSeeder extends Seeder
                     'ciudad'      => 'Piura',
                     'pais'        => 'Perú',
                     'descripcion' => 'Día de spa, yoga y atardecer frente al mar.',
-                    'imagen_url'  => 'https://www.raptravelperu.com/wp-content/uploads/portada-mancora.webp',
+                    'imagen_url'  => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_UOkgxq9yBKksPKOC0C5QS-sFf7Bp92_wi3ivgKb63KOE-yoT8m7Dg0c&s=10',
                     'latitud'     => -4.107778,
                     'longitud'    => -81.048333,
                 ],
@@ -589,7 +589,7 @@ class DatabaseSeeder extends Seeder
                     'ciudad'      => 'Piura',
                     'pais'        => 'Perú',
                     'descripcion' => 'Avistamiento de aves y naturaleza en Sechura.',
-                    'imagen_url'  => 'https://www.ytuqueplanes.com/imagenes//fotos/banners/meta-Manglares-San-Pedro-de-Vice.webp',
+                    'imagen_url'  => 'https://consultasenlinea.mincetur.gob.pe/fichaInventario/foto.aspx?cod=538603',
                     'latitud'     => -5.550000,
                     'longitud'    => -80.800000,
                 ],
@@ -606,7 +606,7 @@ class DatabaseSeeder extends Seeder
                     'ciudad'      => 'Piura',
                     'pais'        => 'Perú',
                     'descripcion' => 'Ceviche, Seco de Chavelo y Chicha de Jora.',
-                    'imagen_url'  => 'https://www.ytuqueplanes.com/imagenes/fotos/novedades/comida-nortena-majado-de-yuca.jpg',
+                    'imagen_url'  => 'https://www.infobae.com/resizer/v2/4VJXJ4TAA5FKZFQKW5P2L5LO6U.png?auth=e4bc141baf5759a5cc0d2945ba07c4a299458509c75bf21ec9d61942dbc9e8ec',
                     'latitud'     => -5.194490,
                     'longitud'    => -80.632820,
                 ],

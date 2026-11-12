@@ -5,12 +5,12 @@
     "prueba": "TC-WEB-001 Registro de viajero end-to-end y aterrizaje en el catálogo",
     "clase": "AutenticacionTest",
     "estado": "OK",
-    "ms": 3344,
+    "ms": 3108,
     "error": null,
     "capturas": [
       "capturas\u002fTC-WEB-001-final-1.png"
     ],
-    "fecha": "2026-11-11 22:01"
+    "fecha": "2026-11-11 23:38"
   },
   {
     "caso": "TC-WEB-002",
@@ -18,12 +18,12 @@
     "prueba": "TC-WEB-002 Mensajes de validación en el formulario de registro",
     "clase": "AutenticacionTest",
     "estado": "OK",
-    "ms": 3231,
+    "ms": 3317,
     "error": null,
     "capturas": [
       "capturas\u002fTC-WEB-002-final-1.png"
     ],
-    "fecha": "2026-11-11 22:01"
+    "fecha": "2026-11-11 23:38"
   },
   {
     "caso": "TC-WEB-003",
@@ -31,12 +31,12 @@
     "prueba": "TC-WEB-003 Registro de proveedor y acceso a su panel",
     "clase": "AutenticacionTest",
     "estado": "OK",
-    "ms": 2956,
+    "ms": 2890,
     "error": null,
     "capturas": [
       "capturas\u002fTC-WEB-003-final-1.png"
     ],
-    "fecha": "2026-11-11 22:01"
+    "fecha": "2026-11-11 23:38"
   },
   {
     "caso": "TC-WEB-004",
@@ -44,12 +44,12 @@
     "prueba": "TC-WEB-004 Login de viajero y de proveedor muestran el menú de su rol",
     "clase": "AutenticacionTest",
     "estado": "OK",
-    "ms": 4296,
+    "ms": 5261,
     "error": null,
     "capturas": [
       "capturas\u002fTC-WEB-004-final-1.png"
     ],
-    "fecha": "2026-11-11 22:01"
+    "fecha": "2026-11-11 23:38"
   },
   {
     "caso": "TC-WEB-005",
@@ -57,12 +57,12 @@
     "prueba": "TC-WEB-005 Login desde 'Confirmar y pagar' vuelve al resumen con la misma selección",
     "clase": "AutenticacionTest",
     "estado": "OK",
-    "ms": 5842,
+    "ms": 6045,
     "error": null,
     "capturas": [
       "capturas\u002fTC-WEB-005-final-1.png"
     ],
-    "fecha": "2026-11-11 22:01"
+    "fecha": "2026-11-11 23:38"
   },
   {
     "caso": "TC-WEB-006",
@@ -70,12 +70,12 @@
     "prueba": "TC-WEB-006 Editar perfil y ver el nombre actualizado en el menú",
     "clase": "AutenticacionTest",
     "estado": "OK",
-    "ms": 3691,
+    "ms": 3811,
     "error": null,
     "capturas": [
       "capturas\u002fTC-WEB-006-final-1.png"
     ],
-    "fecha": "2026-11-11 22:01"
+    "fecha": "2026-11-11 23:38"
   },
   {
     "caso": "TC-WEB-007",
@@ -83,12 +83,12 @@
     "prueba": "TC-WEB-007 Eliminar cuenta: el diálogo pide confirmación y 'Cancelar' conserva la cuenta",
     "clase": "AutenticacionTest",
     "estado": "OK",
-    "ms": 2598,
+    "ms": 2596,
     "error": null,
     "capturas": [
       "capturas\u002fTC-WEB-007-final-1.png"
     ],
-    "fecha": "2026-11-11 22:01"
+    "fecha": "2026-11-11 23:38"
   },
   {
     "caso": "TC-WEB-008",
@@ -96,12 +96,12 @@
     "prueba": "TC-WEB-008 Búsqueda en Cusco: todas las tarjetas son de Cusco y muestran precio",
     "clase": "HotelesTest",
     "estado": "OK",
-    "ms": 2235,
+    "ms": 2460,
     "error": null,
     "capturas": [
       "capturas\u002fTC-WEB-008-final-1.png"
     ],
-    "fecha": "2026-11-11 22:01"
+    "fecha": "2026-11-11 23:38"
   },
   {
     "caso": "TC-WEB-009",
@@ -109,12 +109,12 @@
     "prueba": "TC-WEB-009 El buscador no admite fechas pasadas",
     "clase": "HotelesTest",
     "estado": "OK",
-    "ms": 1385,
+    "ms": 1468,
     "error": null,
     "capturas": [
       "capturas\u002fTC-WEB-009-final-1.png"
     ],
-    "fecha": "2026-11-11 22:01"
+    "fecha": "2026-11-11 23:38"
   },
   {
     "caso": "TC-WEB-010",
@@ -122,12 +122,12 @@
     "prueba": "TC-WEB-010 Elegir 2 tipos de habitación y verificar el resumen con IGV 18 %",
     "clase": "HotelesTest",
     "estado": "OK",
-    "ms": 5599,
+    "ms": 5893,
     "error": null,
     "capturas": [
       "capturas\u002fTC-WEB-010-final-1.png"
     ],
-    "fecha": "2026-11-11 22:01"
+    "fecha": "2026-11-11 23:38"
   },
   {
     "caso": "TC-WEB-011",
@@ -135,12 +135,12 @@
     "prueba": "TC-WEB-011 Flujo completo búsqueda → selección → pago → comprobante PENDIENTE",
     "clase": "HotelesTest",
     "estado": "OK",
-    "ms": 6485,
+    "ms": 6726,
     "error": null,
     "capturas": [
       "capturas\u002fTC-WEB-011-final-1.png"
     ],
-    "fecha": "2026-11-11 22:01"
+    "fecha": "2026-11-11 23:38"
   },
   {
     "caso": "TC-WEB-012",
@@ -148,12 +148,12 @@
     "prueba": "TC-WEB-012 Validaciones del formulario de pago; cancelar no crea la reserva",
     "clase": "HotelesTest",
     "estado": "OK",
-    "ms": 5197,
+    "ms": 5156,
     "error": null,
     "capturas": [
       "capturas\u002fTC-WEB-012-final-1.png"
     ],
-    "fecha": "2026-11-11 22:01"
+    "fecha": "2026-11-11 23:38"
   },
   {
     "caso": "TC-WEB-013",
@@ -161,13 +161,13 @@
     "prueba": "TC-WEB-013 El proveedor acepta en su bandeja y el viajero ve CONFIRMADA (dos navegadores)",
     "clase": "AprobacionTest",
     "estado": "OK",
-    "ms": 4073,
+    "ms": 4183,
     "error": null,
     "capturas": [
       "capturas\u002fTC-WEB-013-final-1.png",
       "capturas\u002fTC-WEB-013-final-2.png"
     ],
-    "fecha": "2026-11-11 22:01"
+    "fecha": "2026-11-11 23:38"
   },
   {
     "caso": "TC-WEB-014",
@@ -175,12 +175,12 @@
     "prueba": "TC-WEB-014 El proveedor rechaza con motivo (10–300 caracteres) y el viajero ve RECHAZADA",
     "clase": "AprobacionTest",
     "estado": "OK",
-    "ms": 4055,
+    "ms": 3667,
     "error": null,
     "capturas": [
       "capturas\u002fTC-WEB-014-final-1.png"
     ],
-    "fecha": "2026-11-11 22:01"
+    "fecha": "2026-11-11 23:38"
   },
   {
     "caso": "TC-WEB-015",
@@ -188,12 +188,12 @@
     "prueba": "TC-WEB-015 Filtrar tours por categoría y destino",
     "clase": "ToursTest",
     "estado": "OK",
-    "ms": 1823,
+    "ms": 1939,
     "error": null,
     "capturas": [
       "capturas\u002fTC-WEB-015-final-1.png"
     ],
-    "fecha": "2026-11-11 22:01"
+    "fecha": "2026-11-11 23:38"
   },
   {
     "caso": "TC-WEB-016",
@@ -201,12 +201,12 @@
     "prueba": "TC-WEB-016 Elegir salida y 3 personas: total con IGV en el resumen",
     "clase": "ToursTest",
     "estado": "OK",
-    "ms": 5458,
+    "ms": 5227,
     "error": null,
     "capturas": [
       "capturas\u002fTC-WEB-016-final-1.png"
     ],
-    "fecha": "2026-11-11 22:01"
+    "fecha": "2026-11-11 23:38"
   },
   {
     "caso": "TC-WEB-017",
@@ -214,12 +214,12 @@
     "prueba": "TC-WEB-017 Reserva de tour end-to-end: comprobante CONFIRMADA y cupo descontado",
     "clase": "ToursTest",
     "estado": "OK",
-    "ms": 5847,
+    "ms": 6049,
     "error": null,
     "capturas": [
       "capturas\u002fTC-WEB-017-final-1.png"
     ],
-    "fecha": "2026-11-11 22:01"
+    "fecha": "2026-11-11 23:38"
   },
   {
     "caso": "TC-WEB-018",
@@ -227,12 +227,12 @@
     "prueba": "TC-WEB-018 Mis reservas: pestañas hotel\u002ftour, filtro por estado y paginación",
     "clase": "MisReservasTest",
     "estado": "OK",
-    "ms": 4763,
+    "ms": 5310,
     "error": null,
     "capturas": [
       "capturas\u002fTC-WEB-018-final-1.png"
     ],
-    "fecha": "2026-11-11 22:01"
+    "fecha": "2026-11-11 23:38"
   },
   {
     "caso": "TC-WEB-019",
@@ -240,12 +240,12 @@
     "prueba": "TC-WEB-019 Una reserva rechazada muestra el motivo del proveedor",
     "clase": "MisReservasTest",
     "estado": "OK",
-    "ms": 1637,
+    "ms": 1919,
     "error": null,
     "capturas": [
       "capturas\u002fTC-WEB-019-final-1.png"
     ],
-    "fecha": "2026-11-11 22:01"
+    "fecha": "2026-11-11 23:38"
   },
   {
     "caso": "TC-WEB-020",
@@ -253,12 +253,12 @@
     "prueba": "TC-WEB-020 Cancelar desde Mis reservas pide confirmación y libera la habitación",
     "clase": "MisReservasTest",
     "estado": "OK",
-    "ms": 2292,
+    "ms": 1903,
     "error": null,
     "capturas": [
       "capturas\u002fTC-WEB-020-final-1.png"
     ],
-    "fecha": "2026-11-11 22:01"
+    "fecha": "2026-11-11 23:38"
   },
   {
     "caso": "TC-WEB-021",
@@ -266,12 +266,12 @@
     "prueba": "TC-WEB-021 Publicar, editar y eliminar una reseña desde el detalle del hotel",
     "clase": "ResenasItinerarioTest",
     "estado": "OK",
-    "ms": 7571,
+    "ms": 7183,
     "error": null,
     "capturas": [
       "capturas\u002fTC-WEB-021-final-1.png"
     ],
-    "fecha": "2026-11-11 22:01"
+    "fecha": "2026-11-11 23:38"
   },
   {
     "caso": "TC-WEB-022",
@@ -279,12 +279,12 @@
     "prueba": "TC-WEB-022 Generar el itinerario sugerido desde el detalle del hotel y llevarlo al pago",
     "clase": "ResenasItinerarioTest",
     "estado": "OK",
-    "ms": 5289,
+    "ms": 5086,
     "error": null,
     "capturas": [
       "capturas\u002fTC-WEB-022-final-1.png"
     ],
-    "fecha": "2026-11-11 22:01"
+    "fecha": "2026-11-11 23:38"
   },
   {
     "caso": "TC-WEB-023",
@@ -292,12 +292,12 @@
     "prueba": "TC-WEB-023 Panel: indicadores iguales a la API y paginación de publicaciones",
     "clase": "ProveedorTest",
     "estado": "OK",
-    "ms": 3925,
+    "ms": 3719,
     "error": null,
     "capturas": [
       "capturas\u002fTC-WEB-023-final-1.png"
     ],
-    "fecha": "2026-11-11 22:01"
+    "fecha": "2026-11-11 23:38"
   },
   {
     "caso": "TC-WEB-024",
@@ -305,12 +305,12 @@
     "prueba": "TC-WEB-024 Publicar un hotel con dos tipos de habitación desde el formulario",
     "clase": "ProveedorTest",
     "estado": "OK",
-    "ms": 18381,
+    "ms": 17737,
     "error": null,
     "capturas": [
       "capturas\u002fTC-WEB-024-final-1.png"
     ],
-    "fecha": "2026-11-11 22:01"
+    "fecha": "2026-11-11 23:38"
   },
   {
     "caso": "TC-WEB-025",
@@ -318,12 +318,12 @@
     "prueba": "TC-WEB-025 Editar hotel: cambiar la tarifa de un tipo y agregar otro",
     "clase": "ProveedorTest",
     "estado": "OK",
-    "ms": 12275,
+    "ms": 12321,
     "error": null,
     "capturas": [
       "capturas\u002fTC-WEB-025-final-1.png"
     ],
-    "fecha": "2026-11-11 22:01"
+    "fecha": "2026-11-11 23:38"
   },
   {
     "caso": "TC-WEB-026",
@@ -331,12 +331,12 @@
     "prueba": "TC-WEB-026 Publicar un tour con su primera salida desde el formulario",
     "clase": "ProveedorTest",
     "estado": "OK",
-    "ms": 8401,
+    "ms": 7694,
     "error": null,
     "capturas": [
       "capturas\u002fTC-WEB-026-final-1.png"
     ],
-    "fecha": "2026-11-11 22:01"
+    "fecha": "2026-11-11 23:38"
   },
   {
     "caso": "TC-WEB-027",
@@ -344,12 +344,12 @@
     "prueba": "TC-WEB-027 Agregar, reordenar y eliminar actividades del tour",
     "clase": "ProveedorTest",
     "estado": "OK",
-    "ms": 5922,
+    "ms": 5686,
     "error": null,
     "capturas": [
       "capturas\u002fTC-WEB-027-final-1.png"
     ],
-    "fecha": "2026-11-11 22:01"
+    "fecha": "2026-11-11 23:38"
   },
   {
     "caso": "TC-WEB-028",
@@ -357,12 +357,12 @@
     "prueba": "TC-WEB-028 Programar, cerrar y eliminar una salida desde el panel",
     "clase": "ProveedorTest",
     "estado": "OK",
-    "ms": 3343,
+    "ms": 3276,
     "error": null,
     "capturas": [
       "capturas\u002fTC-WEB-028-final-1.png"
     ],
-    "fecha": "2026-11-11 22:01"
+    "fecha": "2026-11-11 23:38"
   },
   {
     "caso": "TC-WEB-029",
@@ -370,12 +370,12 @@
     "prueba": "TC-WEB-029 Bandeja de reservas recibidas: filtros por estado y tipo, y paginación",
     "clase": "ProveedorTest",
     "estado": "OK",
-    "ms": 5065,
+    "ms": 4552,
     "error": null,
     "capturas": [
       "capturas\u002fTC-WEB-029-final-1.png"
     ],
-    "fecha": "2026-11-11 22:01"
+    "fecha": "2026-11-11 23:38"
   },
   {
     "caso": "TC-WEB-030",
@@ -383,12 +383,12 @@
     "prueba": "TC-WEB-030 Eliminar publicación: confirmación, éxito sin reservas y bloqueo con reservas activas",
     "clase": "ProveedorTest",
     "estado": "OK",
-    "ms": 6608,
+    "ms": 6420,
     "error": null,
     "capturas": [
       "capturas\u002fTC-WEB-030-final-1.png"
     ],
-    "fecha": "2026-11-11 22:01"
+    "fecha": "2026-11-11 23:38"
   },
   {
     "caso": "TC-WEB-031",
@@ -396,12 +396,12 @@
     "prueba": "TC-WEB-031 Volver desde el detalle conserva la búsqueda (hoteles y tours)",
     "clase": "CoberturaAdicionalTest",
     "estado": "OK",
-    "ms": 3250,
+    "ms": 3149,
     "error": null,
     "capturas": [
       "capturas\u002fTC-WEB-031-final-1.png"
     ],
-    "fecha": "2026-11-11 22:01"
+    "fecha": "2026-11-11 23:38"
   },
   {
     "caso": "TC-WEB-032",
@@ -409,12 +409,12 @@
     "prueba": "TC-WEB-032 Sin resultados se distingue de un error con Reintentar (tours y bandeja del proveedor)",
     "clase": "CoberturaAdicionalTest",
     "estado": "OK",
-    "ms": 2361,
+    "ms": 2335,
     "error": null,
     "capturas": [
       "capturas\u002fTC-WEB-032-final-1.png"
     ],
-    "fecha": "2026-11-11 22:01"
+    "fecha": "2026-11-11 23:38"
   },
   {
     "caso": "TC-WEB-033",
@@ -422,11 +422,11 @@
     "prueba": "TC-WEB-033 Sesión vencida: la API responde 401, se pide iniciar sesión y se vuelve a la página",
     "clase": "CoberturaAdicionalTest",
     "estado": "OK",
-    "ms": 2767,
+    "ms": 2720,
     "error": null,
     "capturas": [
       "capturas\u002fTC-WEB-033-final-1.png"
     ],
-    "fecha": "2026-11-11 22:01"
+    "fecha": "2026-11-11 23:38"
   }
 ]

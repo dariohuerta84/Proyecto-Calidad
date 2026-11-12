@@ -171,7 +171,7 @@ if (vars.get('xsrf') == null) { vars.put('xsrf', '') }</stringProp>
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{"nombre":"Hotel PERF-${__RandomString(8,ABCDEFGHJKLMNPQRSTUVWXYZ23456789,)}","ciudad":"PERF","pais":"Perú","imagen_url":"https://example.com/perf.jpg","direccion":"Av. Carga 1","estrellas":3,"habitaciones":[{"nombre":"Última","capacidad_adultos":2,"capacidad_ninos":0,"cantidad":1,"precio_por_noche":100}]}</stringProp>
+                <stringProp name="Argument.value">{"nombre":"Hotel PERF-${__RandomString(8,ABCDEFGHJKLMNPQRSTUVWXYZ23456789,)}","ciudad":"PERF","pais":"Perú","imagen_url":"https://tierravivahoteles.com/wp-content/uploads/2023/03/TVP-3-Fachada-1.jpg","direccion":"Av. Carga 1","estrellas":3,"habitaciones":[{"nombre":"Última","capacidad_adultos":2,"capacidad_ninos":0,"cantidad":1,"precio_por_noche":100}]}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>
@@ -236,7 +236,7 @@ if (vars.get('xsrf') == null) { vars.put('xsrf', '') }</stringProp>
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{"nombre":"Tour PERF-${__RandomString(8,ABCDEFGHJKLMNPQRSTUVWXYZ23456789,)}","descripcion":"Carga","ciudad":"PERF","pais":"Perú","imagen_url":"https://example.com/t.jpg","categoria":"Aventura","duracion":60,"precio":50,"salidas":[{"fecha":"${__groovy(java.time.LocalDate.now().plusDays(400 + new Random().nextInt(2500)).toString(),fecha_ini)}","hora":"08:00","cupo_total":${__P(cupo.tour,10)}}]}</stringProp>
+                <stringProp name="Argument.value">{"nombre":"Tour PERF-${__RandomString(8,ABCDEFGHJKLMNPQRSTUVWXYZ23456789,)}","descripcion":"Carga","ciudad":"PERF","pais":"Perú","imagen_url":"https://www.machupicchu-inca-boletos.com/wp-content/uploads/2024/11/7584-machu-picchu-full-day-80.jpg","categoria":"Aventura","duracion":60,"precio":50,"salidas":[{"fecha":"${__groovy(java.time.LocalDate.now().plusDays(400 + new Random().nextInt(2500)).toString(),fecha_ini)}","hora":"08:00","cupo_total":${__P(cupo.tour,10)}}]}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>

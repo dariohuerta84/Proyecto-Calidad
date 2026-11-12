@@ -12,7 +12,7 @@ Feature: Gestión del proveedor: panel, hoteles, tours, salidas, actividades, re
     * def metaSchema = read('classpath:trouvels360/schemas/meta.json')
     * def tipos = function(n1, c1, n2, c2){ var l = [{ nombre: n1, capacidad_adultos: 2, capacidad_ninos: 0, cantidad: c1, precio_por_noche: 150 }]; if (n2) l.push({ nombre: n2, capacidad_adultos: 2, capacidad_ninos: 0, cantidad: c2, precio_por_noche: 200 }); return l }
     * def solicitud = function(s, habId, dia, unidades){ return karate.call('classpath:trouvels360/helpers/reservar-hotel.feature', { sesion: s, fecha_inicio: fecha(dia), fecha_fin: fecha(dia + 2), items: [{ habitacion_id: habId, cantidad: unidades || 1 }] }) }
-    * def tourBase = function(ciudad){ return { nombre: 'Tour ' + ciudad, descripcion: 'Tour creado por Karate', ciudad: ciudad, pais: 'Perú', imagen_url: 'https://example.com/t.jpg', categoria: 'Cultura', duracion: 90, precio: 80, salidas: [{ fecha: fecha(diaLibre()), hora: '09:00', cupo_total: 10 }] } }
+    * def tourBase = function(ciudad){ return { nombre: 'Tour ' + ciudad, descripcion: 'Tour creado por Karate', ciudad: ciudad, pais: 'Perú', imagen_url: 'https://www.machupicchu-inca-boletos.com/wp-content/uploads/2024/11/7584-machu-picchu-full-day-80.jpg', categoria: 'Cultura', duracion: 90, precio: 80, salidas: [{ fecha: fecha(diaLibre()), hora: '09:00', cupo_total: 10 }] } }
 
   # ---------------------------------------------------------------- HU-P03/HU-P04 Panel
   @HU-P03 @TC-API-056
@@ -113,7 +113,7 @@ Feature: Gestión del proveedor: panel, hoteles, tours, salidas, actividades, re
     * def ciudad = 'QA-' + sufijo()
     * eval como(S.proveedor)
     Given path 'hoteles'
-    And request { nombre: '#("Hotel " + ciudad)', descripcion: 'Publicado por Karate', ciudad: '#(ciudad)', pais: 'Perú', imagen_url: 'https://example.com/h.jpg', direccion: 'Jr. Prueba 10', estrellas: 4, imagenes: [{ url: 'https://example.com/1.jpg', alt: 'Fachada' }, { url: 'https://example.com/2.jpg' }], habitaciones: '#(tipos("Estándar", 4, "Familiar", 2))' }
+    And request { nombre: '#("Hotel " + ciudad)', descripcion: 'Publicado por Karate', ciudad: '#(ciudad)', pais: 'Perú', imagen_url: 'https://tierravivahoteles.com/wp-content/uploads/2023/03/TVP-3-Fachada-1.jpg', direccion: 'Jr. Prueba 10', estrellas: 4, imagenes: [{ url: 'https://images.mirai.com/INFOROOMS/100129840/Bd6e4oDlvFOE8cxbG3js/Bd6e4oDlvFOE8cxbG3js_large.jpg', alt: 'Fachada' }, { url: 'https://www.thebathcollection.com/wp-content/uploads/2025/10/ORANGINE-4-1024x684.jpg' }], habitaciones: '#(tipos("Estándar", 4, "Familiar", 2))' }
     When method post
     Then status 201
     And assert responseTime < maxMs
@@ -138,7 +138,7 @@ Feature: Gestión del proveedor: panel, hoteles, tours, salidas, actividades, re
     * def imgs = karate.repeat(6, function(i){ return { url: 'https://example.com/' + i + '.jpg' } })
     * eval como(S.proveedor)
     Given path 'hoteles'
-    And request { nombre: 'Hotel con muchas fotos', ciudad: 'QA-fotos', pais: 'Perú', imagen_url: 'https://example.com/h.jpg', direccion: 'Jr. Prueba 10', estrellas: 3, imagenes: '#(imgs)', habitaciones: '#(tipos("Doble", 1))' }
+    And request { nombre: 'Hotel con muchas fotos', ciudad: 'QA-fotos', pais: 'Perú', imagen_url: 'https://tierravivahoteles.com/wp-content/uploads/2023/03/TVP-3-Fachada-1.jpg', direccion: 'Jr. Prueba 10', estrellas: 3, imagenes: '#(imgs)', habitaciones: '#(tipos("Doble", 1))' }
     When method post
     Then status 422
     And match response.errors.imagenes == '#[_ > 0]'

@@ -8,7 +8,7 @@ Feature: Helper - el proveedor publica un hotel de prueba en una ciudad única
     * def ciudad = karate.get('ciudad') || 'QA-' + sufijo()
     * def hab = karate.get('habitaciones') || [{ nombre: 'Única', capacidad_adultos: 2, capacidad_ninos: 0, cantidad: 1, precio_por_noche: 100 }]
     Given path 'hoteles'
-    And request { nombre: '#("Hotel " + ciudad)', descripcion: 'Hotel creado por Karate', ciudad: '#(ciudad)', pais: 'Perú', imagen_url: 'https://example.com/qa.jpg', direccion: 'Av. Karate 1', estrellas: 3, latitud: -13.52, longitud: -71.97, habitaciones: '#(hab)' }
+    And request { nombre: '#("Hotel " + ciudad)', descripcion: 'Hotel creado por Karate', ciudad: '#(ciudad)', pais: 'Perú', imagen_url: 'https://tierravivahoteles.com/wp-content/uploads/2023/03/TVP-3-Fachada-1.jpg', direccion: 'Av. Karate 1', estrellas: 3, latitud: -13.52, longitud: -71.97, habitaciones: '#(hab)' }
     When method post
     Then status 201
     * def hotelId = response.data.servicio_id || response.data.id

@@ -80,7 +80,7 @@ def ultima_habitacion(api, n):
     prov = Cliente(api).login(*PROVEEDOR)
     ciudad = ciudad_unica()
     st, body, _ = prov.req("POST", "/hoteles", {
-        "nombre": f"Hotel {ciudad}", "ciudad": ciudad, "pais": "Perú", "imagen_url": "https://example.com/p.jpg",
+        "nombre": f"Hotel {ciudad}", "ciudad": ciudad, "pais": "Perú", "imagen_url": "https://tierravivahoteles.com/wp-content/uploads/2023/03/TVP-3-Fachada-1.jpg",
         "direccion": "Av. Carga 1", "estrellas": 3,
         "habitaciones": [{"nombre": "Última", "capacidad_adultos": 2, "capacidad_ninos": 0, "cantidad": 1, "precio_por_noche": 100}]})
     assert st == 201, (st, body)
@@ -104,7 +104,7 @@ def cupos_tour(api, m, cupo):
     ciudad = ciudad_unica()
     d = date.today() + timedelta(days=random.randint(400, 3000))
     st, body, _ = prov.req("POST", "/tours", {
-        "nombre": f"Tour {ciudad}", "descripcion": "Carga", "ciudad": ciudad, "pais": "Perú", "imagen_url": "https://example.com/t.jpg",
+        "nombre": f"Tour {ciudad}", "descripcion": "Carga", "ciudad": ciudad, "pais": "Perú", "imagen_url": "https://www.machupicchu-inca-boletos.com/wp-content/uploads/2024/11/7584-machu-picchu-full-day-80.jpg",
         "categoria": "Aventura", "duracion": 60, "precio": 50, "salidas": [{"fecha": d.isoformat(), "hora": "08:00", "cupo_total": cupo}]})
     assert st == 201, (st, body)
     tour_id = body["data"].get("servicio_id") or body["data"]["id"]

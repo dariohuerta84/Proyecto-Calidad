@@ -134,6 +134,12 @@ frontend/
 - Cada pago envía un `Idempotency-Key`: reintentar tras un corte de red no duplica la reserva.
 - Las fechas se manejan en la hora local del usuario (`shared/utils/date.utils.ts`), no en UTC.
 
+## Imágenes
+
+Las fotos son enlaces que guarda la API. Si una no carga, `ImageUtils.activarImagenDeReemplazo` (registrado en
+`app.component.ts`) la cambia por una imagen local de `src/public/img/` (`sin-imagen*.svg`). Además, `index.html` no envía
+la cabecera *Referer*, porque varios sitios bloquean sus fotos cuando detectan que se muestran desde otra web.
+
 ## Pruebas
 
 - **Selenium** (`qa/selenium`): 33 casos de punta a punta sobre esta web, con selectores `data-testid`. Verificados

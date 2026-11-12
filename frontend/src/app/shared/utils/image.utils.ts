@@ -10,6 +10,25 @@ export interface ImageObject {
 }
 
 export class ImageUtils {
+  static readonly SIN_IMAGEN = '/public/img/sin-imagen.svg';
+  static readonly SIN_IMAGEN_HOTEL = '/public/img/sin-imagen-hotel.svg';
+  static readonly SIN_IMAGEN_TOUR = '/public/img/sin-imagen-tour.svg';
+
+  /**
+   * Si una imagen no carga (enlace roto o sitio que bloquea mostrarla en otra página), la reemplaza por la
+   * imagen local "no disponible". Se registra una sola vez para toda la app (AppComponent).
+   */
+  static activarImagenDeReemplazo(doc: Document): void {
+    doc.addEventListener('error', (evento) => {
+      const img = evento.target;
+      if (!(img instanceof HTMLImageElement) || img.dataset['sinImagen']) return;
+      img.dataset['sinImagen'] = '1';
+      const texto = `${img.alt} ${img.className}`.toLowerCase();
+      img.src = texto.includes('hotel') ? ImageUtils.SIN_IMAGEN_HOTEL
+              : texto.includes('tour') ? ImageUtils.SIN_IMAGEN_TOUR
+              : ImageUtils.SIN_IMAGEN;
+    }, true);
+  }
   /**
    * Obtiene la URL de imagen principal con fallback
    * @param primary Imagen principal
@@ -106,10 +125,11 @@ export class ImageUtils {
    * @param tipo Tipo de servicio
    */
   static getPlaceholder(tipo: 'hotel' | 'tour' | 'generic'): string {
+    // Imágenes locales (src/public/img): siempre existen, aunque falle internet o el sitio de origen
     const placeholders = {
-      hotel: 'https://img.freepik.com/premium-photo/abstract-blur-hotel-interior_1124848-65384.jpg?semt=ais_hybrid&w=740&q=80',
-      tour: 'https://www.shutterstock.com/image-photo/defocused-background-serene-sunset-airport-600nw-2615336361.jpg',
-      generic: 'https://vmc.vet.osu.edu/sites/default/files/styles/hero/public/images/placeholder-1000x600.png.webp?itok=vGGEnlHh'
+      hotel: ImageUtils.SIN_IMAGEN_HOTEL,
+      tour: ImageUtils.SIN_IMAGEN_TOUR,
+      generic: ImageUtils.SIN_IMAGEN
     };
 
     return placeholders[tipo] || placeholders.generic;
