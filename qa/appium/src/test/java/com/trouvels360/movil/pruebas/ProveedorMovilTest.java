@@ -3,6 +3,7 @@ package com.trouvels360.movil.pruebas;
 import com.trouvels360.movil.pantallas.ProveedorPantallas;
 import com.trouvels360.movil.soporte.Api;
 import com.trouvels360.movil.soporte.Datos;
+import com.trouvels360.movil.soporte.Gestos;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
@@ -40,9 +41,9 @@ class ProveedorMovilTest extends BaseTestMovil {
         ProveedorPantallas pp = entrar(p);
         pp.visible("indicadores");
         paso("Indicadores y publicación");
-        String ind = d.findElement(ProveedorPantallas.id("indicadores")).getText();
-        assertTrue(ind.contains("1"), "Indicadores: " + ind);
-        assertTrue(pp.existe("publicacion_" + h.id()));
+        assertEquals("1", pp.texto("ind_pendientes"));
+        assertEquals("1", pp.texto("ind_confirmadas"));
+        pp.visible("publicacion_" + h.id());
         assertTrue(pp.texto("panel_total").contains("1"));
     }
 
@@ -59,6 +60,7 @@ class ProveedorMovilTest extends BaseTestMovil {
         pp.habitacion("_0", "Matrimonial", 2, 4, 180);
         paso("Formulario completo");
         pp.tocar("btn_guardar_hotel");
+        pp.desaparece("pantalla_form_hotel");
         pp.visible("pantalla_panel_proveedor");
         long id = Api.idPorNombre("hotel", ciudad, nombre);
         assertTrue(id > 0, "El hotel debe estar en el catálogo");
@@ -100,7 +102,9 @@ class ProveedorMovilTest extends BaseTestMovil {
         pp.datosTour(nombre, ciudad, "Aventura", 75, 150);
         pp.salidaDelFormulario(0, 30, "08:30", 15);
         paso("Formulario de tour con salida");
+        Gestos.deslizarArriba(d);
         pp.tocar("btn_guardar_tour");
+        pp.desaparece("pantalla_form_tour");
         pp.visible("pantalla_panel_proveedor");
         long id = Api.idPorNombre("tour", ciudad, nombre);
         assertTrue(id > 0);
@@ -139,7 +143,7 @@ class ProveedorMovilTest extends BaseTestMovil {
         pp.visible("salida_item_" + nueva);
         paso("Salida programada");
         pp.tocar("salida_cerrar_" + nueva);
-        pp.esperarTexto("salida_estado_" + nueva, "errada");
+        pp.esperarTexto("salida_estado_" + nueva, "CERRADA");
         paso("Salida cerrada");
         assertEquals("cerrada", Api.salida(p, t.id(), nueva).get("estado"));
     }

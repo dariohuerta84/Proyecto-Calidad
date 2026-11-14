@@ -8,7 +8,7 @@ Une cada **historia** con sus **criterios**, los **casos** que los prueban, el *
 |---|---|
 | `datos/historias.json` | Las 30 historias y sus 130 criterios, cada uno con los casos que lo verifican |
 | `datos/casos.json` | Título y herramienta de los 160 casos (y pasos de los 3 manuales) |
-| `datos/resultados_manuales.json` | Resultados que no salen de un reporte (la prueba rápida de concurrencia, los manuales) |
+| `datos/resultados_manuales.json` | Veredictos y evidencias de los tres casos manuales |
 | `datos/resultados.json` | Último resultado de cada caso; lo escribe `recolectar_resultados.py` |
 | `recolectar_resultados.py` | Lee los reportes de Karate, Selenium, Appium y JMeter |
 | `generar_trazabilidad.py` | Escribe `salida/`: la matriz y los resultados para Jira |
@@ -30,9 +30,8 @@ nombre del grupo en JMeter). Si un caso no aparece, lo informa como «sin automa
 
 ## Estado actual
 
-130 / 130 criterios con al menos un caso · 157 / 157 casos automatizados ubicados en el código + 3 manuales ·
-121 casos en «Pasó» (Karate 86, Selenium 33 y las 2 carreras de concurrencia con el script de Python) y 39 pendientes de
-ejecutar (Appium 32, JMeter 4, manuales 3).
+130 de 130 criterios tienen al menos un caso. La matriz ubica 157 casos automatizados en el código y documenta 3 casos manuales.
+Consulta la [matriz HTML](salida/matriz_trazabilidad.html) para ver el último veredicto de cada caso.
 
 ## Jira
 

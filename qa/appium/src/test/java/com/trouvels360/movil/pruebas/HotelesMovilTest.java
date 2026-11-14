@@ -11,7 +11,10 @@ import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -40,21 +43,28 @@ class HotelesMovilTest extends BaseTestMovil {
     @DisplayName("TC-MOB-010 Estado vacío frente a error de red con Reintentar")
     void vacioVsError() {
         HotelPantallas hp = new HotelPantallas(d);
-        hp.buscar("CiudadQueNoExiste" + Datos.sufijo(), Datos.diaLibre(), 1);
+        int dia = Datos.diaLibre();
+        hp.buscar("CiudadQueNoExiste" + Datos.sufijo(), dia, 1);
         hp.visible("hoteles_vacio");
         paso("Sin resultados: estado vacío (no es un error)");
-        assertFalse(hp.existe("estado_error"));
+        assertFalse(hp.existe("btn_reintentar"));
+        Api.Hotel hotel = Api.crearHotel(Api.proveedor(), "Doble", 3, 150);
         d.setConnection(new ConnectionStateBuilder().withAirplaneModeEnabled().build());
         try {
-            hp.buscar("Cusco", Datos.diaLibre(), 1);
-            hp.visible("estado_error");
+            hp.escribir("buscar_ciudad", hotel.ciudad());
+            hp.tocar("btn_buscar_hoteles");
+            // La API móvil puede tardar hasta 30 segundos en detectar la pérdida de conexión.
+            new WebDriverWait(d, Duration.ofSeconds(45)).until(
+                    ExpectedConditions.visibilityOfElementLocated(HotelPantallas.id("estado_error_texto")));
             paso("Sin conexión: error con botón Reintentar");
             assertTrue(hp.existe("btn_reintentar"));
         } finally {
             d.setConnection(new ConnectionStateBuilder().withAirplaneModeDisabled().withWiFiEnabled().withDataEnabled().build());
         }
+        hp.espera.until(x -> !d.getConnection().isAirplaneModeEnabled());
         hp.tocar("btn_reintentar");
-        hp.espera.until(x -> hp.cantidad("hotel_card_") > 0);
+        hp.visible("hotel_card_" + hotel.id());
+        paso("Con la conexión restaurada aparece el hotel al reintentar");
     }
 
     @Test

@@ -186,10 +186,11 @@ Requisitos, preparación del entorno (límites de la API y datos limpios) y esta
 .\qa\ejecutar-todo.bat
 ```
 
-El comando ejecuta Karate y Selenium y actualiza la matriz de trazabilidad. Para incluir JMeter y Appium (requieren JMeter y un emulador/Appium en ejecución):
+El comando ejecuta Karate, Selenium, JMeter y Appium y actualiza la matriz. Requiere JMeter, el APK, un dispositivo Android disponible y Appium en ejecución. Para correr solo Karate y Selenium usa el argumento `web`. Para incorporar reportes existentes y resultados manuales usa `matriz`.
 
 ```powershell
-.\qa\ejecutar-todo.bat jmeter appium
+.\qa\ejecutar-todo.bat web
+.\qa\ejecutar-todo.bat matriz
 ```
 
 También puedes ejecutar cada suite desde su carpeta con `ejecutar.bat`. La estrategia, los entornos y el estado de cada suite están en [docs/2-pruebas/estrategia-de-pruebas.md](docs/2-pruebas/estrategia-de-pruebas.md). Los reportes de la última corrida se conservan en `qa/evidencias/`; las nuevas ejecuciones escriben sus resultados bajo `target/` o `resultados/`.

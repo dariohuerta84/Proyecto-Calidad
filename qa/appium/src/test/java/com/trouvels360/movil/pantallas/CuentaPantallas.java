@@ -27,6 +27,8 @@ public class CuentaPantallas extends BasePantalla {
     public void cerrarSesion() {
         tocar("nav_cuenta");
         tocar("btn_logout");
+        visible("pantalla_hoteles");
+        tocar("nav_cuenta");
         visible("btn_ir_login");
     }
 

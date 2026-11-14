@@ -10,11 +10,14 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.WebDriverException;
+import org.openqa.selenium.remote.RemoteWebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Base de las pantallas (Screen Object). Localiza por resource-id (= testTag de Compose) y usa solo esperas explícitas.
@@ -48,7 +51,8 @@ public abstract class BasePantalla {
         List<WebElement> ya = d.findElements(id(tag));
         if (!ya.isEmpty() && ya.get(0).isDisplayed()) return ya.get(0);
         try {
-            return Gestos.scrollHasta(d, tag);
+            Gestos.scrollHasta(d, tag);
+            return d.findElement(id(tag));
         } catch (NoSuchElementException e) {
             throw new NoSuchElementException("No apareció el elemento con resource-id '" + tag + "' ni desplazando la pantalla", e);
         }
@@ -68,8 +72,9 @@ public abstract class BasePantalla {
     public void desaparece(String tag) { espera.until(ExpectedConditions.invisibilityOfElementLocated(id(tag))); }
 
     public void tocar(String tag) {
-        WebElement el = visible(tag); // visible() ya desplaza si hace falta
-        espera.until(ExpectedConditions.elementToBeClickable(el)).click();
+        visible(tag); // Desplaza la pantalla cuando el elemento está fuera de la vista.
+        RemoteWebElement el = (RemoteWebElement) espera.until(ExpectedConditions.elementToBeClickable(id(tag)));
+        d.executeScript("mobile: clickGesture", Map.of("elementId", el.getId()));
     }
 
     public void escribir(String tag, String valor) {
@@ -77,7 +82,23 @@ public abstract class BasePantalla {
         el.click();
         el.clear();
         el.sendKeys(valor);
-        if (d.isKeyboardShown()) d.hideKeyboard();
+        ocultarTeclado();
+    }
+
+    private void ocultarTeclado() {
+        espera.until(driver -> {
+            try {
+                if (!d.isKeyboardShown()) return true;
+                d.hideKeyboard();
+                return !d.isKeyboardShown();
+            } catch (WebDriverException e) {
+                String error = e.getMessage();
+                if (!error.contains("Error finding softkeyboard") && !error.contains("The software keyboard cannot be hidden")) {
+                    throw e;
+                }
+                return false;
+            }
+        });
     }
 
     public String texto(String tag) { return visible(tag).getText().trim(); }
@@ -86,7 +107,7 @@ public abstract class BasePantalla {
         espera.until(x -> existe(tag) && d.findElement(id(tag)).getText().contains(contiene));
     }
 
-    public boolean habilitado(String tag) { return Boolean.parseBoolean(visible(tag).getAttribute("enabled")); }
+    public boolean habilitado(String tag) { return visible(tag).isEnabled(); }
 
     public void esperarDeshabilitado(String tag) { espera.until(x -> !habilitado(tag)); }
 
@@ -112,9 +133,12 @@ public abstract class BasePantalla {
             return l.size() >= 2 ? l : null;
         });
         cajas.get(0).click();
+        cajas.get(0).clear();
         cajas.get(0).sendKeys(Datos.fechaTeclado(diasEntrada));
         cajas.get(1).click();
+        cajas.get(1).clear();
         cajas.get(1).sendKeys(Datos.fechaTeclado(diasSalida));
+        ocultarTeclado();
         tocar(dlg + "_aceptar");
         desaparece(dlg);
     }
@@ -128,7 +152,9 @@ public abstract class BasePantalla {
         WebElement caja = espera.until(ExpectedConditions.visibilityOfElementLocated(
                 By.xpath("//*[@resource-id='" + dlg + "']//android.widget.EditText")));
         caja.click();
+        caja.clear();
         caja.sendKeys(Datos.fechaTeclado(dias));
+        ocultarTeclado();
         tocar(dlg + "_aceptar");
         desaparece(dlg);
     }

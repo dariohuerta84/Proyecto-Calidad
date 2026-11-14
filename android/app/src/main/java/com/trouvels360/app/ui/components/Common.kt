@@ -100,13 +100,13 @@ fun EstadoChip(estado: String?, modifier: Modifier = Modifier) {
         "cerrada" -> Color(0xFFFFF4E5) to Color(0xFF8A5300)
         else -> Color(0xFFECEFF1) to Color(0xFF455A64)
     }
-    Surface(color = fondo, shape = RoundedCornerShape(10.dp), modifier = modifier) {
+    Surface(color = fondo, shape = RoundedCornerShape(10.dp)) {
         Text(
             (estado ?: "—").uppercase(),
             color = texto,
             style = MaterialTheme.typography.labelSmall,
             fontWeight = FontWeight.Bold,
-            modifier = Modifier.padding(horizontal = 8.dp, vertical = 3.dp),
+            modifier = modifier.padding(horizontal = 8.dp, vertical = 3.dp),
         )
     }
 }

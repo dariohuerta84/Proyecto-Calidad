@@ -20,6 +20,18 @@
     <appium.url>http://127.0.0.1:4723</appium.url>
   </properties>
 
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.seleniumhq.selenium</groupId>
+        <artifactId>selenium-bom</artifactId>
+        <version>${selenium.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
   <dependencies>
     <!-- java-client 9.3.0 usa Selenium 4.25 -->
     <dependency>
@@ -31,7 +43,6 @@
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>selenium-java</artifactId>
-      <version>${selenium.version}</version>
       <scope>test</scope>
     </dependency>
     <dependency>

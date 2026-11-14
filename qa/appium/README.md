@@ -30,11 +30,11 @@ src/test/java/com/trouvels360/movil/
 ## Requisitos
 
 1. **JDK 21** (o 17) y **Maven 3.9+** (nota sobre Java 25 en [`qa/README.md`](../README.md#requisitos)).
-2. **Android Studio** con un emulador API 26 o superior encendido (`adb devices` debe listarlo como `emulator-5554`).
+2. **SDK de Android** con un emulador API 26 o superior encendido (`adb devices` debe mostrarlo en estado `device`).
 3. **APK de depuración:** en `android/`, `gradlew.bat assembleDebug` (Windows) o `./gradlew assembleDebug`. Queda en
    `android/app/build/outputs/apk/debug/app-debug.apk`, la ruta que ya trae `config.properties` (`app`). Cómo compilar con
-   JDK 21: [`android/README.md`](../../android/README.md#compilar-el-apk).
-4. **Appium 2:** Node 18+, `npm i -g appium`, `appium driver install uiautomator2` y dejar corriendo `appium`
+   JDK 21: [`android/README.md`](../../android/README.md#compilar-el-apk). Si recompilaste la app con el mismo código de versión, actualízala en el emulador antes de probar. Desde `android/` ejecuta `adb -s emulator-5554 install -r -t app/build/outputs/apk/debug/app-debug.apk`. Ajusta el identificador si usas otro dispositivo de pruebas.
+4. **Appium 2:** Node 18+, `npm i -g appium@2`, `appium driver install uiautomator2@4.2.9` y dejar corriendo `appium`
    (escucha en http://127.0.0.1:4723).
 5. Las dos APIs levantadas con datos limpios y `LOGIN_RATE_LIMIT=1000` / `REGISTER_RATE_LIMIT=1000`. La app llega a la
    API de tu PC por `http://10.0.2.2:8000/api/`; la suite prepara datos por `http://localhost:8000/api`.
@@ -52,19 +52,8 @@ mvn test -Dapp=C:/ruta/app-debug.apk -Ddispositivo=emulator-5556
 Windows: `ejecutar.bat`. Reportes: `target/reporte-appium/index.html` (propio, con capturas por paso) y
 `mvn allure:serve`.
 
-## Estado de verificación (honesto)
+## Revisar resultados
 
-En el entorno donde se preparó la etapa no hay emulador ni acceso a Maven Central, así que **la suite no se pudo
-ejecutar contra un dispositivo**. Sí se verificó que:
-
-- compila completa (`javac`) contra las firmas de java-client 9.3 / Selenium 4.25 / JUnit 5;
-- los **184 resource-id** que usa existen en el código de la app (cruce automático contra los `testTag`);
-- los datos que prepara por API son los mismos que usan Karate y Selenium (que sí corren en verde);
-- la app trae el botón «Escribir las fechas» (`<campo>_dialogo_teclado`) que la suite usa para elegir fechas; faltaba en
-  la copia del repositorio y se restauró.
-
-Si Maven avisa de un conflicto de versiones entre `java-client` y `selenium-java`, quita la dependencia `selenium-java`
-del `pom.xml` (java-client ya trae la versión compatible).
-
-Para la primera corrida real conviene empezar por `mvn test -Dtest=CuentaMovilTest` y ajustar `fecha.patron` y el
-`dispositivo` si hace falta.
+El reporte HTML contiene la corrida completa y sus capturas. Puedes repetir una clase y conservar el historial con
+`mvn test "-Dtest=CuentaMovilTest" "-Dreporte.dir=target/reporte-appium-repeticion/cuentas"`.
+Usa una subcarpeta por repetición. Al regenerar la matriz, se incorpora el veredicto más reciente de cada caso.

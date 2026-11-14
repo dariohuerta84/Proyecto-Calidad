@@ -3,6 +3,7 @@ package com.trouvels360.movil.pruebas;
 import com.trouvels360.movil.pantallas.ReservasPantalla;
 import com.trouvels360.movil.soporte.Api;
 import com.trouvels360.movil.soporte.Datos;
+import com.trouvels360.movil.soporte.Gestos;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
@@ -32,11 +33,11 @@ class ReservasMovilTest extends BaseTestMovil {
         cuenta().iniciarSesion(v.email(), "Clave123");
         ReservasPantalla m = new ReservasPantalla(d).abrir();
         String codigo = (String) r.get("codigo");
-        m.visible("reserva_card_" + codigo);
+        var tarjeta = m.visible("reserva_card_" + codigo);
         paso("Tarjeta con el mismo código");
-        String tarjeta = d.findElement(ReservasPantalla.id("reserva_card_" + codigo)).getText();
-        String todo = tarjeta + " " + d.findElements(ReservasPantalla.prefijo("reserva_")).stream().map(e -> e.getText()).reduce("", String::concat);
-        assertTrue(Datos.digitos(todo).contains(Datos.digitos(((Number) api.get("total")).doubleValue())), "Total " + api.get("total") + " en la tarjeta");
+        assertEquals(codigo, tarjeta.findElement(ReservasPantalla.id("reserva_codigo")).getText());
+        String total = tarjeta.findElement(ReservasPantalla.id("reserva_total")).getText();
+        assertEquals(Datos.digitos(((Number) api.get("total")).doubleValue()), Datos.digitos(total));
         assertTrue(m.estado(codigo).contains("pendiente"));
     }
 
@@ -53,7 +54,9 @@ class ReservasMovilTest extends BaseTestMovil {
         cuenta().iniciarSesion(v.email(), "Clave123");
         ReservasPantalla m = new ReservasPantalla(d).abrir();
         m.visible("reserva_card_" + codigos.get(10)); // la más reciente va primero
-        m.traer("reservas_pagina_siguiente");
+        for (int desplazamiento = 0; desplazamiento < 15 && !m.existe("reservas_pagina_siguiente"); desplazamiento++) {
+            Gestos.deslizarArriba(d);
+        }
         paso("Fin de la página 1");
         m.tocar("reservas_pagina_siguiente");
         m.visible("reserva_card_" + codigos.get(0));

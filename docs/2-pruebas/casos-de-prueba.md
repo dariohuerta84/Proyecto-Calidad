@@ -4,6 +4,8 @@
 
 **160 casos**, cada uno vinculado a una o más historias y criterios. La columna «Código» indica dónde está automatizado (relativo a la raíz del repositorio).
 
+Las tablas conservan el estado registrado al redactar el catálogo. Consulta la [matriz generada](../../qa/trazabilidad/salida/matriz_trazabilidad.html) para ver el último resultado por caso.
+
 | Nivel | Herramienta | Casos | Pasó | Pendiente |
 |---|---|---|---|---|
 | API | Karate | 86 | 86 | 0 |

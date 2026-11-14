@@ -48,7 +48,7 @@ class CuentaMovilTest extends BaseTestMovil {
         assertFalse(c.habilitado("registro_submit"), "No debe permitir enviar");
         assertTrue(c.existe("registro_password_confirmacion_error"), "Mensaje bajo la confirmación");
         c.escribir("registro_password_confirmacion", "Clave123");
-        assertTrue(c.habilitado("registro_submit"), "Con contraseñas iguales se habilita");
+        c.espera.until(driver -> c.habilitado("registro_submit"));
     }
 
     @Test
@@ -75,11 +75,14 @@ class CuentaMovilTest extends BaseTestMovil {
         c.tocar("nav_reservas");
         c.visible("login_requerido");
         c.tocar("btn_ir_login");
-        c.ingresar(Config.get("viajero.email"), "incorrecta");
+        c.escribir("login_email", Config.get("viajero.email"));
+        c.escribir("login_password", "incorrecta");
+        c.tocar("login_submit");
         c.visible("login_error");
         paso("Credenciales correctas: ve sus reservas");
         c.escribir("login_password", Config.get("viajero.password"));
         c.tocar("login_submit");
+        c.desaparece("pantalla_login");
         c.tocar("nav_reservas");
         c.visible("pantalla_mis_reservas");
         paso("Cerrar sesión vuelve a bloquear la pestaña");
@@ -134,9 +137,11 @@ class CuentaMovilTest extends BaseTestMovil {
         c.escribir("password_actual", "Clave123");
         c.escribir("password_nueva", "Nueva1234");
         c.escribir("password_confirmacion", "Otra1234");
+        c.visible("password_confirmacion_error");
+        c.esperarDeshabilitado("password_guardar");
         paso("Confirmación distinta");
-        assertFalse(c.habilitado("password_guardar"));
         c.escribir("password_confirmacion", "Nueva1234");
+        c.desaparece("password_confirmacion_error");
         c.tocar("password_guardar");
         c.visible("password_mensaje");
         assertEquals(200, Api.login(v.email(), "Nueva1234").get("/auth/me").status());
@@ -151,6 +156,7 @@ class CuentaMovilTest extends BaseTestMovil {
         c.iniciarSesion(v.email(), "Clave123");
         c.perfil();
         c.tocar("btn_eliminar_cuenta");
+        c.visible("dialogo_eliminar_cuenta_si");
         paso("Diálogo de confirmación");
         c.confirmar("dialogo_eliminar_cuenta");
         c.tocar("nav_cuenta");

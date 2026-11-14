@@ -1,245 +1,1107 @@
 {
+ "TC-API-001": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:58:36 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.auth.html"
+ },
+ "TC-API-002": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:58:36 p. m.",
+  "ejecuciones": 6,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.auth.html"
+ },
+ "TC-API-003": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:58:36 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.auth.html"
+ },
+ "TC-API-004": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:58:36 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.auth.html"
+ },
+ "TC-API-005": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:58:36 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.auth.html"
+ },
+ "TC-API-006": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:58:36 p. m.",
+  "ejecuciones": 4,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.auth.html"
+ },
+ "TC-API-007": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:58:36 p. m.",
+  "ejecuciones": 4,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.auth.html"
+ },
+ "TC-API-008": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:58:36 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.auth.html"
+ },
+ "TC-API-009": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:58:36 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.auth.html"
+ },
+ "TC-API-010": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:58:36 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.auth.html"
+ },
+ "TC-API-011": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:58:36 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.auth.html"
+ },
+ "TC-API-012": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:58:36 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.auth.html"
+ },
+ "TC-API-013": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:58:38 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.cuenta.html"
+ },
+ "TC-API-014": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:58:38 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.cuenta.html"
+ },
+ "TC-API-015": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:58:38 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.cuenta.html"
+ },
+ "TC-API-016": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:58:38 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.cuenta.html"
+ },
+ "TC-API-017": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:58:38 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.cuenta.html"
+ },
+ "TC-API-018": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:58:38 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.cuenta.html"
+ },
+ "TC-API-019": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:58:38 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.cuenta.html"
+ },
+ "TC-API-020": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:58:38 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.hoteles.html"
+ },
+ "TC-API-021": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:58:38 p. m.",
+  "ejecuciones": 6,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.hoteles.html"
+ },
+ "TC-API-022": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:58:38 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.hoteles.html"
+ },
+ "TC-API-023": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:58:38 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.hoteles.html"
+ },
+ "TC-API-024": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:58:38 p. m.",
+  "ejecuciones": 5,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.hoteles.html"
+ },
+ "TC-API-025": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:58:38 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.hoteles.html"
+ },
+ "TC-API-026": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 06:00:19 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.reservas-hotel.html"
+ },
+ "TC-API-027": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 06:00:19 p. m.",
+  "ejecuciones": 5,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.reservas-hotel.html"
+ },
+ "TC-API-028": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 06:00:19 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.reservas-hotel.html"
+ },
+ "TC-API-029": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 06:00:19 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.reservas-hotel.html"
+ },
+ "TC-API-030": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 06:00:19 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.reservas-hotel.html"
+ },
+ "TC-API-031": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:57:51 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.aprobacion.html"
+ },
+ "TC-API-032": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:57:51 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.aprobacion.html"
+ },
+ "TC-API-033": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:57:51 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.aprobacion.html"
+ },
+ "TC-API-034": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:57:51 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.aprobacion.html"
+ },
+ "TC-API-035": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:57:51 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.aprobacion.html"
+ },
+ "TC-API-036": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 06:00:20 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.tours.html"
+ },
+ "TC-API-037": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 06:00:20 p. m.",
+  "ejecuciones": 6,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.tours.html"
+ },
+ "TC-API-038": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 06:00:20 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.tours.html"
+ },
+ "TC-API-039": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 06:00:20 p. m.",
+  "ejecuciones": 4,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.tours.html"
+ },
+ "TC-API-040": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 06:00:20 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.tours.html"
+ },
+ "TC-API-041": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 06:00:20 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.reservas-tour.html"
+ },
+ "TC-API-042": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 06:00:20 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.reservas-tour.html"
+ },
+ "TC-API-043": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 06:00:20 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.reservas-tour.html"
+ },
+ "TC-API-044": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:58:39 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.mis-reservas.html"
+ },
+ "TC-API-045": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:58:39 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.mis-reservas.html"
+ },
+ "TC-API-046": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:58:39 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.mis-reservas.html"
+ },
+ "TC-API-047": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:58:39 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.mis-reservas.html"
+ },
+ "TC-API-048": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:58:39 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.mis-reservas.html"
+ },
+ "TC-API-049": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:58:39 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.mis-reservas.html"
+ },
+ "TC-API-050": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 06:00:18 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.resenas.html"
+ },
+ "TC-API-051": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 06:00:18 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.resenas.html"
+ },
+ "TC-API-052": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 06:00:18 p. m.",
+  "ejecuciones": 6,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.resenas.html"
+ },
+ "TC-API-053": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 06:00:18 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.resenas.html"
+ },
+ "TC-API-054": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:58:39 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.itinerario.html"
+ },
+ "TC-API-055": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:58:39 p. m.",
+  "ejecuciones": 5,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.itinerario.html"
+ },
+ "TC-API-056": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:59:31 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.proveedor.html"
+ },
+ "TC-API-057": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:59:31 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.proveedor.html"
+ },
+ "TC-API-058": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:59:31 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.proveedor.html"
+ },
+ "TC-API-059": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:59:31 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.proveedor.html"
+ },
+ "TC-API-060": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:59:31 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.proveedor.html"
+ },
+ "TC-API-061": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:59:31 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.proveedor.html"
+ },
+ "TC-API-062": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:59:31 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.proveedor.html"
+ },
+ "TC-API-063": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:59:31 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.proveedor.html"
+ },
+ "TC-API-064": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:59:31 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.proveedor.html"
+ },
+ "TC-API-065": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:59:31 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.proveedor.html"
+ },
+ "TC-API-066": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:59:31 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.proveedor.html"
+ },
+ "TC-API-067": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:59:31 p. m.",
+  "ejecuciones": 6,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.proveedor.html"
+ },
+ "TC-API-068": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:59:31 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.proveedor.html"
+ },
+ "TC-API-069": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:59:31 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.proveedor.html"
+ },
+ "TC-API-070": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:59:31 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.proveedor.html"
+ },
+ "TC-API-071": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:59:31 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.proveedor.html"
+ },
+ "TC-API-072": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:59:31 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.proveedor.html"
+ },
+ "TC-API-073": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:59:31 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.proveedor.html"
+ },
+ "TC-API-074": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:59:31 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.proveedor.html"
+ },
+ "TC-API-075": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:59:31 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.proveedor.html"
+ },
+ "TC-API-076": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:59:31 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.proveedor.html"
+ },
+ "TC-API-077": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:59:31 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.proveedor.html"
+ },
+ "TC-API-078": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:59:31 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.proveedor.html"
+ },
+ "TC-API-079": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:58:37 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.cobertura-adicional.html"
+ },
+ "TC-API-080": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:58:37 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.cobertura-adicional.html"
+ },
+ "TC-API-081": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:58:37 p. m.",
+  "ejecuciones": 5,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.cobertura-adicional.html"
+ },
+ "TC-API-082": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:58:37 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.cobertura-adicional.html"
+ },
+ "TC-API-083": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:58:37 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.cobertura-adicional.html"
+ },
+ "TC-API-084": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:58:37 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.cobertura-adicional.html"
+ },
+ "TC-API-085": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:58:37 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.cobertura-adicional.html"
+ },
+ "TC-API-086": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 05:58:37 p. m.",
+  "ejecuciones": 1,
+  "fallas": 0,
+  "evidencia": "karate-reports/trouvels360.cobertura-adicional.html"
+ },
+ "TC-MAN-001": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12",
+  "evidencia": "qa/evidencias/manuales/TC-MAN-001.jpg",
+  "detalle": "Con Laravel detenido, Guardar mostró 'No se pudo actualizar el perfil' y el menú conservó el nombre original. Al restaurar Laravel y reintentar, se guardó el cambio. Recuperación: TC-MAN-001-recuperacion.jpg."
+ },
+ "TC-MAN-002": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12",
+  "evidencia": "qa/evidencias/manuales/TC-MAN-002.jpg",
+  "detalle": "Se cortó la conexión de la solicitud de cancelación en el proxy. La web mostró un error de conexión sin mensaje de éxito. Tras restablecer la ruta y recargar, la reserva seguía pendiente, igual que en MySQL. Recuperación: TC-MAN-002-recuperacion.jpg."
+ },
+ "TC-MAN-003": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12",
+  "evidencia": "qa/evidencias/manuales/TC-MAN-003.jpg",
+  "detalle": "Con FastAPI detenido, la web mostró que no pudo generar el itinerario y ofreció reintentar. La opción 'No, continuar al pago' abrió el pago simulado. Pago: TC-MAN-003-pago.jpg."
+ },
+ "TC-MOB-001": {
+  "estado": "Pasó",
+  "fecha": "2026-11-14 01:59",
+  "detalle": "",
+  "evidencia": "appium/target/reporte-appium/index.html",
+  "ms": 23440
+ },
+ "TC-MOB-002": {
+  "estado": "Pasó",
+  "fecha": "2026-11-14 01:59",
+  "detalle": "",
+  "evidencia": "appium/target/reporte-appium/index.html",
+  "ms": 34210
+ },
+ "TC-MOB-003": {
+  "estado": "Pasó",
+  "fecha": "2026-11-14 01:59",
+  "detalle": "",
+  "evidencia": "appium/target/reporte-appium/index.html",
+  "ms": 30453
+ },
+ "TC-MOB-004": {
+  "estado": "Pasó",
+  "fecha": "2026-11-14 02:29",
+  "detalle": "",
+  "evidencia": "appium/target/reporte-appium-repeticion/index.html",
+  "ms": 42582
+ },
+ "TC-MOB-005": {
+  "estado": "Pasó",
+  "fecha": "2026-11-14 01:59",
+  "detalle": "",
+  "evidencia": "appium/target/reporte-appium/index.html",
+  "ms": 33487
+ },
+ "TC-MOB-006": {
+  "estado": "Pasó",
+  "fecha": "2026-11-14 01:59",
+  "detalle": "",
+  "evidencia": "appium/target/reporte-appium/index.html",
+  "ms": 28364
+ },
+ "TC-MOB-007": {
+  "estado": "Pasó",
+  "fecha": "2026-11-14 01:59",
+  "detalle": "",
+  "evidencia": "appium/target/reporte-appium/index.html",
+  "ms": 58306
+ },
+ "TC-MOB-008": {
+  "estado": "Pasó",
+  "fecha": "2026-11-14 01:59",
+  "detalle": "",
+  "evidencia": "appium/target/reporte-appium/index.html",
+  "ms": 46584
+ },
+ "TC-MOB-009": {
+  "estado": "Pasó",
+  "fecha": "2026-11-14 01:59",
+  "detalle": "",
+  "evidencia": "appium/target/reporte-appium/index.html",
+  "ms": 19559
+ },
+ "TC-MOB-010": {
+  "estado": "Pasó",
+  "fecha": "2026-11-14 02:35",
+  "detalle": "",
+  "evidencia": "appium/target/reporte-appium-repeticion/red/index.html",
+  "ms": 53518
+ },
+ "TC-MOB-011": {
+  "estado": "Pasó",
+  "fecha": "2026-11-14 01:59",
+  "detalle": "",
+  "evidencia": "appium/target/reporte-appium/index.html",
+  "ms": 56553
+ },
+ "TC-MOB-012": {
+  "estado": "Pasó",
+  "fecha": "2026-11-14 01:59",
+  "detalle": "",
+  "evidencia": "appium/target/reporte-appium/index.html",
+  "ms": 18518
+ },
+ "TC-MOB-013": {
+  "estado": "Pasó",
+  "fecha": "2026-11-14 01:59",
+  "detalle": "",
+  "evidencia": "appium/target/reporte-appium/index.html",
+  "ms": 47900
+ },
+ "TC-MOB-014": {
+  "estado": "Pasó",
+  "fecha": "2026-11-14 01:59",
+  "detalle": "",
+  "evidencia": "appium/target/reporte-appium/index.html",
+  "ms": 41742
+ },
+ "TC-MOB-015": {
+  "estado": "Pasó",
+  "fecha": "2026-11-14 02:29",
+  "detalle": "",
+  "evidencia": "appium/target/reporte-appium-repeticion/index.html",
+  "ms": 48853
+ },
+ "TC-MOB-016": {
+  "estado": "Pasó",
+  "fecha": "2026-11-14 02:29",
+  "detalle": "",
+  "evidencia": "appium/target/reporte-appium-repeticion/index.html",
+  "ms": 22776
+ },
+ "TC-MOB-017": {
+  "estado": "Pasó",
+  "fecha": "2026-11-14 02:29",
+  "detalle": "",
+  "evidencia": "appium/target/reporte-appium-repeticion/index.html",
+  "ms": 36937
+ },
+ "TC-MOB-018": {
+  "estado": "Pasó",
+  "fecha": "2026-11-14 01:59",
+  "detalle": "",
+  "evidencia": "appium/target/reporte-appium/index.html",
+  "ms": 10653
+ },
+ "TC-MOB-019": {
+  "estado": "Pasó",
+  "fecha": "2026-11-14 01:59",
+  "detalle": "",
+  "evidencia": "appium/target/reporte-appium/index.html",
+  "ms": 28708
+ },
+ "TC-MOB-020": {
+  "estado": "Pasó",
+  "fecha": "2026-11-14 01:59",
+  "detalle": "",
+  "evidencia": "appium/target/reporte-appium/index.html",
+  "ms": 11646
+ },
+ "TC-MOB-021": {
+  "estado": "Pasó",
+  "fecha": "2026-11-14 01:59",
+  "detalle": "",
+  "evidencia": "appium/target/reporte-appium/index.html",
+  "ms": 17576
+ },
+ "TC-MOB-022": {
+  "estado": "Pasó",
+  "fecha": "2026-11-14 01:59",
+  "detalle": "",
+  "evidencia": "appium/target/reporte-appium/index.html",
+  "ms": 14505
+ },
+ "TC-MOB-023": {
+  "estado": "Pasó",
+  "fecha": "2026-11-14 01:59",
+  "detalle": "",
+  "evidencia": "appium/target/reporte-appium/index.html",
+  "ms": 56166
+ },
+ "TC-MOB-024": {
+  "estado": "Pasó",
+  "fecha": "2026-11-14 01:59",
+  "detalle": "",
+  "evidencia": "appium/target/reporte-appium/index.html",
+  "ms": 29235
+ },
+ "TC-MOB-025": {
+  "estado": "Pasó",
+  "fecha": "2026-11-14 01:59",
+  "detalle": "",
+  "evidencia": "appium/target/reporte-appium/index.html",
+  "ms": 12542
+ },
+ "TC-MOB-026": {
+  "estado": "Pasó",
+  "fecha": "2026-11-14 01:59",
+  "detalle": "",
+  "evidencia": "appium/target/reporte-appium/index.html",
+  "ms": 65216
+ },
+ "TC-MOB-027": {
+  "estado": "Pasó",
+  "fecha": "2026-11-14 01:59",
+  "detalle": "",
+  "evidencia": "appium/target/reporte-appium/index.html",
+  "ms": 30545
+ },
+ "TC-MOB-028": {
+  "estado": "Pasó",
+  "fecha": "2026-11-14 02:29",
+  "detalle": "",
+  "evidencia": "appium/target/reporte-appium-repeticion/index.html",
+  "ms": 43527
+ },
+ "TC-MOB-029": {
+  "estado": "Pasó",
+  "fecha": "2026-11-14 01:59",
+  "detalle": "",
+  "evidencia": "appium/target/reporte-appium/index.html",
+  "ms": 22143
+ },
+ "TC-MOB-030": {
+  "estado": "Pasó",
+  "fecha": "2026-11-14 01:59",
+  "detalle": "",
+  "evidencia": "appium/target/reporte-appium/index.html",
+  "ms": 32103
+ },
+ "TC-MOB-031": {
+  "estado": "Pasó",
+  "fecha": "2026-11-14 01:59",
+  "detalle": "",
+  "evidencia": "appium/target/reporte-appium/index.html",
+  "ms": 14539
+ },
+ "TC-MOB-032": {
+  "estado": "Pasó",
+  "fecha": "2026-11-14 01:59",
+  "detalle": "",
+  "evidencia": "appium/target/reporte-appium/index.html",
+  "ms": 15881
+ },
+ "TC-PERF-001": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 18:36",
+  "evidencia": "jmeter/resultados/reporte-html/index.html"
+ },
+ "TC-PERF-002": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 18:36",
+  "evidencia": "jmeter/resultados/reporte-html/index.html"
+ },
  "TC-PERF-003": {
   "estado": "Pasó",
-  "fecha": "2026-11-11",
-  "evidencia": "qa/evidencias/jmeter/concurrencia_smoke.txt",
-  "detalle": "Prueba rápida en Python (20 hilos con barrera): 1x201 y 19x409. Falta la corrida con JMeter."
+  "fecha": "2026-11-12 18:36",
+  "evidencia": "jmeter/resultados/reporte-html/index.html"
+ },
+ "TC-PERF-004": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 18:36",
+  "evidencia": "jmeter/resultados/reporte-html/index.html"
  },
  "TC-PERF-005": {
   "estado": "Pasó",
-  "fecha": "2026-11-11",
-  "evidencia": "qa/evidencias/jmeter/concurrencia_smoke.txt",
-  "detalle": "Prueba rápida en Python (30 hilos sobre 10 cupos): 10x201, 20x409, cupo_reservado final 10. Falta la corrida con JMeter."
+  "fecha": "2026-11-12 18:36",
+  "evidencia": "jmeter/resultados/reporte-html/index.html"
+ },
+ "TC-PERF-006": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12 18:36",
+  "evidencia": "jmeter/resultados/reporte-html/index.html"
  },
  "TC-WEB-001": {
   "estado": "Pasó",
-  "fecha": "2026-11-12 00:14",
+  "fecha": "2026-11-12 18:01",
   "detalle": "",
   "evidencia": "selenium/target/reporte-selenium/index.html",
-  "ms": 2783
+  "ms": 3062
  },
  "TC-WEB-002": {
   "estado": "Pasó",
-  "fecha": "2026-11-12 00:14",
+  "fecha": "2026-11-12 18:01",
   "detalle": "",
   "evidencia": "selenium/target/reporte-selenium/index.html",
-  "ms": 2941
+  "ms": 3238
  },
  "TC-WEB-003": {
   "estado": "Pasó",
-  "fecha": "2026-11-12 00:14",
+  "fecha": "2026-11-12 18:01",
   "detalle": "",
   "evidencia": "selenium/target/reporte-selenium/index.html",
-  "ms": 2628
+  "ms": 3053
  },
  "TC-WEB-004": {
   "estado": "Pasó",
-  "fecha": "2026-11-12 00:14",
+  "fecha": "2026-11-12 18:01",
   "detalle": "",
   "evidencia": "selenium/target/reporte-selenium/index.html",
-  "ms": 4323
+  "ms": 4802
  },
  "TC-WEB-005": {
   "estado": "Pasó",
-  "fecha": "2026-11-12 00:14",
+  "fecha": "2026-11-12 18:01",
   "detalle": "",
   "evidencia": "selenium/target/reporte-selenium/index.html",
-  "ms": 5655
+  "ms": 3942
  },
  "TC-WEB-006": {
   "estado": "Pasó",
-  "fecha": "2026-11-12 00:14",
+  "fecha": "2026-11-12 18:01",
   "detalle": "",
   "evidencia": "selenium/target/reporte-selenium/index.html",
-  "ms": 3484
+  "ms": 3609
  },
  "TC-WEB-007": {
   "estado": "Pasó",
-  "fecha": "2026-11-12 00:14",
+  "fecha": "2026-11-12 18:01",
   "detalle": "",
   "evidencia": "selenium/target/reporte-selenium/index.html",
-  "ms": 2997
+  "ms": 2679
  },
  "TC-WEB-008": {
   "estado": "Pasó",
-  "fecha": "2026-11-12 00:14",
+  "fecha": "2026-11-12 18:01",
   "detalle": "",
   "evidencia": "selenium/target/reporte-selenium/index.html",
-  "ms": 3406
+  "ms": 4124
  },
  "TC-WEB-009": {
   "estado": "Pasó",
-  "fecha": "2026-11-12 00:14",
+  "fecha": "2026-11-12 18:01",
   "detalle": "",
   "evidencia": "selenium/target/reporte-selenium/index.html",
-  "ms": 1970
+  "ms": 1844
  },
  "TC-WEB-010": {
   "estado": "Pasó",
-  "fecha": "2026-11-12 00:14",
+  "fecha": "2026-11-12 18:01",
   "detalle": "",
   "evidencia": "selenium/target/reporte-selenium/index.html",
-  "ms": 6833
+  "ms": 6954
  },
  "TC-WEB-011": {
   "estado": "Pasó",
-  "fecha": "2026-11-12 00:14",
+  "fecha": "2026-11-12 18:01",
   "detalle": "",
   "evidencia": "selenium/target/reporte-selenium/index.html",
-  "ms": 8003
+  "ms": 8519
  },
  "TC-WEB-012": {
   "estado": "Pasó",
-  "fecha": "2026-11-12 00:14",
+  "fecha": "2026-11-12 18:01",
   "detalle": "",
   "evidencia": "selenium/target/reporte-selenium/index.html",
-  "ms": 6517
+  "ms": 5839
  },
  "TC-WEB-013": {
-  "estado": "Falló",
-  "fecha": "2026-11-12 00:14",
-  "detalle": "SessionNotCreatedException: Could not start a new session. Response code 500. Message: session not created: This version of ChromeDriver only supports Chrome version 155\nCurrent browser version is 157.0.8103.51 with binary path C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe \nHost info: host: 'EDWINJARAOFC', ip: '192.168.18.29'\nBuild info: version: '4.25.0', revision: '8a8aea2337'\nSystem info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '25.0.4.1'\nDriver info: org.openqa.selenium.chrome.ChromeDriver\nCommand: [null, newSession {capabilities=[Capabilities {browserName: chrome, goog:chromeOptions: {args: [--headless=new, --no-sandbox, --disable-dev-shm-usage, --lang=es-PE, --disable-search-engine-cho...], binary: C:\\Program Files\\Google\\Chr..., extensions: [], prefs: {credentials_enable_service: false, profile.password_manager_enabled: false}}}]}]",
+  "estado": "Pasó",
+  "fecha": "2026-11-12 18:01",
+  "detalle": "",
   "evidencia": "selenium/target/reporte-selenium/index.html",
-  "ms": 0
+  "ms": 8278
  },
  "TC-WEB-014": {
   "estado": "Pasó",
-  "fecha": "2026-11-12 00:14",
+  "fecha": "2026-11-12 18:01",
   "detalle": "",
   "evidencia": "selenium/target/reporte-selenium/index.html",
-  "ms": 5532
+  "ms": 5196
  },
  "TC-WEB-015": {
   "estado": "Pasó",
-  "fecha": "2026-11-12 00:14",
+  "fecha": "2026-11-12 18:01",
   "detalle": "",
   "evidencia": "selenium/target/reporte-selenium/index.html",
-  "ms": 1190
+  "ms": 1854
  },
  "TC-WEB-016": {
   "estado": "Pasó",
-  "fecha": "2026-11-12 00:14",
+  "fecha": "2026-11-12 18:01",
   "detalle": "",
   "evidencia": "selenium/target/reporte-selenium/index.html",
-  "ms": 6178
+  "ms": 6472
  },
  "TC-WEB-017": {
   "estado": "Pasó",
-  "fecha": "2026-11-12 00:14",
+  "fecha": "2026-11-12 18:01",
   "detalle": "",
   "evidencia": "selenium/target/reporte-selenium/index.html",
-  "ms": 7221
+  "ms": 6943
  },
  "TC-WEB-018": {
   "estado": "Pasó",
-  "fecha": "2026-11-12 00:14",
+  "fecha": "2026-11-12 18:01",
   "detalle": "",
   "evidencia": "selenium/target/reporte-selenium/index.html",
-  "ms": 6005
+  "ms": 6415
  },
  "TC-WEB-019": {
   "estado": "Pasó",
-  "fecha": "2026-11-12 00:14",
+  "fecha": "2026-11-12 18:01",
   "detalle": "",
   "evidencia": "selenium/target/reporte-selenium/index.html",
-  "ms": 2384
+  "ms": 2519
  },
  "TC-WEB-020": {
   "estado": "Pasó",
-  "fecha": "2026-11-12 00:14",
+  "fecha": "2026-11-12 18:01",
   "detalle": "",
   "evidencia": "selenium/target/reporte-selenium/index.html",
-  "ms": 2321
+  "ms": 2515
  },
  "TC-WEB-021": {
   "estado": "Pasó",
-  "fecha": "2026-11-12 00:14",
+  "fecha": "2026-11-12 18:01",
   "detalle": "",
   "evidencia": "selenium/target/reporte-selenium/index.html",
-  "ms": 9020
+  "ms": 7845
  },
  "TC-WEB-022": {
   "estado": "Pasó",
-  "fecha": "2026-11-12 00:14",
+  "fecha": "2026-11-12 18:01",
   "detalle": "",
   "evidencia": "selenium/target/reporte-selenium/index.html",
-  "ms": 6267
+  "ms": 5901
  },
  "TC-WEB-023": {
   "estado": "Pasó",
-  "fecha": "2026-11-12 00:14",
+  "fecha": "2026-11-12 18:01",
   "detalle": "",
   "evidencia": "selenium/target/reporte-selenium/index.html",
-  "ms": 4267
+  "ms": 5565
  },
  "TC-WEB-024": {
-  "estado": "Falló",
-  "fecha": "2026-11-12 00:14",
-  "detalle": "IllegalStateException: La API respondió 429 (se esperaba 201): {message=Demasiados intentos. Espera un minuto e intenta de nuevo.}",
+  "estado": "Pasó",
+  "fecha": "2026-11-12 18:01",
+  "detalle": "",
   "evidencia": "selenium/target/reporte-selenium/index.html",
-  "ms": 377
+  "ms": 19484
  },
  "TC-WEB-025": {
   "estado": "Pasó",
-  "fecha": "2026-11-12 00:14",
+  "fecha": "2026-11-12 18:01",
   "detalle": "",
   "evidencia": "selenium/target/reporte-selenium/index.html",
-  "ms": 12634
+  "ms": 12604
  },
  "TC-WEB-026": {
-  "estado": "Falló",
-  "fecha": "2026-11-12 00:14",
-  "detalle": "IllegalStateException: La API respondió 429 (se esperaba 201): {message=Demasiados intentos. Espera un minuto e intenta de nuevo.}",
+  "estado": "Pasó",
+  "fecha": "2026-11-12 18:01",
+  "detalle": "",
   "evidencia": "selenium/target/reporte-selenium/index.html",
-  "ms": 406
+  "ms": 8460
  },
  "TC-WEB-027": {
   "estado": "Pasó",
-  "fecha": "2026-11-12 00:14",
+  "fecha": "2026-11-12 18:01",
   "detalle": "",
   "evidencia": "selenium/target/reporte-selenium/index.html",
-  "ms": 5220
+  "ms": 6579
  },
  "TC-WEB-028": {
-  "estado": "Falló",
-  "fecha": "2026-11-12 00:14",
-  "detalle": "IllegalStateException: La API respondió 429 (se esperaba 201): {message=Demasiados intentos. Espera un minuto e intenta de nuevo.}",
+  "estado": "Pasó",
+  "fecha": "2026-11-12 18:01",
+  "detalle": "",
   "evidencia": "selenium/target/reporte-selenium/index.html",
-  "ms": 415
+  "ms": 3565
  },
  "TC-WEB-029": {
   "estado": "Pasó",
-  "fecha": "2026-11-12 00:14",
+  "fecha": "2026-11-12 18:01",
   "detalle": "",
   "evidencia": "selenium/target/reporte-selenium/index.html",
-  "ms": 6341
+  "ms": 7460
  },
  "TC-WEB-030": {
-  "estado": "Falló",
-  "fecha": "2026-11-12 00:14",
-  "detalle": "IllegalStateException: La API respondió 429 (se esperaba 201): {message=Demasiados intentos. Espera un minuto e intenta de nuevo.}",
+  "estado": "Pasó",
+  "fecha": "2026-11-12 18:01",
+  "detalle": "",
   "evidencia": "selenium/target/reporte-selenium/index.html",
-  "ms": 384
+  "ms": 5588
  },
  "TC-WEB-031": {
   "estado": "Pasó",
-  "fecha": "2026-11-12 00:14",
+  "fecha": "2026-11-12 18:01",
   "detalle": "",
   "evidencia": "selenium/target/reporte-selenium/index.html",
-  "ms": 5658
+  "ms": 6567
  },
  "TC-WEB-032": {
   "estado": "Pasó",
-  "fecha": "2026-11-12 00:14",
+  "fecha": "2026-11-12 18:01",
   "detalle": "",
   "evidencia": "selenium/target/reporte-selenium/index.html",
-  "ms": 2065
+  "ms": 1869
  },
  "TC-WEB-033": {
   "estado": "Pasó",
-  "fecha": "2026-11-12 00:14",
+  "fecha": "2026-11-12 18:01",
   "detalle": "",
   "evidencia": "selenium/target/reporte-selenium/index.html",
-  "ms": 3676
+  "ms": 3763
  }
 }

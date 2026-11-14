@@ -7,8 +7,8 @@ Las cuatro suites de la rúbrica más la trazabilidad. Cada caso tiene un id (`T
 |---|---|---|---|---|
 | [`karate/`](karate/README.md) | Karate 1.5.2 | 86 (136 escenarios) | API Laravel: contratos, reglas, permisos, idempotencia | **136 / 136 OK** |
 | [`selenium/`](selenium/README.md) | Selenium 4.25 + JUnit 5 | 33 | Web Angular de punta a punta | **33 / 33 OK** (web servida por nginx) |
-| [`appium/`](appium/README.md) | Appium 2 + JUnit 5 | 32 | App Android de punta a punta | Compila; **pendiente correr en un emulador** |
-| [`jmeter/`](jmeter/README.md) | JMeter 5.6.3 | 6 | Carga y carreras de concurrencia | Carreras OK con el script de Python; **pendiente la corrida con JMeter** |
+| [`appium/`](appium/README.md) | Appium 2 + JUnit 5 | 32 | App Android de punta a punta | Ver la [matriz actualizada](trazabilidad/salida/matriz_trazabilidad.html) |
+| [`jmeter/`](jmeter/README.md) | JMeter 5.6.3 | 6 | Carga y carreras de concurrencia | 6 / 6 OK en la corrida completa (12/11/2026) |
 | [`trazabilidad/`](trazabilidad/README.md) | Python | 160 | Matriz historia → criterio → caso → resultado | 130 / 130 criterios con caso |
 | `evidencias/` | — | — | Reportes de la última corrida (Karate, Selenium, concurrencia) | — |
 | `postman/` | Postman + Newman | — | Colección de la versión base (20 historias); complementaria, fuera de la trazabilidad | — |
@@ -51,9 +51,23 @@ Además hay 3 casos manuales (`TC-MAN-001` a `003`) con sus pasos en
 Todo de una vez, desde la raíz del repositorio:
 
 ```powershell
-.\qa\ejecutar-todo.bat                  # Karate + Selenium + matriz de trazabilidad
-.\qa\ejecutar-todo.bat jmeter appium    # además JMeter y Appium (con JMeter instalado y el emulador + Appium encendidos)
+.\qa\ejecutar-todo.bat                  # Karate, Selenium, JMeter y Appium
+.\qa\ejecutar-todo.bat web              # Karate y Selenium
+.\qa\ejecutar-todo.bat matriz           # Actualiza la matriz con los reportes existentes
 ```
+
+La corrida completa necesita JMeter, el APK, un dispositivo Android disponible en `adb devices` y el servidor Appium encendido. Los argumentos `jmeter` y `appium` permiten añadir solo la suite indicada a Karate y Selenium.
+
+Si preparaste el entorno local con `QA-Trouvels360.cmd` y el emulador se apagó, abre dos terminales con ese lanzador y deja un comando en ejecución en cada una.
+
+```powershell
+emulator -avd Trouvels360_QA -port 5554 -accel on -gpu swiftshader -no-window
+appium --address 127.0.0.1 --port 4723
+```
+
+Comprueba que `adb devices` muestre `emulator-5554` como `device` y ejecuta la suite desde una tercera terminal.
+
+Ejecuta los tres casos manuales siguiendo el catálogo. Registra el veredicto y la evidencia de cada uno en `trazabilidad/datos/resultados_manuales.json`. El ejecutor incorpora esos resultados al regenerar la matriz.
 
 O cada suite desde su carpeta con `ejecutar.bat` / `mvn test`. Para una sola historia o caso:
 
@@ -78,12 +92,7 @@ Al terminar, `ejecutar-todo` regenera la matriz y la abre (`trazabilidad/salida/
 
 Cómo subirlos a Jira: [`docs/4-jira/guia-de-importacion.md`](../docs/4-jira/guia-de-importacion.md).
 
-## Qué falta y por qué
+## Evidencias de ejecución
 
-- **Appium** no se pudo ejecutar al preparar la entrega (no había emulador). La suite compila, los resource-id que usa
-  existen en la app y la app tiene el modo «Escribir las fechas» que la suite necesita. Si un selector o una espera
-  falla en la primera corrida, el reporte indica el paso exacto.
-- **JMeter** no se pudo descargar en ese entorno. El plan está generado y validado, y las dos carreras de concurrencia
-  se comprobaron con `jmeter/concurrencia_smoke.py` contra la misma API: 1 × 201 + 19 × 409 por la última habitación, y
-  exactamente 10 cupos confirmados de 30 intentos.
-- Los **3 casos manuales** se marcan a mano en Jira después de seguir sus pasos.
+- **Appium.** El reporte incluye el error y las capturas disponibles para cada caso.
+- **Manuales.** Los tres casos pasaron el 12/11/2026. Sus capturas están en `evidencias/manuales/` y sus resultados en `trazabilidad/datos/resultados_manuales.json`.

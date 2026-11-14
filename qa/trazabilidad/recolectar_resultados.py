@@ -5,8 +5,9 @@ Fuentes (rutas por defecto, relativas a esta carpeta):
   ../karate/target/karate-reports/*.karate-json.txt      (Karate)
   ../selenium/target/reporte-selenium/resultados.json     (Selenium)
   ../appium/target/reporte-appium/resultados.json         (Appium)
+  ../appium/target/reporte-appium-repeticion/**/resultados.json (repeticiones de casos de Appium)
   ../jmeter/resultados/verificacion.txt                   (JMeter, salida de verificar_resultados.py)
-  datos/resultados_manuales.json                          (lo que no sale de un reporte, p. ej. la prueba rápida)
+  datos/resultados_manuales.json                         (veredictos de las pruebas manuales)
 Uso: python recolectar_resultados.py [--karate DIR] [--selenium JSON] [--appium JSON] [--jmeter TXT]
 """
 import argparse, glob, json, os, re
@@ -33,12 +34,19 @@ def karate(carpeta, res):
                     r["detalle"] = s.get("error", "")[:300] if isinstance(s.get("error"), str) else "Ver reporte de Karate"
 
 
-def java(archivo, res, carpeta_evid):
+def java(archivo, res, carpeta_evid, solo_mas_recientes=False):
     if not os.path.exists(archivo):
         return
     for fila in json.load(open(archivo, encoding="utf-8")):
         estado = {"OK": "Pasó", "FALLA": "Falló"}.get(fila["estado"], "No ejecutado")
-        res[fila["caso"]] = {"estado": estado, "fecha": fila.get("fecha", ""), "detalle": fila.get("error") or "",
+        caso = fila["caso"]
+        fecha = fila.get("fecha", "")
+        if solo_mas_recientes and (
+            estado == "No ejecutado" or not fecha or fecha <= res.get(caso, {}).get("fecha", "")
+        ):
+            continue
+        detalle = "\n".join(linea.rstrip() for linea in (fila.get("error") or "").splitlines())
+        res[caso] = {"estado": estado, "fecha": fecha, "detalle": detalle,
                              "evidencia": carpeta_evid + "/index.html", "ms": fila.get("ms")}
 
 
@@ -67,6 +75,11 @@ if __name__ == "__main__":
     karate(a.karate, res)
     java(a.selenium, res, "selenium/target/reporte-selenium")
     java(a.appium, res, "appium/target/reporte-appium")
+    if a.appium == ruta("../appium/target/reporte-appium/resultados.json"):
+        repeticiones = glob.glob(ruta("../appium/target/reporte-appium-repeticion/**/resultados.json"), recursive=True)
+        for archivo in sorted(repeticiones):
+            evidencia = os.path.relpath(os.path.dirname(archivo), ruta("..")).replace(os.sep, "/")
+            java(archivo, res, evidencia, solo_mas_recientes=True)
     jmeter(a.jmeter, res)
     json.dump(dict(sorted(res.items())), open(ruta("datos/resultados.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     cuenta = {}
