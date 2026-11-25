@@ -10,7 +10,6 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.remote.RemoteWebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -78,27 +77,13 @@ public abstract class BasePantalla {
     }
 
     public void escribir(String tag, String valor) {
-        WebElement el = visible(tag);
-        el.click();
-        el.clear();
-        el.sendKeys(valor);
-        ocultarTeclado();
+        reemplazarTexto(visible(tag), valor);
     }
 
-    private void ocultarTeclado() {
-        espera.until(driver -> {
-            try {
-                if (!d.isKeyboardShown()) return true;
-                d.hideKeyboard();
-                return !d.isKeyboardShown();
-            } catch (WebDriverException e) {
-                String error = e.getMessage();
-                if (!error.contains("Error finding softkeyboard") && !error.contains("The software keyboard cannot be hidden")) {
-                    throw e;
-                }
-                return false;
-            }
-        });
+    private void reemplazarTexto(WebElement elemento, String valor) {
+        // Ocultar el teclado puede enviar Atrás y cerrar el formulario.
+        RemoteWebElement campo = (RemoteWebElement) elemento;
+        d.executeScript("mobile: replaceElementValue", Map.of("elementId", campo.getId(), "text", valor));
     }
 
     public String texto(String tag) { return visible(tag).getText().trim(); }
@@ -132,13 +117,8 @@ public abstract class BasePantalla {
             List<WebElement> l = d.findElements(By.xpath("//*[@resource-id='" + dlg + "']//android.widget.EditText"));
             return l.size() >= 2 ? l : null;
         });
-        cajas.get(0).click();
-        cajas.get(0).clear();
-        cajas.get(0).sendKeys(Datos.fechaTeclado(diasEntrada));
-        cajas.get(1).click();
-        cajas.get(1).clear();
-        cajas.get(1).sendKeys(Datos.fechaTeclado(diasSalida));
-        ocultarTeclado();
+        reemplazarTexto(cajas.get(0), Datos.fechaTeclado(diasEntrada));
+        reemplazarTexto(cajas.get(1), Datos.fechaTeclado(diasSalida));
         tocar(dlg + "_aceptar");
         desaparece(dlg);
     }
@@ -151,10 +131,7 @@ public abstract class BasePantalla {
         tocar(dlg + "_teclado");
         WebElement caja = espera.until(ExpectedConditions.visibilityOfElementLocated(
                 By.xpath("//*[@resource-id='" + dlg + "']//android.widget.EditText")));
-        caja.click();
-        caja.clear();
-        caja.sendKeys(Datos.fechaTeclado(dias));
-        ocultarTeclado();
+        reemplazarTexto(caja, Datos.fechaTeclado(dias));
         tocar(dlg + "_aceptar");
         desaparece(dlg);
     }
