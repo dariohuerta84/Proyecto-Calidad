@@ -3,14 +3,14 @@
 Las cuatro suites de la rúbrica más la trazabilidad. Cada caso tiene un id (`TC-API-026`) y la etiqueta de su historia
 (`HU-V07`), los mismos que en [`docs/`](../docs/README.md).
 
-| Carpeta | Herramienta | Casos | Qué prueba | Último resultado |
+| Carpeta | Herramienta | Casos | Qué prueba | Resultado registrado |
 |---|---|---|---|---|
 | [`karate/`](karate/README.md) | Karate 1.5.2 | 86 (136 escenarios) | API Laravel: contratos, reglas, permisos, idempotencia | **136 / 136 OK** |
 | [`selenium/`](selenium/README.md) | Selenium 4.25 + JUnit 5 | 33 | Web Angular de punta a punta | **33 / 33 OK** (web servida por nginx) |
-| [`appium/`](appium/README.md) | Appium 2 + JUnit 5 | 32 | App Android de punta a punta | Ver la [matriz actualizada](trazabilidad/salida/matriz_trazabilidad.html) |
+| [`appium/`](appium/README.md) | Appium 2 + JUnit 5 | 32 | App Android de punta a punta | **32 / 32 OK** tras consolidar la corrida y las repeticiones |
 | [`jmeter/`](jmeter/README.md) | JMeter 5.6.3 | 6 | Carga y carreras de concurrencia | 6 / 6 OK en la corrida completa (12/11/2026) |
 | [`trazabilidad/`](trazabilidad/README.md) | Python | 160 | Matriz historia → criterio → caso → resultado | 130 / 130 criterios con caso |
-| `evidencias/` | — | — | Reportes de la última corrida (Karate, Selenium, concurrencia) | — |
+| `evidencias/` | — | — | Reportes conservados de Karate, Selenium, concurrencia y casos manuales | — |
 | `postman/` | Postman + Newman | — | Colección de la versión base (20 historias); complementaria, fuera de la trazabilidad | — |
 
 Además hay 3 casos manuales (`TC-MAN-001` a `003`) con sus pasos en
@@ -94,5 +94,6 @@ Cómo subirlos a Jira: [`docs/4-jira/guia-de-importacion.md`](../docs/4-jira/gui
 
 ## Evidencias de ejecución
 
-- **Appium.** El reporte incluye el error y las capturas disponibles para cada caso.
+- **Automatizadas.** Se aprobaron 157 casos con evidencia. Las corridas completas y los casos repetidos en Kiri el 25/11/2026 están en el [estado de las pruebas](../docs/2-pruebas/estrategia-de-pruebas.md#10-estado-actual).
+- **Appium.** La corrida de referencia registró 26 aprobaciones y las repeticiones completaron los 32 casos. Cada reporte conserva las capturas y los errores del intento correspondiente.
 - **Manuales.** Los tres casos pasaron el 12/11/2026. Sus capturas están en `evidencias/manuales/` y sus resultados en `trazabilidad/datos/resultados_manuales.json`.

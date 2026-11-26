@@ -1,0 +1,672 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1795652279564,66,setUp GET /auth/csrf,200,OK,setUp - Preparar datos de carrera (hotel con 1 unidad y tour con cupo limitado) 1-1,text,true,,612,205,1,1,http://localhost:8000/api/auth/csrf,52,0,37
+1795652279641,227,setUp POST /auth/login,200,OK,setUp - Preparar datos de carrera (hotel con 1 unidad y tour con cupo limitado) 1-1,text,true,,1283,435,1,1,http://localhost:8000/api/auth/login,227,0,0
+1795652279903,33,setUp POST /hoteles (1 unidad),201,Created,setUp - Preparar datos de carrera (hotel con 1 unidad y tour con cupo limitado) 1-1,text,true,,1047,1093,1,1,http://localhost:8000/api/hoteles,33,0,0
+1795652279939,18,setUp GET /hoteles/{id},200,OK,setUp - Preparar datos de carrera (hotel con 1 unidad y tour con cupo limitado) 1-1,text,true,,1036,763,1,1,http://localhost:8000/api/hoteles/54,18,0,0
+1795652279959,140,setUp POST /tours (cupo limitado),201,Created,setUp - Preparar datos de carrera (hotel con 1 unidad y tour con cupo limitado) 1-1,text,true,,1329,1096,1,1,http://localhost:8000/api/tours,140,0,0
+1795652280103,17,setUp GET /tours/{id}/salidas,200,OK,setUp - Preparar datos de carrera (hotel con 1 unidad y tour con cupo limitado) 1-1,text,true,,553,769,1,1,http://localhost:8000/api/tours/55/salidas,17,0,0
+1795652280152,107,setUp Publicar ids como propiedades,200,OK,setUp - Preparar datos de carrera (hotel con 1 unidad y tour con cupo limitado) 1-1,text,true,,34,0,1,1,null,0,0,0
+1795652281284,15,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-3,text,true,,612,205,6,6,http://localhost:8000/api/auth/csrf,15,0,1
+1795652281583,9,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-2,text,true,,612,205,7,7,http://localhost:8000/api/auth/csrf,9,0,1
+1795652281679,8,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-5,text,true,,612,205,7,7,http://localhost:8000/api/auth/csrf,8,0,0
+1795652281716,9,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-1,text,true,,612,205,8,8,http://localhost:8000/api/auth/csrf,9,0,1
+1795652281828,9,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-4,text,true,,612,205,8,8,http://localhost:8000/api/auth/csrf,9,0,1
+1795652282203,10,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-6,text,true,,612,205,10,10,http://localhost:8000/api/auth/csrf,10,0,1
+1795652282227,9,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-8,text,true,,612,205,10,10,http://localhost:8000/api/auth/csrf,9,0,1
+1795652282247,205,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-3,text,true,,1260,440,11,11,http://localhost:8000/api/auth/login,205,0,0
+1795652282278,206,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-2,text,true,,1260,440,11,11,http://localhost:8000/api/auth/login,206,0,0
+1795652282515,11,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-7,text,true,,612,205,12,12,http://localhost:8000/api/auth/csrf,11,0,1
+1795652282640,11,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-9,text,true,,612,205,12,12,http://localhost:8000/api/auth/csrf,11,0,1
+1795652282724,215,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-4,text,true,,1260,440,14,14,http://localhost:8000/api/auth/login,214,0,0
+1795652282997,12,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-3,text,true,,650,764,14,14,http://localhost:8000/api/auth/me,12,0,0
+1795652283020,21,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-12,text,true,,612,205,14,14,http://localhost:8000/api/auth/csrf,21,0,1
+1795652282981,213,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-5,text,true,,1260,440,15,15,http://localhost:8000/api/auth/login,213,0,0
+1795652283057,214,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-1,text,true,,1260,440,15,15,http://localhost:8000/api/auth/login,213,0,0
+1795652283339,14,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-2,text,true,,650,764,16,16,http://localhost:8000/api/auth/me,14,0,0
+1795652283170,207,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-6,text,true,,1260,440,16,16,http://localhost:8000/api/auth/login,207,0,0
+1795652283234,208,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-9,text,true,,1260,440,16,16,http://localhost:8000/api/auth/login,208,0,0
+1795652283286,210,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-7,text,true,,1260,440,17,17,http://localhost:8000/api/auth/login,209,0,0
+1795652283492,13,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-4,text,true,,650,764,17,17,http://localhost:8000/api/auth/me,13,0,0
+1795652283606,12,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-3,text,true,,525,790,17,17,http://localhost:8000/api/auth/logout,12,0,0
+1795652283552,204,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-8,text,true,,1260,440,18,18,http://localhost:8000/api/auth/login,204,0,0
+1795652283502,262,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-11,text,true,,612,205,18,18,http://localhost:8000/api/auth/csrf,262,0,1
+1795652283491,273,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-10,text,true,,612,205,18,18,http://localhost:8000/api/auth/csrf,273,0,1
+1795652283917,11,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-5,text,true,,650,764,19,19,http://localhost:8000/api/auth/me,10,0,0
+1795652283980,11,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-2,text,true,,525,790,19,19,http://localhost:8000/api/auth/logout,11,0,0
+1795652284078,15,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-9,text,true,,650,764,20,20,http://localhost:8000/api/auth/me,15,0,0
+1795652284194,11,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-4,text,true,,525,790,20,20,http://localhost:8000/api/auth/logout,11,0,0
+1795652284098,201,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-12,text,true,,1264,441,21,21,http://localhost:8000/api/auth/login,201,0,0
+1795652284408,10,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-1,text,true,,650,764,21,21,http://localhost:8000/api/auth/me,10,0,0
+1795652284416,11,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-7,text,true,,650,764,21,21,http://localhost:8000/api/auth/me,11,0,0
+1795652284422,7,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-3,text,true,,631,376,21,21,http://localhost:8000/api/auth/csrf,7,0,0
+1795652284702,13,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-9,text,true,,525,790,23,23,http://localhost:8000/api/auth/logout,13,0,0
+1795652283634,1134,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-13,text,true,,612,205,23,23,http://localhost:8000/api/auth/csrf,1134,0,2
+1795652283711,1060,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-14,text,true,,612,205,23,23,http://localhost:8000/api/auth/csrf,1060,0,2
+1795652284264,510,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-16,text,true,,612,205,23,23,http://localhost:8000/api/auth/csrf,509,0,1
+1795652284435,342,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-19,text,true,,612,205,23,23,http://localhost:8000/api/auth/csrf,341,0,1
+1795652284813,8,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-4,text,true,,631,376,23,23,http://localhost:8000/api/auth/csrf,8,0,0
+1795652284868,13,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-6,text,true,,650,764,23,23,http://localhost:8000/api/auth/me,12,0,0
+1795652284888,13,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-5,text,true,,525,790,24,24,http://localhost:8000/api/auth/logout,13,0,0
+1795652284697,208,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-11,text,true,,1264,441,24,24,http://localhost:8000/api/auth/login,208,0,0
+1795652285057,12,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-1,text,true,,525,790,24,24,http://localhost:8000/api/auth/logout,12,0,0
+1795652285115,13,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-12,text,true,,652,766,25,25,http://localhost:8000/api/auth/me,13,0,0
+1795652285121,16,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-8,text,true,,650,764,25,25,http://localhost:8000/api/auth/me,16,0,0
+1795652284969,218,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-3,text,true,,1264,463,25,25,http://localhost:8000/api/auth/login,218,0,0
+1795652285098,257,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-10,text,true,,1264,441,26,26,http://localhost:8000/api/auth/login,256,0,0
+1795652285473,10,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-2,text,true,,631,376,26,26,http://localhost:8000/api/auth/csrf,9,0,0
+1795652285501,8,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-5,text,true,,631,376,27,27,http://localhost:8000/api/auth/csrf,8,0,0
+1795652285552,12,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-7,text,true,,525,790,27,27,http://localhost:8000/api/auth/logout,12,0,0
+1795652285743,12,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-6,text,true,,525,790,28,28,http://localhost:8000/api/auth/logout,12,0,0
+1795652284495,1288,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-15,text,true,,612,205,28,28,http://localhost:8000/api/auth/csrf,1288,0,0
+1795652284770,1016,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-17,text,true,,612,205,28,28,http://localhost:8000/api/auth/csrf,1015,0,1
+1795652284579,1207,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-18,text,true,,612,205,28,28,http://localhost:8000/api/auth/csrf,1207,0,1
+1795652284971,818,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-20,text,true,,612,205,28,28,http://localhost:8000/api/auth/csrf,818,0,1
+1795652285399,393,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-24,text,true,,612,205,28,28,http://localhost:8000/api/auth/csrf,392,0,1
+1795652285483,311,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-22,text,true,,612,205,28,28,http://localhost:8000/api/auth/csrf,310,0,1
+1795652285485,310,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-21,text,true,,612,205,28,28,http://localhost:8000/api/auth/csrf,309,0,1
+1795652285641,208,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-13,text,true,,1264,441,28,28,http://localhost:8000/api/auth/login,208,0,0
+1795652285868,8,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-1,text,true,,631,376,28,28,http://localhost:8000/api/auth/csrf,8,0,0
+1795652285877,17,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-25,text,true,,612,205,29,29,http://localhost:8000/api/auth/csrf,16,0,1
+1795652285963,7,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-9,text,true,,631,376,29,29,http://localhost:8000/api/auth/csrf,7,0,0
+1795652286041,12,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-11,text,true,,652,766,29,29,http://localhost:8000/api/auth/me,12,0,0
+1795652286152,13,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-10,text,true,,652,766,30,30,http://localhost:8000/api/auth/me,12,0,0
+1795652285955,213,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-14,text,true,,1264,441,30,30,http://localhost:8000/api/auth/login,212,0,0
+1795652286010,212,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-19,text,true,,1264,441,30,30,http://localhost:8000/api/auth/login,212,0,0
+1795652286217,10,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-3,text,true,,652,766,30,30,http://localhost:8000/api/auth/me,10,0,0
+1795652286256,11,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-8,text,true,,525,790,30,30,http://localhost:8000/api/auth/logout,10,0,0
+1795652286146,204,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-4,text,true,,1264,463,31,31,http://localhost:8000/api/auth/login,204,0,0
+1795652286239,205,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-16,text,true,,1264,441,31,31,http://localhost:8000/api/auth/login,204,0,0
+1795652286449,13,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-12,text,true,,525,792,31,31,http://localhost:8000/api/auth/logout,13,0,0
+1795652286334,205,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-15,text,true,,1264,441,32,32,http://localhost:8000/api/auth/login,204,0,0
+1795652286560,15,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-13,text,true,,652,766,32,32,http://localhost:8000/api/auth/me,14,0,0
+1795652286388,209,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-2,text,true,,1264,463,32,32,http://localhost:8000/api/auth/login,209,0,0
+1795652286431,211,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-24,text,true,,1264,441,32,32,http://localhost:8000/api/auth/login,211,0,0
+1795652286558,211,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-5,text,true,,1264,463,33,33,http://localhost:8000/api/auth/login,211,0,0
+1795652286137,669,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-23,text,true,,612,205,33,33,http://localhost:8000/api/auth/csrf,669,0,1
+1795652286442,374,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-26,text,true,,612,205,33,33,http://localhost:8000/api/auth/csrf,374,0,1
+1795652286496,335,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-27,text,true,,612,205,33,33,http://localhost:8000/api/auth/csrf,335,0,1
+1795652286529,304,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-28,text,true,,612,205,33,33,http://localhost:8000/api/auth/csrf,303,0,1
+1795652286789,52,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-30,text,true,,612,205,33,33,http://localhost:8000/api/auth/csrf,51,0,1
+1795652286883,9,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-8,text,true,,631,376,34,34,http://localhost:8000/api/auth/csrf,9,0,0
+1795652286699,215,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-1,text,true,,1264,463,34,34,http://localhost:8000/api/auth/login,215,0,0
+1795652286896,18,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-31,text,true,,612,205,34,34,http://localhost:8000/api/auth/csrf,18,0,2
+1795652286717,222,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-20,text,true,,1264,441,34,34,http://localhost:8000/api/auth/login,222,0,0
+1795652286966,8,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-6,text,true,,631,376,34,34,http://localhost:8000/api/auth/csrf,8,0,0
+1795652287023,11,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-7,text,true,,631,376,34,34,http://localhost:8000/api/auth/csrf,11,0,0
+1795652287033,12,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-4,text,true,,652,766,34,34,http://localhost:8000/api/auth/me,11,0,0
+1795652286821,229,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-22,text,true,,1264,441,34,34,http://localhost:8000/api/auth/login,229,0,0
+1795652287067,11,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-19,text,true,,652,766,34,34,http://localhost:8000/api/auth/me,11,0,0
+1795652286857,229,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-9,text,true,,1264,463,35,35,http://localhost:8000/api/auth/login,229,0,0
+1795652287110,11,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-14,text,true,,652,766,35,35,http://localhost:8000/api/auth/me,11,0,0
+1795652287248,13,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-2,text,true,,652,766,35,35,http://localhost:8000/api/auth/me,13,0,0
+1795652287073,209,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-25,text,true,,1260,440,35,35,http://localhost:8000/api/auth/login,209,0,0
+1795652287268,15,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-10,text,true,,525,792,35,35,http://localhost:8000/api/auth/logout,14,0,0
+1795652287099,212,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-17,text,true,,1264,441,36,36,http://localhost:8000/api/auth/login,212,0,0
+1795652287285,28,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-29,text,true,,612,205,36,36,http://localhost:8000/api/auth/csrf,28,0,1
+1795652287189,206,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-18,text,true,,1264,441,36,36,http://localhost:8000/api/auth/login,206,0,0
+1795652287191,207,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-21,text,true,,1264,441,36,36,http://localhost:8000/api/auth/login,207,0,0
+1795652287401,12,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-11,text,true,,525,792,36,36,http://localhost:8000/api/auth/logout,11,0,0
+1795652287483,12,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-13,text,true,,525,792,37,37,http://localhost:8000/api/auth/logout,11,0,0
+1795652287554,11,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-16,text,true,,652,766,37,37,http://localhost:8000/api/auth/me,11,0,0
+1795652287561,14,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-3,text,true,,525,792,37,37,http://localhost:8000/api/auth/logout,13,0,0
+1795652287569,12,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-5,text,true,,652,766,37,37,http://localhost:8000/api/auth/me,12,0,0
+1795652287599,19,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-32,text,true,,612,205,37,37,http://localhost:8000/api/auth/csrf,19,0,1
+1795652287633,12,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-9,text,true,,652,766,37,37,http://localhost:8000/api/auth/me,12,0,0
+1795652287502,206,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-26,text,true,,1260,440,38,38,http://localhost:8000/api/auth/login,206,0,0
+1795652287508,208,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-31,text,true,,1264,441,38,38,http://localhost:8000/api/auth/login,208,0,0
+1795652287539,215,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-23,text,true,,1264,441,38,38,http://localhost:8000/api/auth/login,214,0,0
+1795652287780,15,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-4,text,true,,525,792,38,38,http://localhost:8000/api/auth/logout,14,0,0
+1795652287797,24,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-35,text,true,,612,205,38,38,http://localhost:8000/api/auth/csrf,23,0,1
+1795652287647,209,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-7,text,true,,1260,462,38,38,http://localhost:8000/api/auth/login,208,0,0
+1795652287874,13,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-14,text,true,,525,792,39,39,http://localhost:8000/api/auth/logout,12,0,0
+1795652287892,7,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-12,text,true,,631,376,39,39,http://localhost:8000/api/auth/csrf,7,0,0
+1795652287698,213,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-8,text,true,,1260,462,39,39,http://localhost:8000/api/auth/login,213,0,0
+1795652287923,13,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-22,text,true,,652,766,39,39,http://localhost:8000/api/auth/me,13,0,0
+1795652287967,11,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-15,text,true,,652,766,39,39,http://localhost:8000/api/auth/me,10,0,0
+1795652288069,15,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-16,text,true,,525,792,39,39,http://localhost:8000/api/auth/logout,14,0,0
+1795652288082,14,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-33,text,true,,612,205,40,40,http://localhost:8000/api/auth/csrf,14,0,1
+1795652288075,22,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-34,text,true,,612,205,40,40,http://localhost:8000/api/auth/csrf,21,0,1
+1795652287896,211,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-27,text,true,,1260,440,40,40,http://localhost:8000/api/auth/login,211,0,0
+1795652288130,10,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-1,text,true,,652,766,40,40,http://localhost:8000/api/auth/me,10,0,0
+1795652288143,12,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-24,text,true,,652,766,40,40,http://localhost:8000/api/auth/me,11,0,0
+1795652288008,209,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-28,text,true,,1260,440,40,40,http://localhost:8000/api/auth/login,209,0,0
+1795652288225,10,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-20,text,true,,652,766,40,40,http://localhost:8000/api/auth/me,10,0,0
+1795652288264,7,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-13,text,true,,631,376,40,40,http://localhost:8000/api/auth/csrf,7,0,0
+1795652288264,10,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-17,text,true,,652,766,40,40,http://localhost:8000/api/auth/me,10,0,0
+1795652288288,12,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-19,text,true,,525,792,41,41,http://localhost:8000/api/auth/logout,12,0,0
+1795652288298,16,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-37,text,true,,612,205,41,41,http://localhost:8000/api/auth/csrf,15,0,1
+1795652288146,203,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-30,text,true,,1260,440,41,41,http://localhost:8000/api/auth/login,203,0,0
+1795652288378,10,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-18,text,true,,652,766,41,41,http://localhost:8000/api/auth/me,10,0,0
+1795652288410,19,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-38,text,true,,612,205,41,41,http://localhost:8000/api/auth/csrf,19,0,1
+1795652288428,17,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-36,text,true,,612,205,41,41,http://localhost:8000/api/auth/csrf,17,0,1
+1795652288458,13,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-2,text,true,,525,792,41,41,http://localhost:8000/api/auth/logout,12,0,0
+1795652288462,13,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-25,text,true,,650,764,41,41,http://localhost:8000/api/auth/me,13,0,0
+1795652288330,203,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-6,text,true,,1260,462,42,42,http://localhost:8000/api/auth/login,202,0,0
+1795652288587,8,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-4,text,true,,631,376,42,42,http://localhost:8000/api/auth/csrf,8,0,0
+1795652288405,205,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-32,text,true,,1264,441,42,42,http://localhost:8000/api/auth/login,204,0,0
+1795652288659,10,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-11,text,true,,631,376,42,42,http://localhost:8000/api/auth/csrf,10,0,0
+1795652288662,9,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-10,text,true,,631,376,42,42,http://localhost:8000/api/auth/csrf,9,0,0
+1795652288660,16,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-21,text,true,,652,766,42,42,http://localhost:8000/api/auth/me,15,0,0
+1795652288501,204,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-35,text,true,,1264,441,43,43,http://localhost:8000/api/auth/login,203,0,0
+1795652288722,7,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-16,text,true,,631,376,43,43,http://localhost:8000/api/auth/csrf,7,0,0
+1795652288518,211,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-29,text,true,,1260,440,43,43,http://localhost:8000/api/auth/login,211,0,0
+1795652288750,7,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-3,text,true,,631,376,43,43,http://localhost:8000/api/auth/csrf,7,0,0
+1795652288750,14,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-22,text,true,,525,792,43,43,http://localhost:8000/api/auth/logout,14,0,0
+1795652288788,11,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-5,text,true,,525,792,43,43,http://localhost:8000/api/auth/logout,10,0,0
+1795652288809,12,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-9,text,true,,525,792,43,43,http://localhost:8000/api/auth/logout,11,0,0
+1795652288848,11,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-27,text,true,,650,764,43,43,http://localhost:8000/api/auth/me,11,0,0
+1795652288863,18,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-40,text,true,,612,205,43,43,http://localhost:8000/api/auth/csrf,17,0,1
+1795652288888,12,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-7,text,true,,650,764,44,44,http://localhost:8000/api/auth/me,12,0,0
+1795652288903,12,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-1,text,true,,525,792,44,44,http://localhost:8000/api/auth/logout,11,0,0
+1795652288922,11,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-26,text,true,,650,764,44,44,http://localhost:8000/api/auth/me,11,0,0
+1795652288928,13,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-18,text,true,,525,792,44,44,http://localhost:8000/api/auth/logout,13,0,0
+1795652288931,12,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-31,text,true,,652,766,44,44,http://localhost:8000/api/auth/me,12,0,0
+1795652288945,10,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-23,text,true,,652,766,44,44,http://localhost:8000/api/auth/me,10,0,0
+1795652288989,18,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-39,text,true,,612,205,44,44,http://localhost:8000/api/auth/csrf,18,0,0
+1795652289077,10,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-28,text,true,,650,764,45,45,http://localhost:8000/api/auth/me,10,0,0
+1795652289185,18,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-30,text,true,,650,764,45,45,http://localhost:8000/api/auth/me,18,0,0
+1795652289217,13,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-19,text,true,,631,376,45,45,http://localhost:8000/api/auth/csrf,13,0,0
+1795652289230,17,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-8,text,true,,650,764,45,45,http://localhost:8000/api/auth/me,15,0,0
+1795652289197,60,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-41,text,true,,612,205,45,45,http://localhost:8000/api/auth/csrf,60,0,1
+1795652289090,222,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-37,text,true,,1264,441,46,46,http://localhost:8000/api/auth/login,222,0,0
+1795652289299,14,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-15,text,true,,525,792,46,46,http://localhost:8000/api/auth/logout,13,0,0
+1795652289143,227,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-36,text,true,,1264,441,46,46,http://localhost:8000/api/auth/login,226,0,0
+1795652289148,223,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-12,text,true,,1264,463,46,46,http://localhost:8000/api/auth/login,222,0,0
+1795652289381,8,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-14,text,true,,631,376,46,46,http://localhost:8000/api/auth/csrf,8,0,0
+1795652289390,13,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-21,text,true,,525,792,46,46,http://localhost:8000/api/auth/logout,12,0,0
+1795652289175,229,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-34,text,true,,1264,441,46,46,http://localhost:8000/api/auth/login,229,0,0
+1795652289400,20,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-24,text,true,,525,792,46,46,http://localhost:8000/api/auth/logout,19,0,0
+1795652289408,14,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-20,text,true,,525,792,46,46,http://localhost:8000/api/auth/logout,13,0,0
+1795652289184,242,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-10,text,true,,1264,463,46,46,http://localhost:8000/api/auth/login,242,0,0
+1795652289211,229,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-4,text,true,,1264,463,46,46,http://localhost:8000/api/auth/login,229,0,0
+1795652289307,221,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-11,text,true,,1264,463,47,47,http://localhost:8000/api/auth/login,221,0,0
+1795652289606,14,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-26,text,true,,525,790,47,47,http://localhost:8000/api/auth/logout,14,0,0
+1795652289611,15,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-23,text,true,,525,792,47,47,http://localhost:8000/api/auth/logout,15,0,0
+1795652289646,9,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-9,text,true,,631,376,47,47,http://localhost:8000/api/auth/csrf,9,0,0
+1795652289647,10,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-1,text,true,,631,376,47,47,http://localhost:8000/api/auth/csrf,9,0,0
+1795652289651,15,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-32,text,true,,652,766,47,47,http://localhost:8000/api/auth/me,14,0,0
+1795652289460,212,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-3,text,true,,1264,463,47,47,http://localhost:8000/api/auth/login,211,0,0
+1795652289667,13,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-6,text,true,,650,764,47,47,http://localhost:8000/api/auth/me,13,0,0
+1795652289668,15,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-17,text,true,,525,792,47,47,http://localhost:8000/api/auth/logout,15,0,0
+1795652289732,9,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-22,text,true,,631,376,48,48,http://localhost:8000/api/auth/csrf,9,0,0
+1795652289533,218,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-33,text,true,,1264,441,48,48,http://localhost:8000/api/auth/login,217,0,0
+1795652289549,209,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-13,text,true,,1264,463,48,48,http://localhost:8000/api/auth/login,209,0,0
+1795652289780,9,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-5,text,true,,631,376,48,48,http://localhost:8000/api/auth/csrf,9,0,0
+1795652289593,213,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-39,text,true,,1264,441,48,48,http://localhost:8000/api/auth/login,213,0,0
+1795652289612,217,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-38,text,true,,1264,441,48,48,http://localhost:8000/api/auth/login,216,0,0
+1795652289848,9,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-18,text,true,,631,376,48,48,http://localhost:8000/api/auth/csrf,9,0,0
+1795652289848,9,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-2,text,true,,631,376,48,48,http://localhost:8000/api/auth/csrf,9,0,0
+1795652289881,16,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-31,text,true,,525,792,49,49,http://localhost:8000/api/auth/logout,16,0,0
+1795652289888,15,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-27,text,true,,525,790,49,49,http://localhost:8000/api/auth/logout,15,0,0
+1795652289895,14,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-8,text,true,,525,790,49,49,http://localhost:8000/api/auth/logout,14,0,0
+1795652289311,612,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-42,text,true,,612,205,49,49,http://localhost:8000/api/auth/csrf,611,0,1
+1795652289749,181,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-45,text,true,,612,205,49,49,http://localhost:8000/api/auth/csrf,180,0,1
+1795652289723,211,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-40,text,true,,1264,441,49,49,http://localhost:8000/api/auth/login,210,0,0
+1795652289950,13,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-25,text,true,,525,790,49,49,http://localhost:8000/api/auth/logout,12,0,0
+1795652289975,7,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-24,text,true,,631,376,49,49,http://localhost:8000/api/auth/csrf,7,0,0
+1795652290095,17,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-29,text,true,,650,764,50,50,http://localhost:8000/api/auth/me,17,0,0
+1795652290114,10,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-36,text,true,,652,766,50,50,http://localhost:8000/api/auth/me,10,0,0
+1795652290113,12,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-28,text,true,,525,790,50,50,http://localhost:8000/api/auth/logout,12,0,0
+1795652290130,10,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-35,text,true,,652,766,50,50,http://localhost:8000/api/auth/me,10,0,0
+1795652290138,11,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-4,text,true,,652,766,50,50,http://localhost:8000/api/auth/me,11,0,0
+1795652290194,13,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-7,text,true,,525,790,50,50,http://localhost:8000/api/auth/logout,13,0,0
+1795652290207,16,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-6,text,true,,525,790,50,50,http://localhost:8000/api/auth/logout,16,0,0
+1795652290213,13,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-3,text,true,,652,766,50,50,http://localhost:8000/api/auth/me,12,0,0
+1795652290260,14,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-32,text,true,,525,792,50,50,http://localhost:8000/api/auth/logout,14,0,0
+1795652290266,14,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-12,text,true,,652,766,50,50,http://localhost:8000/api/auth/me,14,0,0
+1795652290288,9,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-23,text,true,,631,376,50,50,http://localhost:8000/api/auth/csrf,9,0,0
+1795652290288,13,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-11,text,true,,652,766,50,50,http://localhost:8000/api/auth/me,13,0,0
+1795652290100,210,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-41,text,true,,1264,441,50,50,http://localhost:8000/api/auth/login,210,0,0
+1795652290314,11,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-39,text,true,,652,766,50,50,http://localhost:8000/api/auth/me,11,0,0
+1795652290328,12,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-30,text,true,,525,790,50,50,http://localhost:8000/api/auth/logout,12,0,0
+1795652290142,209,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-14,text,true,,1264,463,50,50,http://localhost:8000/api/auth/login,209,0,0
+1795652290357,7,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-20,text,true,,631,376,50,50,http://localhost:8000/api/auth/csrf,7,0,0
+1795652290168,207,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-9,text,true,,1260,462,50,50,http://localhost:8000/api/auth/login,207,0,0
+1795652290370,12,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-10,text,true,,652,766,50,50,http://localhost:8000/api/auth/me,11,0,0
+1795652290177,210,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-16,text,true,,1264,463,50,50,http://localhost:8000/api/auth/login,210,0,0
+1795652290388,7,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-21,text,true,,631,376,50,50,http://localhost:8000/api/auth/csrf,7,0,0
+1795652290450,12,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-37,text,true,,652,766,50,50,http://localhost:8000/api/auth/me,12,0,0
+1795652290568,8,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-27,text,true,,631,376,50,50,http://localhost:8000/api/auth/csrf,7,0,0
+1795652290602,11,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-34,text,true,,652,766,50,50,http://localhost:8000/api/auth/me,10,0,0
+1795652290684,10,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-15,text,true,,631,376,50,50,http://localhost:8000/api/auth/csrf,9,0,0
+1795652290528,208,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-24,text,true,,1264,463,50,50,http://localhost:8000/api/auth/login,207,0,0
+1795652290742,7,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-6,text,true,,631,376,50,50,http://localhost:8000/api/auth/csrf,7,0,0
+1795652290594,205,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-1,text,true,,1260,462,50,50,http://localhost:8000/api/auth/login,204,0,0
+1795652290800,6,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-7,text,true,,631,376,50,50,http://localhost:8000/api/auth/csrf,6,0,0
+1795652290835,11,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-38,text,true,,652,766,50,50,http://localhost:8000/api/auth/me,11,0,0
+1795652290684,211,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-19,text,true,,1264,463,50,50,http://localhost:8000/api/auth/login,211,0,0
+1795652290900,14,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-4,text,true,,525,792,50,50,http://localhost:8000/api/auth/logout,14,0,0
+1795652290717,206,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-42,text,true,,1260,440,49,49,http://localhost:8000/api/auth/login,205,0,0
+1795652289964,960,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-43,text,true,,612,205,49,49,http://localhost:8000/api/auth/csrf,960,0,1
+1795652290105,831,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-47,text,true,,612,205,49,49,http://localhost:8000/api/auth/csrf,831,0,0
+1795652290733,207,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-18,text,true,,1260,462,49,49,http://localhost:8000/api/auth/login,206,0,0
+1795652290199,743,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-44,text,true,,612,205,49,49,http://localhost:8000/api/auth/csrf,743,0,1
+1795652290216,726,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-46,text,true,,612,205,49,49,http://localhost:8000/api/auth/csrf,726,0,0
+1795652290583,365,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-49,text,true,,612,205,49,49,http://localhost:8000/api/auth/csrf,365,0,0
+1795652290858,205,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-2,text,true,,1264,463,49,49,http://localhost:8000/api/auth/login,204,0,0
+1795652291107,7,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-26,text,true,,631,376,49,49,http://localhost:8000/api/auth/csrf,7,0,0
+1795652291126,9,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-17,text,true,,631,376,49,49,http://localhost:8000/api/auth/csrf,9,0,0
+1795652291126,14,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-13,text,true,,652,766,49,49,http://localhost:8000/api/auth/me,13,0,0
+1795652291138,17,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-39,text,true,,525,792,49,49,http://localhost:8000/api/auth/logout,16,0,0
+1795652291178,7,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-31,text,true,,631,376,49,49,http://localhost:8000/api/auth/csrf,7,0,0
+1795652291193,11,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-33,text,true,,652,766,49,49,http://localhost:8000/api/auth/me,11,0,0
+1795652291250,12,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-40,text,true,,652,766,49,49,http://localhost:8000/api/auth/me,12,0,0
+1795652291247,15,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-36,text,true,,525,792,49,49,http://localhost:8000/api/auth/logout,15,0,0
+1795652291063,206,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-22,text,true,,1260,462,49,49,http://localhost:8000/api/auth/login,206,0,0
+1795652291114,207,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-23,text,true,,1264,463,49,49,http://localhost:8000/api/auth/login,207,0,0
+1795652291320,8,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-25,text,true,,631,376,49,49,http://localhost:8000/api/auth/csrf,7,0,0
+1795652291349,6,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-32,text,true,,631,376,49,49,http://localhost:8000/api/auth/csrf,6,0,0
+1795652291361,11,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-41,text,true,,652,766,49,49,http://localhost:8000/api/auth/me,11,0,0
+1795652291377,10,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-8,text,true,,631,376,49,49,http://localhost:8000/api/auth/csrf,10,0,0
+1795652291383,10,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-30,text,true,,631,376,49,49,http://localhost:8000/api/auth/csrf,10,0,0
+1795652291400,12,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-37,text,true,,525,792,49,49,http://localhost:8000/api/auth/logout,11,0,0
+1795652291398,14,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-12,text,true,,525,792,49,49,http://localhost:8000/api/auth/logout,14,0,0
+1795652291204,209,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-5,text,true,,1260,462,49,49,http://localhost:8000/api/auth/login,209,0,0
+1795652291431,12,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-34,text,true,,525,792,49,49,http://localhost:8000/api/auth/logout,11,0,0
+1795652291444,12,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-29,text,true,,525,790,49,49,http://localhost:8000/api/auth/logout,11,0,0
+1795652291460,14,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-11,text,true,,525,792,49,49,http://localhost:8000/api/auth/logout,14,0,0
+1795652291273,207,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-45,text,true,,1260,440,49,49,http://localhost:8000/api/auth/login,207,0,0
+1795652291316,207,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-7,text,true,,1264,463,49,49,http://localhost:8000/api/auth/login,206,0,0
+1795652291547,12,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-3,text,true,,525,792,49,49,http://localhost:8000/api/auth/logout,12,0,0
+1795652291560,7,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-28,text,true,,631,376,48,48,http://localhost:8000/api/auth/csrf,7,0,0
+1795652291053,514,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-50,text,true,,612,205,48,48,http://localhost:8000/api/auth/csrf,514,0,1
+1795652291364,209,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-21,text,true,,1264,463,48,48,http://localhost:8000/api/auth/login,209,0,0
+1795652291375,212,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-20,text,true,,1264,463,48,48,http://localhost:8000/api/auth/login,211,0,0
+1795652291640,12,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-35,text,true,,525,792,48,48,http://localhost:8000/api/auth/logout,12,0,0
+1795652291650,12,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-9,text,true,,650,764,48,48,http://localhost:8000/api/auth/me,12,0,0
+1795652291473,205,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-44,text,true,,1260,440,48,48,http://localhost:8000/api/auth/login,205,0,0
+1795652291675,12,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-14,text,true,,652,766,48,48,http://localhost:8000/api/auth/me,11,0,0
+1795652291512,203,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-49,text,true,,1264,441,48,48,http://localhost:8000/api/auth/login,203,0,0
+1795652291767,10,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-1,text,true,,650,764,48,48,http://localhost:8000/api/auth/me,10,0,0
+1795652291773,11,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-22,text,true,,650,764,48,48,http://localhost:8000/api/auth/me,11,0,0
+1795652291641,201,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-43,text,true,,1260,440,48,48,http://localhost:8000/api/auth/login,201,0,0
+1795652291839,11,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-16,text,true,,652,766,48,48,http://localhost:8000/api/auth/me,10,0,0
+1795652291840,11,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-10,text,true,,525,792,48,48,http://localhost:8000/api/auth/logout,11,0,0
+1795652291907,15,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-40,text,true,,525,792,48,48,http://localhost:8000/api/auth/logout,15,0,0
+1795652291143,809,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-48,text,true,,612,205,48,48,http://localhost:8000/api/auth/csrf,809,0,2
+1795652292003,8,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-36,text,true,,631,376,48,48,http://localhost:8000/api/auth/csrf,7,0,0
+1795652291821,202,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-27,text,true,,1264,463,48,48,http://localhost:8000/api/auth/login,201,0,0
+1795652291835,203,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-17,text,true,,1264,463,48,48,http://localhost:8000/api/auth/login,203,0,0
+1795652292081,11,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-13,text,true,,525,792,48,48,http://localhost:8000/api/auth/logout,11,0,0
+1795652292089,12,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-19,text,true,,652,766,48,48,http://localhost:8000/api/auth/me,12,0,0
+1795652292093,13,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-33,text,true,,525,792,48,48,http://localhost:8000/api/auth/logout,13,0,0
+1795652292112,6,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-34,text,true,,631,376,48,48,http://localhost:8000/api/auth/csrf,6,0,0
+1795652291928,205,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-31,text,true,,1264,463,48,48,http://localhost:8000/api/auth/login,205,0,0
+1795652292129,12,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-24,text,true,,652,766,48,48,http://localhost:8000/api/auth/me,12,0,0
+1795652291936,208,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-26,text,true,,1264,463,48,48,http://localhost:8000/api/auth/login,207,0,0
+1795652292153,7,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-11,text,true,,631,376,48,48,http://localhost:8000/api/auth/csrf,7,0,0
+1795652292151,12,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-41,text,true,,525,792,48,48,http://localhost:8000/api/auth/logout,11,0,0
+1795652291977,208,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-15,text,true,,1264,463,48,48,http://localhost:8000/api/auth/login,208,0,0
+1795652291984,206,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-25,text,true,,1264,463,48,48,http://localhost:8000/api/auth/login,205,0,0
+1795652292188,15,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-38,text,true,,525,792,48,48,http://localhost:8000/api/auth/logout,14,0,0
+1795652292195,8,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-35,text,true,,631,376,48,48,http://localhost:8000/api/auth/csrf,8,0,0
+1795652292206,14,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-14,text,true,,525,792,48,48,http://localhost:8000/api/auth/logout,13,0,0
+1795652292211,9,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-12,text,true,,631,376,48,48,http://localhost:8000/api/auth/csrf,8,0,0
+1795652292233,11,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-49,text,true,,652,766,48,48,http://localhost:8000/api/auth/me,10,0,0
+1795652292294,11,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-18,text,true,,650,764,48,48,http://localhost:8000/api/auth/me,10,0,0
+1795652292093,219,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-47,text,true,,1264,441,48,48,http://localhost:8000/api/auth/login,218,0,0
+1795652292323,16,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-22,text,true,,525,790,48,48,http://localhost:8000/api/auth/logout,16,0,0
+1795652292134,215,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-6,text,true,,1264,463,48,48,http://localhost:8000/api/auth/login,215,0,0
+1795652292182,208,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-30,text,true,,1264,463,48,48,http://localhost:8000/api/auth/login,208,0,0
+1795652292387,11,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-42,text,true,,650,764,48,48,http://localhost:8000/api/auth/me,10,0,0
+1795652292210,208,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-32,text,true,,1264,463,48,48,http://localhost:8000/api/auth/login,208,0,0
+1795652292222,206,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-46,text,true,,1264,441,48,48,http://localhost:8000/api/auth/login,205,0,0
+1795652292250,207,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-28,text,true,,1264,463,48,48,http://localhost:8000/api/auth/login,206,0,0
+1795652292460,10,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-2,text,true,,652,766,48,48,http://localhost:8000/api/auth/me,10,0,0
+1795652292491,10,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-23,text,true,,652,766,48,48,http://localhost:8000/api/auth/me,9,0,0
+1795652292499,10,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-44,text,true,,650,764,48,48,http://localhost:8000/api/auth/me,10,0,0
+1795652292564,7,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-37,text,true,,631,376,48,48,http://localhost:8000/api/auth/csrf,7,0,0
+1795652292572,10,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-17,text,true,,652,766,48,48,http://localhost:8000/api/auth/me,9,0,0
+1795652292649,7,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-39,text,true,,631,376,48,48,http://localhost:8000/api/auth/csrf,7,0,0
+1795652292658,13,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-1,text,true,,525,790,48,48,http://localhost:8000/api/auth/logout,12,0,0
+1795652292669,7,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-29,text,true,,631,376,47,47,http://localhost:8000/api/auth/csrf,7,0,0
+1795652292682,10,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-5,text,true,,650,764,47,47,http://localhost:8000/api/auth/me,10,0,0
+1795652292704,10,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-21,text,true,,652,766,47,47,http://localhost:8000/api/auth/me,10,0,0
+1795652292731,9,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-45,text,true,,650,764,47,47,http://localhost:8000/api/auth/me,9,0,0
+1795652292539,203,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-48,text,true,,1264,441,47,47,http://localhost:8000/api/auth/login,202,0,0
+1795652292751,9,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-38,text,true,,631,376,47,47,http://localhost:8000/api/auth/csrf,9,0,0
+1795652292773,9,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-40,text,true,,631,376,47,47,http://localhost:8000/api/auth/csrf,9,0,0
+1795652292620,203,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-8,text,true,,1264,463,47,47,http://localhost:8000/api/auth/login,203,0,0
+1795652292833,12,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-31,text,true,,652,766,47,47,http://localhost:8000/api/auth/me,11,0,0
+1795652292867,14,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-6,text,true,,652,766,47,47,http://localhost:8000/api/auth/me,14,0,0
+1795652292867,14,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-20,text,true,,652,766,47,47,http://localhost:8000/api/auth/me,14,0,0
+1795652292887,10,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-7,text,true,,652,766,47,47,http://localhost:8000/api/auth/me,10,0,0
+1795652292895,11,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-49,text,true,,525,792,47,47,http://localhost:8000/api/auth/logout,11,0,0
+1795652292897,13,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-43,text,true,,650,764,47,47,http://localhost:8000/api/auth/me,12,0,0
+1795652292920,12,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-47,text,true,,652,766,47,47,http://localhost:8000/api/auth/me,12,0,0
+1795652292930,11,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-26,text,true,,652,766,47,47,http://localhost:8000/api/auth/me,10,0,0
+1795652292977,7,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-10,text,true,,631,376,47,47,http://localhost:8000/api/auth/csrf,7,0,0
+1795652292982,8,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-14,text,true,,631,376,47,47,http://localhost:8000/api/auth/csrf,7,0,0
+1795652292831,203,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-35,text,true,,1260,462,47,47,http://localhost:8000/api/auth/login,202,0,0
+1795652293056,11,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-27,text,true,,652,766,47,47,http://localhost:8000/api/auth/me,11,0,0
+1795652293067,11,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-25,text,true,,652,766,47,47,http://localhost:8000/api/auth/me,11,0,0
+1795652293129,16,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-9,text,true,,525,790,47,47,http://localhost:8000/api/auth/logout,16,0,0
+1795652293133,14,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-2,text,true,,525,792,46,46,http://localhost:8000/api/auth/logout,14,0,0
+1795652292953,206,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-36,text,true,,1260,462,45,45,http://localhost:8000/api/auth/login,206,0,0
+1795652293163,12,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-16,text,true,,525,792,45,45,http://localhost:8000/api/auth/logout,11,0,0
+1795652293010,215,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-50,text,true,,1264,441,45,45,http://localhost:8000/api/auth/login,215,0,0
+1795652293217,15,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-17,text,true,,525,792,45,45,http://localhost:8000/api/auth/logout,14,0,0
+1795652293222,15,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-42,text,true,,525,790,45,45,http://localhost:8000/api/auth/logout,14,0,0
+1795652293279,11,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-46,text,true,,652,766,45,45,http://localhost:8000/api/auth/me,11,0,0
+1795652293351,11,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-8,text,true,,652,766,45,45,http://localhost:8000/api/auth/me,10,0,0
+1795652293350,12,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-18,text,true,,525,790,45,45,http://localhost:8000/api/auth/logout,12,0,0
+1795652293164,212,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-34,text,true,,1260,462,45,45,http://localhost:8000/api/auth/login,211,0,0
+1795652293386,11,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-24,text,true,,525,792,45,45,http://localhost:8000/api/auth/logout,11,0,0
+1795652293396,8,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-13,text,true,,631,376,45,45,http://localhost:8000/api/auth/csrf,8,0,0
+1795652293247,212,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-37,text,true,,1260,462,45,45,http://localhost:8000/api/auth/login,211,0,0
+1795652293460,12,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-6,text,true,,525,792,45,45,http://localhost:8000/api/auth/logout,11,0,0
+1795652293498,11,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-43,text,true,,525,790,44,44,http://localhost:8000/api/auth/logout,11,0,0
+1795652293500,14,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-21,text,true,,525,792,44,44,http://localhost:8000/api/auth/logout,14,0,0
+1795652293517,7,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-41,text,true,,631,376,44,44,http://localhost:8000/api/auth/csrf,7,0,0
+1795652293522,12,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-48,text,true,,652,766,44,44,http://localhost:8000/api/auth/me,12,0,0
+1795652293528,14,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-23,text,true,,525,792,44,44,http://localhost:8000/api/auth/logout,14,0,0
+1795652293540,13,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-19,text,true,,525,792,44,44,http://localhost:8000/api/auth/logout,13,0,0
+1795652293548,8,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-33,text,true,,631,376,44,44,http://localhost:8000/api/auth/csrf,7,0,0
+1795652293546,11,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-15,text,true,,652,766,44,44,http://localhost:8000/api/auth/me,11,0,0
+1795652293369,202,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-11,text,true,,1260,462,44,44,http://localhost:8000/api/auth/login,202,0,0
+1795652293614,12,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-26,text,true,,525,792,44,44,http://localhost:8000/api/auth/logout,12,0,0
+1795652293620,14,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-20,text,true,,525,792,44,44,http://localhost:8000/api/auth/logout,14,0,0
+1795652293622,16,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-45,text,true,,525,790,44,44,http://localhost:8000/api/auth/logout,16,0,0
+1795652293632,14,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-30,text,true,,652,766,44,44,http://localhost:8000/api/auth/me,13,0,0
+1795652293647,7,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-22,text,true,,631,376,44,44,http://localhost:8000/api/auth/csrf,7,0,0
+1795652293704,11,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-44,text,true,,525,790,44,44,http://localhost:8000/api/auth/logout,11,0,0
+1795652293737,13,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-5,text,true,,525,790,44,44,http://localhost:8000/api/auth/logout,13,0,0
+1795652293746,14,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-35,text,true,,650,764,43,43,http://localhost:8000/api/auth/me,14,0,0
+1795652293812,8,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-16,text,true,,631,376,43,43,http://localhost:8000/api/auth/csrf,8,0,0
+1795652293623,206,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-39,text,true,,1260,462,43,43,http://localhost:8000/api/auth/login,206,0,0
+1795652293826,13,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-32,text,true,,652,766,43,43,http://localhost:8000/api/auth/me,12,0,0
+1795652293635,208,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-29,text,true,,1260,462,43,43,http://localhost:8000/api/auth/login,208,0,0
+1795652293891,11,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-7,text,true,,525,792,43,43,http://localhost:8000/api/auth/logout,11,0,0
+1795652293703,203,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-12,text,true,,1260,462,42,42,http://localhost:8000/api/auth/login,203,0,0
+1795652293907,10,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-28,text,true,,652,766,42,42,http://localhost:8000/api/auth/me,10,0,0
+1795652293927,10,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-50,text,true,,652,766,42,42,http://localhost:8000/api/auth/me,10,0,0
+1795652293950,11,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-47,text,true,,525,792,42,42,http://localhost:8000/api/auth/logout,11,0,0
+1795652293959,6,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-49,text,true,,631,376,42,42,http://localhost:8000/api/auth/csrf,6,0,0
+1795652294059,13,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-31,text,true,,525,792,42,42,http://localhost:8000/api/auth/logout,13,0,0
+1795652294102,11,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-27,text,true,,525,792,42,42,http://localhost:8000/api/auth/logout,11,0,0
+1795652294183,9,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-43,text,true,,631,376,42,42,http://localhost:8000/api/auth/csrf,9,0,0
+1795652294193,8,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-17,text,true,,631,376,42,42,http://localhost:8000/api/auth/csrf,8,0,0
+1795652294004,204,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-10,text,true,,1260,462,42,42,http://localhost:8000/api/auth/login,203,0,0
+1795652294009,204,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-40,text,true,,1264,463,42,42,http://localhost:8000/api/auth/login,204,0,0
+1795652294340,9,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-18,text,true,,631,376,42,42,http://localhost:8000/api/auth/csrf,9,0,0
+1795652294341,9,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-24,text,true,,631,376,42,42,http://localhost:8000/api/auth/csrf,8,0,0
+1795652294155,198,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-38,text,true,,1264,463,42,42,http://localhost:8000/api/auth/login,197,0,0
+1795652294413,11,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-25,text,true,,525,792,42,42,http://localhost:8000/api/auth/logout,11,0,0
+1795652294224,201,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-14,text,true,,1264,463,42,42,http://localhost:8000/api/auth/login,201,0,0
+1795652294280,201,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-13,text,true,,1264,463,42,42,http://localhost:8000/api/auth/login,201,0,0
+1795652294483,7,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-44,text,true,,631,376,42,42,http://localhost:8000/api/auth/csrf,7,0,0
+1795652294518,7,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-23,text,true,,631,376,42,42,http://localhost:8000/api/auth/csrf,6,0,0
+1795652294548,9,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-36,text,true,,650,764,42,42,http://localhost:8000/api/auth/me,9,0,0
+1795652294576,6,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-21,text,true,,631,376,42,42,http://localhost:8000/api/auth/csrf,6,0,0
+1795652294598,10,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-34,text,true,,650,764,42,42,http://localhost:8000/api/auth/me,10,0,0
+1795652294613,10,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-11,text,true,,650,764,42,42,http://localhost:8000/api/auth/me,9,0,0
+1795652294628,12,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-8,text,true,,525,792,42,42,http://localhost:8000/api/auth/logout,11,0,0
+1795652294650,6,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-42,text,true,,631,376,41,41,http://localhost:8000/api/auth/csrf,6,0,0
+1795652294674,12,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-35,text,true,,525,790,41,41,http://localhost:8000/api/auth/logout,11,0,0
+1795652294500,200,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-41,text,true,,1264,463,41,41,http://localhost:8000/api/auth/login,199,0,0
+1795652294702,7,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-27,text,true,,631,376,41,41,http://localhost:8000/api/auth/csrf,6,0,0
+1795652294708,11,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-48,text,true,,525,792,41,41,http://localhost:8000/api/auth/logout,10,0,0
+1795652294750,10,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-46,text,true,,525,792,41,41,http://localhost:8000/api/auth/logout,10,0,0
+1795652294764,12,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-39,text,true,,650,764,41,41,http://localhost:8000/api/auth/me,12,0,0
+1795652294842,7,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-31,text,true,,631,376,41,41,http://localhost:8000/api/auth/csrf,7,0,0
+1795652294852,7,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-47,text,true,,631,376,41,41,http://localhost:8000/api/auth/csrf,7,0,0
+1795652294881,11,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-28,text,true,,525,792,41,41,http://localhost:8000/api/auth/logout,11,0,0
+1795652294900,10,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-37,text,true,,650,764,41,41,http://localhost:8000/api/auth/me,10,0,0
+1795652294901,12,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-38,text,true,,652,766,41,41,http://localhost:8000/api/auth/me,12,0,0
+1795652294912,14,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-50,text,true,,525,792,41,41,http://localhost:8000/api/auth/logout,14,0,0
+1795652294967,13,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-15,text,true,,525,792,41,41,http://localhost:8000/api/auth/logout,12,0,0
+1795652294977,8,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-19,text,true,,631,376,41,41,http://localhost:8000/api/auth/csrf,8,0,0
+1795652294801,198,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-22,text,true,,1264,463,41,41,http://localhost:8000/api/auth/login,198,0,0
+1795652294838,199,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-49,text,true,,1264,463,41,41,http://localhost:8000/api/auth/login,198,0,0
+1795652295064,6,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-26,text,true,,631,376,41,41,http://localhost:8000/api/auth/csrf,6,0,0
+1795652295078,11,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-30,text,true,,525,792,41,41,http://localhost:8000/api/auth/logout,10,0,0
+1795652295103,7,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-45,text,true,,631,376,41,41,http://localhost:8000/api/auth/csrf,7,0,0
+1795652295122,6,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-25,text,true,,631,376,41,41,http://localhost:8000/api/auth/csrf,6,0,0
+1795652295133,8,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-20,text,true,,631,376,41,41,http://localhost:8000/api/auth/csrf,8,0,0
+1795652295002,198,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-33,text,true,,1264,463,41,41,http://localhost:8000/api/auth/login,198,0,0
+1795652295215,10,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-32,text,true,,525,792,41,41,http://localhost:8000/api/auth/logout,10,0,0
+1795652295222,10,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-29,text,true,,650,764,41,41,http://localhost:8000/api/auth/me,10,0,0
+1795652295085,199,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-17,text,true,,1264,463,41,41,http://localhost:8000/api/auth/login,198,0,0
+1795652295297,10,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-12,text,true,,650,764,41,41,http://localhost:8000/api/auth/me,10,0,0
+1795652295356,13,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-34,text,true,,525,790,41,41,http://localhost:8000/api/auth/logout,12,0,0
+1795652295265,202,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-44,text,true,,1264,463,41,41,http://localhost:8000/api/auth/login,202,0,0
+1795652295270,207,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-16,text,true,,1264,463,41,41,http://localhost:8000/api/auth/login,207,0,0
+1795652295276,203,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-23,text,true,,1264,463,41,41,http://localhost:8000/api/auth/login,203,0,0
+1795652295475,9,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-50,text,true,,631,376,41,41,http://localhost:8000/api/auth/csrf,9,0,0
+1795652295482,12,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-10,text,true,,650,764,41,41,http://localhost:8000/api/auth/me,11,0,0
+1795652295353,203,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-31,text,true,,1260,462,41,41,http://localhost:8000/api/auth/login,203,0,0
+1795652295564,10,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-13,text,true,,652,766,41,41,http://localhost:8000/api/auth/me,9,0,0
+1795652295574,7,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-28,text,true,,631,376,41,41,http://localhost:8000/api/auth/csrf,7,0,0
+1795652295620,7,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-30,text,true,,631,376,41,41,http://localhost:8000/api/auth/csrf,6,0,0
+1795652295438,202,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-24,text,true,,1264,463,41,41,http://localhost:8000/api/auth/login,202,0,0
+1795652295642,10,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-40,text,true,,652,766,41,41,http://localhost:8000/api/auth/me,10,0,0
+1795652295497,200,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-43,text,true,,1264,463,41,41,http://localhost:8000/api/auth/login,200,0,0
+1795652295699,10,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-36,text,true,,525,790,41,41,http://localhost:8000/api/auth/logout,10,0,0
+1795652295720,10,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-37,text,true,,525,790,41,41,http://localhost:8000/api/auth/logout,10,0,0
+1795652295760,10,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-14,text,true,,652,766,41,41,http://localhost:8000/api/auth/me,10,0,0
+1795652295830,12,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-33,text,true,,652,766,41,41,http://localhost:8000/api/auth/me,12,0,0
+1795652295936,6,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-32,text,true,,631,376,41,41,http://localhost:8000/api/auth/csrf,6,0,0
+1795652295950,10,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-29,text,true,,525,790,41,41,http://localhost:8000/api/auth/logout,10,0,0
+1795652295975,7,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-35,text,true,,631,376,41,41,http://localhost:8000/api/auth/csrf,7,0,0
+1795652295780,205,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-47,text,true,,1260,462,41,41,http://localhost:8000/api/auth/login,204,0,0
+1795652295795,207,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-18,text,true,,1264,463,41,41,http://localhost:8000/api/auth/login,206,0,0
+1795652295827,205,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-42,text,true,,1264,463,41,41,http://localhost:8000/api/auth/login,204,0,0
+1795652296023,15,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-11,text,true,,525,790,41,41,http://localhost:8000/api/auth/logout,14,0,0
+1795652296056,7,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-46,text,true,,631,376,40,40,http://localhost:8000/api/auth/csrf,7,0,0
+1795652296059,10,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-41,text,true,,652,766,40,40,http://localhost:8000/api/auth/me,10,0,0
+1795652296087,7,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-15,text,true,,631,376,40,40,http://localhost:8000/api/auth/csrf,7,0,0
+1795652296114,9,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-23,text,true,,652,766,40,40,http://localhost:8000/api/auth/me,9,0,0
+1795652295946,207,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-45,text,true,,1264,463,40,40,http://localhost:8000/api/auth/login,207,0,0
+1795652296146,10,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-22,text,true,,652,766,40,40,http://localhost:8000/api/auth/me,10,0,0
+1795652296153,11,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-17,text,true,,652,766,40,40,http://localhost:8000/api/auth/me,10,0,0
+1795652296178,14,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-39,text,true,,525,790,40,40,http://localhost:8000/api/auth/logout,13,0,0
+1795652296202,8,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-48,text,true,,631,376,40,40,http://localhost:8000/api/auth/csrf,8,0,0
+1795652296037,204,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-21,text,true,,1264,463,40,40,http://localhost:8000/api/auth/login,204,0,0
+1795652296252,10,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-49,text,true,,652,766,40,40,http://localhost:8000/api/auth/me,10,0,0
+1795652296093,203,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-19,text,true,,1264,463,40,40,http://localhost:8000/api/auth/login,203,0,0
+1795652296306,12,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-38,text,true,,525,792,40,40,http://localhost:8000/api/auth/logout,11,0,0
+1795652296324,10,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-44,text,true,,652,766,40,40,http://localhost:8000/api/auth/me,10,0,0
+1795652296168,198,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-27,text,true,,1260,462,40,40,http://localhost:8000/api/auth/login,198,0,0
+1795652296175,201,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-26,text,true,,1264,463,40,40,http://localhost:8000/api/auth/login,201,0,0
+1795652296397,10,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-24,text,true,,652,766,40,40,http://localhost:8000/api/auth/me,10,0,0
+1795652296314,204,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-20,text,true,,1264,463,40,40,http://localhost:8000/api/auth/login,204,0,0
+1795652296575,14,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-31,text,true,,650,764,40,40,http://localhost:8000/api/auth/me,13,0,0
+1795652296580,10,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-34,text,true,,631,376,40,40,http://localhost:8000/api/auth/csrf,10,0,0
+1795652296409,203,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-25,text,true,,1260,462,40,40,http://localhost:8000/api/auth/login,203,0,0
+1795652296637,13,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-33,text,true,,525,792,40,40,http://localhost:8000/api/auth/logout,12,0,0
+1795652296669,6,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-36,text,true,,631,376,40,40,http://localhost:8000/api/auth/csrf,6,0,0
+1795652296679,12,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-12,text,true,,525,790,40,40,http://localhost:8000/api/auth/logout,12,0,0
+1795652296680,14,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-13,text,true,,525,792,39,39,http://localhost:8000/api/auth/logout,14,0,0
+1795652296702,9,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-37,text,true,,631,376,38,38,http://localhost:8000/api/auth/csrf,9,0,0
+1795652296507,206,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-28,text,true,,1260,462,38,38,http://localhost:8000/api/auth/login,204,0,0
+1795652296707,13,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-10,text,true,,525,790,38,38,http://localhost:8000/api/auth/logout,13,0,0
+1795652296738,15,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-14,text,true,,525,792,37,37,http://localhost:8000/api/auth/logout,15,0,0
+1795652296742,15,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-22,text,true,,525,792,36,36,http://localhost:8000/api/auth/logout,14,0,0
+1795652296600,211,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-15,text,true,,1264,463,35,35,http://localhost:8000/api/auth/login,210,0,0
+1795652296829,13,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-43,text,true,,652,766,35,35,http://localhost:8000/api/auth/me,13,0,0
+1795652296701,210,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-32,text,true,,1264,463,35,35,http://localhost:8000/api/auth/login,210,0,0
+1795652296946,15,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-24,text,true,,525,792,35,35,http://localhost:8000/api/auth/logout,14,0,0
+1795652296953,13,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-16,text,true,,652,766,34,34,http://localhost:8000/api/auth/me,13,0,0
+1795652296757,210,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-50,text,true,,1260,462,34,34,http://localhost:8000/api/auth/login,208,0,0
+1795652296760,211,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-46,text,true,,1260,462,34,34,http://localhost:8000/api/auth/login,210,0,0
+1795652296964,13,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-44,text,true,,525,792,34,34,http://localhost:8000/api/auth/logout,12,0,0
+1795652296965,12,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-49,text,true,,525,792,34,34,http://localhost:8000/api/auth/logout,12,0,0
+1795652296777,208,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-35,text,true,,1260,462,34,34,http://localhost:8000/api/auth/login,207,0,0
+1795652297026,11,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-40,text,true,,525,792,34,34,http://localhost:8000/api/auth/logout,11,0,0
+1795652297081,7,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-38,text,true,,631,376,34,34,http://localhost:8000/api/auth/csrf,6,0,0
+1795652296883,208,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-30,text,true,,1264,463,34,34,http://localhost:8000/api/auth/login,207,0,0
+1795652297137,12,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-31,text,true,,525,790,34,34,http://localhost:8000/api/auth/logout,12,0,0
+1795652297183,11,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-41,text,true,,525,792,33,33,http://localhost:8000/api/auth/logout,11,0,0
+1795652297188,11,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-47,text,true,,650,764,33,33,http://localhost:8000/api/auth/me,11,0,0
+1795652297232,11,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-23,text,true,,525,792,33,33,http://localhost:8000/api/auth/logout,11,0,0
+1795652297248,11,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-26,text,true,,652,766,32,32,http://localhost:8000/api/auth/me,11,0,0
+1795652297270,11,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-27,text,true,,650,764,32,32,http://localhost:8000/api/auth/me,10,0,0
+1795652297277,7,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-29,text,true,,631,376,32,32,http://localhost:8000/api/auth/csrf,7,0,0
+1795652297287,12,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-21,text,true,,652,766,32,32,http://localhost:8000/api/auth/me,12,0,0
+1795652297303,10,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-20,text,true,,652,766,32,32,http://localhost:8000/api/auth/me,10,0,0
+1795652297383,11,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-18,text,true,,652,766,32,32,http://localhost:8000/api/auth/me,10,0,0
+1795652297226,199,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-48,text,true,,1260,462,32,32,http://localhost:8000/api/auth/login,199,0,0
+1795652297435,16,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-17,text,true,,525,792,32,32,http://localhost:8000/api/auth/logout,16,0,0
+1795652297439,13,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-45,text,true,,652,766,31,31,http://localhost:8000/api/auth/me,13,0,0
+1795652297445,13,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-42,text,true,,652,766,31,31,http://localhost:8000/api/auth/me,13,0,0
+1795652297467,8,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-39,text,true,,631,376,31,31,http://localhost:8000/api/auth/csrf,8,0,0
+1795652297565,12,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-15,text,true,,652,766,31,31,http://localhost:8000/api/auth/me,11,0,0
+1795652297401,201,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-34,text,true,,1264,463,31,31,http://localhost:8000/api/auth/login,201,0,0
+1795652297416,203,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-37,text,true,,1264,463,31,31,http://localhost:8000/api/auth/login,203,0,0
+1795652297655,7,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-44,text,true,,631,376,31,31,http://localhost:8000/api/auth/csrf,7,0,0
+1795652297654,12,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-19,text,true,,652,766,31,31,http://localhost:8000/api/auth/me,11,0,0
+1795652297715,10,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-50,text,true,,650,764,31,31,http://localhost:8000/api/auth/me,10,0,0
+1795652297729,7,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-49,text,true,,631,376,31,31,http://localhost:8000/api/auth/csrf,7,0,0
+1795652297918,11,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-35,text,true,,650,764,31,31,http://localhost:8000/api/auth/me,11,0,0
+1795652297936,15,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-26,text,true,,525,792,31,31,http://localhost:8000/api/auth/logout,14,0,0
+1795652297976,10,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-25,text,true,,650,764,30,30,http://localhost:8000/api/auth/me,10,0,0
+1795652298007,9,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-33,text,true,,631,376,30,30,http://localhost:8000/api/auth/csrf,9,0,0
+1795652298119,11,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-16,text,true,,525,792,30,30,http://localhost:8000/api/auth/logout,10,0,0
+1795652297930,202,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-36,text,true,,1264,463,29,29,http://localhost:8000/api/auth/login,202,0,0
+1795652298160,10,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-43,text,true,,525,792,29,29,http://localhost:8000/api/auth/logout,10,0,0
+1795652298211,11,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-28,text,true,,650,764,29,29,http://localhost:8000/api/auth/me,10,0,0
+1795652298215,11,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-32,text,true,,652,766,29,29,http://localhost:8000/api/auth/me,11,0,0
+1795652298300,10,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-46,text,true,,650,764,29,29,http://localhost:8000/api/auth/me,10,0,0
+1795652298313,8,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-41,text,true,,631,376,29,29,http://localhost:8000/api/auth/csrf,8,0,0
+1795652298328,12,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-27,text,true,,525,790,29,29,http://localhost:8000/api/auth/logout,12,0,0
+1795652298355,14,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-20,text,true,,525,792,28,28,http://localhost:8000/api/auth/logout,13,0,0
+1795652298359,14,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-15,text,true,,525,792,27,27,http://localhost:8000/api/auth/logout,13,0,0
+1795652298365,9,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-40,text,true,,631,376,26,26,http://localhost:8000/api/auth/csrf,9,0,0
+1795652298462,12,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-18,text,true,,525,792,26,26,http://localhost:8000/api/auth/logout,11,0,0
+1795652298531,13,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-30,text,true,,652,766,25,25,http://localhost:8000/api/auth/me,13,0,0
+1795652298533,12,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-19,text,true,,525,792,25,25,http://localhost:8000/api/auth/logout,11,0,0
+1795652298580,13,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-47,text,true,,525,790,24,24,http://localhost:8000/api/auth/logout,13,0,0
+1795652298389,206,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-38,text,true,,1264,463,24,24,http://localhost:8000/api/auth/login,206,0,0
+1795652298629,13,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-21,text,true,,525,792,24,24,http://localhost:8000/api/auth/logout,12,0,0
+1795652298663,12,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-48,text,true,,650,764,23,23,http://localhost:8000/api/auth/me,12,0,0
+1795652298704,14,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-50,text,true,,525,790,23,23,http://localhost:8000/api/auth/logout,14,0,0
+1795652298725,12,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-25,text,true,,525,790,23,23,http://localhost:8000/api/auth/logout,12,0,0
+1795652298536,212,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-44,text,true,,1264,463,22,22,http://localhost:8000/api/auth/login,211,0,0
+1795652298565,209,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-29,text,true,,1264,463,22,22,http://localhost:8000/api/auth/login,208,0,0
+1795652298851,15,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-34,text,true,,652,766,22,22,http://localhost:8000/api/auth/me,14,0,0
+1795652298861,8,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-43,text,true,,631,376,22,22,http://localhost:8000/api/auth/csrf,8,0,0
+1795652298856,17,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-42,text,true,,525,792,22,22,http://localhost:8000/api/auth/logout,16,0,0
+1795652298692,207,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-39,text,true,,1264,463,22,22,http://localhost:8000/api/auth/login,206,0,0
+1795652298933,12,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-45,text,true,,525,792,22,22,http://localhost:8000/api/auth/logout,12,0,0
+1795652298954,10,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-37,text,true,,652,766,22,22,http://localhost:8000/api/auth/me,9,0,0
+1795652298982,9,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-36,text,true,,652,766,22,22,http://localhost:8000/api/auth/me,9,0,0
+1795652298911,198,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-49,text,true,,1264,463,22,22,http://localhost:8000/api/auth/login,197,0,0
+1795652299213,11,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-35,text,true,,525,790,22,22,http://localhost:8000/api/auth/logout,11,0,0
+1795652299247,11,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-46,text,true,,525,790,21,21,http://localhost:8000/api/auth/logout,11,0,0
+1795652299076,202,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-33,text,true,,1264,463,21,21,http://localhost:8000/api/auth/login,201,0,0
+1795652299286,10,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-29,text,true,,652,766,21,21,http://localhost:8000/api/auth/me,9,0,0
+1795652299323,11,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-28,text,true,,525,790,21,21,http://localhost:8000/api/auth/logout,11,0,0
+1795652299626,10,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-39,text,true,,652,766,20,20,http://localhost:8000/api/auth/me,10,0,0
+1795652299463,197,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-40,text,true,,1264,463,20,20,http://localhost:8000/api/auth/login,197,0,0
+1795652299694,10,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-48,text,true,,525,790,20,20,http://localhost:8000/api/auth/logout,10,0,0
+1795652299702,10,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-32,text,true,,525,792,20,20,http://localhost:8000/api/auth/logout,10,0,0
+1795652299803,10,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-30,text,true,,525,792,19,19,http://localhost:8000/api/auth/logout,10,0,0
+1795652299844,9,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-50,text,true,,631,376,18,18,http://localhost:8000/api/auth/csrf,8,0,0
+1795652299675,200,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-43,text,true,,1264,463,18,18,http://localhost:8000/api/auth/login,199,0,0
+1795652299911,6,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-42,text,true,,631,376,18,18,http://localhost:8000/api/auth/csrf,6,0,0
+1795652299791,197,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-41,text,true,,1264,463,18,18,http://localhost:8000/api/auth/login,197,0,0
+1795652300040,6,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-47,text,true,,631,376,18,18,http://localhost:8000/api/auth/csrf,6,0,0
+1795652300051,10,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-44,text,true,,652,766,18,18,http://localhost:8000/api/auth/me,10,0,0
+1795652300060,10,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-38,text,true,,652,766,18,18,http://localhost:8000/api/auth/me,9,0,0
+1795652300062,10,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-34,text,true,,525,792,18,18,http://localhost:8000/api/auth/logout,10,0,0
+1795652300112,7,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-45,text,true,,631,376,17,17,http://localhost:8000/api/auth/csrf,7,0,0
+1795652300265,11,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-37,text,true,,525,792,17,17,http://localhost:8000/api/auth/logout,10,0,0
+1795652300284,10,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-36,text,true,,525,792,16,16,http://localhost:8000/api/auth/logout,10,0,0
+1795652300318,7,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-46,text,true,,631,376,15,15,http://localhost:8000/api/auth/csrf,7,0,0
+1795652300483,10,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-49,text,true,,652,766,15,15,http://localhost:8000/api/auth/me,10,0,0
+1795652300543,11,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-29,text,true,,525,792,15,15,http://localhost:8000/api/auth/logout,11,0,0
+1795652300555,7,TC-PERF-001 GET /auth/csrf,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-48,text,true,,631,376,14,14,http://localhost:8000/api/auth/csrf,7,0,0
+1795652300598,12,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-39,text,true,,525,792,14,14,http://localhost:8000/api/auth/logout,11,0,0
+1795652300465,207,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-42,text,true,,1264,463,13,13,http://localhost:8000/api/auth/login,206,0,0
+1795652300715,11,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-43,text,true,,652,766,13,13,http://localhost:8000/api/auth/me,10,0,0
+1795652300776,10,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-33,text,true,,652,766,13,13,http://localhost:8000/api/auth/me,10,0,0
+1795652300619,201,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-50,text,true,,1264,463,13,13,http://localhost:8000/api/auth/login,201,0,0
+1795652301122,10,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-41,text,true,,652,766,13,13,http://localhost:8000/api/auth/me,9,0,0
+1795652300943,201,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-47,text,true,,1264,463,13,13,http://localhost:8000/api/auth/login,201,0,0
+1795652301151,10,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-40,text,true,,652,766,13,13,http://localhost:8000/api/auth/me,10,0,0
+1795652300971,200,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-45,text,true,,1264,463,13,13,http://localhost:8000/api/auth/login,199,0,0
+1795652301250,12,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-38,text,true,,525,792,13,13,http://localhost:8000/api/auth/logout,11,0,0
+1795652301369,12,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-43,text,true,,525,792,12,12,http://localhost:8000/api/auth/logout,12,0,0
+1795652301392,11,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-44,text,true,,525,792,11,11,http://localhost:8000/api/auth/logout,11,0,0
+1795652301558,12,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-49,text,true,,525,792,10,10,http://localhost:8000/api/auth/logout,12,0,0
+1795652301371,205,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-48,text,true,,1264,463,9,9,http://localhost:8000/api/auth/login,205,0,0
+1795652301691,11,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-42,text,true,,652,766,9,9,http://localhost:8000/api/auth/me,10,0,0
+1795652301803,11,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-33,text,true,,525,792,9,9,http://localhost:8000/api/auth/logout,11,0,0
+1795652301875,10,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-50,text,true,,652,766,8,8,http://localhost:8000/api/auth/me,10,0,0
+1795652301778,198,TC-PERF-001 POST /auth/login,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-46,text,true,,1264,463,8,8,http://localhost:8000/api/auth/login,197,0,0
+1795652302260,33,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-45,text,true,,652,766,8,8,http://localhost:8000/api/auth/me,32,0,0
+1795652302270,27,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-40,text,true,,525,792,8,8,http://localhost:8000/api/auth/logout,27,0,0
+1795652302369,14,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-47,text,true,,652,766,7,7,http://localhost:8000/api/auth/me,14,0,0
+1795652302407,14,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-41,text,true,,525,792,7,7,http://localhost:8000/api/auth/logout,14,0,0
+1795652302630,11,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-46,text,true,,652,766,6,6,http://localhost:8000/api/auth/me,11,0,0
+1795652302703,26,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-42,text,true,,525,792,6,6,http://localhost:8000/api/auth/logout,26,0,0
+1795652302760,12,TC-PERF-001 GET /auth/me,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-48,text,true,,652,766,5,5,http://localhost:8000/api/auth/me,12,0,0
+1795652302914,21,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-45,text,true,,525,792,5,5,http://localhost:8000/api/auth/logout,20,0,0
+1795652303244,12,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-50,text,true,,525,792,4,4,http://localhost:8000/api/auth/logout,11,0,0
+1795652303430,11,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-47,text,true,,525,792,3,3,http://localhost:8000/api/auth/logout,11,0,0
+1795652303434,11,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-48,text,true,,525,792,2,2,http://localhost:8000/api/auth/logout,11,0,0
+1795652303854,11,TC-PERF-001 POST /auth/logout,200,OK,TC-PERF-001 Login concurrente (HU-V02) - 50 usuarios 1-46,text,true,,525,792,1,1,http://localhost:8000/api/auth/logout,11,0,0
+1795652303870,10,TC-PERF-003 GET /auth/csrf,200,OK,TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos 4-1,text,true,,612,205,1,1,http://localhost:8000/api/auth/csrf,10,0,0
+1795652303923,8,TC-PERF-003 GET /auth/csrf,200,OK,TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos 4-2,text,true,,612,205,2,2,http://localhost:8000/api/auth/csrf,7,0,0
+1795652303970,14,TC-PERF-003 GET /auth/csrf,200,OK,TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos 4-3,text,true,,612,205,3,3,http://localhost:8000/api/auth/csrf,14,0,1
+1795652304020,17,TC-PERF-003 GET /auth/csrf,200,OK,TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos 4-4,text,true,,612,205,4,4,http://localhost:8000/api/auth/csrf,16,0,1
+1795652304070,21,TC-PERF-003 GET /auth/csrf,200,OK,TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos 4-5,text,true,,612,205,5,5,http://localhost:8000/api/auth/csrf,21,0,1
+1795652303880,216,TC-PERF-003 POST /auth/login,200,OK,TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos 4-1,text,true,,1260,440,5,5,http://localhost:8000/api/auth/login,216,0,0
+1795652304119,11,TC-PERF-003 GET /auth/csrf,200,OK,TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos 4-6,text,true,,612,205,6,6,http://localhost:8000/api/auth/csrf,11,0,1
+1795652303931,227,TC-PERF-003 POST /auth/login,200,OK,TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos 4-2,text,true,,1260,440,6,6,http://localhost:8000/api/auth/login,226,0,0
+1795652304169,16,TC-PERF-003 GET /auth/csrf,200,OK,TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos 4-7,text,true,,612,205,7,7,http://localhost:8000/api/auth/csrf,15,0,2
+1795652303985,235,TC-PERF-003 POST /auth/login,200,OK,TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos 4-3,text,true,,1260,440,7,7,http://localhost:8000/api/auth/login,234,0,0
+1795652304221,8,TC-PERF-003 GET /auth/csrf,200,OK,TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos 4-8,text,true,,612,205,8,8,http://localhost:8000/api/auth/csrf,8,0,1
+1795652304037,218,TC-PERF-003 POST /auth/login,200,OK,TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos 4-4,text,true,,1260,440,8,8,http://localhost:8000/api/auth/login,218,0,0
+1795652304270,9,TC-PERF-003 GET /auth/csrf,200,OK,TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos 4-9,text,true,,612,205,9,9,http://localhost:8000/api/auth/csrf,9,0,0
+1795652304092,214,TC-PERF-003 POST /auth/login,200,OK,TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos 4-5,text,true,,1260,440,9,9,http://localhost:8000/api/auth/login,214,0,0
+1795652304319,13,TC-PERF-003 GET /auth/csrf,200,OK,TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos 4-10,text,true,,612,205,10,10,http://localhost:8000/api/auth/csrf,12,0,1
+1795652304131,231,TC-PERF-003 POST /auth/login,200,OK,TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos 4-6,text,true,,1260,440,10,10,http://localhost:8000/api/auth/login,230,0,0
+1795652304369,34,TC-PERF-003 GET /auth/csrf,200,OK,TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos 4-11,text,true,,612,205,11,11,http://localhost:8000/api/auth/csrf,33,0,1
+1795652304185,240,TC-PERF-003 POST /auth/login,200,OK,TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos 4-7,text,true,,1260,440,12,12,http://localhost:8000/api/auth/login,239,0,0
+1795652304425,54,TC-PERF-003 GET /auth/csrf,200,OK,TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos 4-12,text,true,,612,205,12,12,http://localhost:8000/api/auth/csrf,54,0,6
+1795652304230,266,TC-PERF-003 POST /auth/login,200,OK,TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos 4-8,text,true,,1260,440,13,13,http://localhost:8000/api/auth/login,266,0,0
+1795652304509,57,TC-PERF-003 GET /auth/csrf,200,OK,TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos 4-13,text,true,,612,205,14,14,http://localhost:8000/api/auth/csrf,56,0,6
+1795652304526,45,TC-PERF-003 GET /auth/csrf,200,OK,TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos 4-14,text,true,,612,205,14,14,http://localhost:8000/api/auth/csrf,44,0,2
+1795652304573,40,TC-PERF-003 GET /auth/csrf,200,OK,TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos 4-15,text,true,,612,205,15,15,http://localhost:8000/api/auth/csrf,40,0,2
+1795652304280,367,TC-PERF-003 POST /auth/login,200,OK,TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos 4-9,text,true,,1260,440,16,16,http://localhost:8000/api/auth/login,367,0,0
+1795652304627,42,TC-PERF-003 GET /auth/csrf,200,OK,TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos 4-16,text,true,,612,205,16,16,http://localhost:8000/api/auth/csrf,41,0,3
+1795652304403,342,TC-PERF-003 POST /auth/login,200,OK,TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos 4-11,text,true,,1264,441,18,18,http://localhost:8000/api/auth/login,342,0,0
+1795652304720,37,TC-PERF-003 GET /auth/csrf,200,OK,TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos 4-18,text,true,,612,205,18,18,http://localhost:8000/api/auth/csrf,37,0,1
+1795652304682,77,TC-PERF-003 GET /auth/csrf,200,OK,TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos 4-17,text,true,,612,205,18,18,http://localhost:8000/api/auth/csrf,75,0,2
+1795652304332,468,TC-PERF-003 POST /auth/login,200,OK,TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos 4-10,text,true,,1264,441,19,19,http://localhost:8000/api/auth/login,468,0,0
+1795652304770,81,TC-PERF-003 GET /auth/csrf,200,OK,TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos 4-19,text,true,,612,205,20,20,http://localhost:8000/api/auth/csrf,81,0,6
+1795652304825,57,TC-PERF-003 GET /auth/csrf,200,OK,TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos 4-20,text,true,,612,205,20,20,http://localhost:8000/api/auth/csrf,57,0,0
+1795652304479,480,TC-PERF-003 POST /auth/login,200,OK,TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos 4-12,text,true,,1264,441,20,20,http://localhost:8000/api/auth/login,476,0,0
+1795652304566,449,TC-PERF-003 POST /auth/login,200,OK,TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos 4-13,text,true,,1264,441,20,20,http://localhost:8000/api/auth/login,449,0,0
+1795652304669,355,TC-PERF-003 POST /auth/login,200,OK,TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos 4-16,text,true,,1264,441,20,20,http://localhost:8000/api/auth/login,353,0,0
+1795652304628,409,TC-PERF-003 POST /auth/login,200,OK,TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos 4-15,text,true,,1264,441,20,20,http://localhost:8000/api/auth/login,409,0,0
+1795652304572,469,TC-PERF-003 POST /auth/login,200,OK,TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos 4-14,text,true,,1264,441,20,20,http://localhost:8000/api/auth/login,469,0,0
+1795652304760,316,TC-PERF-003 POST /auth/login,200,OK,TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos 4-17,text,true,,1264,441,20,20,http://localhost:8000/api/auth/login,316,0,0
+1795652304758,370,TC-PERF-003 POST /auth/login,200,OK,TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos 4-18,text,true,,1264,441,20,20,http://localhost:8000/api/auth/login,370,0,0
+1795652304852,311,TC-PERF-003 POST /auth/login,200,OK,TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos 4-19,text,true,,1264,441,20,20,http://localhost:8000/api/auth/login,311,0,0
+1795652304882,302,TC-PERF-003 POST /auth/login,200,OK,TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos 4-20,text,true,,1264,441,20,20,http://localhost:8000/api/auth/login,301,0,0
+1795652305228,136,TC-PERF-003 POST /reservas-habitaciones (simultáneo),409,Conflict,TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos 4-4,text,true,,606,1046,20,20,http://localhost:8000/api/reservas-habitaciones,136,0,0
+1795652305229,157,TC-PERF-003 POST /reservas-habitaciones (simultáneo),409,Conflict,TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos 4-5,text,true,,606,1046,20,20,http://localhost:8000/api/reservas-habitaciones,157,0,0
+1795652305228,163,TC-PERF-003 POST /reservas-habitaciones (simultáneo),409,Conflict,TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos 4-3,text,true,,606,1046,20,20,http://localhost:8000/api/reservas-habitaciones,163,0,0
+1795652305229,152,TC-PERF-003 POST /reservas-habitaciones (simultáneo),409,Conflict,TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos 4-6,text,true,,606,1046,20,20,http://localhost:8000/api/reservas-habitaciones,152,0,0
+1795652305228,138,TC-PERF-003 POST /reservas-habitaciones (simultáneo),409,Conflict,TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos 4-2,text,true,,606,1046,20,20,http://localhost:8000/api/reservas-habitaciones,137,0,0
+1795652305228,95,TC-PERF-003 POST /reservas-habitaciones (simultáneo),201,Created,TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos 4-16,text,true,,1470,1048,20,20,http://localhost:8000/api/reservas-habitaciones,95,0,0
+1795652305240,166,TC-PERF-003 POST /reservas-habitaciones (simultáneo),409,Conflict,TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos 4-11,text,true,,606,1048,14,14,http://localhost:8000/api/reservas-habitaciones,166,0,0
+1795652305230,180,TC-PERF-003 POST /reservas-habitaciones (simultáneo),409,Conflict,TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos 4-9,text,true,,606,1046,13,13,http://localhost:8000/api/reservas-habitaciones,180,0,0
+1795652305242,169,TC-PERF-003 POST /reservas-habitaciones (simultáneo),409,Conflict,TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos 4-15,text,true,,606,1048,13,13,http://localhost:8000/api/reservas-habitaciones,169,0,0
+1795652305231,233,TC-PERF-003 POST /reservas-habitaciones (simultáneo),409,Conflict,TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos 4-7,text,true,,606,1046,11,11,http://localhost:8000/api/reservas-habitaciones,232,0,0
+1795652305240,226,TC-PERF-003 POST /reservas-habitaciones (simultáneo),409,Conflict,TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos 4-20,text,true,,606,1048,10,10,http://localhost:8000/api/reservas-habitaciones,226,0,0
+1795652305242,224,TC-PERF-003 POST /reservas-habitaciones (simultáneo),409,Conflict,TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos 4-14,text,true,,606,1048,10,10,http://localhost:8000/api/reservas-habitaciones,224,0,0
+1795652305241,264,TC-PERF-003 POST /reservas-habitaciones (simultáneo),409,Conflict,TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos 4-17,text,true,,606,1048,8,8,http://localhost:8000/api/reservas-habitaciones,263,0,0
+1795652305241,266,TC-PERF-003 POST /reservas-habitaciones (simultáneo),409,Conflict,TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos 4-1,text,true,,606,1046,7,7,http://localhost:8000/api/reservas-habitaciones,266,0,0
+1795652305241,269,TC-PERF-003 POST /reservas-habitaciones (simultáneo),409,Conflict,TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos 4-8,text,true,,606,1046,6,6,http://localhost:8000/api/reservas-habitaciones,269,0,0
+1795652305241,269,TC-PERF-003 POST /reservas-habitaciones (simultáneo),409,Conflict,TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos 4-12,text,true,,606,1048,6,6,http://localhost:8000/api/reservas-habitaciones,269,0,0
+1795652305242,268,TC-PERF-003 POST /reservas-habitaciones (simultáneo),409,Conflict,TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos 4-13,text,true,,606,1048,6,6,http://localhost:8000/api/reservas-habitaciones,268,0,0
+1795652305241,274,TC-PERF-003 POST /reservas-habitaciones (simultáneo),409,Conflict,TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos 4-19,text,true,,606,1048,3,3,http://localhost:8000/api/reservas-habitaciones,273,0,0
+1795652305241,278,TC-PERF-003 POST /reservas-habitaciones (simultáneo),409,Conflict,TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos 4-18,text,true,,606,1048,2,2,http://localhost:8000/api/reservas-habitaciones,277,0,0
+1795652305240,282,TC-PERF-003 POST /reservas-habitaciones (simultáneo),409,Conflict,TC-PERF-003 Carrera por la última habitación (HU-V07) - 20 hilos 4-10,text,true,,606,1048,1,1,http://localhost:8000/api/reservas-habitaciones,282,0,0
+1795652305533,40,TC-PERF-003 Verificación: 1x201 y (N-1)x409,200,OK,tearDown - Verificar resultados de las carreras 1-1,text,true,,21,0,1,1,null,0,0,0
+1795652305574,11,tearDown GET /auth/csrf,200,OK,tearDown - Verificar resultados de las carreras 1-1,text,true,,612,205,1,1,http://localhost:8000/api/auth/csrf,11,0,1
+1795652305586,201,tearDown POST /auth/login,200,OK,tearDown - Verificar resultados de las carreras 1-1,text,true,,1283,435,1,1,http://localhost:8000/api/auth/login,201,0,0
+1795652305788,18,TC-PERF-005 Verificación: cupo_reservado == confirmadas <= cupo,200,OK,tearDown - Verificar resultados de las carreras 1-1,text,true,,553,769,1,1,http://localhost:8000/api/tours/55/salidas,17,0,0

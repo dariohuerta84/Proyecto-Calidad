@@ -28,9 +28,12 @@ itinerarios sugeridos.
 | **4. Móvil (Appium)** | Capabilities correctas, interacción nativa (swipe, tap) y flujo end-to-end validado | `qa/appium`: 32 casos; capabilities UiAutomator2 parametrizadas en `config.properties`; resource-ids de Compose; tap, scroll con UiScrollable y swipe con W3C Actions; flujo reservar → PENDIENTE → proveedor acepta → CONFIRMADA. Tarea [QA-04](1-historias-de-usuario/tareas-qa.md#qa-04--automatización-móvil-con-appium) |
 | **5. Trazabilidad y reportes (Jira)** | Evidencia completa y casos automatizados vinculados a tickets de Jira | Cada caso lleva su `TC-xxx` en la etiqueta del código; [matriz](3-trazabilidad/matriz-de-trazabilidad.md) con 130 / 130 criterios cubiertos; [CSV de Jira](4-jira/jira_importacion.csv) con cada caso como subtarea de su historia; [defectos](3-trazabilidad/defectos.md) enlazados a criterio y caso; reportes HTML en `qa/evidencias/`. Tarea [QA-05](1-historias-de-usuario/tareas-qa.md#qa-05--trazabilidad-y-reportes-en-jira) |
 
-**Pendiente para la nota completa:** correr Appium en un emulador y JMeter con su reporte HTML (ver
-[estado actual](2-pruebas/estrategia-de-pruebas.md#10-estado-actual)), importar el CSV en Jira y adjuntar los reportes a
-la ejecución.
+Los **157 casos automatizados y los 3 manuales** tienen un resultado aprobado registrado. El 25/11/2026 se repitieron
+casos de las cuatro suites en Kiri. Las corridas de referencia y los reportes de los ensayos recientes están en
+el [estado de las pruebas](2-pruebas/estrategia-de-pruebas.md#10-estado-actual).
+
+Para acreditar la trazabilidad en Jira, documentar las claves y enlaces de los tickets y adjuntar los reportes a la
+ejecución correspondiente. El [CSV de importación](4-jira/jira_importacion.csv) contiene los resultados consolidados.
 
 ## Documentación técnica de cada componente
 

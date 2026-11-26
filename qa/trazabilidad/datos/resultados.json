@@ -1,605 +1,605 @@
 {
  "TC-API-001": {
   "estado": "Pasó",
-  "fecha": "2026-11-12 05:58:36 p. m.",
+  "fecha": "2026-11-25 06:56:18 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.auth.html"
+  "evidencia": "karate/target/karate-reports/trouvels360.auth.html"
  },
  "TC-API-002": {
   "estado": "Pasó",
-  "fecha": "2026-11-12 05:58:36 p. m.",
+  "fecha": "2026-11-25 06:56:18 p. m.",
   "ejecuciones": 6,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.auth.html"
+  "evidencia": "karate/target/karate-reports/trouvels360.auth.html"
  },
  "TC-API-003": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:58:36 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.auth.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.auth.html"
  },
  "TC-API-004": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:58:36 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.auth.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.auth.html"
  },
  "TC-API-005": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:58:36 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.auth.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.auth.html"
  },
  "TC-API-006": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:58:36 p. m.",
   "ejecuciones": 4,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.auth.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.auth.html"
  },
  "TC-API-007": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:58:36 p. m.",
   "ejecuciones": 4,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.auth.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.auth.html"
  },
  "TC-API-008": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:58:36 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.auth.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.auth.html"
  },
  "TC-API-009": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:58:36 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.auth.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.auth.html"
  },
  "TC-API-010": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:58:36 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.auth.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.auth.html"
  },
  "TC-API-011": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:58:36 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.auth.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.auth.html"
  },
  "TC-API-012": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:58:36 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.auth.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.auth.html"
  },
  "TC-API-013": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:58:38 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.cuenta.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.cuenta.html"
  },
  "TC-API-014": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:58:38 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.cuenta.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.cuenta.html"
  },
  "TC-API-015": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:58:38 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.cuenta.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.cuenta.html"
  },
  "TC-API-016": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:58:38 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.cuenta.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.cuenta.html"
  },
  "TC-API-017": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:58:38 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.cuenta.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.cuenta.html"
  },
  "TC-API-018": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:58:38 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.cuenta.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.cuenta.html"
  },
  "TC-API-019": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:58:38 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.cuenta.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.cuenta.html"
  },
  "TC-API-020": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:58:38 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.hoteles.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.hoteles.html"
  },
  "TC-API-021": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:58:38 p. m.",
   "ejecuciones": 6,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.hoteles.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.hoteles.html"
  },
  "TC-API-022": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:58:38 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.hoteles.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.hoteles.html"
  },
  "TC-API-023": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:58:38 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.hoteles.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.hoteles.html"
  },
  "TC-API-024": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:58:38 p. m.",
   "ejecuciones": 5,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.hoteles.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.hoteles.html"
  },
  "TC-API-025": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:58:38 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.hoteles.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.hoteles.html"
  },
  "TC-API-026": {
   "estado": "Pasó",
   "fecha": "2026-11-12 06:00:19 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.reservas-hotel.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.reservas-hotel.html"
  },
  "TC-API-027": {
   "estado": "Pasó",
   "fecha": "2026-11-12 06:00:19 p. m.",
   "ejecuciones": 5,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.reservas-hotel.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.reservas-hotel.html"
  },
  "TC-API-028": {
   "estado": "Pasó",
   "fecha": "2026-11-12 06:00:19 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.reservas-hotel.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.reservas-hotel.html"
  },
  "TC-API-029": {
   "estado": "Pasó",
   "fecha": "2026-11-12 06:00:19 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.reservas-hotel.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.reservas-hotel.html"
  },
  "TC-API-030": {
   "estado": "Pasó",
   "fecha": "2026-11-12 06:00:19 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.reservas-hotel.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.reservas-hotel.html"
  },
  "TC-API-031": {
   "estado": "Pasó",
-  "fecha": "2026-11-12 05:57:51 p. m.",
+  "fecha": "2026-11-25 06:56:17 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.aprobacion.html"
+  "evidencia": "karate/target/karate-reports/trouvels360.aprobacion.html"
  },
  "TC-API-032": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:57:51 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.aprobacion.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.aprobacion.html"
  },
  "TC-API-033": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:57:51 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.aprobacion.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.aprobacion.html"
  },
  "TC-API-034": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:57:51 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.aprobacion.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.aprobacion.html"
  },
  "TC-API-035": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:57:51 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.aprobacion.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.aprobacion.html"
  },
  "TC-API-036": {
   "estado": "Pasó",
   "fecha": "2026-11-12 06:00:20 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.tours.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.tours.html"
  },
  "TC-API-037": {
   "estado": "Pasó",
   "fecha": "2026-11-12 06:00:20 p. m.",
   "ejecuciones": 6,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.tours.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.tours.html"
  },
  "TC-API-038": {
   "estado": "Pasó",
   "fecha": "2026-11-12 06:00:20 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.tours.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.tours.html"
  },
  "TC-API-039": {
   "estado": "Pasó",
   "fecha": "2026-11-12 06:00:20 p. m.",
   "ejecuciones": 4,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.tours.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.tours.html"
  },
  "TC-API-040": {
   "estado": "Pasó",
   "fecha": "2026-11-12 06:00:20 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.tours.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.tours.html"
  },
  "TC-API-041": {
   "estado": "Pasó",
   "fecha": "2026-11-12 06:00:20 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.reservas-tour.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.reservas-tour.html"
  },
  "TC-API-042": {
   "estado": "Pasó",
   "fecha": "2026-11-12 06:00:20 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.reservas-tour.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.reservas-tour.html"
  },
  "TC-API-043": {
   "estado": "Pasó",
   "fecha": "2026-11-12 06:00:20 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.reservas-tour.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.reservas-tour.html"
  },
  "TC-API-044": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:58:39 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.mis-reservas.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.mis-reservas.html"
  },
  "TC-API-045": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:58:39 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.mis-reservas.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.mis-reservas.html"
  },
  "TC-API-046": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:58:39 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.mis-reservas.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.mis-reservas.html"
  },
  "TC-API-047": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:58:39 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.mis-reservas.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.mis-reservas.html"
  },
  "TC-API-048": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:58:39 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.mis-reservas.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.mis-reservas.html"
  },
  "TC-API-049": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:58:39 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.mis-reservas.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.mis-reservas.html"
  },
  "TC-API-050": {
   "estado": "Pasó",
   "fecha": "2026-11-12 06:00:18 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.resenas.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.resenas.html"
  },
  "TC-API-051": {
   "estado": "Pasó",
   "fecha": "2026-11-12 06:00:18 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.resenas.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.resenas.html"
  },
  "TC-API-052": {
   "estado": "Pasó",
   "fecha": "2026-11-12 06:00:18 p. m.",
   "ejecuciones": 6,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.resenas.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.resenas.html"
  },
  "TC-API-053": {
   "estado": "Pasó",
   "fecha": "2026-11-12 06:00:18 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.resenas.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.resenas.html"
  },
  "TC-API-054": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:58:39 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.itinerario.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.itinerario.html"
  },
  "TC-API-055": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:58:39 p. m.",
   "ejecuciones": 5,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.itinerario.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.itinerario.html"
  },
  "TC-API-056": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:59:31 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.proveedor.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.proveedor.html"
  },
  "TC-API-057": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:59:31 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.proveedor.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.proveedor.html"
  },
  "TC-API-058": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:59:31 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.proveedor.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.proveedor.html"
  },
  "TC-API-059": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:59:31 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.proveedor.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.proveedor.html"
  },
  "TC-API-060": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:59:31 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.proveedor.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.proveedor.html"
  },
  "TC-API-061": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:59:31 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.proveedor.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.proveedor.html"
  },
  "TC-API-062": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:59:31 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.proveedor.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.proveedor.html"
  },
  "TC-API-063": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:59:31 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.proveedor.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.proveedor.html"
  },
  "TC-API-064": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:59:31 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.proveedor.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.proveedor.html"
  },
  "TC-API-065": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:59:31 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.proveedor.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.proveedor.html"
  },
  "TC-API-066": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:59:31 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.proveedor.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.proveedor.html"
  },
  "TC-API-067": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:59:31 p. m.",
   "ejecuciones": 6,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.proveedor.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.proveedor.html"
  },
  "TC-API-068": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:59:31 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.proveedor.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.proveedor.html"
  },
  "TC-API-069": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:59:31 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.proveedor.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.proveedor.html"
  },
  "TC-API-070": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:59:31 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.proveedor.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.proveedor.html"
  },
  "TC-API-071": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:59:31 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.proveedor.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.proveedor.html"
  },
  "TC-API-072": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:59:31 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.proveedor.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.proveedor.html"
  },
  "TC-API-073": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:59:31 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.proveedor.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.proveedor.html"
  },
  "TC-API-074": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:59:31 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.proveedor.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.proveedor.html"
  },
  "TC-API-075": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:59:31 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.proveedor.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.proveedor.html"
  },
  "TC-API-076": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:59:31 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.proveedor.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.proveedor.html"
  },
  "TC-API-077": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:59:31 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.proveedor.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.proveedor.html"
  },
  "TC-API-078": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:59:31 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.proveedor.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.proveedor.html"
  },
  "TC-API-079": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:58:37 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.cobertura-adicional.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.cobertura-adicional.html"
  },
  "TC-API-080": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:58:37 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.cobertura-adicional.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.cobertura-adicional.html"
  },
  "TC-API-081": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:58:37 p. m.",
   "ejecuciones": 5,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.cobertura-adicional.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.cobertura-adicional.html"
  },
  "TC-API-082": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:58:37 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.cobertura-adicional.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.cobertura-adicional.html"
  },
  "TC-API-083": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:58:37 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.cobertura-adicional.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.cobertura-adicional.html"
  },
  "TC-API-084": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:58:37 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.cobertura-adicional.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.cobertura-adicional.html"
  },
  "TC-API-085": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:58:37 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.cobertura-adicional.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.cobertura-adicional.html"
  },
  "TC-API-086": {
   "estado": "Pasó",
   "fecha": "2026-11-12 05:58:37 p. m.",
   "ejecuciones": 1,
   "fallas": 0,
-  "evidencia": "karate-reports/trouvels360.cobertura-adicional.html"
+  "evidencia": "karate/target/karate-reports_1795650461733/trouvels360.cobertura-adicional.html"
  },
  "TC-MAN-001": {
   "estado": "Pasó",
@@ -621,38 +621,38 @@
  },
  "TC-MOB-001": {
   "estado": "Pasó",
-  "fecha": "2026-11-14 01:59",
+  "fecha": "2026-11-25 18:01",
   "detalle": "",
-  "evidencia": "appium/target/reporte-appium/index.html",
-  "ms": 23440
+  "evidencia": "appium/target/reporte-demo-formularios/index.html",
+  "ms": 8844
  },
  "TC-MOB-002": {
   "estado": "Pasó",
-  "fecha": "2026-11-14 01:59",
+  "fecha": "2026-11-25 18:01",
   "detalle": "",
-  "evidencia": "appium/target/reporte-appium/index.html",
-  "ms": 34210
+  "evidencia": "appium/target/reporte-demo-formularios/index.html",
+  "ms": 6469
  },
  "TC-MOB-003": {
   "estado": "Pasó",
-  "fecha": "2026-11-14 01:59",
+  "fecha": "2026-11-25 18:01",
   "detalle": "",
-  "evidencia": "appium/target/reporte-appium/index.html",
-  "ms": 30453
+  "evidencia": "appium/target/reporte-demo-formularios/index.html",
+  "ms": 9226
  },
  "TC-MOB-004": {
   "estado": "Pasó",
-  "fecha": "2026-11-14 02:29",
+  "fecha": "2026-11-25 18:01",
   "detalle": "",
-  "evidencia": "appium/target/reporte-appium-repeticion/index.html",
-  "ms": 42582
+  "evidencia": "appium/target/reporte-demo-formularios/index.html",
+  "ms": 33325
  },
  "TC-MOB-005": {
   "estado": "Pasó",
-  "fecha": "2026-11-14 01:59",
+  "fecha": "2026-11-25 18:04",
   "detalle": "",
-  "evidencia": "appium/target/reporte-appium/index.html",
-  "ms": 33487
+  "evidencia": "appium/target/reporte-demo-fechas/index.html",
+  "ms": 15860
  },
  "TC-MOB-006": {
   "estado": "Pasó",
@@ -705,10 +705,10 @@
  },
  "TC-MOB-013": {
   "estado": "Pasó",
-  "fecha": "2026-11-14 01:59",
+  "fecha": "2026-11-25 18:04",
   "detalle": "",
-  "evidencia": "appium/target/reporte-appium/index.html",
-  "ms": 47900
+  "evidencia": "appium/target/reporte-demo-fechas/index.html",
+  "ms": 18859
  },
  "TC-MOB-014": {
   "estado": "Pasó",
@@ -719,10 +719,10 @@
  },
  "TC-MOB-015": {
   "estado": "Pasó",
-  "fecha": "2026-11-14 02:29",
+  "fecha": "2026-11-25 18:01",
   "detalle": "",
-  "evidencia": "appium/target/reporte-appium-repeticion/index.html",
-  "ms": 48853
+  "evidencia": "appium/target/reporte-demo-formularios/index.html",
+  "ms": 38483
  },
  "TC-MOB-016": {
   "estado": "Pasó",
@@ -810,10 +810,10 @@
  },
  "TC-MOB-028": {
   "estado": "Pasó",
-  "fecha": "2026-11-14 02:29",
+  "fecha": "2026-11-25 18:04",
   "detalle": "",
-  "evidencia": "appium/target/reporte-appium-repeticion/index.html",
-  "ms": 43527
+  "evidencia": "appium/target/reporte-demo-fechas/index.html",
+  "ms": 13636
  },
  "TC-MOB-029": {
   "estado": "Pasó",
@@ -838,15 +838,15 @@
  },
  "TC-MOB-032": {
   "estado": "Pasó",
-  "fecha": "2026-11-14 01:59",
+  "fecha": "2026-11-25 18:35",
   "detalle": "",
-  "evidencia": "appium/target/reporte-appium/index.html",
-  "ms": 15881
+  "evidencia": "appium/target/reporte-demo/index.html",
+  "ms": 9931
  },
  "TC-PERF-001": {
   "estado": "Pasó",
-  "fecha": "2026-11-12 18:36",
-  "evidencia": "jmeter/resultados/reporte-html/index.html"
+  "fecha": "2026-11-25 19:18",
+  "evidencia": "jmeter/resultados-verificacion-expo-20261125-191749/reporte-html/index.html"
  },
  "TC-PERF-002": {
   "estado": "Pasó",
@@ -855,8 +855,8 @@
  },
  "TC-PERF-003": {
   "estado": "Pasó",
-  "fecha": "2026-11-12 18:36",
-  "evidencia": "jmeter/resultados/reporte-html/index.html"
+  "fecha": "2026-11-25 19:18",
+  "evidencia": "jmeter/resultados-verificacion-expo-20261125-191749/reporte-html/index.html"
  },
  "TC-PERF-004": {
   "estado": "Pasó",
@@ -945,10 +945,10 @@
  },
  "TC-WEB-011": {
   "estado": "Pasó",
-  "fecha": "2026-11-12 18:01",
+  "fecha": "2026-11-25 19:02",
   "detalle": "",
-  "evidencia": "selenium/target/reporte-selenium/index.html",
-  "ms": 8519
+  "evidencia": "selenium/target/reporte-individual/TC-WEB-011/index.html",
+  "ms": 7846
  },
  "TC-WEB-012": {
   "estado": "Pasó",

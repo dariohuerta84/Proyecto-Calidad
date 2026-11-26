@@ -1,0 +1,14 @@
+OK       TC-PERF-001 POST /auth/login  Login 50 usuarios (HU-V02)
+         150 muestras · p95 223 ms (máx 800) · error 0.00 % (máx 0.0 %)
+OMITIDO  TC-PERF-002  Catálogo de hoteles 100 usuarios (HU-V05)
+         sin muestras
+OK       TC-PERF-003  Última habitación 20 hilos (HU-V07)
+         201: 1 · 409: 19 · otros: 0 · verificación tearDown: OK
+OMITIDO  TC-PERF-004  Búsqueda de tours 100 usuarios (HU-V08)
+         sin muestras
+OMITIDO  TC-PERF-005  Cupos de tour 30 hilos (HU-V10)
+         sin muestras
+OMITIDO  TC-PERF-006  Panel del proveedor 30 usuarios (HU-P03/HU-P04)
+         sin muestras
+
+RESULTADO GLOBAL: OK

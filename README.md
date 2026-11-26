@@ -85,7 +85,7 @@ Proyecto-Calidad/
 │   ├── appium/                      #   app: 32 casos
 │   ├── jmeter/                      #   rendimiento y concurrencia: 6 casos + prueba rápida en Python
 │   ├── trazabilidad/                #   matriz historia → criterio → caso → resultado
-│   ├── evidencias/                  #   reportes de la última corrida (karate/, selenium/, jmeter/)
+│   ├── evidencias/                  #   reportes y capturas conservados
 │   ├── postman/                     #   colección complementaria (versión base)
 │   └── ejecutar-todo.bat · ejecutar-todo.sh
 ├── docs/                            # Documentación del curso
@@ -193,7 +193,7 @@ El comando ejecuta Karate, Selenium, JMeter y Appium y actualiza la matriz. Requ
 .\qa\ejecutar-todo.bat matriz
 ```
 
-También puedes ejecutar cada suite desde su carpeta con `ejecutar.bat`. La estrategia, los entornos y el estado de cada suite están en [docs/2-pruebas/estrategia-de-pruebas.md](docs/2-pruebas/estrategia-de-pruebas.md). Los reportes de la última corrida se conservan en `qa/evidencias/`; las nuevas ejecuciones escriben sus resultados bajo `target/` o `resultados/`.
+También puedes ejecutar cada suite desde su carpeta con `ejecutar.bat`. Consulta la [estrategia y el estado de las pruebas](docs/2-pruebas/estrategia-de-pruebas.md#10-estado-actual) o los resultados por caso en la [matriz de trazabilidad](qa/trazabilidad/salida/matriz_trazabilidad.html).
 
 ---
 

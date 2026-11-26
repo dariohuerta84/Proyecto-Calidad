@@ -4,18 +4,18 @@
 
 **160 casos**, cada uno vinculado a una o más historias y criterios. La columna «Código» indica dónde está automatizado (relativo a la raíz del repositorio).
 
-Las tablas conservan el estado registrado al redactar el catálogo. Consulta la [matriz generada](../../qa/trazabilidad/salida/matriz_trazabilidad.html) para ver el último resultado por caso.
+Las tablas reflejan el resultado consolidado por caso al 25/11/2026. La [matriz generada](../../qa/trazabilidad/salida/matriz_trazabilidad.html) reúne las fechas y la [versión CSV](../../qa/trazabilidad/salida/matriz_trazabilidad.csv) incluye las rutas a las evidencias.
 
-| Nivel | Herramienta | Casos | Pasó | Pendiente |
+| Nivel | Herramienta | Casos | Pasó | Sin ejecutar |
 |---|---|---|---|---|
 | API | Karate | 86 | 86 | 0 |
 | Web | Selenium | 33 | 33 | 0 |
-| Móvil | Appium | 32 | 0 | 32 |
-| Rendimiento | JMeter | 6 | 2 | 4 |
-| Manual | Manual | 3 | 0 | 3 |
-| **Total** | | **160** | **121** | **39** |
+| Móvil | Appium | 32 | 32 | 0 |
+| Rendimiento | JMeter | 6 | 6 | 0 |
+| Manual | Manual | 3 | 3 | 0 |
+| **Total** | | **160** | **160** | **0** |
 
-«Pendiente» significa que el caso existe y compila, pero aún no se ejecutó en un entorno con emulador Android o con JMeter instalado, o que es manual. Las dos carreras de concurrencia (TC-PERF-003 y 005) ya se comprobaron con `qa/jmeter/concurrencia_smoke.py`; falta su corrida en JMeter.
+JMeter ejecutó los seis escenarios el 12/11/2026. Appium completó los 32 veredictos aprobados con la corrida de referencia y las repeticiones del 14/11/2026. El 25/11/2026 se repitió una selección de las cuatro suites en Kiri. Consulta el [resumen de corridas](estrategia-de-pruebas.md#10-estado-actual).
 
 ## API · Karate (TC-API)
 
@@ -150,57 +150,57 @@ Las tablas conservan el estado registrado al redactar el catálogo. Consulta la 
 
 | Caso | Qué comprueba | Historias | Criterios | Código | Resultado |
 |---|---|---|---|---|---|
-| TC-MOB-001 | Registro de viajero desde la app y sesión iniciada | HU-V01 | CA-V01-01 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/CuentaMovilTest.java:23` | Pendiente (ejecutar en PC) |
-| TC-MOB-002 | Botón Registrarme deshabilitado con contraseñas distintas | HU-V01, HU-P01 | CA-V01-03, CA-P01-04 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/CuentaMovilTest.java:41` | Pendiente (ejecutar en PC) |
-| TC-MOB-004 | Login, cierre de sesión y bloqueo de pestañas privadas | HU-V02 | CA-V02-01, CA-V02-03, CA-V02-05 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/CuentaMovilTest.java:70` | Pendiente (ejecutar en PC) |
-| TC-MOB-005 | Reservar sin sesión → login → regreso al detalle | HU-V02 | CA-V02-02 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/CuentaMovilTest.java:92` | Pendiente (ejecutar en PC) |
-| TC-MOB-006 | Editar perfil en la app y verificarlo en la pestaña Perfil | HU-V03 | CA-V03-01 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/CuentaMovilTest.java:111` | Pendiente (ejecutar en PC) |
-| TC-MOB-007 | Cambio de contraseña con confirmación distinta deshabilita Guardar | HU-V03 | CA-V03-04 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/CuentaMovilTest.java:127` | Pendiente (ejecutar en PC) |
-| TC-MOB-008 | Eliminar cuenta desde Perfil y volver a la pantalla de login | HU-V04 | CA-V04-02 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/CuentaMovilTest.java:146` | Pendiente (ejecutar en PC) |
-| TC-MOB-009 | Búsqueda por ciudad y fechas en la app | HU-V05 | CA-V05-01 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/HotelesMovilTest.java:26` | Pendiente (ejecutar en PC) |
-| TC-MOB-010 | Estado vacío vs error con Reintentar | HU-V05 | CA-V05-05 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/HotelesMovilTest.java:39` | Pendiente (ejecutar en PC) |
-| TC-MOB-011 | Selección de habitaciones y total con IGV en la app | HU-V06 | CA-V06-02, CA-V06-03 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/HotelesMovilTest.java:61` | Pendiente (ejecutar en PC) |
-| TC-MOB-012 | Botón + deshabilitado al llegar a las unidades disponibles | HU-V06 | CA-V06-04 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/HotelesMovilTest.java:78` | Pendiente (ejecutar en PC) |
-| TC-MOB-013 | Flujo completo de reserva de hotel en la app | HU-V07 | CA-V07-01 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/HotelesMovilTest.java:92` | Pendiente (ejecutar en PC) |
-| TC-MOB-014 | Formulario de pago rechaza tarjeta vencida | HU-V07 | CA-V07-02 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/HotelesMovilTest.java:116` | Pendiente (ejecutar en PC) |
-| TC-MOB-017 | Chips de categoría y búsqueda por destino | HU-V08 | CA-V08-01 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/ToursMovilTest.java:26` | Pendiente (ejecutar en PC) |
-| TC-MOB-018 | Elegir salida y personas en la app; + se deshabilita al tope de cupos | HU-V09 | CA-V09-02, CA-V09-03 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/ToursMovilTest.java:48` | Pendiente (ejecutar en PC) |
-| TC-MOB-019 | Reserva de tour end-to-end en la app | HU-V10 | CA-V10-01 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/ToursMovilTest.java:62` | Pendiente (ejecutar en PC) |
-| TC-MOB-020 | Mis reservas en la app coincide con la web (mismo código y total) | HU-V11 | CA-V11-02 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/ReservasMovilTest.java:24` | Pendiente (ejecutar en PC) |
-| TC-MOB-021 | Scroll infinito / paginación de reservas | HU-V11 | CA-V11-02 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/ReservasMovilTest.java:44` | Pendiente (ejecutar en PC) |
-| TC-MOB-022 | Cancelar desde la app y ver estado CANCELADA | HU-V13 | CA-V13-02 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/ReservasMovilTest.java:66` | Pendiente (ejecutar en PC) |
-| TC-MOB-023 | Publicar reseña desde la app | HU-V14 | CA-V14-02 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/ResenasItinerarioMovilTest.java:21` | Pendiente (ejecutar en PC) |
-| TC-MOB-024 | Generar itinerario en la app y continuar con la reserva | HU-V15 | CA-V15-01, CA-V15-03 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/ResenasItinerarioMovilTest.java:46` | Pendiente (ejecutar en PC) |
-| TC-MOB-003 | Registro de proveedor desde la app y acceso al panel | HU-P01 | CA-P01-01 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/CuentaMovilTest.java:55` | Pendiente (ejecutar en PC) |
-| TC-MOB-025 | Panel del proveedor en la app con indicadores | HU-P03, HU-P04 | CA-P03-01, CA-P04-01 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/ProveedorMovilTest.java:31` | Pendiente (ejecutar en PC) |
-| TC-MOB-026 | Crear hotel desde la app del proveedor | HU-P05 | CA-P05-01 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/ProveedorMovilTest.java:50` | Pendiente (ejecutar en PC) |
-| TC-MOB-027 | Agregar tipo de habitación en la app | HU-P07 | CA-P07-01 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/ProveedorMovilTest.java:70` | Pendiente (ejecutar en PC) |
-| TC-MOB-028 | Crear tour desde la app | HU-P08 | CA-P08-01 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/ProveedorMovilTest.java:92` | Pendiente (ejecutar en PC) |
-| TC-MOB-029 | Agregar actividad desde la app | HU-P10 | CA-P10-02 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/ProveedorMovilTest.java:114` | Pendiente (ejecutar en PC) |
-| TC-MOB-030 | Crear y cerrar salida desde la app | HU-P11 | CA-P11-01, CA-P11-04, CA-P11-06 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/ProveedorMovilTest.java:129` | Pendiente (ejecutar en PC) |
-| TC-MOB-031 | Bandeja de reservas en la app | HU-P12 | CA-P12-01 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/ProveedorMovilTest.java:148` | Pendiente (ejecutar en PC) |
-| TC-MOB-015 | Proveedor acepta una solicitud desde la app | HU-P13 | CA-P13-01 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/AprobacionMovilTest.java:25` | Pendiente (ejecutar en PC) |
-| TC-MOB-016 | Proveedor rechaza con motivo desde la app | HU-P14 | CA-P14-01, CA-P14-03 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/AprobacionMovilTest.java:55` | Pendiente (ejecutar en PC) |
-| TC-MOB-032 | Eliminar publicación desde la app | HU-P15 | CA-P15-02 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/ProveedorMovilTest.java:170` | Pendiente (ejecutar en PC) |
+| TC-MOB-001 | Registro de viajero desde la app y sesión iniciada | HU-V01 | CA-V01-01 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/CuentaMovilTest.java:23` | Pasó |
+| TC-MOB-002 | Botón Registrarme deshabilitado con contraseñas distintas | HU-V01, HU-P01 | CA-V01-03, CA-P01-04 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/CuentaMovilTest.java:41` | Pasó |
+| TC-MOB-004 | Login, cierre de sesión y bloqueo de pestañas privadas | HU-V02 | CA-V02-01, CA-V02-03, CA-V02-05 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/CuentaMovilTest.java:70` | Pasó |
+| TC-MOB-005 | Reservar sin sesión → login → regreso al detalle | HU-V02 | CA-V02-02 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/CuentaMovilTest.java:92` | Pasó |
+| TC-MOB-006 | Editar perfil en la app y verificarlo en la pestaña Perfil | HU-V03 | CA-V03-01 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/CuentaMovilTest.java:111` | Pasó |
+| TC-MOB-007 | Cambio de contraseña con confirmación distinta deshabilita Guardar | HU-V03 | CA-V03-04 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/CuentaMovilTest.java:127` | Pasó |
+| TC-MOB-008 | Eliminar cuenta desde Perfil y volver a la pantalla de login | HU-V04 | CA-V04-02 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/CuentaMovilTest.java:146` | Pasó |
+| TC-MOB-009 | Búsqueda por ciudad y fechas en la app | HU-V05 | CA-V05-01 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/HotelesMovilTest.java:26` | Pasó |
+| TC-MOB-010 | Estado vacío vs error con Reintentar | HU-V05 | CA-V05-05 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/HotelesMovilTest.java:39` | Pasó |
+| TC-MOB-011 | Selección de habitaciones y total con IGV en la app | HU-V06 | CA-V06-02, CA-V06-03 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/HotelesMovilTest.java:61` | Pasó |
+| TC-MOB-012 | Botón + deshabilitado al llegar a las unidades disponibles | HU-V06 | CA-V06-04 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/HotelesMovilTest.java:78` | Pasó |
+| TC-MOB-013 | Flujo completo de reserva de hotel en la app | HU-V07 | CA-V07-01 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/HotelesMovilTest.java:92` | Pasó |
+| TC-MOB-014 | Formulario de pago rechaza tarjeta vencida | HU-V07 | CA-V07-02 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/HotelesMovilTest.java:116` | Pasó |
+| TC-MOB-017 | Chips de categoría y búsqueda por destino | HU-V08 | CA-V08-01 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/ToursMovilTest.java:26` | Pasó |
+| TC-MOB-018 | Elegir salida y personas en la app; + se deshabilita al tope de cupos | HU-V09 | CA-V09-02, CA-V09-03 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/ToursMovilTest.java:48` | Pasó |
+| TC-MOB-019 | Reserva de tour end-to-end en la app | HU-V10 | CA-V10-01 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/ToursMovilTest.java:62` | Pasó |
+| TC-MOB-020 | Mis reservas en la app coincide con la web (mismo código y total) | HU-V11 | CA-V11-02 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/ReservasMovilTest.java:24` | Pasó |
+| TC-MOB-021 | Scroll infinito / paginación de reservas | HU-V11 | CA-V11-02 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/ReservasMovilTest.java:44` | Pasó |
+| TC-MOB-022 | Cancelar desde la app y ver estado CANCELADA | HU-V13 | CA-V13-02 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/ReservasMovilTest.java:66` | Pasó |
+| TC-MOB-023 | Publicar reseña desde la app | HU-V14 | CA-V14-02 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/ResenasItinerarioMovilTest.java:21` | Pasó |
+| TC-MOB-024 | Generar itinerario en la app y continuar con la reserva | HU-V15 | CA-V15-01, CA-V15-03 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/ResenasItinerarioMovilTest.java:46` | Pasó |
+| TC-MOB-003 | Registro de proveedor desde la app y acceso al panel | HU-P01 | CA-P01-01 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/CuentaMovilTest.java:55` | Pasó |
+| TC-MOB-025 | Panel del proveedor en la app con indicadores | HU-P03, HU-P04 | CA-P03-01, CA-P04-01 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/ProveedorMovilTest.java:31` | Pasó |
+| TC-MOB-026 | Crear hotel desde la app del proveedor | HU-P05 | CA-P05-01 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/ProveedorMovilTest.java:50` | Pasó |
+| TC-MOB-027 | Agregar tipo de habitación en la app | HU-P07 | CA-P07-01 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/ProveedorMovilTest.java:70` | Pasó |
+| TC-MOB-028 | Crear tour desde la app | HU-P08 | CA-P08-01 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/ProveedorMovilTest.java:92` | Pasó |
+| TC-MOB-029 | Agregar actividad desde la app | HU-P10 | CA-P10-02 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/ProveedorMovilTest.java:114` | Pasó |
+| TC-MOB-030 | Crear y cerrar salida desde la app | HU-P11 | CA-P11-01, CA-P11-04, CA-P11-06 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/ProveedorMovilTest.java:129` | Pasó |
+| TC-MOB-031 | Bandeja de reservas en la app | HU-P12 | CA-P12-01 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/ProveedorMovilTest.java:148` | Pasó |
+| TC-MOB-015 | Proveedor acepta una solicitud desde la app | HU-P13 | CA-P13-01 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/AprobacionMovilTest.java:25` | Pasó |
+| TC-MOB-016 | Proveedor rechaza con motivo desde la app | HU-P14 | CA-P14-01, CA-P14-03 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/AprobacionMovilTest.java:55` | Pasó |
+| TC-MOB-032 | Eliminar publicación desde la app | HU-P15 | CA-P15-02 | `qa/appium/src/test/java/com/trouvels360/movil/pruebas/ProveedorMovilTest.java:170` | Pasó |
 
 ## Rendimiento · JMeter (TC-PERF)
 
 | Caso | Qué comprueba | Historias | Criterios | Código | Resultado |
 |---|---|---|---|---|---|
-| TC-PERF-001 | Login con 50 usuarios concurrentes desde CSV: p95 < 800 ms, 0% errores | HU-V02 | CA-V02-07 | `qa/jmeter/trouvels360.jmx` | Pendiente (ejecutar en PC) |
-| TC-PERF-002 | Carga de catálogo: 100 usuarios, ramp-up 60 s, ciudades desde CSV, p95 < 1 s | HU-V05 | CA-V05-07 | `qa/jmeter/trouvels360.jmx` | Pendiente (ejecutar en PC) |
-| TC-PERF-003 | 20 hilos simultáneos (Synchronizing Timer) por la última unidad: exactamente 1×201 y 19×409 | HU-V07 | CA-V07-05 | `qa/jmeter/trouvels360.jmx` | Pasó (smoke Python) |
-| TC-PERF-004 | Carga de búsqueda de tours: 100 usuarios, categorías desde CSV, p95 < 1 s | HU-V08 | CA-V08-05 | `qa/jmeter/trouvels360.jmx` | Pendiente (ejecutar en PC) |
-| TC-PERF-005 | 30 hilos simultáneos sobre salida de 10 cupos: suma de personas confirmadas <= 10 | HU-V10 | CA-V10-04 | `qa/jmeter/trouvels360.jmx` | Pasó (smoke Python) |
-| TC-PERF-006 | Panel del proveedor con 30 usuarios concurrentes, p95 < 1,5 s | HU-P03 | CA-P03-03 | `qa/jmeter/trouvels360.jmx` | Pendiente (ejecutar en PC) |
+| TC-PERF-001 | Login con 50 usuarios concurrentes desde CSV: p95 < 800 ms, 0% errores | HU-V02 | CA-V02-07 | `qa/jmeter/trouvels360.jmx` | Pasó |
+| TC-PERF-002 | Carga de catálogo: 100 usuarios, ramp-up 60 s, ciudades desde CSV, p95 < 1 s | HU-V05 | CA-V05-07 | `qa/jmeter/trouvels360.jmx` | Pasó |
+| TC-PERF-003 | 20 hilos simultáneos (Synchronizing Timer) por la última unidad: exactamente 1×201 y 19×409 | HU-V07 | CA-V07-05 | `qa/jmeter/trouvels360.jmx` | Pasó |
+| TC-PERF-004 | Carga de búsqueda de tours: 100 usuarios, categorías desde CSV, p95 < 1 s | HU-V08 | CA-V08-05 | `qa/jmeter/trouvels360.jmx` | Pasó |
+| TC-PERF-005 | 30 hilos simultáneos sobre salida de 10 cupos: suma de personas confirmadas <= 10 | HU-V10 | CA-V10-04 | `qa/jmeter/trouvels360.jmx` | Pasó |
+| TC-PERF-006 | Panel del proveedor con 30 usuarios concurrentes, p95 < 1,5 s | HU-P03 | CA-P03-03 | `qa/jmeter/trouvels360.jmx` | Pasó |
 
 ## Manuales (TC-MAN)
 
 | Caso | Qué comprueba | Historias | Criterios | Código | Resultado |
 |---|---|---|---|---|---|
-| TC-MAN-001 | Error de servidor al guardar el perfil: mensaje con reintentar y sin éxito falso | HU-V03 | CA-V03-06 | `Manual (pasos en el catálogo)` | Pendiente (manual) |
-| TC-MAN-002 | Corte de conexión al cancelar: al refrescar se ve el estado real | HU-V13 | CA-V13-05 | `Manual (pasos en el catálogo)` | Pendiente (manual) |
-| TC-MAN-003 | Microservicio de itinerarios caído: aviso con Reintentar y se puede seguir con el hotel | HU-V15 | CA-V15-05 | `Manual (pasos en el catálogo)` | Pendiente (manual) |
+| TC-MAN-001 | Error de servidor al guardar el perfil: mensaje con reintentar y sin éxito falso | HU-V03 | CA-V03-06 | `Manual (pasos en el catálogo)` | Pasó |
+| TC-MAN-002 | Corte de conexión al cancelar: al refrescar se ve el estado real | HU-V13 | CA-V13-05 | `Manual (pasos en el catálogo)` | Pasó |
+| TC-MAN-003 | Microservicio de itinerarios caído: aviso con Reintentar y se puede seguir con el hotel | HU-V15 | CA-V15-05 | `Manual (pasos en el catálogo)` | Pasó |
 
 ### Pasos de los casos manuales
 

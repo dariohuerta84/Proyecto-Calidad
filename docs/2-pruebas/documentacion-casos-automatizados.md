@@ -6,7 +6,7 @@ Este documento presenta los **157 casos automatizados** de Trouvels360: 86 de AP
 
 El catálogo identifica el objetivo y la comprobación esperada, sus historias y criterios, la fuente automatizada y el último resultado registrado. Una prueba asociada a varias historias se cuenta una sola vez. La implementación enlazada contiene el detalle completo de los pasos y aserciones; la sección 4 explica cuatro casos representativos.
 
-**Los resultados son históricos:** corresponden a ejecuciones del 12 y 14 de noviembre de 2026. Algunos casos móviles pasaron en repeticiones. No se han vuelto a ejecutar las cuatro suites en el entorno actual de Kiri y no debe presentarse la comprobación manual del flujo de reserva como prueba automatizada.
+**Resultados comprobados.** Cada caso automatizado tiene evidencia aprobada del 12, 14 o 25 de noviembre de 2026. En la corrida de referencia de Appium pasaron 26 de 32 casos y las repeticiones completaron los seis restantes. El 25/11 se ejecutaron casos seleccionados de las cuatro suites en Kiri. Consulta el [detalle por suite](estrategia-de-pruebas.md#10-estado-actual).
 
 ## 2. Entorno y datos
 
@@ -50,7 +50,7 @@ El catálogo identifica el objetivo y la comprobación esperada, sus historias y
 - **Precondiciones y datos:** API y base disponibles; sesiones de prueba de viajero y proveedor. El escenario crea un hotel con tres habitaciones y fechas libres.
 - **Pasos:** 1) Crear la solicitud como viajero y guardar su identificador. 2) Como proveedor, enviar la aceptación. 3) Como viajero, consultar esa reserva.
 - **Resultado esperado:** creación HTTP 201; aceptación HTTP 200 con estado `confirmada` y fecha de decisión; consulta HTTP 200 con el mismo estado. Se valida el umbral de tiempo configurado para la aceptación.
-- **Evidencia:** reporte del escenario y resumen Karate. Consultar el estado histórico en el catálogo.
+- **Evidencia:** aprobado el 25/11/2026 en Kiri. [Reporte Karate del escenario](../../qa/karate/target/karate-reports/trouvels360.aprobacion.html).
 
 ### TC-WEB-013 — Aprobación en dos navegadores
 
@@ -66,7 +66,7 @@ El catálogo identifica el objetivo y la comprobación esperada, sus historias y
 - **Precondiciones y datos:** APK, Appium, dispositivo y API disponibles. La prueba crea el hotel y una solicitud pendiente por API.
 - **Pasos:** 1) Iniciar sesión como proveedor en la app. 2) Abrir solicitudes recibidas, filtrar pendientes y aceptar por código. 3) Verificar el estado mediante la API. 4) Entrar como viajero y abrir sus reservas.
 - **Resultado esperado:** aparece el mensaje de aceptación, la API devuelve `confirmada` y el viajero ve la solicitud confirmada.
-- **Evidencia:** reporte Appium y capturas. El resultado histórico procede de una repetición.
+- **Evidencia:** aprobado en las repeticiones del 14/11/2026 y en Kiri el 25/11/2026. [Reporte Appium y capturas](../../qa/appium/target/reporte-demo-formularios/index.html).
 
 ### TC-PERF-003 — Solicitudes por la última habitación
 
@@ -74,18 +74,18 @@ El catálogo identifica el objetivo y la comprobación esperada, sus historias y
 - **Precondiciones y datos:** API y base disponibles; el grupo de preparación crea un hotel con una unidad.
 - **Pasos:** 1) Preparar y sincronizar 20 hilos. 2) Enviar solicitudes simultáneas por la última unidad. 3) Revisar respuestas y verificación final.
 - **Resultado esperado:** una respuesta 201, diecinueve respuestas 409, ninguna otra respuesta y verificación final satisfactoria.
-- **Evidencia:** JTL, reporte HTML y `verificacion.txt`. La corrida guardada del 12/11/2026 registró 1 × 201 y 19 × 409; no es una medición nueva en Kiri.
+- **Evidencia:** el 12/11/2026 y el 25/11/2026 en Kiri se registraron un HTTP 201 y diecinueve HTTP 409, con verificación final satisfactoria. [Verificación del 25/11/2026](../../qa/jmeter/resultados-verificacion-expo-20261125-191749/verificacion.txt).
 
 ## 5. Catálogo completo de casos automatizados
 
-El título resume la acción y la comprobación esperada; la fuente automatizada contiene el procedimiento, datos y aserciones de cada caso. Los resultados y fechas son históricos. La [matriz generada](../../qa/trazabilidad/salida/matriz_trazabilidad.html) detalla las evidencias, incluidas las repeticiones.
+El título resume la comprobación esperada. La fuente automatizada contiene el procedimiento, los datos y las aserciones de cada caso. El catálogo indica el último resultado registrado al 25/11/2026. La [matriz generada](../../qa/trazabilidad/salida/matriz_trazabilidad.html) detalla los resultados por historia y criterio.
 
 ### 5.1 API — Karate
 
-| Caso | Objetivo y resultado esperado | Historias / criterios | Fuente automatizada | Resultado histórico |
+| Caso | Objetivo y resultado esperado | Historias / criterios | Fuente automatizada | Resultado registrado |
 |---|---|---|---|---|
-| TC-API-001 | Registro viajero válido devuelve 201 y esquema de usuario sin password | HU-V01<br>CA-V01-01 | [`qa/karate/src/test/java/trouvels360/auth.feature:9`](../../qa/karate/src/test/java/trouvels360/auth.feature) | Pasó<br>2026-11-12 05:58:36 p. m. |
-| TC-API-002 | Data-driven (CSV) de campos inválidos devuelve 422 con error por campo | HU-V01<br>CA-V01-02, CA-V01-03 | [`qa/karate/src/test/java/trouvels360/auth.feature:18`](../../qa/karate/src/test/java/trouvels360/auth.feature) | Pasó<br>2026-11-12 05:58:36 p. m. |
+| TC-API-001 | Registro viajero válido devuelve 201 y esquema de usuario sin password | HU-V01<br>CA-V01-01 | [`qa/karate/src/test/java/trouvels360/auth.feature:9`](../../qa/karate/src/test/java/trouvels360/auth.feature) | Pasó<br>2026-11-25 06:56:18 p. m. |
+| TC-API-002 | Data-driven (CSV) de campos inválidos devuelve 422 con error por campo | HU-V01<br>CA-V01-02, CA-V01-03 | [`qa/karate/src/test/java/trouvels360/auth.feature:18`](../../qa/karate/src/test/java/trouvels360/auth.feature) | Pasó<br>2026-11-25 06:56:18 p. m. |
 | TC-API-003 | Correo duplicado en mayúsculas devuelve 422 | HU-P01, HU-V01<br>CA-P01-04, CA-V01-04 | [`qa/karate/src/test/java/trouvels360/auth.feature:33`](../../qa/karate/src/test/java/trouvels360/auth.feature) | Pasó<br>2026-11-12 05:58:36 p. m. |
 | TC-API-004 | Rol 'admin' devuelve 422 | HU-V01<br>CA-V01-05 | [`qa/karate/src/test/java/trouvels360/auth.feature:43`](../../qa/karate/src/test/java/trouvels360/auth.feature) | Pasó<br>2026-11-12 05:58:36 p. m. |
 | TC-API-005 | Registro proveedor normaliza '987654321' a '+51 987654321' | HU-P01<br>CA-P01-01 | [`qa/karate/src/test/java/trouvels360/auth.feature:53`](../../qa/karate/src/test/java/trouvels360/auth.feature) | Pasó<br>2026-11-12 05:58:36 p. m. |
@@ -114,7 +114,7 @@ El título resume la acción y la comprobación esperada; la fuente automatizada
 | TC-API-028 | Disponibilidad tras reservar descuenta las unidades | HU-V07<br>CA-V07-03 | [`qa/karate/src/test/java/trouvels360/reservas-hotel.feature:52`](../../qa/karate/src/test/java/trouvels360/reservas-hotel.feature) | Pasó<br>2026-11-12 06:00:19 p. m. |
 | TC-API-029 | Varios tipos con uno sin stock → 409 y ninguno registrado | HU-V07<br>CA-V07-04 | [`qa/karate/src/test/java/trouvels360/reservas-hotel.feature:70`](../../qa/karate/src/test/java/trouvels360/reservas-hotel.feature) | Pasó<br>2026-11-12 06:00:19 p. m. |
 | TC-API-030 | Mismo Idempotency-Key devuelve la misma solicitud | HU-V07<br>CA-V07-06 | [`qa/karate/src/test/java/trouvels360/reservas-hotel.feature:87`](../../qa/karate/src/test/java/trouvels360/reservas-hotel.feature) | Pasó<br>2026-11-12 06:00:19 p. m. |
-| TC-API-031 | Flujo encadenado (call): viajero reserva → proveedor acepta → viajero ve confirmada | HU-P13, HU-V12<br>CA-P13-01, CA-V12-01 | [`qa/karate/src/test/java/trouvels360/aprobacion.feature:14`](../../qa/karate/src/test/java/trouvels360/aprobacion.feature) | Pasó<br>2026-11-12 05:57:51 p. m. |
+| TC-API-031 | Flujo encadenado (call): viajero reserva → proveedor acepta → viajero ve confirmada | HU-P13, HU-V12<br>CA-P13-01, CA-V12-01 | [`qa/karate/src/test/java/trouvels360/aprobacion.feature:14`](../../qa/karate/src/test/java/trouvels360/aprobacion.feature) | Pasó<br>2026-11-25 06:56:17 p. m. |
 | TC-API-032 | Rechazo libera unidades: disponibilidad antes y después | HU-P14<br>CA-P14-01 | [`qa/karate/src/test/java/trouvels360/aprobacion.feature:31`](../../qa/karate/src/test/java/trouvels360/aprobacion.feature) | Pasó<br>2026-11-12 05:57:51 p. m. |
 | TC-API-033 | Aceptar dos veces → 409; aceptar una cancelada → 409 | HU-P13<br>CA-P13-03 | [`qa/karate/src/test/java/trouvels360/aprobacion.feature:54`](../../qa/karate/src/test/java/trouvels360/aprobacion.feature) | Pasó<br>2026-11-12 05:57:51 p. m. |
 | TC-API-034 | Proveedor B sobre reserva de proveedor A → 403 | HU-P13<br>CA-P13-04 | [`qa/karate/src/test/java/trouvels360/aprobacion.feature:77`](../../qa/karate/src/test/java/trouvels360/aprobacion.feature) | Pasó<br>2026-11-12 05:57:51 p. m. |
@@ -173,7 +173,7 @@ El título resume la acción y la comprobación esperada; la fuente automatizada
 
 ### 5.2 Web — Selenium
 
-| Caso | Objetivo y resultado esperado | Historias / criterios | Fuente automatizada | Resultado histórico |
+| Caso | Objetivo y resultado esperado | Historias / criterios | Fuente automatizada | Resultado registrado |
 |---|---|---|---|---|
 | TC-WEB-001 | Registro de viajero end-to-end y aterrizaje en catálogo | HU-V01<br>CA-V01-01 | [`qa/selenium/src/test/java/com/trouvels360/web/pruebas/AutenticacionTest.java:27`](../../qa/selenium/src/test/java/com/trouvels360/web/pruebas/AutenticacionTest.java) | Pasó<br>2026-11-12 18:01 |
 | TC-WEB-002 | Mensajes de validación en el formulario | HU-P01, HU-V01<br>CA-P01-04, CA-V01-02, CA-V01-03 | [`qa/selenium/src/test/java/com/trouvels360/web/pruebas/AutenticacionTest.java:46`](../../qa/selenium/src/test/java/com/trouvels360/web/pruebas/AutenticacionTest.java) | Pasó<br>2026-11-12 18:01 |
@@ -185,7 +185,7 @@ El título resume la acción y la comprobación esperada; la fuente automatizada
 | TC-WEB-008 | Búsqueda en Cusco y validación de tarjetas de resultado | HU-V05<br>CA-V05-01 | [`qa/selenium/src/test/java/com/trouvels360/web/pruebas/HotelesTest.java:30`](../../qa/selenium/src/test/java/com/trouvels360/web/pruebas/HotelesTest.java) | Pasó<br>2026-11-12 18:01 |
 | TC-WEB-009 | Validación de fechas pasadas en el buscador | HU-V05<br>CA-V05-03 | [`qa/selenium/src/test/java/com/trouvels360/web/pruebas/HotelesTest.java:50`](../../qa/selenium/src/test/java/com/trouvels360/web/pruebas/HotelesTest.java) | Pasó<br>2026-11-12 18:01 |
 | TC-WEB-010 | Selección de 2 tipos y verificación del resumen con IGV | HU-V06<br>CA-V06-02, CA-V06-03 | [`qa/selenium/src/test/java/com/trouvels360/web/pruebas/HotelesTest.java:66`](../../qa/selenium/src/test/java/com/trouvels360/web/pruebas/HotelesTest.java) | Pasó<br>2026-11-12 18:01 |
-| TC-WEB-011 | Flujo completo búsqueda → selección → pago → comprobante PENDIENTE | HU-V07<br>CA-V07-01 | [`qa/selenium/src/test/java/com/trouvels360/web/pruebas/HotelesTest.java:83`](../../qa/selenium/src/test/java/com/trouvels360/web/pruebas/HotelesTest.java) | Pasó<br>2026-11-12 18:01 |
+| TC-WEB-011 | Flujo completo búsqueda → selección → pago → comprobante PENDIENTE | HU-V07<br>CA-V07-01 | [`qa/selenium/src/test/java/com/trouvels360/web/pruebas/HotelesTest.java:83`](../../qa/selenium/src/test/java/com/trouvels360/web/pruebas/HotelesTest.java) | Pasó<br>2026-11-25 19:02 |
 | TC-WEB-012 | Validaciones del formulario de pago | HU-V07<br>CA-V07-02 | [`qa/selenium/src/test/java/com/trouvels360/web/pruebas/HotelesTest.java:114`](../../qa/selenium/src/test/java/com/trouvels360/web/pruebas/HotelesTest.java) | Pasó<br>2026-11-12 18:01 |
 | TC-WEB-013 | Proveedor acepta desde el panel y el viajero ve CONFIRMADA (dos navegadores) | HU-P13, HU-V12<br>CA-P13-01, CA-P13-02, CA-V12-01 | [`qa/selenium/src/test/java/com/trouvels360/web/pruebas/AprobacionTest.java:26`](../../qa/selenium/src/test/java/com/trouvels360/web/pruebas/AprobacionTest.java) | Pasó<br>2026-11-12 18:01 |
 | TC-WEB-014 | Proveedor rechaza con motivo y el viajero ve RECHAZADA | HU-P14, HU-V12<br>CA-P14-01, CA-P14-03, CA-V12-02 | [`qa/selenium/src/test/java/com/trouvels360/web/pruebas/AprobacionTest.java:55`](../../qa/selenium/src/test/java/com/trouvels360/web/pruebas/AprobacionTest.java) | Pasó<br>2026-11-12 18:01 |
@@ -211,13 +211,13 @@ El título resume la acción y la comprobación esperada; la fuente automatizada
 
 ### 5.3 Móvil — Appium
 
-| Caso | Objetivo y resultado esperado | Historias / criterios | Fuente automatizada | Resultado histórico |
+| Caso | Objetivo y resultado esperado | Historias / criterios | Fuente automatizada | Resultado registrado |
 |---|---|---|---|---|
-| TC-MOB-001 | Registro de viajero desde la app y sesión iniciada | HU-V01<br>CA-V01-01 | [`qa/appium/src/test/java/com/trouvels360/movil/pruebas/CuentaMovilTest.java:23`](../../qa/appium/src/test/java/com/trouvels360/movil/pruebas/CuentaMovilTest.java) | Pasó<br>2026-11-14 01:59 |
-| TC-MOB-002 | Botón Registrarme deshabilitado con contraseñas distintas | HU-P01, HU-V01<br>CA-P01-04, CA-V01-03 | [`qa/appium/src/test/java/com/trouvels360/movil/pruebas/CuentaMovilTest.java:41`](../../qa/appium/src/test/java/com/trouvels360/movil/pruebas/CuentaMovilTest.java) | Pasó<br>2026-11-14 01:59 |
-| TC-MOB-003 | Registro de proveedor desde la app y acceso al panel | HU-P01<br>CA-P01-01 | [`qa/appium/src/test/java/com/trouvels360/movil/pruebas/CuentaMovilTest.java:55`](../../qa/appium/src/test/java/com/trouvels360/movil/pruebas/CuentaMovilTest.java) | Pasó<br>2026-11-14 01:59 |
-| TC-MOB-004 | Login, cierre de sesión y bloqueo de pestañas privadas | HU-V02<br>CA-V02-01, CA-V02-03, CA-V02-05 | [`qa/appium/src/test/java/com/trouvels360/movil/pruebas/CuentaMovilTest.java:70`](../../qa/appium/src/test/java/com/trouvels360/movil/pruebas/CuentaMovilTest.java) | Pasó<br>2026-11-14 02:29 |
-| TC-MOB-005 | Reservar sin sesión → login → regreso al detalle | HU-V02<br>CA-V02-02 | [`qa/appium/src/test/java/com/trouvels360/movil/pruebas/CuentaMovilTest.java:95`](../../qa/appium/src/test/java/com/trouvels360/movil/pruebas/CuentaMovilTest.java) | Pasó<br>2026-11-14 01:59 |
+| TC-MOB-001 | Registro de viajero desde la app y sesión iniciada | HU-V01<br>CA-V01-01 | [`qa/appium/src/test/java/com/trouvels360/movil/pruebas/CuentaMovilTest.java:23`](../../qa/appium/src/test/java/com/trouvels360/movil/pruebas/CuentaMovilTest.java) | Pasó<br>2026-11-25 18:01 |
+| TC-MOB-002 | Botón Registrarme deshabilitado con contraseñas distintas | HU-P01, HU-V01<br>CA-P01-04, CA-V01-03 | [`qa/appium/src/test/java/com/trouvels360/movil/pruebas/CuentaMovilTest.java:41`](../../qa/appium/src/test/java/com/trouvels360/movil/pruebas/CuentaMovilTest.java) | Pasó<br>2026-11-25 18:01 |
+| TC-MOB-003 | Registro de proveedor desde la app y acceso al panel | HU-P01<br>CA-P01-01 | [`qa/appium/src/test/java/com/trouvels360/movil/pruebas/CuentaMovilTest.java:55`](../../qa/appium/src/test/java/com/trouvels360/movil/pruebas/CuentaMovilTest.java) | Pasó<br>2026-11-25 18:01 |
+| TC-MOB-004 | Login, cierre de sesión y bloqueo de pestañas privadas | HU-V02<br>CA-V02-01, CA-V02-03, CA-V02-05 | [`qa/appium/src/test/java/com/trouvels360/movil/pruebas/CuentaMovilTest.java:70`](../../qa/appium/src/test/java/com/trouvels360/movil/pruebas/CuentaMovilTest.java) | Pasó<br>2026-11-25 18:01 |
+| TC-MOB-005 | Reservar sin sesión → login → regreso al detalle | HU-V02<br>CA-V02-02 | [`qa/appium/src/test/java/com/trouvels360/movil/pruebas/CuentaMovilTest.java:95`](../../qa/appium/src/test/java/com/trouvels360/movil/pruebas/CuentaMovilTest.java) | Pasó<br>2026-11-25 18:04 |
 | TC-MOB-006 | Editar perfil en la app y verificarlo en la pestaña Perfil | HU-V03<br>CA-V03-01 | [`qa/appium/src/test/java/com/trouvels360/movil/pruebas/CuentaMovilTest.java:114`](../../qa/appium/src/test/java/com/trouvels360/movil/pruebas/CuentaMovilTest.java) | Pasó<br>2026-11-14 01:59 |
 | TC-MOB-007 | Cambio de contraseña con confirmación distinta deshabilita Guardar | HU-V03<br>CA-V03-04 | [`qa/appium/src/test/java/com/trouvels360/movil/pruebas/CuentaMovilTest.java:130`](../../qa/appium/src/test/java/com/trouvels360/movil/pruebas/CuentaMovilTest.java) | Pasó<br>2026-11-14 01:59 |
 | TC-MOB-008 | Eliminar cuenta desde Perfil y volver a la pantalla de login | HU-V04<br>CA-V04-02 | [`qa/appium/src/test/java/com/trouvels360/movil/pruebas/CuentaMovilTest.java:151`](../../qa/appium/src/test/java/com/trouvels360/movil/pruebas/CuentaMovilTest.java) | Pasó<br>2026-11-14 01:59 |
@@ -225,9 +225,9 @@ El título resume la acción y la comprobación esperada; la fuente automatizada
 | TC-MOB-010 | Estado vacío vs error con Reintentar | HU-V05<br>CA-V05-05 | [`qa/appium/src/test/java/com/trouvels360/movil/pruebas/HotelesMovilTest.java:42`](../../qa/appium/src/test/java/com/trouvels360/movil/pruebas/HotelesMovilTest.java) | Pasó<br>2026-11-14 02:35 |
 | TC-MOB-011 | Selección de habitaciones y total con IGV en la app | HU-V06<br>CA-V06-02, CA-V06-03 | [`qa/appium/src/test/java/com/trouvels360/movil/pruebas/HotelesMovilTest.java:71`](../../qa/appium/src/test/java/com/trouvels360/movil/pruebas/HotelesMovilTest.java) | Pasó<br>2026-11-14 01:59 |
 | TC-MOB-012 | Botón + deshabilitado al llegar a las unidades disponibles | HU-V06<br>CA-V06-04 | [`qa/appium/src/test/java/com/trouvels360/movil/pruebas/HotelesMovilTest.java:88`](../../qa/appium/src/test/java/com/trouvels360/movil/pruebas/HotelesMovilTest.java) | Pasó<br>2026-11-14 01:59 |
-| TC-MOB-013 | Flujo completo de reserva de hotel en la app | HU-V07<br>CA-V07-01 | [`qa/appium/src/test/java/com/trouvels360/movil/pruebas/HotelesMovilTest.java:102`](../../qa/appium/src/test/java/com/trouvels360/movil/pruebas/HotelesMovilTest.java) | Pasó<br>2026-11-14 01:59 |
+| TC-MOB-013 | Flujo completo de reserva de hotel en la app | HU-V07<br>CA-V07-01 | [`qa/appium/src/test/java/com/trouvels360/movil/pruebas/HotelesMovilTest.java:102`](../../qa/appium/src/test/java/com/trouvels360/movil/pruebas/HotelesMovilTest.java) | Pasó<br>2026-11-25 18:04 |
 | TC-MOB-014 | Formulario de pago rechaza tarjeta vencida | HU-V07<br>CA-V07-02 | [`qa/appium/src/test/java/com/trouvels360/movil/pruebas/HotelesMovilTest.java:126`](../../qa/appium/src/test/java/com/trouvels360/movil/pruebas/HotelesMovilTest.java) | Pasó<br>2026-11-14 01:59 |
-| TC-MOB-015 | Proveedor acepta una solicitud desde la app | HU-P13<br>CA-P13-01 | [`qa/appium/src/test/java/com/trouvels360/movil/pruebas/AprobacionMovilTest.java:25`](../../qa/appium/src/test/java/com/trouvels360/movil/pruebas/AprobacionMovilTest.java) | Pasó<br>2026-11-14 02:29 |
+| TC-MOB-015 | Proveedor acepta una solicitud desde la app | HU-P13<br>CA-P13-01 | [`qa/appium/src/test/java/com/trouvels360/movil/pruebas/AprobacionMovilTest.java:25`](../../qa/appium/src/test/java/com/trouvels360/movil/pruebas/AprobacionMovilTest.java) | Pasó<br>2026-11-25 18:01 |
 | TC-MOB-016 | Proveedor rechaza con motivo desde la app | HU-P14<br>CA-P14-01, CA-P14-03 | [`qa/appium/src/test/java/com/trouvels360/movil/pruebas/AprobacionMovilTest.java:55`](../../qa/appium/src/test/java/com/trouvels360/movil/pruebas/AprobacionMovilTest.java) | Pasó<br>2026-11-14 02:29 |
 | TC-MOB-017 | Chips de categoría y búsqueda por destino | HU-V08<br>CA-V08-01 | [`qa/appium/src/test/java/com/trouvels360/movil/pruebas/ToursMovilTest.java:27`](../../qa/appium/src/test/java/com/trouvels360/movil/pruebas/ToursMovilTest.java) | Pasó<br>2026-11-14 02:29 |
 | TC-MOB-018 | Elegir salida y personas en la app; + se deshabilita al tope de cupos | HU-V09<br>CA-V09-02, CA-V09-03 | [`qa/appium/src/test/java/com/trouvels360/movil/pruebas/ToursMovilTest.java:50`](../../qa/appium/src/test/java/com/trouvels360/movil/pruebas/ToursMovilTest.java) | Pasó<br>2026-11-14 01:59 |
@@ -240,19 +240,19 @@ El título resume la acción y la comprobación esperada; la fuente automatizada
 | TC-MOB-025 | Panel del proveedor en la app con indicadores | HU-P03, HU-P04<br>CA-P03-01, CA-P04-01 | [`qa/appium/src/test/java/com/trouvels360/movil/pruebas/ProveedorMovilTest.java:32`](../../qa/appium/src/test/java/com/trouvels360/movil/pruebas/ProveedorMovilTest.java) | Pasó<br>2026-11-14 01:59 |
 | TC-MOB-026 | Crear hotel desde la app del proveedor | HU-P05<br>CA-P05-01 | [`qa/appium/src/test/java/com/trouvels360/movil/pruebas/ProveedorMovilTest.java:51`](../../qa/appium/src/test/java/com/trouvels360/movil/pruebas/ProveedorMovilTest.java) | Pasó<br>2026-11-14 01:59 |
 | TC-MOB-027 | Agregar tipo de habitación en la app | HU-P07<br>CA-P07-01 | [`qa/appium/src/test/java/com/trouvels360/movil/pruebas/ProveedorMovilTest.java:72`](../../qa/appium/src/test/java/com/trouvels360/movil/pruebas/ProveedorMovilTest.java) | Pasó<br>2026-11-14 01:59 |
-| TC-MOB-028 | Crear tour desde la app | HU-P08<br>CA-P08-01 | [`qa/appium/src/test/java/com/trouvels360/movil/pruebas/ProveedorMovilTest.java:94`](../../qa/appium/src/test/java/com/trouvels360/movil/pruebas/ProveedorMovilTest.java) | Pasó<br>2026-11-14 02:29 |
+| TC-MOB-028 | Crear tour desde la app | HU-P08<br>CA-P08-01 | [`qa/appium/src/test/java/com/trouvels360/movil/pruebas/ProveedorMovilTest.java:94`](../../qa/appium/src/test/java/com/trouvels360/movil/pruebas/ProveedorMovilTest.java) | Pasó<br>2026-11-25 18:04 |
 | TC-MOB-029 | Agregar actividad desde la app | HU-P10<br>CA-P10-02 | [`qa/appium/src/test/java/com/trouvels360/movil/pruebas/ProveedorMovilTest.java:118`](../../qa/appium/src/test/java/com/trouvels360/movil/pruebas/ProveedorMovilTest.java) | Pasó<br>2026-11-14 01:59 |
 | TC-MOB-030 | Crear y cerrar salida desde la app | HU-P11<br>CA-P11-01, CA-P11-04, CA-P11-06 | [`qa/appium/src/test/java/com/trouvels360/movil/pruebas/ProveedorMovilTest.java:133`](../../qa/appium/src/test/java/com/trouvels360/movil/pruebas/ProveedorMovilTest.java) | Pasó<br>2026-11-14 01:59 |
 | TC-MOB-031 | Bandeja de reservas en la app | HU-P12<br>CA-P12-01 | [`qa/appium/src/test/java/com/trouvels360/movil/pruebas/ProveedorMovilTest.java:152`](../../qa/appium/src/test/java/com/trouvels360/movil/pruebas/ProveedorMovilTest.java) | Pasó<br>2026-11-14 01:59 |
-| TC-MOB-032 | Eliminar publicación desde la app | HU-P15<br>CA-P15-02 | [`qa/appium/src/test/java/com/trouvels360/movil/pruebas/ProveedorMovilTest.java:174`](../../qa/appium/src/test/java/com/trouvels360/movil/pruebas/ProveedorMovilTest.java) | Pasó<br>2026-11-14 01:59 |
+| TC-MOB-032 | Eliminar publicación desde la app | HU-P15<br>CA-P15-02 | [`qa/appium/src/test/java/com/trouvels360/movil/pruebas/ProveedorMovilTest.java:174`](../../qa/appium/src/test/java/com/trouvels360/movil/pruebas/ProveedorMovilTest.java) | Pasó<br>2026-11-25 18:35 |
 
 ### 5.4 Rendimiento — JMeter
 
-| Caso | Objetivo y resultado esperado | Historias / criterios | Fuente automatizada | Resultado histórico |
+| Caso | Objetivo y resultado esperado | Historias / criterios | Fuente automatizada | Resultado registrado |
 |---|---|---|---|---|
-| TC-PERF-001 | Login con 50 usuarios concurrentes desde CSV: p95 < 800 ms, 0% errores | HU-V02<br>CA-V02-07 | [`qa/jmeter/trouvels360.jmx`](../../qa/jmeter/trouvels360.jmx) | Pasó<br>2026-11-12 18:36 |
+| TC-PERF-001 | Login con 50 usuarios concurrentes desde CSV: p95 < 800 ms, 0% errores | HU-V02<br>CA-V02-07 | [`qa/jmeter/trouvels360.jmx`](../../qa/jmeter/trouvels360.jmx) | Pasó<br>2026-11-25 19:18 |
 | TC-PERF-002 | Carga de catálogo: 100 usuarios, ramp-up 60 s, ciudades desde CSV, p95 < 1 s | HU-V05<br>CA-V05-07 | [`qa/jmeter/trouvels360.jmx`](../../qa/jmeter/trouvels360.jmx) | Pasó<br>2026-11-12 18:36 |
-| TC-PERF-003 | 20 hilos simultáneos (Synchronizing Timer) por la última unidad: exactamente 1×201 y 19×409 | HU-V07<br>CA-V07-05 | [`qa/jmeter/trouvels360.jmx`](../../qa/jmeter/trouvels360.jmx) | Pasó<br>2026-11-12 18:36 |
+| TC-PERF-003 | 20 hilos simultáneos (Synchronizing Timer) por la última unidad: exactamente 1×201 y 19×409 | HU-V07<br>CA-V07-05 | [`qa/jmeter/trouvels360.jmx`](../../qa/jmeter/trouvels360.jmx) | Pasó<br>2026-11-25 19:18 |
 | TC-PERF-004 | Carga de búsqueda de tours: 100 usuarios, categorías desde CSV, p95 < 1 s | HU-V08<br>CA-V08-05 | [`qa/jmeter/trouvels360.jmx`](../../qa/jmeter/trouvels360.jmx) | Pasó<br>2026-11-12 18:36 |
 | TC-PERF-005 | 30 hilos simultáneos sobre salida de 10 cupos: suma de personas confirmadas <= 10 | HU-V10<br>CA-V10-04 | [`qa/jmeter/trouvels360.jmx`](../../qa/jmeter/trouvels360.jmx) | Pasó<br>2026-11-12 18:36 |
 | TC-PERF-006 | Panel del proveedor con 30 usuarios concurrentes, p95 < 1,5 s | HU-P03<br>CA-P03-03 | [`qa/jmeter/trouvels360.jmx`](../../qa/jmeter/trouvels360.jmx) | Pasó<br>2026-11-12 18:36 |

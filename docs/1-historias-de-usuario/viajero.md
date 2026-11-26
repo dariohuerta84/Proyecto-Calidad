@@ -101,8 +101,8 @@ _Crear la cuenta, entrar y salir, mantener mis datos y darme de baja._
 | TC-API-004 | API (Karate) | Rol 'admin' devuelve 422 | CA-V01-05 | Pasó |
 | TC-WEB-001 | Web (Selenium) | Registro de viajero end-to-end y aterrizaje en catálogo | CA-V01-01 | Pasó |
 | TC-WEB-002 | Web (Selenium) | Mensajes de validación en el formulario | CA-V01-02, CA-V01-03 | Pasó |
-| TC-MOB-001 | Móvil (Appium) | Registro de viajero desde la app y sesión iniciada | CA-V01-01 | Pendiente (ejecutar en PC) |
-| TC-MOB-002 | Móvil (Appium) | Botón Registrarme deshabilitado con contraseñas distintas | CA-V01-03 | Pendiente (ejecutar en PC) |
+| TC-MOB-001 | Móvil (Appium) | Registro de viajero desde la app y sesión iniciada | CA-V01-01 | Pasó |
+| TC-MOB-002 | Móvil (Appium) | Botón Registrarme deshabilitado con contraseñas distintas | CA-V01-03 | Pasó |
 
 **API:** `GET /api/auth/csrf` · `POST /api/auth/register`
 
@@ -194,9 +194,9 @@ _Crear la cuenta, entrar y salir, mantener mis datos y darme de baja._
 | TC-WEB-004 | Web (Selenium) | Login viajero y proveedor muestran el menú de su rol | CA-V02-01 | Pasó |
 | TC-WEB-005 | Web (Selenium) | Login desde 'Reservar' vuelve al detalle con la selección | CA-V02-02 | Pasó |
 | TC-WEB-033 | Web (Selenium) | Sesión vencida: 401, login y regreso a la página | CA-V02-04 | Pasó |
-| TC-MOB-004 | Móvil (Appium) | Login, cierre de sesión y bloqueo de pestañas privadas | CA-V02-01, CA-V02-03, CA-V02-05 | Pendiente (ejecutar en PC) |
-| TC-MOB-005 | Móvil (Appium) | Reservar sin sesión → login → regreso al detalle | CA-V02-02 | Pendiente (ejecutar en PC) |
-| TC-PERF-001 | Rendimiento (JMeter) | Login con 50 usuarios concurrentes desde CSV: p95 < 800 ms, 0% errores | CA-V02-07 | Pendiente (ejecutar en PC) |
+| TC-MOB-004 | Móvil (Appium) | Login, cierre de sesión y bloqueo de pestañas privadas | CA-V02-01, CA-V02-03, CA-V02-05 | Pasó |
+| TC-MOB-005 | Móvil (Appium) | Reservar sin sesión → login → regreso al detalle | CA-V02-02 | Pasó |
+| TC-PERF-001 | Rendimiento (JMeter) | Login con 50 usuarios concurrentes desde CSV: p95 < 800 ms, 0% errores | CA-V02-07 | Pasó |
 
 **API:** `GET /api/auth/csrf` · `POST /api/auth/login` · `GET /api/auth/me` · `POST /api/auth/refresh` · `POST /api/auth/logout`
 
@@ -278,9 +278,9 @@ _Crear la cuenta, entrar y salir, mantener mis datos y darme de baja._
 | TC-API-015 | API (Karate) | Enviar rol devuelve 422 | CA-V03-03 | Pasó |
 | TC-API-016 | API (Karate) | Cambio de contraseña: login con nueva 200 y con anterior 401 | CA-V03-04, CA-V03-05 | Pasó |
 | TC-WEB-006 | Web (Selenium) | Editar perfil y ver el nombre actualizado en el menú | CA-V03-01 | Pasó |
-| TC-MOB-006 | Móvil (Appium) | Editar perfil en la app y verificarlo en la pestaña Perfil | CA-V03-01 | Pendiente (ejecutar en PC) |
-| TC-MOB-007 | Móvil (Appium) | Cambio de contraseña con confirmación distinta deshabilita Guardar | CA-V03-04 | Pendiente (ejecutar en PC) |
-| TC-MAN-001 | Manual (Manual) | Error de servidor al guardar el perfil: mensaje con reintentar y sin éxito falso | CA-V03-06 | Pendiente (manual) |
+| TC-MOB-006 | Móvil (Appium) | Editar perfil en la app y verificarlo en la pestaña Perfil | CA-V03-01 | Pasó |
+| TC-MOB-007 | Móvil (Appium) | Cambio de contraseña con confirmación distinta deshabilita Guardar | CA-V03-04 | Pasó |
+| TC-MAN-001 | Manual (Manual) | Error de servidor al guardar el perfil: mensaje con reintentar y sin éxito falso | CA-V03-06 | Pasó |
 
 **API:** `GET /api/auth/me` · `PATCH /api/usuarios/me` · `PUT /api/usuarios/me/password`
 
@@ -345,7 +345,7 @@ _Crear la cuenta, entrar y salir, mantener mis datos y darme de baja._
 | TC-API-018 | API (Karate) | DELETE sin reservas devuelve 200 y login posterior 401 | CA-V04-02 | Pasó |
 | TC-API-019 | API (Karate) | Reservas de la cuenta eliminada siguen visibles para el proveedor | CA-V04-04 | Pasó |
 | TC-WEB-007 | Web (Selenium) | Diálogo de confirmación: cancelar conserva la cuenta | CA-V04-01 | Pasó |
-| TC-MOB-008 | Móvil (Appium) | Eliminar cuenta desde Perfil y volver a la pantalla de login | CA-V04-02 | Pendiente (ejecutar en PC) |
+| TC-MOB-008 | Móvil (Appium) | Eliminar cuenta desde Perfil y volver a la pantalla de login | CA-V04-02 | Pasó |
 
 **API:** `DELETE /api/usuarios/me`
 
@@ -442,9 +442,9 @@ _Buscar un hotel, cotizar la estadía y solicitar la reserva._
 | TC-WEB-008 | Web (Selenium) | Búsqueda en Cusco y validación de tarjetas de resultado | CA-V05-01 | Pasó |
 | TC-WEB-009 | Web (Selenium) | Validación de fechas pasadas en el buscador | CA-V05-03 | Pasó |
 | TC-WEB-031 | Web (Selenium) | Volver desde el detalle conserva la búsqueda (hoteles y tours) | CA-V05-06 | Pasó |
-| TC-MOB-009 | Móvil (Appium) | Búsqueda por ciudad y fechas en la app | CA-V05-01 | Pendiente (ejecutar en PC) |
-| TC-MOB-010 | Móvil (Appium) | Estado vacío vs error con Reintentar | CA-V05-05 | Pendiente (ejecutar en PC) |
-| TC-PERF-002 | Rendimiento (JMeter) | Carga de catálogo: 100 usuarios, ramp-up 60 s, ciudades desde CSV, p95 < 1 s | CA-V05-07 | Pendiente (ejecutar en PC) |
+| TC-MOB-009 | Móvil (Appium) | Búsqueda por ciudad y fechas en la app | CA-V05-01 | Pasó |
+| TC-MOB-010 | Móvil (Appium) | Estado vacío vs error con Reintentar | CA-V05-05 | Pasó |
+| TC-PERF-002 | Rendimiento (JMeter) | Carga de catálogo: 100 usuarios, ramp-up 60 s, ciudades desde CSV, p95 < 1 s | CA-V05-07 | Pasó |
 
 **API:** `GET /api/hoteles?ciudad&check_in&check_out&adultos&ninos&habitaciones&page&sort`
 
@@ -518,8 +518,8 @@ _Buscar un hotel, cotizar la estadía y solicitar la reserva._
 | TC-API-025 | API (Karate) | Cotizar más unidades que las libres devuelve 422 | CA-V06-04 | Pasó |
 | TC-API-079 | API (Karate) | Cambiar la fecha de salida recalcula el total y no crea reserva | CA-V06-05 | Pasó |
 | TC-WEB-010 | Web (Selenium) | Selección de 2 tipos y verificación del resumen con IGV | CA-V06-02, CA-V06-03 | Pasó |
-| TC-MOB-011 | Móvil (Appium) | Selección de habitaciones y total con IGV en la app | CA-V06-02, CA-V06-03 | Pendiente (ejecutar en PC) |
-| TC-MOB-012 | Móvil (Appium) | Botón + deshabilitado al llegar a las unidades disponibles | CA-V06-04 | Pendiente (ejecutar en PC) |
+| TC-MOB-011 | Móvil (Appium) | Selección de habitaciones y total con IGV en la app | CA-V06-02, CA-V06-03 | Pasó |
+| TC-MOB-012 | Móvil (Appium) | Botón + deshabilitado al llegar a las unidades disponibles | CA-V06-04 | Pasó |
 
 **API:** `GET /api/hoteles/{id}` · `GET /api/hoteles/{id}/disponibilidad` · `POST /api/reservas-habitaciones/cotizar`
 
@@ -605,9 +605,9 @@ _Buscar un hotel, cotizar la estadía y solicitar la reserva._
 | TC-API-030 | API (Karate) | Mismo Idempotency-Key devuelve la misma solicitud | CA-V07-06 | Pasó |
 | TC-WEB-011 | Web (Selenium) | Flujo completo búsqueda → selección → pago → comprobante PENDIENTE | CA-V07-01 | Pasó |
 | TC-WEB-012 | Web (Selenium) | Validaciones del formulario de pago | CA-V07-02 | Pasó |
-| TC-MOB-013 | Móvil (Appium) | Flujo completo de reserva de hotel en la app | CA-V07-01 | Pendiente (ejecutar en PC) |
-| TC-MOB-014 | Móvil (Appium) | Formulario de pago rechaza tarjeta vencida | CA-V07-02 | Pendiente (ejecutar en PC) |
-| TC-PERF-003 | Rendimiento (JMeter) | 20 hilos simultáneos (Synchronizing Timer) por la última unidad: exactamente 1×201 y 19×409 | CA-V07-05 | Pasó (smoke Python) |
+| TC-MOB-013 | Móvil (Appium) | Flujo completo de reserva de hotel en la app | CA-V07-01 | Pasó |
+| TC-MOB-014 | Móvil (Appium) | Formulario de pago rechaza tarjeta vencida | CA-V07-02 | Pasó |
+| TC-PERF-003 | Rendimiento (JMeter) | 20 hilos simultáneos (Synchronizing Timer) por la última unidad: exactamente 1×201 y 19×409 | CA-V07-05 | Pasó |
 
 **API:** `POST /api/reservas-habitaciones (header Idempotency-Key)`
 
@@ -686,8 +686,8 @@ _Buscar un tour, elegir salida y reservarlo._
 | TC-WEB-015 | Web (Selenium) | Filtrar por categoría y destino | CA-V08-01 | Pasó |
 | TC-WEB-031 | Web (Selenium) | Volver desde el detalle conserva la búsqueda (hoteles y tours) | CA-V08-04 | Pasó |
 | TC-WEB-032 | Web (Selenium) | Sin resultados vs. error con Reintentar (tours y bandeja del proveedor) | CA-V08-03 | Pasó |
-| TC-MOB-017 | Móvil (Appium) | Chips de categoría y búsqueda por destino | CA-V08-01 | Pendiente (ejecutar en PC) |
-| TC-PERF-004 | Rendimiento (JMeter) | Carga de búsqueda de tours: 100 usuarios, categorías desde CSV, p95 < 1 s | CA-V08-05 | Pendiente (ejecutar en PC) |
+| TC-MOB-017 | Móvil (Appium) | Chips de categoría y búsqueda por destino | CA-V08-01 | Pasó |
+| TC-PERF-004 | Rendimiento (JMeter) | Carga de búsqueda de tours: 100 usuarios, categorías desde CSV, p95 < 1 s | CA-V08-05 | Pasó |
 
 **API:** `GET /api/tours?destino&categoria&checkIn&checkOut&cupos&page`
 
@@ -753,7 +753,7 @@ _Buscar un tour, elegir salida y reservarlo._
 | TC-API-040 | API (Karate) | Cotizar más personas que el cupo → 422 | CA-V09-03 | Pasó |
 | TC-API-080 | API (Karate) | Tour sin salidas disponibles: detalle sin salidas y cotizar 409 | CA-V09-04 | Pasó |
 | TC-WEB-016 | Web (Selenium) | Elegir salida y personas, verificar total con IGV | CA-V09-02 | Pasó |
-| TC-MOB-018 | Móvil (Appium) | Elegir salida y personas en la app; + se deshabilita al tope de cupos | CA-V09-02, CA-V09-03 | Pendiente (ejecutar en PC) |
+| TC-MOB-018 | Móvil (Appium) | Elegir salida y personas en la app; + se deshabilita al tope de cupos | CA-V09-02, CA-V09-03 | Pasó |
 
 **API:** `GET /api/tours/{id}` · `POST /api/tours/salidas/{salida}/cotizar`
 
@@ -828,8 +828,8 @@ _Buscar un tour, elegir salida y reservarlo._
 | TC-API-043 | API (Karate) | Idempotencia: dos envíos, una sola reserva y un solo descuento | CA-V10-05 | Pasó |
 | TC-API-081 | API (Karate) | Pago de tour inválido (CSV) no crea reserva ni descuenta cupos | CA-V10-02 | Pasó |
 | TC-WEB-017 | Web (Selenium) | Reserva de tour end-to-end con comprobante CONFIRMADA | CA-V10-01 | Pasó |
-| TC-MOB-019 | Móvil (Appium) | Reserva de tour end-to-end en la app | CA-V10-01 | Pendiente (ejecutar en PC) |
-| TC-PERF-005 | Rendimiento (JMeter) | 30 hilos simultáneos sobre salida de 10 cupos: suma de personas confirmadas <= 10 | CA-V10-04 | Pasó (smoke Python) |
+| TC-MOB-019 | Móvil (Appium) | Reserva de tour end-to-end en la app | CA-V10-01 | Pasó |
+| TC-PERF-005 | Rendimiento (JMeter) | 30 hilos simultáneos sobre salida de 10 cupos: suma de personas confirmadas <= 10 | CA-V10-04 | Pasó |
 
 **API:** `POST /api/tours/salidas/{salida}/reservas (header Idempotency-Key)`
 
@@ -889,8 +889,8 @@ _Seguir mis reservas, cancelarlas, opinar y planificar el viaje._
 | TC-API-044 | API (Karate) | Esquema paginado (data, meta.total, meta.last_page) y solo reservas propias | CA-V11-01, CA-V11-02 | Pasó |
 | TC-API-046 | API (Karate) | Reserva ajena → 404 | CA-V11-03 | Pasó |
 | TC-WEB-018 | Web (Selenium) | Mis reservas: pestañas hotel/tour, filtro por estado y paginación | CA-V11-01, CA-V11-02 | Pasó |
-| TC-MOB-020 | Móvil (Appium) | Mis reservas en la app coincide con la web (mismo código y total) | CA-V11-02 | Pendiente (ejecutar en PC) |
-| TC-MOB-021 | Móvil (Appium) | Scroll infinito / paginación de reservas | CA-V11-02 | Pendiente (ejecutar en PC) |
+| TC-MOB-020 | Móvil (Appium) | Mis reservas en la app coincide con la web (mismo código y total) | CA-V11-02 | Pasó |
+| TC-MOB-021 | Móvil (Appium) | Scroll infinito / paginación de reservas | CA-V11-02 | Pasó |
 
 **API:** `GET /api/mis-reservas?estado&page` · `GET /api/mis-reservas/{id}` · `GET /api/tours/mis-reservas?page`
 
@@ -1030,8 +1030,8 @@ _Seguir mis reservas, cancelarlas, opinar y planificar el viaje._
 | TC-API-048 | API (Karate) | Cancelar tour devuelve exactamente las personas al cupo | CA-V13-03 | Pasó |
 | TC-API-049 | API (Karate) | Cancelar dos veces → 409; cancelar rechazada → 409; ajena → 404 | CA-V13-04, CA-V13-05 | Pasó |
 | TC-WEB-020 | Web (Selenium) | Cancelar desde Mis reservas con diálogo de confirmación | CA-V13-01, CA-V13-02 | Pasó |
-| TC-MOB-022 | Móvil (Appium) | Cancelar desde la app y ver estado CANCELADA | CA-V13-02 | Pendiente (ejecutar en PC) |
-| TC-MAN-002 | Manual (Manual) | Corte de conexión al cancelar: al refrescar se ve el estado real | CA-V13-05 | Pendiente (manual) |
+| TC-MOB-022 | Móvil (Appium) | Cancelar desde la app y ver estado CANCELADA | CA-V13-02 | Pasó |
+| TC-MAN-002 | Manual (Manual) | Corte de conexión al cancelar: al refrescar se ve el estado real | CA-V13-05 | Pasó |
 
 **API:** `POST /api/reservas-habitaciones/{id}/cancelar` · `POST /api/tours/reservas/{id}/cancelar`
 
@@ -1106,7 +1106,7 @@ _Seguir mis reservas, cancelarlas, opinar y planificar el viaje._
 | TC-API-052 | API (Karate) | Data-driven de longitudes de comentario y calificaciones fuera de rango → 422 | CA-V14-03 | Pasó |
 | TC-API-053 | API (Karate) | Editar/eliminar reseña ajena → 403; segunda reseña → 409 | CA-V14-04, CA-V14-05 | Pasó |
 | TC-WEB-021 | Web (Selenium) | Publicar, editar y eliminar reseña en el detalle | CA-V14-02, CA-V14-04 | Pasó |
-| TC-MOB-023 | Móvil (Appium) | Publicar reseña desde la app | CA-V14-02 | Pendiente (ejecutar en PC) |
+| TC-MOB-023 | Móvil (Appium) | Publicar reseña desde la app | CA-V14-02 | Pasó |
 
 **API:** `GET /api/reviews?servicio_id&page` · `GET /api/reviews/resumen?servicio_id` · `GET /api/reviews/puedo-opinar` · `POST /api/reviews` · `PUT /api/reviews/{id}` · `DELETE /api/reviews/{id}`
 
@@ -1178,8 +1178,8 @@ _Seguir mis reservas, cancelarlas, opinar y planificar el viaje._
 | TC-API-054 | API (Karate) | Itinerario válido: esquema de días y actividades | CA-V15-01 | Pasó |
 | TC-API-055 | API (Karate) | Interés inválido → 422 | CA-V15-04 | Pasó |
 | TC-WEB-022 | Web (Selenium) | Generar itinerario desde el detalle del hotel | CA-V15-01, CA-V15-02 | Pasó |
-| TC-MOB-024 | Móvil (Appium) | Generar itinerario en la app y continuar con la reserva | CA-V15-01, CA-V15-03 | Pendiente (ejecutar en PC) |
-| TC-MAN-003 | Manual (Manual) | Microservicio de itinerarios caído: aviso con Reintentar y se puede seguir con el hotel | CA-V15-05 | Pendiente (manual) |
+| TC-MOB-024 | Móvil (Appium) | Generar itinerario en la app y continuar con la reserva | CA-V15-01, CA-V15-03 | Pasó |
+| TC-MAN-003 | Manual (Manual) | Microservicio de itinerarios caído: aviso con Reintentar y se puede seguir con el hotel | CA-V15-05 | Pasó |
 
 **API:** `POST /api/itineraries` · `Microservicio: GET :8001/api/health`
 

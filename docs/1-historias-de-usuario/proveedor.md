@@ -92,8 +92,8 @@ _Crear la cuenta de empresa, entrar al panel y ver cómo va el negocio._
 | TC-API-007 | API (Karate) | Teléfonos inválidos devuelven 422 con mensaje | CA-P01-03 | Pasó |
 | TC-WEB-002 | Web (Selenium) | Mensajes de validación en el formulario | CA-P01-04 | Pasó |
 | TC-WEB-003 | Web (Selenium) | Registro de proveedor y acceso al panel del proveedor | CA-P01-01 | Pasó |
-| TC-MOB-002 | Móvil (Appium) | Botón Registrarme deshabilitado con contraseñas distintas | CA-P01-04 | Pendiente (ejecutar en PC) |
-| TC-MOB-003 | Móvil (Appium) | Registro de proveedor desde la app y acceso al panel | CA-P01-01 | Pendiente (ejecutar en PC) |
+| TC-MOB-002 | Móvil (Appium) | Botón Registrarme deshabilitado con contraseñas distintas | CA-P01-04 | Pasó |
+| TC-MOB-003 | Móvil (Appium) | Registro de proveedor desde la app y acceso al panel | CA-P01-01 | Pasó |
 
 **API:** `GET /api/auth/csrf` · `POST /api/auth/register`
 
@@ -202,8 +202,8 @@ _Crear la cuenta de empresa, entrar al panel y ver cómo va el negocio._
 | TC-API-056 | API (Karate) | Paginación: meta.total, last_page y página 2 con los registros 16+ | CA-P03-01 | Pasó |
 | TC-API-058 | API (Karate) | Viajero en /proveedor/servicios → 403 | CA-P03-02 | Pasó |
 | TC-WEB-023 | Web (Selenium) | Panel: paginación y tarjetas de indicadores | CA-P03-01 | Pasó |
-| TC-MOB-025 | Móvil (Appium) | Panel del proveedor en la app con indicadores | CA-P03-01 | Pendiente (ejecutar en PC) |
-| TC-PERF-006 | Rendimiento (JMeter) | Panel del proveedor con 30 usuarios concurrentes, p95 < 1,5 s | CA-P03-03 | Pendiente (ejecutar en PC) |
+| TC-MOB-025 | Móvil (Appium) | Panel del proveedor en la app con indicadores | CA-P03-01 | Pasó |
+| TC-PERF-006 | Rendimiento (JMeter) | Panel del proveedor con 30 usuarios concurrentes, p95 < 1,5 s | CA-P03-03 | Pasó |
 
 **API:** `GET /api/proveedor/servicios?tipo&search&page`
 
@@ -258,7 +258,7 @@ _Crear la cuenta de empresa, entrar al panel y ver cómo va el negocio._
 | TC-API-050 | API (Karate) | Resumen: promedio y total coinciden con el conjunto completo | CA-P04-02 | Pasó |
 | TC-API-057 | API (Karate) | Indicadores por estado tras crear reservas en 4 estados | CA-P04-01, CA-P04-03 | Pasó |
 | TC-WEB-023 | Web (Selenium) | Panel: paginación y tarjetas de indicadores | CA-P04-01 | Pasó |
-| TC-MOB-025 | Móvil (Appium) | Panel del proveedor en la app con indicadores | CA-P04-01 | Pendiente (ejecutar en PC) |
+| TC-MOB-025 | Móvil (Appium) | Panel del proveedor en la app con indicadores | CA-P04-01 | Pasó |
 
 **API:** `GET /api/proveedor/servicios` · `GET /api/proveedor/indicadores`
 
@@ -318,7 +318,7 @@ _Publicar y mantener hoteles y sus tipos de habitación._
 | TC-API-060 | API (Karate) | 6 imágenes → 422 | CA-P05-02 | Pasó |
 | TC-API-084 | API (Karate) | Tipo de habitación inválido: no queda hotel a medias | CA-P05-03 | Pasó |
 | TC-WEB-024 | Web (Selenium) | Crear hotel desde el formulario del proveedor | CA-P05-01 | Pasó |
-| TC-MOB-026 | Móvil (Appium) | Crear hotel desde la app del proveedor | CA-P05-01 | Pendiente (ejecutar en PC) |
+| TC-MOB-026 | Móvil (Appium) | Crear hotel desde la app del proveedor | CA-P05-01 | Pasó |
 
 **API:** `POST /api/hoteles` · `GET /api/hoteles/{id}`
 
@@ -437,7 +437,7 @@ _Publicar y mantener hoteles y sus tipos de habitación._
 | TC-API-064 | API (Karate) | Cambio de tarifa no altera total de reservas previas | CA-P07-04 | Pasó |
 | TC-API-085 | API (Karate) | Tarifa 0 → 422 y tipo ajeno → 403 sin cambios | CA-P07-05 | Pasó |
 | TC-WEB-025 | Web (Selenium) | Agregar y editar tipo de habitación | CA-P07-01 | Pasó |
-| TC-MOB-027 | Móvil (Appium) | Agregar tipo de habitación en la app | CA-P07-01 | Pendiente (ejecutar en PC) |
+| TC-MOB-027 | Móvil (Appium) | Agregar tipo de habitación en la app | CA-P07-01 | Pasó |
 
 **API:** `POST /api/hoteles/{id}/habitaciones` · `PUT /api/habitaciones/{id}` · `DELETE /api/habitaciones/{id}`
 
@@ -487,7 +487,7 @@ _Publicar tours, armar su programa y abrir salidas con cupos._
 | TC-API-065 | API (Karate) | Crear tour y verificar en catálogo | CA-P08-01 | Pasó |
 | TC-API-067 | API (Karate) | Data-driven de límites (imágenes, items, categoría) → 422 | CA-P08-02 | Pasó |
 | TC-WEB-026 | Web (Selenium) | Crear tour con salida desde el formulario | CA-P08-01 | Pasó |
-| TC-MOB-028 | Móvil (Appium) | Crear tour desde la app | CA-P08-01 | Pendiente (ejecutar en PC) |
+| TC-MOB-028 | Móvil (Appium) | Crear tour desde la app | CA-P08-01 | Pasó |
 
 **API:** `POST /api/tours` · `GET /api/tours/{id}`
 
@@ -594,7 +594,7 @@ _Publicar tours, armar su programa y abrir salidas con cupos._
 | TC-API-068 | API (Karate) | Dos actividades sin orden reciben 1 y 2 | CA-P10-02 | Pasó |
 | TC-API-069 | API (Karate) | Actividad en tour ajeno → 403 | CA-P10-04 | Pasó |
 | TC-WEB-027 | Web (Selenium) | Agregar, reordenar y eliminar actividades | CA-P10-01, CA-P10-02, CA-P10-03 | Pasó |
-| TC-MOB-029 | Móvil (Appium) | Agregar actividad desde la app | CA-P10-02 | Pendiente (ejecutar en PC) |
+| TC-MOB-029 | Móvil (Appium) | Agregar actividad desde la app | CA-P10-02 | Pasó |
 
 **API:** `GET /api/tours/{id}/actividades` · `POST /api/tours/{id}/actividades` · `PUT /api/tours/{id}/actividades/{a}` · `DELETE /api/tours/{id}/actividades/{a}`
 
@@ -676,7 +676,7 @@ _Publicar tours, armar su programa y abrir salidas con cupos._
 | TC-API-071 | API (Karate) | cupo_total menor a reservado → 422; cupo_reservado enviado se ignora | CA-P11-03 | Pasó |
 | TC-API-072 | API (Karate) | Salida cerrada rechaza reservas (call a reserva de viajero) | CA-P11-04 | Pasó |
 | TC-WEB-028 | Web (Selenium) | Crear, cerrar y eliminar salida desde el panel | CA-P11-01, CA-P11-04, CA-P11-05, CA-P11-06 | Pasó |
-| TC-MOB-030 | Móvil (Appium) | Crear y cerrar salida desde la app | CA-P11-01, CA-P11-04, CA-P11-06 | Pendiente (ejecutar en PC) |
+| TC-MOB-030 | Móvil (Appium) | Crear y cerrar salida desde la app | CA-P11-01, CA-P11-04, CA-P11-06 | Pasó |
 
 **API:** `GET /api/tours/{id}/salidas` · `POST /api/tours/{id}/salidas` · `PUT /api/tours/{id}/salidas/{s}` · `DELETE /api/tours/{id}/salidas/{s}`
 
@@ -754,7 +754,7 @@ _Atender las solicitudes de los viajeros y retirar publicaciones._
 | TC-API-075 | API (Karate) | Detalle ajeno → 404 | CA-P12-05 | Pasó |
 | TC-WEB-029 | Web (Selenium) | Bandeja de reservas con filtros y paginación | CA-P12-01, CA-P12-02 | Pasó |
 | TC-WEB-032 | Web (Selenium) | Sin resultados vs. error con Reintentar (tours y bandeja del proveedor) | CA-P12-04 | Pasó |
-| TC-MOB-031 | Móvil (Appium) | Bandeja de reservas en la app | CA-P12-01 | Pendiente (ejecutar en PC) |
+| TC-MOB-031 | Móvil (Appium) | Bandeja de reservas en la app | CA-P12-01 | Pasó |
 
 **API:** `GET /api/proveedor/reservas?tipo&estado&servicio_id&page` · `GET /api/proveedor/reservas/hotel/{id}`
 
@@ -820,7 +820,7 @@ _Atender las solicitudes de los viajeros y retirar publicaciones._
 | TC-API-033 | API (Karate) | Aceptar dos veces → 409; aceptar una cancelada → 409 | CA-P13-03 | Pasó |
 | TC-API-034 | API (Karate) | Proveedor B sobre reserva de proveedor A → 403 | CA-P13-04 | Pasó |
 | TC-WEB-013 | Web (Selenium) | Proveedor acepta desde el panel y el viajero ve CONFIRMADA (dos navegadores) | CA-P13-01, CA-P13-02 | Pasó |
-| TC-MOB-015 | Móvil (Appium) | Proveedor acepta una solicitud desde la app | CA-P13-01 | Pendiente (ejecutar en PC) |
+| TC-MOB-015 | Móvil (Appium) | Proveedor acepta una solicitud desde la app | CA-P13-01 | Pasó |
 
 **API:** `POST /api/proveedor/reservas-habitaciones/{id}/aceptar`
 
@@ -875,7 +875,7 @@ _Atender las solicitudes de los viajeros y retirar publicaciones._
 | TC-API-032 | API (Karate) | Rechazo libera unidades: disponibilidad antes y después | CA-P14-01 | Pasó |
 | TC-API-035 | API (Karate) | Rechazo sin motivo → 422 | CA-P14-02 | Pasó |
 | TC-WEB-014 | Web (Selenium) | Proveedor rechaza con motivo y el viajero ve RECHAZADA | CA-P14-01, CA-P14-03 | Pasó |
-| TC-MOB-016 | Móvil (Appium) | Proveedor rechaza con motivo desde la app | CA-P14-01, CA-P14-03 | Pendiente (ejecutar en PC) |
+| TC-MOB-016 | Móvil (Appium) | Proveedor rechaza con motivo desde la app | CA-P14-01, CA-P14-03 | Pasó |
 
 **API:** `POST /api/proveedor/reservas-habitaciones/{id}/rechazar {motivo}`
 
@@ -950,7 +950,7 @@ _Atender las solicitudes de los viajeros y retirar publicaciones._
 | TC-API-078 | API (Karate) | Tras eliminar, GET /mis-reservas del viajero sigue 200 con el nombre del servicio | CA-P15-03 | Pasó |
 | TC-API-086 | API (Karate) | Repetir la eliminación devuelve 404 sin efectos | CA-P15-05 | Pasó |
 | TC-WEB-030 | Web (Selenium) | Eliminar publicación con diálogo de confirmación | CA-P15-01, CA-P15-02 | Pasó |
-| TC-MOB-032 | Móvil (Appium) | Eliminar publicación desde la app | CA-P15-02 | Pendiente (ejecutar en PC) |
+| TC-MOB-032 | Móvil (Appium) | Eliminar publicación desde la app | CA-P15-02 | Pasó |
 
 **API:** `DELETE /api/servicios/{id}`
 
