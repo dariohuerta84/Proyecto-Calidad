@@ -5,6 +5,7 @@ import com.trouvels360.movil.pantallas.TourPantallas;
 import com.trouvels360.movil.soporte.Api;
 import com.trouvels360.movil.soporte.Config;
 import com.trouvels360.movil.soporte.Datos;
+import com.trouvels360.movil.soporte.Gestos;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
@@ -33,13 +34,14 @@ class ToursMovilTest extends BaseTestMovil {
         TourPantallas t = new TourPantallas(d);
         t.buscar(ciudad, null);
         t.visible("tour_card_" + aventura.id());
-        assertTrue(t.existe("tour_card_" + cultura.id()));
+        t.visible("tour_card_" + cultura.id());
         paso("Todas las categorías: 2 tours de la ciudad");
+        Gestos.deslizarAbajo(d);
         t.tocar("categoria_Aventura");
         t.tocar("btn_buscar_tours");
         t.desaparece("tour_card_" + cultura.id());
+        t.visible("tour_card_" + aventura.id());
         paso("Solo Aventura");
-        assertTrue(t.existe("tour_card_" + aventura.id()));
         List<WebElement> cards = d.findElements(TourPantallas.prefijo("tour_card_"));
         assertEquals(1, cards.size());
     }
@@ -55,7 +57,8 @@ class ToursMovilTest extends BaseTestMovil {
         t.stepper("tour_personas", 3);
         paso("3 personas = cupo total");
         assertFalse(t.habilitado("tour_personas_mas"));
-        assertEquals(Datos.digitos(360), Datos.digitos(t.texto("tour_subtotal")));
+        String formula = t.texto("tour_subtotal");
+        assertEquals(Datos.digitos(360), Datos.digitos(formula.substring(formula.indexOf('=') + 1)));
     }
 
     @Test

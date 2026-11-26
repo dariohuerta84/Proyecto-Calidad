@@ -1,14 +1,20 @@
 {
- "TC-PERF-003": {
+ "TC-MAN-001": {
   "estado": "Pasó",
-  "fecha": "2026-11-11",
-  "evidencia": "qa/evidencias/jmeter/concurrencia_smoke.txt",
-  "detalle": "Prueba rápida en Python (20 hilos con barrera): 1x201 y 19x409. Falta la corrida con JMeter."
+  "fecha": "2026-11-12",
+  "evidencia": "qa/evidencias/manuales/TC-MAN-001.jpg",
+  "detalle": "Con Laravel detenido, Guardar mostró 'No se pudo actualizar el perfil' y el menú conservó el nombre original. Al restaurar Laravel y reintentar, se guardó el cambio. Recuperación: TC-MAN-001-recuperacion.jpg."
  },
- "TC-PERF-005": {
+ "TC-MAN-002": {
   "estado": "Pasó",
-  "fecha": "2026-11-11",
-  "evidencia": "qa/evidencias/jmeter/concurrencia_smoke.txt",
-  "detalle": "Prueba rápida en Python (30 hilos sobre 10 cupos): 10x201, 20x409, cupo_reservado final 10. Falta la corrida con JMeter."
+  "fecha": "2026-11-12",
+  "evidencia": "qa/evidencias/manuales/TC-MAN-002.jpg",
+  "detalle": "Se cortó la conexión de la solicitud de cancelación en el proxy. La web mostró un error de conexión sin mensaje de éxito. Tras restablecer la ruta y recargar, la reserva seguía pendiente, igual que en MySQL. Recuperación: TC-MAN-002-recuperacion.jpg."
+ },
+ "TC-MAN-003": {
+  "estado": "Pasó",
+  "fecha": "2026-11-12",
+  "evidencia": "qa/evidencias/manuales/TC-MAN-003.jpg",
+  "detalle": "Con FastAPI detenido, la web mostró que no pudo generar el itinerario y ofreció reintentar. La opción 'No, continuar al pago' abrió el pago simulado. Pago: TC-MAN-003-pago.jpg."
  }
 }

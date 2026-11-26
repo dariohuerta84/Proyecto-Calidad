@@ -130,7 +130,9 @@ Cada suite también se ejecuta sola desde su carpeta con `ejecutar.bat` o `mvn t
 | JMeter | `qa/jmeter/resultados/reporte-html/index.html` y `qa/jmeter/resultados/verificacion.txt` |
 | Trazabilidad | `qa/trazabilidad/salida/matriz_trazabilidad.html` |
 
-Los reportes de la última corrida entregada están en `qa/evidencias/`.
+En `qa/evidencias/` se conservan reportes de Karate y Selenium, evidencias de concurrencia y capturas de los casos
+manuales. La [matriz CSV](../../qa/trazabilidad/salida/matriz_trazabilidad.csv) identifica el reporte usado para cada
+resultado consolidado.
 
 ## 8. Criterios de entrada y de salida
 
@@ -156,13 +158,16 @@ criterio), resultado obtenido y evidencia. La plantilla y el flujo están en la
 
 ## 10. Estado actual
 
-| Suite | Resultado de la última corrida |
-|---|---|
-| Karate | **136 / 136 escenarios OK** (86 casos), en paralelo con 5 hilos, ~19 s |
-| Selenium | **33 / 33 OK** en Chromium headless |
-| JMeter | Plan generado y validado; las carreras TC-PERF-003 y 005 se comprobaron con `concurrencia_smoke.py` (1 × 201 + 19 × 409; 10 cupos exactos de 30 intentos). **Falta la corrida con JMeter.** |
-| Appium | Compila; los 184 resource-id que usa existen en la app. **Falta la corrida en un emulador.** |
-| Manuales | **Por ejecutar** (pasos en el [catálogo](casos-de-prueba.md#pasos-de-los-casos-manuales)) |
+| Suite | Resultado de referencia | Casos repetidos en Kiri el 25/11/2026 |
+|---|---|---|
+| Karate | **136 de 136 escenarios aprobados** (86 casos), el 12/11/2026. | `TC-API-001`, `TC-API-002` y `TC-API-031` aprobaron los 8 escenarios seleccionados. [Reporte](../../qa/karate/target/karate-reports/karate-summary.html) |
+| Selenium | **33 de 33 casos aprobados**, el 12/11/2026. | `TC-WEB-011` pasó con Chrome visible. [Reporte](../../qa/selenium/target/reporte-individual/TC-WEB-011/index.html) |
+| Appium | **32 de 32 casos con resultado aprobado**, al consolidar la corrida y sus repeticiones en el emulador el 14/11/2026. | Pasaron 9 casos con evidencia conservada, entre ellos `TC-MOB-001`, `TC-MOB-004`, `TC-MOB-015` y `TC-MOB-028`. [Matriz](../../qa/trazabilidad/salida/matriz_trazabilidad.html) |
+| JMeter | **6 de 6 escenarios aprobados**, el 12/11/2026. Las dos carreras cumplieron la disponibilidad. [Verificación](../../qa/jmeter/resultados/verificacion.txt) | `TC-PERF-001` pasó con p95 de 223 ms y 0 % de errores. `TC-PERF-003` pasó con un HTTP 201 y diecinueve HTTP 409. [Reporte HTML](../../qa/jmeter/resultados-verificacion-expo-20261125-191749/reporte-html/index.html) |
+| Manuales | **3 de 3 casos aprobados**, el 12/11/2026. [Veredictos y evidencias](../../qa/trazabilidad/datos/resultados_manuales.json) | — |
+
+El consolidado registra **160 de 160 casos aprobados**. Los resultados del 25/11/2026 corresponden a ejecuciones
+seleccionadas y la matriz conserva la evidencia anterior de los demás casos.
 
 ## 11. Riesgos y cómo se mitigan
 

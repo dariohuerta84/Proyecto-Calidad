@@ -172,7 +172,7 @@ private fun ReservaCard(r: ReservaDto, onCancelar: () -> Unit) {
                 FilaDato("Salida", "${fechaConDia(r.salida?.fecha)} · ${r.salida?.hora ?: ""}")
                 FilaDato("Personas", "${r.personas ?: 0}")
             }
-            FilaDato("Total", formatPrice(r.total), bold = true)
+            FilaDato("Total", formatPrice(r.total), bold = true, valueTag = "reserva_total")
             if (r.estado == "pendiente") {
                 Text("Esperando la confirmación del hotel.", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
             }

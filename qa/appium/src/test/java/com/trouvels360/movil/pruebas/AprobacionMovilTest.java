@@ -74,6 +74,8 @@ class AprobacionMovilTest extends BaseTestMovil {
         p.escribir("rechazo_motivo", motivo);
         p.tocar("rechazo_confirmar");
         p.desaparece("dialogo_rechazo");
+        p.visible("rr_mensaje_ok");
+        p.tocar("rr_estado_rechazada");
         p.esperarTexto("rr_motivo_" + codigo, motivo);
         paso("Rechazada con motivo");
         Map<String, Object> api = Api.miReservaHotel(v, r.get("id"));

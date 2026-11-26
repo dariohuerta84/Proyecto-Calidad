@@ -50,7 +50,6 @@ public class Evidencias implements BeforeTestExecutionCallback, AfterTestExecuti
                     capturas.add("capturas/" + nombre);
                     Allure.addAttachment((fallo ? "Captura al fallar" : "Captura final") + " (sesión " + (i - 1) + ")", "image/png",
                             new ByteArrayInputStream(png), "png");
-                    if (fallo) Allure.addAttachment("URL al fallar", d.getCurrentUrl());
                 } catch (Exception e) {
                     System.err.println("No se pudo tomar la captura: " + e.getMessage());
                 }
